@@ -28,6 +28,9 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 en:
+  password: "Password "
+  password_confirmation: "Password confirmation "
+  current_password: "Current password "
   date_format: "%d-%m-%Y"
   not_found: "Couldn't find %{error_message}"
   recruit: "Company %{company} recruiting"
@@ -67,18 +70,20 @@ en:
   lastest: "Lastest"
   account: "Account"
   search: "search..."
-  can_not_find_company: "can not find company"
   gap: "..."
   errors:
     not_found_achievement: "Couldn't find Achievement"
     not_found_certificate: "Couldn't find Certificate"
     not_found_club: "Couldn't find Club"
     not_found_experience: "Couldn't find Experiences"
+  can_not_find_user: "Can not find user"
+  can_not_find_company: "Can not find company"
+  can_not_find_achievement: "Can not find achievement"
   date:
     formats:
       default: "%Y-%m-%d"
       short: "%b %d"
-      long: "%d %m %Y"
+      long: "%d/%m/%Y"
   time:
     formats:
       long: "%d/%m/%Y"
@@ -136,7 +141,7 @@ en:
       waiting: "Currently waiting confirmation for:"
       leave: "(leave blank if you don't want to change it)"
       characters: "characters minimum"
-      current: " (we need your current password to confirm your changes)"
+      current: " Current password (we need your current password to confirm your changes)"
       cancel: "Cancel my account"
       uphappy: "Unhappy?"
       back: "Back"
@@ -224,10 +229,12 @@ en:
     save: "Save"
     cancel: "Cancel"
     notfound: "Achievements does not exit"
-    update_success: "Update successful"
-    can_not_update: "Can not update"
-    destroy_success: "Destroy successful"
-    destroy_fail: "destroy fail"
+    create_success: "The achievement had been add into your profile"
+    create_fail: "Sorry, something was wrong! The achievement can't save"
+    update_success: "The achievement had been update success"
+    update_fail: "Sorry, something was wrong! The achievement can't save update"
+    destroy_success: "The achievement had been delete from profile"
+    destroy_fail: "Sorry, something was wrong! The achievement can't delete"
     confirm: "Are you sure?"
     describle: "Describing the achievements that you have achieved as detailed as possible in your employability"
   shared:
@@ -244,7 +251,12 @@ en:
     save: "Save"
     cancel: "Cancel"
     confirm: "Are you sure to delete ?"
-    success: "Success"
+    create_success: "The certificate had been add into your profile"
+    create_fail: "Sorry, something was wrong! The certificate can't save"
+    update_success: "The certificate had been update success"
+    update_fail: "Sorry, something was wrong! The certificate can't save update"
+    destroy_success: "The certificate had been delete from profile"
+    destroy_fail: "Sorry, something was wrong! The certificate can't delete"
     fail: "Fail"
     plcname: "Minh Micheal"
     plcmajor: "Software Engineering"
@@ -254,28 +266,25 @@ en:
   clubs:
     another:
       club_notfound: "Oop! This club isn't exists"
-    create:
-      create_success: "The club had been add into your profile"
-      create_fail: "Sorry, something was wrong! The club can't save"
-    update:
-      update_success: "The club had been update success"
-      update_fail: "Sorry, something was wrong! The club can't save update"
-    destroy:
-      destroy_success: "The club had been delete from profile"
-      destroy_fail: "Sorry, something was wrong! The club can't delete"
+    create_success: "The club had been add into your profile"
+    create_fail: "Sorry, something was wrong! The club can't save"
+    update_success: "The club had been update success"
+    update_fail: "Sorry, something was wrong! The club can't save update"
+    destroy_success: "The club had been delete from profile"
+    destroy_fail: "Sorry, something was wrong! The club can't delete"
     helpers:
       present: "Present"
     _index:
       club_title: "Clubs"
       describle: "Describing the clubs that you have participated in as detailed as possible in your employability"
-      add: "Additonal"
+      add: "Add"
     _club:
       confirm: "Are you sure you want to delete this club?"
       pos: "Position: "
       between: " : "
     _form:
-      name: "Club Name (*)"
-      pos: "Position (*)"
+      name: "Club Name"
+      pos: "Position"
       from: "From"
       to: "To"
       require: "(*) Required Information"
@@ -284,6 +293,7 @@ en:
     model:
       date1: "must be after start date"
       date2: "can't be a date in future"
+    describle: "Describing the clubs that you have been received as detailed as possible in your employability"
   jobs:
     form:
       job_name: "Job title"
@@ -341,22 +351,19 @@ en:
   experiences:
     another:
       exp_notfound: "Oop! This experience isn't exists"
-    create:
-      create_success: "The experience had been add into your profile"
-      create_fail: "Sorry, something was wrong! The experience can't save"
-    update:
-      update_success: "The experience had been update success"
-      update_fail: "Sorry, something was wrong! The experience can't save update"
-    destroy:
-      destroy_success: "The experience had been delete from profile"
-      destroy_fail: "Sorry, something was wrong! The experience can't delete"
+    create_success: "The club had been add into your profile"
+    create_fail: "Sorry, something was wrong! The club can't save"
+    update_success: "The club had been update success"
+    update_fail: "Sorry, something was wrong! The club can't save update"
+    destroy_success: "The club had been delete from profile"
+    destroy_fail: "Sorry, something was wrong! The club can't delete"
     helpers:
       present: "Present"
     _index:
       experience_title: "Experiences"
       describle: "Writing the project that you had participated in. Describing
         the projects as detailed as possible in your employability"
-      add: "Additonal"
+      add: "Add"
     _experience:
       confirm: "Are you sure you want to delete this experience?"
       project_name: "Project Name : "
@@ -368,6 +375,7 @@ en:
       require: "(*) Required Information"
       cancel: "Cancel"
       save: "Save"
+    describle: "Writing the project that you had participated in describing"
   validates:
     start_time_future: "Start date can not be a future day"
     end_time_future: "End date can not be a future day"

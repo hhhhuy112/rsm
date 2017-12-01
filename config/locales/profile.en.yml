@@ -1,0 +1,32 @@
+en:
+  profile:
+    user:
+      name: "Name"
+      email: "Email"
+      address: "Address"
+      phone: "Phone"
+      birthday: "Birthday"
+    achievement:
+      name: "Name"
+      majors: "Majors"
+      organization: "Organization"
+      received_time: "Received time"
+    certificate:
+      name: "Name"
+      majors: "Majors"
+      organization: "Organization"
+      classification: "Classification"
+      received_time: "Received time"
+    club:
+      name: "Name"
+      position: "Position"
+      from: "From"
+      to: "To"
+      present: "present"
+      content: "Content"
+    experience:
+      name: "Project name"
+      company: "Company"
+      from: "From"
+      to: "To"
+      project_detail: "Project detail"

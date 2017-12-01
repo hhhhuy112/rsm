@@ -28,7 +28,7 @@
 }
 .form-btn-edit {
   position: absolute;
-  right: 0;
+  right: 5px;
   top: 0;
   z-index: 10;
 }
@@ -41,6 +41,7 @@
   padding: 25px 30px;
   padding-bottom: 0;
   z-index: 2;
+  overflow: auto;
 }
 .content-section{
   position: relative;
@@ -52,6 +53,11 @@
 .btn.add-one-more-section.no-border {
   border-top: 1px;
 }
+
+.add-one-more-section{
+  margin-bottom: 0px;
+}
+
 .m-t-lg {
   margin-top: 30px;
 }
@@ -429,7 +435,7 @@
   z-index: 2
 }
 
-.pagination>span>a,.pagination>span>span,.pagination>.current,.pagination>.gap{
+.pagination>span>a,.pagination>span>span,.pagination>.current,.pagination>.gap {
   background-color: $white;
   border: 1px solid $grey-light2;
   color: inherit;
@@ -440,6 +446,7 @@
   position: relative;
   text-decoration: none
 }
+
 .text-gray{
   height: 21px;
   opacity: 1;
@@ -502,26 +509,8 @@
 .display-none {
   display: none;
 }
-.btn-share{
-  cursor: pointer;
-  opacity: .9;
-  padding: 10px 30px 8px;
-  border-radius: 3px;
-  text-align: right;
-  transition: opacity .3s,background .3s;
-  position: fixed;
-  z-index: 2;
-}
-.social-share-button .ssb-icon {
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  background-size: 44px 46px !important;
-  display: inline-block !important;
-  height: 50px !important;
-  width: 60px !important;
-}
-.social-share-button {
-  position: absolute;
-  right: 1px;
-  top: 0px;
+
+.has_error {
+  color: #e74c3c !important;
+  font-size: 12px;
 }

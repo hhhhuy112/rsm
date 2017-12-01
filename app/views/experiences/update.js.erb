@@ -1,11 +1,7 @@
 <% if @experience.errors.any? %>
-  $('.exp-name-invalid').text('<%= @experience.errors[:name][0] %>');
-  $('.exp-company-invalid').text('<%= @experience.errors[:company][0] %>');
-  $('.exp-start_time-invalid').text('<%= @experience.errors[:start_time][0] %>');
-  $('.exp-end_time-invalid').text('<%= @experience.errors[:end_time][0] %>');
-  $('.exp-project_detail-invalid').text('<%= @experience.errors[:project_detail][0] %>');
+  $('#area_form_experience_<%= @experience.id %>').html('<%= j render "experiences/form" %>');
 <% else %>
-  $('#edit_experience_<%= params[:id] %>').remove();
-  $('#info_experience_<%= params[:id] %>').replaceWith('<%= j render(@experience) %>').show();
+  $('#area_form_experience_<%= @experience.id %>').remove();
+  $('#info_experience_<%= @experience.id %>').replaceWith('<%= j render @experience %>').show();
   alertify.success('<%= @message %>');
 <% end %>

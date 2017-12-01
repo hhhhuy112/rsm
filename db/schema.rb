@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171208033711) do
+ActiveRecord::Schema.define(version: 20171201014822) do
 
   create_table "achievements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20171208033711) do
   end
 
   create_table "bookmark_likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.boolean "bookmark"
+    t.integer "bookmark", default: 0
     t.bigint "user_id"
     t.bigint "job_id"
     t.datetime "created_at", null: false
@@ -242,7 +242,7 @@ ActiveRecord::Schema.define(version: 20171208033711) do
     t.string "email"
     t.string "phone"
     t.text "address"
-    t.boolean "sex"
+    t.integer "sex"
     t.integer "role", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

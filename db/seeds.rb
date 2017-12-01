@@ -50,17 +50,15 @@ Company.create!(
   banner: "framgia_banner.jpg"
 )
 
+User.create!(name: "Ho Minh Huy", email: "minhhuyho2011@gmail.com", password: "123456")
+
 Member.create!(
   company_id: 1,
   user_id: 1,
   position: "employer"
 )
 
-<<<<<<< e98b9023f860848caa9cb0eb9a40ecfd78b026b1
-10.times do |i|
-=======
 100.times do |i|
->>>>>>> Apply-job
   Job.create!(
     company_id: 1,
     user_id: 1,

@@ -3,23 +3,34 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group">
-        <label><strong class="text-red">*</strong><%= t "experiences._form.name" %></label>
+        <%= f.label :start_time, class: "profile_label" do %>
+          <strong class="text-red">*</strong>
+          <%= t "experiences._form.name" %>
+        <% end %>
         <%= f.text_field :name, autofocus: true, class: "form-control edit-control" %>
         <span class="exp-name-invalid error-message"></span>
       </div>
+      <span class="error-message"><%= show_errors @experience, :name, t("profile.experience.name") %></span>
     </div>
     <div class="col-sm-6">
       <div class="form-group">
-        <label><strong class="text-red">*</strong><%= t "experiences._form.company" %></label>
+        <%= f.label :start_time, class: "profile_label" do %>
+          <strong class="text-red">*</strong>
+          <%= t "experiences._form.company" %>
+        <% end %>
         <%= f.text_field :company, class: "form-control edit-control" %>
         <span class="exp-company-invalid error-message"></span>
       </div>
+      <span class="error-message"><%= show_errors @experience, :company, t("profile.experience.company") %></span>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group">
-        <%= f.label :start_time, t("experiences._form.from") %>
+        <%= f.label :start_time, class: "profile_label" do %>
+          <strong class="text-red">*</strong>
+          <%= t "experiences._form.from" %>
+        <% end %>
         <% if @experience.start_time.present? %>
           <%= f.text_field :start_time, data: {provide: "datepicker"},
             class: "datepick form-control", value: @experience.start_time.strftime(t "date_format") %>
@@ -29,10 +40,14 @@
         <% end %>
         <span class="exp-start_time-invalid error-message"></span>
       </div>
+      <span class="error-message"><%= show_errors @experience, :start_time, t("profile.experience.start_time") %></span>
     </div>
     <div class="col-sm-6">
       <div class="form-group">
-        <%= f.label :end_time, t("experiences._form.to") %>
+        <%= f.label :end_time, class: "profile_label" do %>
+          <strong class="text-red">*</strong>
+          <%= t "experiences._form.to" %>
+        <% end %>
         <% if @experience.end_time.present? %>
           <%= f.text_field :end_time, data: {provide: "datepicker"},
             class: "datepick form-control", value: @experience.end_time.strftime(t "date_format") %>
@@ -42,20 +57,27 @@
         <% end %>
         <span class="exp-end_time-invalid error-message"></span>
       </div>
+      <span class="error-message"><%= show_errors @experience, :end_time, t("profile.experience.end_time") %></span>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-12">
       <div class="form-group">
-        <%= f.label :project_detail %>
+        <%= f.label :project_detail, class: "profile_label" do %>
+          <strong class="text-red">*</strong>
+          <%= t "experiences._form.project_detail" %>
+        <% end %>
         <%= f.text_area :project_detail, class: "form-control" %>
         <span class="exp-project_detail-invalid error-message"></span>
       </div>
+      <span class="error-message">
+        <%= show_errors @experience, :project_detail , t("profile.experience.project_detail")%>
+      </span>
     </div>
   </div>
   <div class="form-group push-top-md edit-field">
+    <div class="col-sm-6">(<strong class="text-red">*</strong>)<%= t "achievements.required" %></div>
     <div class="row">
-      <div class="col-sm-6"><%= t "experiences._form.require" %></div>
       <div class="col-sm-6 text-right">
         <button id="<%= define_cancel_experience_id @experience %>" type="button"
           class="btn-cancel btn btn-default" value="<%= @experience.id %>">

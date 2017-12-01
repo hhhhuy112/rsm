@@ -5,11 +5,9 @@
         <i class="fa fa-fw fa-bank"></i><%= t "experiences._index.experience_title" %>
       </legend>
       <div class="placeholder-experience box-md <%= define_style_placeholder @experiences %>">
-        <% if current_user.is_user? @user %>
-          <p class="placeholder"><%= t "experiences._index.describle" %></p>
-        <% else %>
-          <p class="placeholder"><%= t "placeholder.blank" %></p>
-        <% end %>
+        <p class="placeholder">
+          <%= current_user.is_user?(@user) ? t("experiences.describle") : t("placeholder.blank") %>
+        </p>
       </div>
       <div id="form-experience">
         <%= render partial: "experiences/experience", collection: @experiences, as: :experience %>
@@ -18,6 +16,8 @@
         <%= link_to t("experiences._index.add"), new_experience_path, id: "btn-add-experience",
           class: "btn btn-default btn-block no-border add-one-more-section", remote: true %>
       <% end %>
+      <div id = "area_form_experience">
+      </div>
     </fieldset>
   </div>
 </div>

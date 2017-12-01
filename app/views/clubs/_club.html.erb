@@ -10,32 +10,33 @@
       <% end %>
     </span>
   <% end %>
-  <div>
+
+  <div class="profile_top_view">
     <div class="view-field">
       <h4 class="view-control"><%= club.name %></h4>
     </div>
-  </div>
-  <div>
-    <div class="view-field">
-      <strong class="view-control"><%= t "clubs._club.pos" %><%= club.position %></strong>
+    <div class="view-field date_profile">
+      <span class="view-control" data-control="from-date">
+        <%= t "profile.club.from" %>
+        <%= I18n.l club.start_time, format: :long %>
+        <%= t "profile.club.to" %>
+        <%= show_endtime club %>
+      </span>
     </div>
   </div>
-  <div>
-    <div class="view-field">
-      <p>
-        <span class="view-control" data-control="from-date">
-          <%= club.start_time %>
-        </span>
-        :
-        <span class="view-control" data-control="to-date" data-type="manual">
-          <%= show_endtime club %>
-        </span>
-      </p>
-    </div>
-  </div>
-  <div>
-    <div class="view-field">
-      <div class="view-control"><%= club.content %></div>
-    </div>
-  </div>
+
+  <table class="table table_profile">
+    <tr>
+      <td class="view-field">
+        <strong class="view-control"><%= t "profile.club.position" %></strong>
+      </td>
+      <td class="profile_content"><%= club.position %></td>
+    </tr>
+    <tr>
+      <td class="view-field">
+        <strong class="view-control"><%= t "profile.club.organization" %></strong>
+      </td>
+      <td class="profile_content"><%= club.content %></td>
+    </tr>
+  </table>
 </div>

@@ -1,1 +1,3 @@
-$('#info_experience_<%= params[:id] %>').hide().after('<%= j render("experiences/form") %>');
+$('#info_experience_<%= @experience.id %>').hide();
+$('#info_experience_<%= @experience.id %>').after('<div id = "area_form_experience_<%= @experience.id %>"><%= j render "experiences/form" %></div>');
+

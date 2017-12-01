@@ -2,7 +2,7 @@
   alertify.error('<%= j (render partial: "shared/error_messages", locals: {object: @bookmark_like}) %>');
 <% else %>
   <% if @bookmark_like.bookmark? %>
-    $('.form-bookmark').html('<%= link_to @bookmark_like, method: :delete, class: "btn btn-disbookmark", remote: true do %><i class="fa fa-user-times"></i><%= t "bookmark_like.mark" %><% end %>');
+    $('.form-bookmark').html('<%= link_to t("bookmark_like.mark"), @bookmark_like, method: :delete, class: "btn btn-disbookmark", remote: true %>');
   <% else %>
     $('.form-like').html('<%= link_to t("bookmark_like.dislike"), @bookmark_like, method: :delete, class: "btn btn-dislike", remote: true %>');
   <% end %>

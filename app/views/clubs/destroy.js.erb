@@ -1,9 +1,9 @@
-<% if @message_success.present? %>
-  $('#info_club_<%= params[:id] %>').remove();
+<% if @success.present? %>
+  $('#info_club_<%= @club.id %>').remove();
   <% if current_user.clubs.blank? %>
     $('.placeholder-club').show();
   <% end %>
-  alertify.success('<%= @message_success %>');
+  alertify.success('<%= @success %>');
 <% else %>
-  alertify.error('<%= @message_failed %>');
+  alertify.error('<%= @destroy %>');
 <% end %>

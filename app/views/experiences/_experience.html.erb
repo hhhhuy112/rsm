@@ -10,32 +10,33 @@
       <% end %>
     </span>
   <% end %>
-  <div>
+
+  <div class="profile_top_view">
     <div class="view-field">
-      <h4 class="view-control"><%= experience.company %></h4>
+      <h4 class="view-control"><%= experience.name %></h4>
+    </div>
+    <div class="view-field date_profile">
+      <span class="view-control" data-control="from-date">
+        <%= t "profile.experience.from" %>
+        <%= I18n.l experience.start_time, format: :long %>
+        <%= t "profile.experience.to" %>
+        <%= I18n.l experience.end_time, format: :long %>
+      </span>
     </div>
   </div>
-  <div>
-    <div class="view-field">
-      <strong class="view-control"><%= t "experiences._experience.project_name" %><%= experience.name %></strong>
-    </div>
-  </div>
-  <div>
-    <div class="view-field">
-      <p>
-        <span class="view-control" data-control="from-date">
-          <%= experience.start_time %>
-        </span>
-        :
-        <span class="view-control" data-control="to-date" data-type="manual">
-          <%= experience.end_time %>
-        </span>
-      </p>
-    </div>
-  </div>
-  <div>
-    <div class="view-field">
-      <div class="view-control"><%= experience.project_detail %></div>
-    </div>
-  </div>
+
+  <table class="table table_profile">
+    <tr>
+      <td class="view-field">
+        <strong class="view-control"><%= t "profile.experience.company" %></strong>
+      </td>
+      <td class="profile_content"><%= experience.company %></td>
+    </tr>
+    <tr>
+      <td class="view-field">
+        <strong class="view-control"><%= t "profile.experience.project_detail" %></strong>
+      </td>
+      <td class="profile_content"><%= experience.project_detail %></td>
+    </tr>
+  </table>
 </div>

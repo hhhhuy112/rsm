@@ -1,15 +1,7 @@
 <% provide(:title, t("login")) %>
-<%= image_tag "login_full_bg.jpg", class: "full-bg animation-pulseSlow" %>
+<%= image_tag "recruit.framgia.jpg", class: "full-bg animation-pulseSlow" %>
 <div id="login-container" class="animation-fadeIn">
   <div class="login-title text-center">
-    <div class="row">
-      <div class="col-xs-12 text-left">
-        <%= link_to root_path, class: "site-logo" do %>
-          <i class="fa fa-reply" aria-hidden="true"></i>
-          <strong><%= t "index.fram" %></strong><%= t "index.recruit" %>
-        <% end %>
-      </div>
-    </div>
     <h1>
       <i class="gi gi-flash"></i>
       <strong><%= t "app" %></strong><br>
@@ -50,23 +42,25 @@
           </div>
         </div>
       </div>
+
       <div class="form-group form-actions">
         <% if devise_mapping.rememberable? -%>
-          <%= f.label :remember_me, class: "checkbox inline" do %>
           <div class="col-xs-4">
-            <label class="switch switch-primary" data-toggle="tooltip">
-              <%= f.check_box :remember_me,id: "login-remember-me" %>
-              <span></span>
-            </label>
+            <%= f.label :remember_me, class: "checkbox inline remember_me" do %>
+                <label class="switch switch-primary" data-toggle="tooltip">
+                  <%= f.check_box :remember_me,id: "login-remember-me" %>
+                  <span></span>
+                </label>
+            <% end %>
           </div>
-          <% end %>
         <% end -%>
-        <div class="col-xs-8 text-right">
+        <div class="col-xs-offset-8">
           <%= f.submit t("registrations.new.login_to"), class: "btn btn-sm btn-primary" do  %>
             <i class="fa fa-angle-right"></i>
           <% end %>
         </div>
       </div>
+
       <div class="form-group">
         <div class="col-xs-12 text-center">
           <%= link_to new_user_password_path  do %>

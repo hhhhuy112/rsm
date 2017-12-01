@@ -2,23 +2,23 @@
   <div class="box border-info">
     <fieldset>
       <legend class="box-md">
-        <i class="fa fa-fw fa-bank"></i><%= t "clubs._index.achievements" %>
+        <i class="fa fa-fw fa-trophy"></i><%= t "clubs._index.achievements" %>
       </legend>
       <div class="placeholder-achievement box-md <%= define_style_placeholder @achievements %>">
-        <% if current_user.is_user? @user %>
-          <p class="placeholder"><%= t "achievements.describle" %></p>
-        <% else %>
-          <p class="placeholder"><%= t "placeholder.blank" %></p>
-        <% end %>
+        <p class="placeholder">
+          <%= current_user.is_user?(@user) ? t("achievements.describle") : t("placeholder.blank") %>
+        </p>
       </div>
       <div id="form-achievements">
         <%= render partial: "achievements/achievement", collection: @achievements, as: :achievement %>
       </div>
       <% if current_user.is_user? @user %>
-        <%= link_to t("clubs._index.add"), new_achievement_path, id: "btn-add-achievements",
+        <%= link_to t("clubs._index.add"), new_achievement_path(user_id: @user.id), id: "btn-add-achievements",
           class: "btn btn-default btn-block no-border add-one-more-section",
           remote: true %>
       <% end %>
+      <div id = "area_form_achievement">
+      </div>
     </fieldset>
   </div>
 </div>

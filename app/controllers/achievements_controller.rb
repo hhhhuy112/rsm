@@ -1,11 +1,14 @@
 class AchievementsController < ApplicationController
   before_action :authenticate_user!
-  load_and_authorize_resource param_method: :params_achievements
+  before_action :current_ability
+  load_and_authorize_resource param_method: :params_achievement
+  before_action :load_achievements , only: :destroy
+
 
   def create
     respond_to do |format|
       if @achievement.save
-        format.js{@message = t "achievements.create"}
+        format.js{@message = t "achievements.create_success"}
       else
         format.js
       end
@@ -14,7 +17,7 @@ class AchievementsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @achievement.update_attributes params_achievements
+      if @achievement.update_attributes params_achievement
         format.js{@message = t "achievements.update_success"}
       else
         format.js
@@ -25,16 +28,20 @@ class AchievementsController < ApplicationController
   def destroy
     respond_to do |format|
       if @achievement.destroy
-        format.js{@message_success = t "achievements.destroy_success"}
+        format.js{@success = t "achievements.destroy_success"}
       else
-        format.js{@message_failed = t "achievements.destroy_fail"}
+        format.js{@fail = t "achievements.destroy_fail"}
       end
     end
   end
 
   private
 
-  def params_achievements
-    params.require(:achievement).permit :name, :majors, :organization, :received_time, :user_id
+  def load_achievements
+    @achievements = current_user.achievements
+  end
+
+  def params_achievement
+    params.require(:achievement).permit :name, :majors, :organization, :received_time
   end
 end

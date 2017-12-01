@@ -6,9 +6,6 @@
       </div>
     </div>
   </div>
-  <div class="btn-share">
-    <span class="text-uppercase text-light m-r-xs"><%= social_share_button_tag information_job @job, @company %></span>
-  </div>
   <div class="page-background2">
     <div class="background-overlay2"></div>
   </div>
@@ -75,16 +72,18 @@
                       </div>
                       <div class="col-md-6 form-bookmark">
                         <% if @bookmarked.present? %>
-                          <%= link_to @bookmarked, method: :delete,
-                            class: "btn btn-disbookmark", remote: true do %>
-                            <i class="fa fa-user-times"></i>
-                            <%= t("bookmark_like.mark") %>
-                          <% end %>
+                          <%= link_to t("bookmark_like.mark"), @bookmarked, method: :delete,
+                            class: "btn btn-disbookmark", remote: true %>
                         <% else %>
-                          <%= render "bookmark_likes/form" %>
+                          <%= render "bookmark_likes/form_bookmark_job" %>
                         <% end %>
                       </div>
                     <% end %>
+                  </div>
+                  <div class="btn-share pull-right">
+                    <span class="text-uppercase text-light m-r-xs">
+                      <%= social_share_button_tag information_job @job, @company %>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -202,10 +201,12 @@
             <div class="col-md-8 col-sm-12 tab-main-content">
               <div class="mobile-box">
                 <div class="company-info">
-                  <p><%= @company.name %></p>
-                  <p><%= @company.address %></p>
-                  <p><%= @company.phone %></p>
-                  <p><%= @company.majors %></p>
+                  <h2><%= @company.name %></h2>
+                  <div>
+                    <p><i class="fa fa-address-book-o fa-fw"></i><span><%= @company.address %></span></p>
+                    <p><i class="fa fa-mobile-phone fa-fw"><span></i><%= @company.phone %></span></p>
+                    <p><i class="fa fa-book fa-fw"><span></i><%= @company.majors %></span></p>
+                  </div>
                 </div>
               </div>
             </div>

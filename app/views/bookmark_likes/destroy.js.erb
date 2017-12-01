@@ -1,8 +1,8 @@
-<% if flash[:success].present? %>
+<% if @success.present? %>
   <% if @bookmark_like.like? %>
     $('.form-like').html('<%= j render(partial: "bookmark_likes/form_like_job", locals: { object: @like }) %>');
   <% else %>
-    $('.form-bookmark').html('<%= j render(partial: "bookmark_likes/form", locals: { object: @bookmark }) %>');
+    $('.form-bookmark').html('<%= j render(partial: "bookmark_likes/form_bookmark_job", locals: { object: @bookmark }) %>');
   <% end %>
 <% else %>
   alertify.error('<%= flash[:danger] %>');

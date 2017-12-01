@@ -1,9 +1,9 @@
-<% if @message_success.present? %>
-  $('#info_experience_<%= params[:id] %>').remove();
-  <% if current_user.experiences.blank? %>
+<% if @success.present? %>
+  $('#info_experience_<%= @experience %>').remove();
+  <% if @experiences.blank? %>
     $('.placeholder-experience').show();
   <% end %>
-  alertify.success('<%= @message_success %>');
+  alertify.success('<%= @success %>');
 <% else %>
-  alertify.error('<%= @message_failed %>');
+  alertify.error('<%= @destroy %>');
 <% end %>

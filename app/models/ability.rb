@@ -14,6 +14,38 @@ class Ability
           end
           permission_user user
       end
+      user_permissions user
+    end
+  end
+
+  def employer_permissions_dashboard user
+    return unless user.employer?
+    manage_company user
+  end
+
+  def employer_permissions user
+    manage_company user
+    can :manage, Job, id: user.id
+  end
+
+  def admin_permissions user
+    return unless user.admin?
+    can :manage, :all
+  end
+
+  def user_permissions user
+    can :read, :all
+    can :manage, User, id: user.id
+    can :manage, Achievement, user_id: user.id
+    can :manage, Certificate, user_id: user.id
+    can :manage, Club, user_id: user.id
+  end
+
+  private
+
+  def manage_company user
+    can :update, Company do |company|
+      user.is_employer? company
     end
   end
 

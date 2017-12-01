@@ -1,10 +1,7 @@
 <% if @achievement.errors.any? %>
-  $('.achievement-name-invalid').text('<%= @achievement.errors.messages[:name][0] %>');
-  $('.achievement-majors-invalid').text('<%= @achievement.errors.messages[:majors][0] %>');
-  $('.achievement-organization-invalid').text('<%= @achievement.errors.messages[:organization][0] %>');
-  $('.achievement-received_time-invalid').text('<%= @achievement.errors.messages[:received_time][0] %>');
+  $('#area_form_achievement_<%= @achievement.id %>').html('<%= j render "achievements/form" %>');
 <% else %>
-  $('#edit_achievement_<%= params[:id] %>').remove();
-  $('#info_achievement_<%= params[:id] %>').replaceWith('<%= j render(@achievement) %>').show();
+  $('#area_form_achievement_<%= @achievement.id %>').remove();
+  $('#info_achievement_<%= @achievement.id %>').replaceWith('<%= j render @achievement %>').show();
   alertify.success('<%= @message %>');
 <% end %>

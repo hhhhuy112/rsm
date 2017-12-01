@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/huacnlee/social-share-button.git
+  revision: 495e090b7959cdba9b9215a5db59f462cd2ac1b8
+  specs:
+    social-share-button (1.1.0)
+      coffee-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -504,6 +511,7 @@ DEPENDENCIES
   simple_form
   simplecov
   smart_listing
+  social-share-button!
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

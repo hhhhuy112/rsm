@@ -1,11 +1,7 @@
 <% if @club.errors.any? %>
-  $('.club-name-invalid').text('<%= @club.errors.messages[:name][0] %>');
-  $('.club-position-invalid').text('<%= @club.errors.messages[:position][0] %>');
-  $('.club-start_time-invalid').text('<%= @club.errors.messages[:start_time][0] %>');
-  $('.club-end_time-invalid').text('<%= @club.errors.messages[:end_time][0] %>');
-  $('.club-content-invalid').text('<%= @club.errors.messages[:content][0] %>');
+  $('#area_form_club_<%= @club.id %>').html('<%= j render "clubs/form" %>');
 <% else %>
-  $('#edit_club_<%= params[:id] %>').remove();
-  $('#info_club_<%= params[:id] %>').replaceWith('<%= j render(@club) %>').show();
+  $('#area_form_club_<%= @club.id %>').remove();
+  $('#info_club_<%= @club.id %>').replaceWith('<%= j render @club %>').show();
   alertify.success('<%= @message %>');
 <% end %>

@@ -10,28 +10,28 @@
       <% end %>
     </span>
   <% end %>
-  <div>
+  <div class="profile_top_view">
     <div class="view-field">
       <h4 class="view-control"><%= achievement.name %></h4>
     </div>
-  </div>
-  <div>
-    <div class="view-field">
-      <strong class="view-control"><%= t "achievements.majors" %><%= achievement.majors %></strong>
+    <div class="view-field date_profile">
+      <span class="view-control" data-control="from-date">
+        <%= I18n.l achievement.received_time, format: :long %>
+      </span>
     </div>
   </div>
-  <div>
-    <div class="view-field">
-      <strong class="view-control"><%= t "achievements.organization" %><%= achievement.organization %></strong>
-    </div>
-  </div>
-  <div>
-    <div class="view-field">
-      <p>
-        <span class="view-control" data-control="from-date">
-          <%= I18n.l achievement.received_time, format: :long %>
-        </span>
-      </p>
-    </div>
-  </div>
+  <table class= "table table_profile">
+    <tr>
+      <td class="view-field">
+        <strong class="view-control"><%= t "profile.achievement.majors" %></strong>
+      </td>
+      <td class="profile_content"><%= achievement.majors %></td>
+    </tr>
+    <tr>
+      <td class="view-field">
+        <strong class="view-control"><%= t "profile.achievement.organization" %></strong>
+      </td>
+      <td class="profile_content"><%= achievement.organization %></td>
+    </tr>
+  </table>
 </div>

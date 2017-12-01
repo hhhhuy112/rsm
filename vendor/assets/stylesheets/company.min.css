@@ -8827,7 +8827,7 @@ body.mini-navbar .sidebar-initial a{color:#f7941d}
 @media (max-width:767px){.pg-my-candidate .candidate-inline-actions{margin-top:5px;float:none!important}
 }
 .job-select__more-job{padding:10px 15px;display:block;-webkit-transition:color .3s;transition:color .3s;text-align:right;border-top:1px solid #eee;position:relative;z-index:100000}
-.box{background:#fff;border:1px solid #efefef;margin-bottom:5px}
+.box{background:#fff;border:1px solid #efefef;margin-bottom:10px}
 .box__header{border-bottom:1px solid #dbdbdb}
 .box.box-lg{padding:30px 40px 20px 40px}
 @media (max-width:767px){.box.box-lg{padding:10px}

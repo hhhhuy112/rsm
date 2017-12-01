@@ -1,55 +1,74 @@
 <%= javascript_include_tag "format_datepicker", "data-turbolinks-track": "reload" %>
-<%= form_for @achievement, html: {class: "new-section bottom-form"}, remote: true do |f| %>
+<%= form_for @achievement, html: {class: "new-section"}, remote: true do |f| %>
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group">
-        <label><strong class="text-red">*</strong><%= t "achievements.name" %></label>
+        <%= f.label :name, class: "profile_label" do %>
+          <strong class="text-red">*</strong><%= t "achievements.name" %>
+        <% end %>
         <%= f.text_field :name, autofocus: true, class: "form-control edit-control",
-          placeholder: t("passwords.new.name") %>
-        <span class="achievement-name-invalid error-message"></span>
+        placeholder: t("passwords.new.name") %>
       </div>
+      <span class="error-message">
+        <%= show_errors @achievement, :name, t("profile.achievement.name") %>
+      </span>
     </div>
     <div class="col-sm-6">
       <div class="form-group">
-        <label><strong class="text-red">*</strong><%= t "achievements.majors" %></label>
+        <%= f.label :majors, class: "profile_label" do %>
+          <strong class="text-red">*</strong><%= t "achievements.majors" %>
+        <% end %>
         <%= f.text_field :majors, autofocus: true, class: "form-control edit-control",
-          placeholder: t("achievements.example") %>
-        <span class="achievement-majors-invalid error-message"></span>
+        placeholder: t("achievements.example") %>
       </div>
+      <span class="error-message">
+        <%= show_errors @achievement, :majors, t("profile.achievement.majors") %>
+      </span>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group">
-        <label><strong class="text-red">*</strong><%= t "achievements.organization" %></label>
+        <%= f.label :organization, class: "profile_label" do %>
+          <strong class="text-red">*</strong><%= t "achievements.organization" %>
+        <% end %>
         <%= f.text_field :organization, autofocus: true, class: "form-control edit-control",
-          placeholder: t("achievements.organization") %>
-        <span class="achievement-organization-invalid error-message"></span>
+        placeholder: t("achievements.organization") %>
       </div>
+      <span class="error-message">
+        <%= show_errors @achievement, :organization, t("profile.achievement.organization") %>
+      </span>
     </div>
     <div class="col-sm-6">
       <div class="form-group">
-        <label><strong class="text-red">*</strong><%= t "achievements.received_time" %></label>
-        <% if @achievement.received_time.present? %>
-          <%= f.text_field :received_time, data: {provide: "datepicker"},
-            class: "datepick form-control edit-control", value: @achievement.received_time.strftime(t "date_format") %>
-        <% else %>
-          <%= f.text_field :received_time, data: {provide: "datepicker"}, class: "datepick form-control edit-control" %>
+        <%= f.label :received_time, class: "profile_label" do %>
+          <strong class="text-red">*</strong><%= t "achievements.received_time" %>
         <% end %>
-        <span class="achievement-received_time-invalid error-message"></span>
+        <% if @achievement.received_time.present? %>
+        <%= f.text_field :received_time, data: {provide: "datepicker"},
+        class: "datepick form-control edit-control", value: @achievement.received_time.strftime(t "date_format") %>
+        <% else %>
+        <%= f.text_field :received_time, data: {provide: "datepicker"}, class: "datepick form-control edit-control" %>
+        <% end %>
       </div>
+      <span class="error-message">
+        <%= show_errors @achievement, :received_time, t("profile.achievement.received_time") %>
+      </span>
     </div>
   </div>
   <div class="form-group push-top-md edit-field">
-    <div class="col-sm-6">( <strong class="text-red">*</strong>)<%= t "achievements.required" %></div>
-    <div class="col-sm-6 text-right">
-      <button id="<%= define_cancel_achievement_id @achievement %>" type="button"
-        class="btn-cancel btn btn-default" value="<%= @achievement.id %>">
+    <div class="col-sm-6" >(<strong class="text-red">*</strong>)<%= t "achievements.required" %></div>
+    <div class="row">
+      <div class="col-sm-6 text-right">
+        <button id="<%= define_cancel_achievement_id @achievement %>" type="button"
+          class="btn-cancel btn btn-default" value="<%= @achievement.id %>">
           <%= t "achievements.cancle" %>
-      </button>
-      <%= f.submit t("achievements.save"), class: "btn-save btn btn-primary" do  %>
+        </button>
+        <%= f.submit t("achievements.save"), class: "btn-save btn btn-primary" do  %>
         <i class="fa fa-plus"></i>
-      <% end %>
+        <% end %>
+        <span class="achievement-received_time-invalid error-message"></span>
+      </div>
     </div>
   </div>
 <% end %>

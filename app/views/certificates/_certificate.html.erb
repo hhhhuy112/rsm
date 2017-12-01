@@ -10,33 +10,39 @@
       <% end %>
     </span>
   <% end %>
-  <div>
+
+  <div class="profile_top_view">
     <div class="view-field">
       <h4 class="view-control"><%= certificate.name %></h4>
     </div>
-  </div>
-  <div>
-    <div class="view-field">
-      <strong class="view-control"><%= t "certificate.major" %></strong>
-        <%= certificate.majors %>
+    <div class="view-field date_profile">
+      <span class="view-control" data-control="from-date">
+        <%= I18n.l certificate.received_time, format: :long %>
+      </span>
     </div>
   </div>
-  <div>
-    <div class="view-field">
-      <strong class="view-control"><%= t "certificate.organization" %></strong>
-        <%= certificate.organization %>
-    </div>
-  </div>
-  <div>
-    <div class="view-field">
-      <strong class="view-control"><%= t "certificate.classification" %></strong>
-        <%= certificate.classification %>
-    </div>
-  </div>
-  <div>
-    <div class="view-field">
-      <strong class="view-control"><%= t "certificate.received" %></strong>
-        <%= certificate.received_time %>
-    </div>
-  </div>
+
+  <table class="table table_profile">
+    <tr>
+      <td class="view-field">
+        <strong class="view-control"><%= t "profile.certificate.majors" %></strong>
+      </td>
+      <td class="profile_content"><%= certificate.majors %></td>
+    </tr>
+    <tr>
+      <td class="view-field">
+        <strong class="view-control"><%= t "profile.certificate.organization" %></strong>
+      </td>
+      <td class="profile_content"><%= certificate.organization %></td>
+    </tr>
+    <tr>
+      <td class="view-field">
+        <strong class="view-control"><%= t "profile.certificate.classification" %></strong>
+      </td>
+      <td class="profile_content"><%= certificate.classification %></td>
+    </tr>
+  </table>
 </div>
+
+
+

@@ -3,24 +3,29 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group">
-        <label><strong class="text-red">*</strong><%= t "clubs._form.name" %></label>
+        <%= f.label :name, class: "profile_label" do %>
+          <strong class="text-red">*</strong><%= t "clubs._form.name" %>
+        <% end %>
         <%= f.text_field :name, autofocus: true, class: "form-control edit-control" %>
-        <span class="club-name-invalid error-message"></span>
+        <span class="club-name-invalid error-message"><%= show_errors @club, :name, t("profile.club.name") %></span>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="form-group">
-        <label><strong class="text-red">*</strong><%= t "clubs._form.pos" %></label>
+        <%= f.label :position, class: "profile_label" do %>
+          <strong class="text-red">*</strong><%= t "clubs._form.pos" %>
+        <% end %>
         <%= f.text_field :position, class: "form-control edit-control" %>
-        <span class="club-position-invalid error-message"></span>
+        <span class="club-position-invalid error-message"><%= show_errors @club, :position, t("profile.club.position") %></span>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-4">
       <div class="form-group">
-        <strong class="text-red">*</strong>
-        <%= f.label :start_time, t("clubs._form.from") %>
+        <%= f.label :start_time, class: "profile_label" do %>
+          <strong class="text-red">*</strong><%= t("clubs._form.from") %>
+        <% end %>
         <% if @club.start_time.present? %>
           <%= f.text_field :start_time, data: {provide: "datepicker"},
             class: "datepick form-control", value: @club.start_time.strftime(t "date_format") %>
@@ -28,13 +33,16 @@
           <%= f.text_field :start_time, data: {provide: "datepicker"},
             class: "datepick form-control" %>
         <% end %>
-        <span class="club-start_time-invalid error-message"></span>
+        <span class="club-position-invalid error-message">
+          <%= show_errors @club, :start_time, t("profile.club.start_time") %>
+        </span>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="form-group">
-        <strong class="text-red">*</strong>
-        <%= f.label :end_time, t("clubs._form.to") %>
+        <%= f.label :end_time, class: "profile_label" do %>
+          <strong class="text-red">*</strong><%= t("clubs._form.from") %>
+        <% end %>
         <% if @club.end_time.present? %>
           <%= f.text_field :end_time, data: {provide: "datepicker"},
             class: "datepick form-control", value: @club.end_time.strftime(t "date_format") %>
@@ -42,31 +50,35 @@
           <%= f.text_field :end_time, data: {provide: "datepicker"},
             class: "datepick form-control" %>
         <% end %>
-        <span class="club-end_time-invalid error-message"></span>
+        <span class="club-position-invalid error-message">
+          <%= show_errors @club, :end_time, t("profile.club.end_time") %>
+        </span>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="form-group">
         <div class="m-t-lg hidden-xs"></div>
-        <label class="control-label">
-          <%= f.check_box :current, class: "to-present-checkbox edit-control" %>
-          <%= f.label :current, t("clubs.helpers.present") %>
-        </label>
+        <span>
+          <%= f.check_box :current, class: "to-present-checkbox" %>
+          <%= f.label :current, t("clubs.helpers.present"), class: "profile_label" %>
+        </span>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-12">
       <div class="form-group">
-        <%= f.label :content %>
+        <%= f.label :content, t("profile.club.content"), class: "control-label profile_label" %>
         <%= f.text_area :content, class: "form-control" %>
-        <span class="club-content-invalid error-message"></span>
+        <span class="club-position-invalid error-message">
+          <%= show_errors @club, :content, t("profile.club.content") %>
+        </span>
       </div>
     </div>
   </div>
   <div class="form-group push-top-md edit-field">
+    <div class="col-sm-6">(<strong class="text-red">*</strong>)<%= t "achievements.required" %></div>
     <div class="row">
-      <div class="col-sm-6"><%= t "clubs._form.require" %></div>
       <div class="col-sm-6 text-right">
         <button id="<%= define_cancel_club_id @club %>" type="button"
           class="btn-cancel btn btn-default" value="<%= @club.id %>">

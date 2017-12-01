@@ -3,7 +3,7 @@ module ClubsHelper
     if club.current?
       t "clubs.helpers.present"
     else
-      club.end_time
+      l club.end_time, format: :long
     end
   end
 

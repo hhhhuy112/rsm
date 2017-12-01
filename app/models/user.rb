@@ -28,4 +28,8 @@ class User < ApplicationRecord
   def is_user? user
     user == self
   end
+
+  def is_employer? company
+    self.companies.last == company && self.members.last.present? && self.members.last.end_time.nil?
+  end
 end

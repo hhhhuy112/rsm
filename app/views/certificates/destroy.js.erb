@@ -1,9 +1,9 @@
-<% if @message_success.present? %>
+<% if @success.present? %>
   $('#info_certificate_<%= @certificate.id %>').remove();
-  <% if current_user.certificates.blank? %>
+  <% if @certificates.blank? %>
     $('.placeholder-certificate').show();
   <% end %>
-  alertify.success('<%= @message_success %>');
+  alertify.success('<%= @success %>');
 <% else %>
-  alertify.error('<%= @message_failed %>');
+  alertify.error('<%= @destroy %>');
 <% end %>

@@ -1,9 +1,9 @@
-<% if @message_success.present? %>
+<% if @success.present? %>
   $('#info_achievement_<%= @achievement.id %>').remove();
-  <% if current_user.achievements.blank? %>
+  <% if @achievements.blank? %>
     $('.placeholder-achievement').show();
   <% end %>
-  alertify.success('<%= @message_success %>');
+  alertify.success('<%= @success %>');
 <% else %>
-  alertify.error('<%= @message_failed %>');
+  alertify.error('<%= @destroy %>');
 <% end %>

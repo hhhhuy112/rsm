@@ -1,24 +1,26 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-8 col-md-9">
-      <div class="well well-sm">
-        <div class="row">
-          <div class="col-sm-2 col-md-2">
-            <%= image_tag "avatar_2x.png", class: "img-responsive" %>
-          </div>
-          <div class="col-sm-6 col-md-8">
-            <%= render @user %>
+  <div class="main_content">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10">
+        <div class="well well-sm">
+          <div class="row">
+            <div class="col-sm-2 col-md-2">
+              <%= image_tag "avatar_2x.png", class: "img-responsive" %>
+            </div>
+            <div class="col-sm-10 col-md-10">
+              <%= render @user %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-8 col-md-9">
-      <%= render "achievements/list" %>
-      <%= render "certificates/index" %>
-      <%= render "clubs/index" %>
-      <%= render "experiences/index" %>
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10">
+        <%= render "achievements/index" %>
+        <%= render "certificates/index" %>
+        <%= render "clubs/index" %>
+        <%= render "experiences/index" %>
+      </div>
     </div>
   </div>
 </div>

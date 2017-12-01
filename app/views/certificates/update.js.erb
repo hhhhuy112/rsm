@@ -1,11 +1,7 @@
 <% if @certificate.errors.any? %>
-  $('.certificate-name-invalid').text('<%= @certificate.errors.messages[:name][0] %>');
-  $('.certificate-majors-invalid').text('<%= @certificate.errors.messages[:majors][0] %>');
-  $('.certificate-organization-invalid').text('<%= @certificate.errors.messages[:organization][0] %>');
-  $('.certificate-classification-invalid').text('<%= @certificate.errors.messages[:classification][0] %>');
-  $('.certificate-received_time-invalid').text('<%= @certificate.errors.messages[:received_time][0] %>');
+  $('#area_form_certificate_<%= @certificate.id %>').html('<%= j render "certificates/form" %>');
 <% else %>
-  $('#edit_certificate_<%= params[:id] %>').remove();
-  $('#info_certificate_<%= params[:id] %>').replaceWith('<%= j render(@certificate) %>').show();
+  $('#edit_certificate_<%= @certificate.id %>').remove();
+  $('#info_certificate_<%= @certificate.id %>').replaceWith('<%= j render @certificate %>').show();
   alertify.success('<%= @message %>');
 <% end %>

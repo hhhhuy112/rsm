@@ -2,14 +2,12 @@
   <div class="box border-info">
     <fieldset>
       <legend class="box-md">
-        <i class="fa fa-fw fa-bank"></i><%= t "certificate.certi" %>
+        <i class="fa fa-fw fa-certificate"></i><%= t "certificate.certi" %>
       </legend>
       <div class="placeholder-certificate box-md <%= define_style_placeholder @certificates %>">
-        <% if current_user.is_user? @user %>
-          <p class="placeholder"><%= t "certificate.describle" %></p>
-        <% else %>
-          <p class="placeholder"><%= t "placeholder.blank" %></p>
-        <% end %>
+        <p class="placeholder">
+          <%= current_user.is_user?(@user) ? t("certificate.describle") : t("placeholder.blank") %>
+        </p>
       </div>
       <div id="form-certificate">
         <%= render partial: "certificates/certificate", collection: @certificates, as: :certificate %>
@@ -17,9 +15,11 @@
       <% if current_user.is_user? @user %>
         <%= link_to (t"certificate.add"), new_certificate_path,
           id: "btn-add-certificate",
-            class: "btn btn-default btn-block no-border add-one-more-section",
-              remote: true %>
+          class: "btn btn-default btn-block no-border add-one-more-section",
+          remote: true %>
       <% end %>
+      <div id = "area_form_certificate">
+      </div>
     </fieldset>
   </div>
 </div>

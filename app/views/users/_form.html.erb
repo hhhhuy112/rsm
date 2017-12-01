@@ -3,54 +3,70 @@
   <div class="row">
     <div class="name col-xs-6">
       <div class="edit-field m-b">
-        <label><strong class="text-red">*</strong><%= t "achievements.name" %></label>
+        <%= f.label :name, class: "profile_label" do %>
+          <strong class="text-red">*</strong><%= t "profile.user.name" %>
+        <% end %>
         <%= f.text_field :name, autofocus: true, class: "form-control edit-control input-sm",
-          placeholder: t("passwords.new.name") %>
+          placeholder: t("profile.user.name") %>
       </div>
     </div>
     <div class="name col-xs-6">
       <div class="edit-field m-b">
-        <label><strong class="text-red">*</strong><%= t "achievements.email" %></label>
+        <%= f.label :email, class: "profile_label" do %>
+          <strong class="text-red">*</strong><%= t "profile.user.email" %>
+        <% end %>
         <%= f.text_field :email, autofocus: true, class: "form-control edit-control input-sm",
-          placeholder: t("passwords.new.email") %>
+          placeholder: t("profile.user.email") %>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="name col-xs-6">
       <div class="edit-field m-b">
-        <label><strong class="text-red">*</strong><%= t "achievements.address" %></label>
+        <%= f.label :address, class: "profile_label" do %>
+          <strong class="text-red">*</strong><%= t "profile.user.address" %>
+        <% end %>
         <%= f.text_field :address, autofocus: true, class: "form-control edit-control input-sm",
-          placeholder: t("passwords.new.name") %>
+          placeholder: t("profile.user.address") %>
       </div>
     </div>
     <div class="name col-xs-6">
       <div class="edit-field m-b">
-        <label><strong class="text-red">*</strong><%= t "achievements.phone" %></label>
+        <%= f.label :phone, class: "profile_label" do %>
+          <strong class="text-red">*</strong><%= t "profile.user.phone" %>
+        <% end %>
         <%= f.text_field :phone, autofocus: true, class: "form-control edit-control input-sm",
-          placeholder: t("passwords.new.name") %>
+          placeholder: t("profile.user.phone") %>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="name col-xs-12">
-      <label><strong class="text-red">*</strong><%= t "achievements.birthday" %></label>
-      <% if @user.birthday.present? %>
-        <%= f.text_field :birthday, data: {provide: "datepicker"},
-          class: "datepick form-control edit-control", value: @user.birthday.strftime(t "date_format") %>
-       <% end %>
+      <div class="edit-field m-b">
+        <%= f.label :birthday, class: "profile_label" do %>
+          <strong class="text-red">*</strong><%= t "profile.user.birthday" %>
+        <% end %>
+        <% if @user.birthday.present? %>
+          <%= f.text_field :birthday, data: {provide: "datepicker"},
+            class: "datepick form-control edit-control",
+              value: @user.birthday.strftime(t "date_format"),  placeholder: t("profile.user.birthday")  %>
+        <% else %>
+          <%= f.text_field :birthday, data: {provide: "datepicker"},
+            class: "datepick form-control edit-control",  placeholder: t("profile.user.birthday")  %>
+        <% end %>
+       </div>
     </div>
   </div>
-  <div class="row edit-field">
-    <div class="col-sm-6"></div>
-    <div class="col-sm-6 text-right">
-      <button id="cancel_user_edit" type="button"
-        class="btn-cancel btn btn-default" value="<%= @user.id %>">
-          <%= t "achievements.cancle" %>
-      </button>
-      <%= f.submit t("achievements.save"), class: "btn-save btn btn-primary" do  %>
-        <i class="fa fa-plus"></i>
-      <% end %>
-    </div>
+  <div class="form-group row push-top-md edit-field">
+    <div class="col-sm-6" >(<strong class="text-red">*</strong>)<%= t "achievements.required" %></div>
+      <div class="col-sm-6 text-right">
+        <button id="cancel_user_edit" type="button"
+          class="btn-cancel btn btn-default" value="<%= @user.id %>">
+            <%= t "achievements.cancle" %>
+        </button>
+        <%= f.submit t("achievements.save"), class: "btn-save btn btn-primary" do  %>
+          <i class="fa fa-plus"></i>
+        <% end %>
+      </div>
   </div>
 <% end %>

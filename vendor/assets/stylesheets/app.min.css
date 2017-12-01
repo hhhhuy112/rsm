@@ -6827,7 +6827,7 @@ body{background-color: #ecf0f1}
 .cp_our_jobs_section .panel-default > .panel-heading strong{font-weight: 500}
 .cp_our_jobs_section .panel-default > .panel-heading h4{font-weight: 400}
 /* company basic info */
-.cp_basic_info{display: inline-block;width: 100%;padding: 15px 0;border-bottom: 1px solid #337ab7;background-color: #fff;}
+.cp_basic_info{display: inline-block;width: 100%;padding: 15px 0;background-color: #fff;}
 .cp_basic_info h2{font-size: 24px; font-weight: 400; margin: 0;padding: 0 0 5px;}
 .cp_logo{max-width: 200px;}
 .cp_logo div{width: 170px; height: 75px;background-color: #fff; position: relative; text-align: center; line-height: 80px;}
@@ -8867,7 +8867,6 @@ footer .vnw-footer .copyright{padding-top: 12px;}
 }
 
 .info_company {
-  border-bottom-color:#00b9f2;
   border-top: 1px solid #00b9f2;
 }
 

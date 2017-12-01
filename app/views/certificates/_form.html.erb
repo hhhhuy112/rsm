@@ -5,47 +5,73 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
-          <label><strong class="text-red">* </strong><%= t "certificate.name" %></label>
+          <%= f.label :name, class: "profile_label" do %>
+            <strong class="text-red">*</strong><%= t "certificate.name" %>
+          <% end %>
           <%= f.text_field :name, autofocus: true, class: "form-control edit-control",
             placeholder: (t"certificate.plcname") %>
           <span class="certificate-name-invalid error-message"></span>
         </div>
+        <span class="error-message">
+          <%= show_errors @certificate, :name, t("profile.certificate.name") %>
+        </span>
       </div>
       <div class="col-sm-6">
         <div class="form-group">
-          <label><strong class="text-red">*</strong><%= t "certificate.major" %></label>
+          <%= f.label :majors, class: "profile_label" do %>
+            <strong class="text-red">*</strong><%= t "certificate.major" %>
+          <% end %>
           <%= f.text_field :majors, autofocus: true, class: "form-control edit-control",
             placeholder: (t"certificate.plcmajor") %>
           <span class="certificate-majors-invalid error-message"></span>
         </div>
+        <span class="error-message">
+          <%= show_errors @certificate, :majors, t("profile.certificate.majors") %>
+        </span>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
-          <label><strong class="text-red">* </strong><%= t "certificate.organization" %></label>
+          <%= f.label :organization, class: "profile_label" do %>
+            <strong class="text-red">*</strong><%= t "certificate.organization" %>
+          <% end %>
           <%= f.text_field :organization, autofocus: true, class: "form-control edit-control",
             placeholder: (t"certificate.plcorganization") %>
           <span class="certificate-organization-invalid error-message"></span>
         </div>
+        <span class="error-message">
+          <%= show_errors @certificate, :organization, t("profile.certificate.organization") %>
+        </span>
       </div>
       <div class="col-sm-6">
         <div class="form-group">
-          <label><strong class="text-red">*</strong><%= t "certificate.classification" %></label>
+          <%= f.label :classification, class: "profile_label" do %>
+            <strong class="text-red">*</strong><%= t "certificate.classification" %>
+          <% end %>
           <%= f.text_field :classification, autofocus: true, class: "form-control edit-control",
             placeholder: (t"certificate.plcclass") %>
           <span class="certificate-classification-invalid error-message"></span>
         </div>
+        <span class="error-message">
+          <%= show_errors @certificate, :classification, t("profile.certificate.classification") %>
+        </span>
       </div>
       <div class="col-sm-6">
         <div class="form-group">
-          <label><strong class="text-red">*</strong><%= t "certificate.received" %></label>
+          <%= f.label :received_time, class: "profile_label" do %>
+            <strong class="text-red">*</strong><%= t "certificate.received" %>
+          <% end %>
           <%= f.text_field :received_time, "data-provide": "datepicker", class: "datepick form-control edit-control" %>
           <span class="certificate-received_time-invalid error-message"></span>
         </div>
+        <span class="error-message">
+          <%= show_errors @certificate, :received_time, t("profile.certificate.received_time") %>
+        </span>
       </div>
     </div>
     <div class="form-group push-top-md edit-field">
+      <div class="col-sm-6">(<strong class="text-red">*</strong>)<%= t "achievements.required" %></div>
       <div class="row">
         <div class="col-sm-6"></div>
         <div class="col-sm-6 text-right">
