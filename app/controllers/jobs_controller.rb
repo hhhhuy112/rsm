@@ -1,12 +1,26 @@
 class JobsController < ApplicationController
   layout "job"
 
+  before_action :authenticate_user!, except: %i(index show)
   before_action :load_job, except: %i(index new create)
   before_action :load_employer, only: :show
   before_action :load_company, only: :show
   before_action :load_jobs, only: :show
+  before_action :create_bookmark, only: :show
+  before_action :create_like, only: :show
+  before_action :load_reward_benefits, only: :show
+  before_action :build_apply, only: :show
 
-  def show; end
+  def show
+    @applied = @job.applies.find_by user_id: current_user.id
+    return unless @job.bookmark_likes.present?
+    if user_signed_in?
+      @bookmarked = @job.bookmark_likes.find_by user_id: current_user.id,
+        bookmark: BookmarkLike.bookmarks.keys[Settings.bookmark.bookmarked]
+      @liked = @job.bookmark_likes.find_by user_id: current_user.id,
+        bookmark: BookmarkLike.bookmarks.keys[Settings.bookmark.liked]
+    end
+  end
 
   def new
     @job = Job.new
@@ -16,9 +30,9 @@ class JobsController < ApplicationController
     @job = current_user.jobs.build job_params
     respond_to do |format|
       if @job.save
-        format.js {flash.now[:success] = t ".job_created"}
+        format.js{flash.now[:success] = t ".job_created"}
       else
-        format.js {flash.now[:danger] = t ".job_cant_create"}
+        format.js
       end
     end
   end
@@ -28,9 +42,9 @@ class JobsController < ApplicationController
   def update
     respond_to do |format|
       if @job.update_attributes job_params
-        format.js {flash.now[:success] = t ".job_updated"}
+        format.js{flash.now[:success] = t ".job_updated"}
       else
-        format.js {flash.now[:danger] = t ".job_cant_update"}
+        format.js
       end
     end
   end
@@ -38,9 +52,9 @@ class JobsController < ApplicationController
   def destroy
     respond_to do |format|
       if @job.destroy
-        format.js {flash.now[:success] = t ".job_destroyed"}
+        format.js{flash.now[:success] = t ".job_destroyed"}
       else
-        format.js {flash.now[:danger] = t ".job_cant_destroy"}
+        format.js{flash.now[:danger] = t ".job_cant_destroy"}
       end
     end
   end
@@ -49,11 +63,12 @@ class JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit :content, :name, :level, :language,
-      :skill, :position, :company_id, :description, :min_salary, :max_salary
+      :skill, :position, :company_id, :description, :min_salary, :max_salary,
+        reward_benefits_attributes: %i(id content job_id _destroy)
   end
 
   def load_job
-    @job = Job.find_by id: params[:id]
+    @job = Job.includes(:bookmark_likes).find_by id: params[:id]
     return if @job
     flash.now[:danger] = t "jobs.method.cant_find_job"
     redirect_to root_url
@@ -61,6 +76,24 @@ class JobsController < ApplicationController
 
   def load_jobs
     @jobs = @company.jobs.sort_lastest.page(params[:page]).per(Settings.pagination.jobs_perpage)
+  end
+
+  def create_bookmark
+    return unless user_signed_in?
+    @bookmark = current_user.bookmark_likes.build
+    @bookmark.job_id = @job.id
+    @bookmark.bookmark = BookmarkLike.bookmarks.keys[Settings.bookmark.bookmarked]
+  end
+
+  def create_like
+    return unless user_signed_in?
+    @like = current_user.bookmark_likes.build
+    @like.job_id = @job.id
+    @like.bookmark = BookmarkLike.bookmarks.keys[Settings.bookmark.liked]
+  end
+
+  def build_apply
+    @apply = current_user.applies.new job_id: @job.id
   end
 
   def load_company
@@ -74,5 +107,9 @@ class JobsController < ApplicationController
     @employer = @job.user
     return if @employer
     flash.now[:danger] = t "jobs.method.cant_find_employer"
+  end
+
+  def load_reward_benefits
+    @reward_benefits = @job.reward_benefits
   end
 end

@@ -1,7 +1,8 @@
 require "rails_helper"
 
 RSpec.describe Club, type: :model do
-  let(:club) {FactoryGirl.create :club}
+  let(:user) {FactoryGirl.create :user}
+  let(:club) {FactoryGirl.create :club, user_id: user.id}
   subject {club}
 
   context "associations" do
@@ -49,7 +50,7 @@ RSpec.describe Club, type: :model do
     before {subject.name = ""}
     it "matches the errors message" do
       subject.valid?
-      subject.errors[:name].should include("can't be blank")
+      subject.errors[:name].should include(I18n.t("activerecord.errors.models.club.attributes.name.blank"))
     end
     it {is_expected.to_not be_valid}
   end
@@ -58,7 +59,7 @@ RSpec.describe Club, type: :model do
     before {subject.position = ""}
     it "matches the errors message" do
       subject.valid?
-      subject.errors[:position].should include("can't be blank")
+      subject.errors[:position].should include(I18n.t("activerecord.errors.models.club.attributes.position.blank"))
     end
     it {is_expected.to_not be_valid}
   end
@@ -67,7 +68,7 @@ RSpec.describe Club, type: :model do
     before { @club = Club.create(name: "ABCX", user_id: User.new, start_time: "", end_time:Time.zone.today) }
     it "matches the errors message" do
       @club.valid?
-      @club.errors[:start_time].should include("can't be blank")
+      @club.errors[:start_time].should include(I18n.t("activerecord.errors.models.club.attributes.start_time.blank"))
     end
     it {expect(@club).to_not be_valid}
   end
@@ -76,7 +77,7 @@ RSpec.describe Club, type: :model do
     before { @club = Club.create(name: "ABCX", user_id: User.new, start_time: Time.zone.today-1, end_time:"", current: false) }
     it "matches the errors message" do
       @club.valid?
-      @club.errors[:end_time].should include("can't be blank")
+      @club.errors[:end_time].should include(I18n.t("activerecord.errors.models.club.attributes.end_time.blank"))
     end
     it {expect(@club).to_not be_valid}
   end

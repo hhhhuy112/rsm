@@ -2,6 +2,7 @@
   $('#job-<%= params[:id] %>').hide().after('<%= j render(@job) %>');
   $('#JobModal').modal('hide');
   <% flash.clear %>
+  alertify.success('<%= flash[:success] %>');
 <% else %>
   $('#JobModal').modal('hide');
   <% flash.clear %>

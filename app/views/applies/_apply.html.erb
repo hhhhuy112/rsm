@@ -1,0 +1,32 @@
+<div class="res-table__row row animated">
+  <div class="col-md-1 logo text-center">
+    <%= image_tag apply.company.logo, size: Settings.apply.image %>
+  </div>
+  <div class="col-md-6 job-info">
+    <div class="name">
+      <%= link_to apply.job.name, job_path(apply.job.id) %>
+    </div>
+    <div class="text-strong"><%= t "apply.corp" %><%= apply.company.name %> ,
+      <%= apply.company.address %></div>
+    <div class="text-strong"><%= t "apply.level" %><%= apply.job.level %></div>
+  </div>
+  <div class="col-md-2 applied">
+    <div class="text-light" style="color: blue">
+      <%= t "apply.position" %>
+      <span class="hidden-md hidden-lg m-r-xs">:</span>
+    </div>
+    <div class="text-strong"><%= apply.job.position %></div>
+  </div>
+  <div class="col-md-2 applied">
+    <div class="text-light" style="color: blue">
+      <%= t "apply.subdate" %>
+      <span class="hidden-md hidden-lg m-r-xs">:</span>
+    </div>
+    <div class="text-strong"><%= l apply.created_at.to_date, format: :long %></div>
+  </div>
+  <div class="col-md-1 applied">
+    <span class="label label-warning">
+      <%= apply.status %>
+    </span>
+  </div>
+</div>

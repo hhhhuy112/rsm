@@ -1,0 +1,28 @@
+<div class="block full">
+  <div class="block-title">
+    <h2><strong><%= t ".add_member" %></strong></h2>
+  </div>
+</div>
+<div class="block full">
+  <div class="block-title">
+    <h2><strong><%= t ".all_member" %></strong></h2>
+  </div>
+  <table class="table table-bordered table-striped table-vcenter">
+    <thead>
+      <tr>
+        <th class="text-center""><%= t ".id" %></th>
+        <th class="text-center"><%= t ".name" %></th>
+        <th class="text-center"><%= t "position" %></th>
+        <th class="text-center"><%= t ".email" %></th>
+        <th class="text-center"><%= t ".sex" %></th>
+        <th class="text-center visible-lg"><%= t ".start_time" %></th>
+        <th class="text-center"><%= t ".end_time" %></th>
+        <th class="text-center"><%= t ".delete" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "member", collection: @members, as: :member  %>
+    </tbody>
+  </table>
+  <%= paginate @members %>
+</div>

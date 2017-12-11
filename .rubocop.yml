@@ -234,13 +234,6 @@ Layout/EmptyLinesAroundModuleBody:
   SupportedStyles:
     - no_empty_lines
 
-# Checks whether the source file has a utf-8 encoding comment or not
-Style/Encoding:
-  EnforcedStyle: when_needed
-  SupportedStyles:
-    - when_needed
-    - always
-
 Naming/FileName:
   Exclude:
     - '**/Rakefile'

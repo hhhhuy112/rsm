@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= favicon_link_tag "framgia.png" %>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "employer", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "employer", "data-turbolinks-track": "reload" %>
+  </head>
+
+  <body>
+  <div id="page-wrapper">
+    <div class="preloader themed-background">
+      <h1 class="push-top-bottom text-light text-center"><strong><%= t "employer" %></h1>
+    </div>
+    <div id="page-container" class="sidebar-partial sidebar-visible-lg sidebar-no-animations">
+      <%= render "layouts/employers/sidebar_employer" %>
+      <div id="main-container">
+        <%= render "layouts/employers/header_employer" %>
+        <div id="page-content">
+          <%= yield %>
+        </div>
+        <%= render "layouts/employers/footer_employer" %>
+      </div>
+    </div>
+  </div>
+  <a href="#" id="to-top"><i class="fa fa-angle-double-up"></i></a>
+</body>
+</html>

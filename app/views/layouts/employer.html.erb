@@ -25,15 +25,16 @@
               <div><%= image_tag(@company.logo.url) %></div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 cp_basic_info_details">
-              <h2 id="cp_company_name"><%= @company.name %></h2>
+              <h2 id="cp_company_name" ><%= @company.name %></h2>
               <ul>
                 <li>
                   <span class="li-items-limit" title="<%= @company.address %>">
                     <%= @company.address %>
                   </span>
-                </li>
                   <span class="line">|</span>
                   <%= link_to t("framgia_recruit"), @company.url_company, class: "website-company"  %></li>
+                </li>
+
                 <li><span class="li-items-limit" title="<%= @company.majors %>"><%= @company.majors %></span>
               </ul>
             </div>

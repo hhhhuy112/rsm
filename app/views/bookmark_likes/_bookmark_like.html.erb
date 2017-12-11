@@ -1,0 +1,36 @@
+<div id= "info_achievement_<%= bookmark_like.id %>">
+  <div class="res-table__row row animated">
+    <div class="col-md-1 logo text-center">
+      <%= image_tag(bookmark_like.company.logo.url) %>
+    </div>
+    <div class="col-md-5 job-info">
+      <div class="name">
+        <%= link_to bookmark_like.job.name, job_path(bookmark_like.job_id) %>
+      </div>
+      <div class="text-strong"><%= t "bookmark_like.corp" %><%= bookmark_like.company.name %> ,
+        <%= bookmark_like.company.address %></div>
+      <div class="text-strong"><%= t "bookmark_like.level" %><%= bookmark_like.job.level %></div>
+    </div>
+    <div class="col-md-1 applied" >
+      <div class="text-light" style="color: blue">
+        <%= t "bookmark_like.position" %>
+        <span class="hidden-md hidden-lg m-r-xs">:</span>
+      </div>
+      <div class="text-strong"><%= bookmark_like.job.position %></div>
+    </div>
+    <div class="col-md-2 applied">
+      <div class="text-light" style="color: blue">
+        <%= t "bookmark_like.subdate" %>
+        <span class="hidden-md hidden-lg m-r-xs">:</span>
+      </div>
+      <div class="text-strong"><%= l bookmark_like.created_at, format: :long %></div>
+    </div>
+    <div class="col-md-2 applied">
+      <div class="text-strong">
+        <%= link_to bookmark_like.job, class: "btn btn-primary " do  %>
+          <%= t ".apply_now" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

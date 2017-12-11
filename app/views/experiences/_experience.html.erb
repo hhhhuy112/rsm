@@ -1,0 +1,42 @@
+<div id="info_experience_<%= experience.id %>" class="sortable content-section">
+  <% if can? :modify, experience %>
+    <span class="form-btn-edit">
+      <%= link_to experience, method: :delete, data: {confirm: t("experiences._experience.confirm")},
+        class: "btn btn-sm btn-default", remote: true do %>
+        <i class="glyphicon glyphicon-trash"></i>
+      <% end %>
+      <%= link_to edit_experience_path(experience), class: "btn btn-sm btn-default", remote: true do %>
+        <i class="glyphicon glyphicon-pencil"></i>
+      <% end %>
+    </span>
+  <% end %>
+
+  <div class="profile_top_view">
+    <div class="view-field">
+      <h4 class="view-control"><%= experience.name %></h4>
+    </div>
+    <div class="view-field date_profile">
+      <span class="view-control" data-control="from-date">
+        <%= t "profile.experience.from" %>
+        <%= I18n.l experience.start_time, format: :long %>
+        <%= t "profile.experience.to" %>
+        <%= I18n.l experience.end_time, format: :long %>
+      </span>
+    </div>
+  </div>
+
+  <table class="table table_profile">
+    <tr>
+      <td class="view-field">
+        <strong class="view-control"><%= t "profile.experience.company" %></strong>
+      </td>
+      <td class="profile_content"><%= experience.company %></td>
+    </tr>
+    <tr>
+      <td class="view-field">
+        <strong class="view-control"><%= t "profile.experience.project_detail" %></strong>
+      </td>
+      <td class="profile_content"><%= experience.project_detail %></td>
+    </tr>
+  </table>
+</div>

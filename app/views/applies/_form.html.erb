@@ -1,0 +1,5 @@
+<%= simple_form_for @apply, remote: true do |f| %>
+  <%= f.hidden_field :job_id %>
+    <%= f.button :submit, t("apply.applynow"),
+      class: "btn btn-primary btn-block btn-apply track-event", id: "apply_button" %>
+<% end %>

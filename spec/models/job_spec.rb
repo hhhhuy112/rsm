@@ -1,8 +1,9 @@
 require "rails_helper"
 
 RSpec.describe Job, type: :model do
-  let(:job) { FactoryGirl.create :job }
+  let(:job) {FactoryGirl.create :job}
   subject {job}
+
   context "associations" do
     it {should belong_to :user}
     it {should belong_to :company}

@@ -1,0 +1,14 @@
+<tr>
+  <td class="text-center"><strong><%= member.id %></strong></a></td>
+  <td class="visible-lg"><%= member.user.name %></td>
+  <td class="text-center"><strong><%= member.position %></strong></td>
+  <td class="text-center visible-lg"><%= member.user.email %></td>
+  <td class="hidden-xs"><%= member.user.sex %></td>
+  <td class="hidden-xs text-center"><%= member.start_time %></td>
+  <td class="hidden-xs text-center"><%= member.end_time %></td>
+  <td class="text-center">
+    <a href="javascript:void(0)" data-toggle="tooltip" class="btn btn-xs btn-danger">
+      <i class="fa fa-times"></i></a>
+    <% link_to "javascript:void(0)", class: "btn btn-xs btn-danger"  %>
+  </td>
+</tr>

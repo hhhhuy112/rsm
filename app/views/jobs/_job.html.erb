@@ -2,25 +2,31 @@
   <div class="cp_our_job_item show ">
     <div class="row">
       <div class="col-xs-12 col-sm-10 cp_Job_summary_info">
-        <h4><%= link_to job.name, job %></h4>
-        <ul>
-          <li>
-            <%= link_to edit_job_path(job), class: "btn btn-sm btn-default", remote: true do %>
-              <i class="glyphicon glyphicon-pencil"></i>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to job, method: :delete, data: {confirm: t("sure?")},
-              class: "btn btn-sm btn-default", remote: true do %>
-              <i class="glyphicon glyphicon-trash"></i>
-            <% end %>
-          </li>
+        <h4>
+          <%= link_to (job.name + t(".up_to") +
+            job.max_salary.round.to_s + Settings.currency.dollar), job %>
+        </h4>
+        <% if can? :update, job.company %>
+          <ul class="job_control_button">
+            <li>
+              <%= link_to edit_job_path(job), class: "btn btn-sm btn-default", remote: true do %>
+                <i class="glyphicon glyphicon-pencil"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to job, method: :delete, data: {confirm: t("sure?")},
+                class: "btn btn-sm btn-default", remote: true do %>
+                <i class="glyphicon glyphicon-trash"></i>
+              <% end %>
+            </li>
+          </ul>
+        <% end %>
         <ul>
           <li><i class="fa fa-briefcase"></i><%= job.level %></li>
           <li><i class="fa fa-map-marker"></i><%= job.position %></li>
           <li><i class="fa fa-calendar-o"></i><%= l job.created_at, format: :long %></li>
         </ul>
-        <p><%= job.description %></p>
+        <p><%= job.description.first(Settings.jobs.description.limit_show) + t("gap") %></p>
       </div>
       <div class="col-xs-12 col-sm-2 cp_job_view_detail">
         <%= link_to t("view"), job %>

@@ -1,1 +1,3 @@
-$('#info_certificate_<%= @certificate.id %>').hide().after('<%= j render("certificates/form") %>');
+$('#info_certificate_<%= @certificate.id %>').hide();
+$('#info_certificate_<%= @certificate.id %>').after('<div id = "area_form_certificate_<%= @certificate.id %>"><%= j render "certificates/form" %></div>');
+

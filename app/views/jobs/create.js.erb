@@ -4,4 +4,6 @@
 <% else %>
   $('#JobModal').modal('hide');
   $('#jobs').prepend('<%= j render(@job) %>');
+  $('.no_jobs').hide();
+  alertify.success('<%= flash[:success] %>');
 <% end %>

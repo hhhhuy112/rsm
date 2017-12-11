@@ -1,14 +1,20 @@
  <div id= "show-user">
   <h4><%= @user.name %></h4>
-  <small>
+  <p class = "profile_user">
     <i class="glyphicon glyphicon-map-marker"></i>
     <cite title=""><%= @user.address %></cite>
-  </small>
-  <p>
-    <i class="glyphicon glyphicon-envelope"></i><%= @user.email %>
-    <br />
-    <i class="glyphicon glyphicon-gift"></i><%= @user.birthday %>
   </p>
+
+  <p class = "profile_user">
+    <i class="glyphicon glyphicon-envelope"></i>
+    <cite title=""><%= @user.email %></cite>
+  </p>
+
+  <p class = "profile_user">
+    <i class="glyphicon glyphicon-gift"></i>
+    <cite title=""><%= @user.birthday %></cite>
+  </p>
+
   <div class="btn-group">
     <% if can? :update, @user %>
       <%= link_to edit_user_path(current_user), remote:true do %>

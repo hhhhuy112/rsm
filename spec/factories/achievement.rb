@@ -4,6 +4,6 @@ FactoryGirl.define do
     majors "IT"
     received_time "2017-11-01"
     organization "Da Nang university"
-    association :user, :factory => :user
+    association :user, factory: :user
   end
 end

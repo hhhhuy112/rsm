@@ -13,8 +13,12 @@
  *= require plugins
  *= require main
  *= require themes
+ *= require form_tab
  *= require font-awesome
  *= require bootstrap-datepicker
  *= require_tree .
  *= require_self
+ *= require social-share-button
+ *= require_tree ../../../node_modules/alertify/themes
+ *= require form_tab
  */

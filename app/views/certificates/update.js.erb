@@ -1,7 +1,7 @@
 <% if @certificate.errors.any? %>
-  alertify.error('<%= j (render partial: "shared/error_messages", locals: {object: @certificates}) %>');
+  $('#area_form_certificate_<%= @certificate.id %>').html('<%= j render "certificates/form" %>');
 <% else %>
-  $('#edit_certificate_<%= params[:id] %>').remove();
-  $('#info_certificate_<%= params[:id] %>').replaceWith('<%= j render(@certificate) %>').show();
-  alertify.success('<%= flash[:success] %>');
+  $('#edit_certificate_<%= @certificate.id %>').remove();
+  $('#info_certificate_<%= @certificate.id %>').replaceWith('<%= j render @certificate %>').show();
+  alertify.success('<%= @message %>');
 <% end %>

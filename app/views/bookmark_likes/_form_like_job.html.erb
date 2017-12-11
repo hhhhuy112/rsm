@@ -1,0 +1,5 @@
+<%= simple_form_for @like, remote: true do |f| %>
+  <%= f.hidden_field :job_id %>
+  <%= f.hidden_field :bookmark %>
+  <%= f.button :submit, t("bookmark_like.btn_like"), class: "fa fa-thumbs-up" %>
+<% end %>

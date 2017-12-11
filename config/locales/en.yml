@@ -28,8 +28,12 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 en:
+  password: "Password "
+  password_confirmation: "Password confirmation "
+  current_password: "Current password "
   date_format: "%d-%m-%Y"
   not_found: "Couldn't find %{error_message}"
+  recruit: "Company %{company} recruiting"
   search: "Search.."
   app: "App Framgia"
   please: " Please"
@@ -64,11 +68,22 @@ en:
   view: "View"
   home: "Home"
   lastest: "Lastest"
+  account: "Account"
+  search: "search..."
+  gap: "..."
+  errors:
+    not_found_achievement: "Couldn't find Achievement"
+    not_found_certificate: "Couldn't find Certificate"
+    not_found_club: "Couldn't find Club"
+    not_found_experience: "Couldn't find Experiences"
+  can_not_find_user: "Can not find user"
+  can_not_find_company: "Can not find company"
+  can_not_find_achievement: "Can not find achievement"
   date:
     formats:
       default: "%Y-%m-%d"
       short: "%b %d"
-      long: "%d %m %Y"
+      long: "%d/%m/%Y"
   time:
     formats:
       long: "%d/%m/%Y"
@@ -94,6 +109,9 @@ en:
               blank: "Skill cannot be blank."
             position:
               blank: "Position cannot be blank."
+  employer: "Employer"
+  Male: "Male"
+  Female: "Female"
   mailer:
     hi: "Hi "
     thank: " Thanks for used my service"
@@ -123,7 +141,7 @@ en:
       waiting: "Currently waiting confirmation for:"
       leave: "(leave blank if you don't want to change it)"
       characters: "characters minimum"
-      current: " (we need your current password to confirm your changes)"
+      current: " Current password (we need your current password to confirm your changes)"
       cancel: "Cancel my account"
       uphappy: "Unhappy?"
       back: "Back"
@@ -192,6 +210,11 @@ en:
       contact_name: "Contact Name"
       company_phone: "Phone Number"
       company_profile: "Company Profile"
+    show:
+      post_job: "Post Job"
+      jobs: "Jobs "
+      close: "Close"
+      no_jobs: "There is no jobs available at this time"
   achievements:
     create: "Create successful"
     majors: "Majors: "
@@ -206,11 +229,14 @@ en:
     save: "Save"
     cancel: "Cancel"
     notfound: "Achievements does not exit"
-    update_success: "Update successful"
-    can_not_update: "Can not update"
-    destroy_success: "Destroy successful"
-    destroy_fail: "destroy fail"
+    create_success: "The achievement had been add into your profile"
+    create_fail: "Sorry, something was wrong! The achievement can't save"
+    update_success: "The achievement had been update success"
+    update_fail: "Sorry, something was wrong! The achievement can't save update"
+    destroy_success: "The achievement had been delete from profile"
+    destroy_fail: "Sorry, something was wrong! The achievement can't delete"
     confirm: "Are you sure?"
+    describle: "Describing the achievements that you have achieved as detailed as possible in your employability"
   shared:
     error: " Error"
     error_messages: "You have error"
@@ -225,37 +251,40 @@ en:
     save: "Save"
     cancel: "Cancel"
     confirm: "Are you sure to delete ?"
-    success: "Success"
+    create_success: "The certificate had been add into your profile"
+    create_fail: "Sorry, something was wrong! The certificate can't save"
+    update_success: "The certificate had been update success"
+    update_fail: "Sorry, something was wrong! The certificate can't save update"
+    destroy_success: "The certificate had been delete from profile"
+    destroy_fail: "Sorry, something was wrong! The certificate can't delete"
     fail: "Fail"
     plcname: "Minh Micheal"
     plcmajor: "Software Engineering"
     plcorganization: "123 Liverpool, United Kingdom"
     plcclass: "Good"
+    describle: "Describing the certificates that you have been received as detailed as possible in your employability"
   clubs:
     another:
       club_notfound: "Oop! This club isn't exists"
-    create:
-      create_success: "The club had been add into your profile"
-      create_fail: "Sorry, something was wrong! The club can't save"
-    update:
-      update_success: "The club had been update success"
-      update_fail: "Sorry, something was wrong! The club can't save update"
-    destroy:
-      destroy_success: "The club had been delete from profile"
-      destroy_fail: "Sorry, something was wrong! The club can't delete"
+    create_success: "The club had been add into your profile"
+    create_fail: "Sorry, something was wrong! The club can't save"
+    update_success: "The club had been update success"
+    update_fail: "Sorry, something was wrong! The club can't save update"
+    destroy_success: "The club had been delete from profile"
+    destroy_fail: "Sorry, something was wrong! The club can't delete"
     helpers:
       present: "Present"
     _index:
       club_title: "Clubs"
       describle: "Describing the clubs that you have participated in as detailed as possible in your employability"
-      add: "Additonal"
+      add: "Add"
     _club:
       confirm: "Are you sure you want to delete this club?"
       pos: "Position: "
       between: " : "
     _form:
-      name: "Club Name (*)"
-      pos: "Position (*)"
+      name: "Club Name"
+      pos: "Position"
       from: "From"
       to: "To"
       require: "(*) Required Information"
@@ -264,11 +293,8 @@ en:
     model:
       date1: "must be after start date"
       date2: "can't be a date in future"
-    show:
-      post_job: "Post Job"
-      jobs: "Jobs"
-      no_jobs: "There is no jobs available at this time"
-      close: "Close"
+    describle: "Describing the clubs that you have been received as detailed as possible in your employability"
+  jobs:
     form:
       job_name: "Job title"
       description: "Description"
@@ -277,9 +303,10 @@ en:
       skill: "Required Skills"
       content: "Job Detail"
       level: "Required Level"
-  jobs:
-    form:
       save_job: "Save Job"
+      benefit: "Benefit: "
+      remove: "Remove this"
+      add_benefit: "Add more benefit"
     update:
       job_updated: "Job has been updated."
       job_cant_update: "Can not be updated."
@@ -287,6 +314,7 @@ en:
       job_destroyed: "Job has been destroyed."
       job_cant_destroy: "Can not be destroyed"
     show:
+      salary: "Slary up to "
       job_description: "Job Decription"
       job_detail: "Job Detail"
       job_requirement: "Job Requirement"
@@ -307,8 +335,10 @@ en:
       jobs: "Jobs"
       ago: "ago"
       test_salary: "$500 - $700"
+      reward_benefits: "Rewards and Benefits"
     method:
       cant_find_job: "Job can not be found"
+      cant_find_bookmark: "Can not find user bookmared"
       cant_find_employer: "Employer can not be found"
       cant_find_company: "Company can not be found"
     create:
@@ -316,3 +346,156 @@ en:
       job_cant_create: "Job can not be created"
     validates:
       check_max_salary: "Max salary must greater than min salary"
+    job:
+      up_to: " - Up to "
+  experiences:
+    another:
+      exp_notfound: "Oop! This experience isn't exists"
+    create_success: "The club had been add into your profile"
+    create_fail: "Sorry, something was wrong! The club can't save"
+    update_success: "The club had been update success"
+    update_fail: "Sorry, something was wrong! The club can't save update"
+    destroy_success: "The club had been delete from profile"
+    destroy_fail: "Sorry, something was wrong! The club can't delete"
+    helpers:
+      present: "Present"
+    _index:
+      experience_title: "Experiences"
+      describle: "Writing the project that you had participated in. Describing
+        the projects as detailed as possible in your employability"
+      add: "Add"
+    _experience:
+      confirm: "Are you sure you want to delete this experience?"
+      project_name: "Project Name : "
+    _form:
+      name: "Project Name"
+      company: "Company"
+      from: "From"
+      to: "To"
+      require: "(*) Required Information"
+      cancel: "Cancel"
+      save: "Save"
+    describle: "Writing the project that you had participated in describing"
+  validates:
+    start_time_future: "Start date can not be a future day"
+    end_time_future: "End date can not be a future day"
+    end_before_start: "End date must be after Start date"
+  activerecord:
+    errors:
+      models:
+        club:
+          attributes:
+            name:
+              blank: "Name can not be blank"
+              too_long: "Name must be less than 150 characters"
+            position:
+              blank: "Position can not be blank"
+              too_long: "Position must be less than 100 characters"
+            start_time:
+              blank: "Date start can not be blank"
+            end_time:
+              blank: "Date end can not be blank, you can choose present"
+            content:
+              too_long: "Content must be less than 5000 characters"
+              too_short: "Content very short, must be over 20 characters"
+        experience:
+          attributes:
+            name:
+              blank: "Name project can not be blank"
+              too_long: "Name must be less than 150 characters"
+            company:
+              blank: "Name company can not be blank"
+              too_long: "Company must be less than 150 characters"
+            start_time:
+              blank: "Date start can not be blank with date end exists"
+            end_time:
+              blank: "Date end can not be blank with date start exists"
+            project_detail:
+              too_long: "Project detail must be less than 5000 characters"
+              too_short: "Project detail very short, must be over 20 characters"
+        achievement:
+          attributes:
+            name:
+              blank: "Name can not be blank"
+              too_long: "Name must be less than 150 characters"
+            majors:
+              blank: "Majors can not be blank"
+              too_long: "Majors must be less than 150 characters"
+            received_time:
+              blank: "Received time start can not be blank"
+            organization:
+              blank: "Organization can not be blank"
+              too_long: "Organization must be less than 150 characters"
+        certificate:
+          attributes:
+            name:
+              blank: "Name can not be blank"
+              too_long: "Name must be less than 255 characters"
+            majors:
+              blank: "Majors can not be blank"
+              too_long: "Majors must be less than 255 characters"
+            received_time:
+              blank: "Received time start can not be blank"
+            organization:
+              blank: "Organization can not be blank"
+              too_long: "Organization must be less than 255 characters"
+            classification:
+              blank: "Classification can not be blank"
+              too_long: "Classification must be less than 255 characters"
+  layouts:
+    employers:
+      employer:
+        all_member: "All Members"
+        add_member: "Add Member"
+        employer: "Employer"
+        dashboard: "Dashboard"
+        member: "  Member  "
+        header_Style: "Header Style"
+        updates: "Updates"
+        Messages: "Messages"
+        subscriptions: "Subscriptions"
+        profile: "Profile"
+        settings: "Settings"
+        lock_Account: "Lock Account"
+        logout: " Logout"
+      footer_employer:
+        crafted: "Crafted with"
+        by: "by"
+        edu: "Chicken Team"
+        proUI: "ProUI 3.0"
+  employers:
+    members:
+      index:
+        id: "ID"
+        name: "Name"
+        position: "Position"
+        email: "Email"
+        sex: "Sex"
+        start_time: "Start Time"
+        end_time: "End Time"
+        delete: "Delete"
+        add_member: "Add New Member"
+        all_member: "All Members"
+  bookmark_like:
+    save: "Bookmarked"
+    insert: "Bookmark"
+    create: "Bookmark has been created"
+    error: "Bookmark fail"
+    cannot_save: "Bookmark can not be saved"
+    btn_like: "Like"
+    like: "like"
+    liked: "Liked"
+    dislike: "Dislike"
+  placeholder:
+    blank: "No information"
+  apply:
+    havenot: "You have not applied_job"
+    bookmark: "Bookmarked_Job"
+    applyjob: "Applied_Job"
+    applynow: "Apply Now"
+    position: "Position"
+    subdate: "Submit_Date"
+    corp: "Corp : "
+    level: "Level : "
+    applied: "Applied"
+    fail: "Fail"

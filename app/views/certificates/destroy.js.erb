@@ -1,6 +1,9 @@
-<% if flash[:success].present? %>
+<% if @success.present? %>
   $('#info_certificate_<%= @certificate.id %>').remove();
-  alertify.success('<%= flash[:success] %>');
+  <% if @certificates.blank? %>
+    $('.placeholder-certificate').show();
+  <% end %>
+  alertify.success('<%= @success %>');
 <% else %>
-  alertify.error('<%= flash[:danger] %>');
+  alertify.error('<%= @destroy %>');
 <% end %>

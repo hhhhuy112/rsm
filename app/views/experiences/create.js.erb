@@ -1,0 +1,10 @@
+<% if @experience.errors.any? %>
+  $('#btn-add-experience').hide();
+  $('#area_form_experience').html('<%= j render "experiences/form" %>');
+<% else %>
+ $('.placeholder-experience').hide();
+  $('#area_form_experience').remove();
+  $('#btn-add-experience').show();
+  $('#form-experience').append('<%= j render @experience %>');
+  alertify.success('<%= @message %>');
+<% end %>

@@ -1,6 +1,7 @@
 <% if @achievement.errors.any? %>
-  alertify.error('<%= j (render partial: "shared/error_messages", locals: {object: @achievement}) %>');
+  $('#area_form_achievement_<%= @achievement.id %>').html('<%= j render "achievements/form" %>');
 <% else %>
-  $('#show-form').hide(1000);
-  $('#info_achievement_<%= params[:id] %>').replaceWith('<%= j render(@achievement) %>').show();
+  $('#area_form_achievement_<%= @achievement.id %>').remove();
+  $('#info_achievement_<%= @achievement.id %>').replaceWith('<%= j render @achievement %>').show();
+  alertify.success('<%= @message %>');
 <% end %>

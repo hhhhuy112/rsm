@@ -1,1 +1,2 @@
-$('#info_club_<%= params[:id] %>').hide().after('<%= j render("clubs/form") %>');
+$('#info_club_<%= @club.id %>').hide();
+$('#info_club_<%= @club.id %>').after('<div id = "area_form_club_<%= @club.id %>"><%= j render "clubs/form" %></div>');

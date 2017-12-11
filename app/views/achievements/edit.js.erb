@@ -1,1 +1,3 @@
-$('#info_achievement_<%= params[:id] %>').hide().after('<%= j render("achievements/form") %>');
+$('#info_achievement_<%= @achievement.id %>').hide();
+$('#info_achievement_<%= @achievement.id %>').after('<div id = "area_form_achievement_<%= @achievement.id %>"><%= j render "achievements/form" %></div>');
+

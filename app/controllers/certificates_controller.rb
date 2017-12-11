@@ -1,29 +1,26 @@
 class CertificatesController < ApplicationController
-  before_action :load_certificate, only: %i(edit update destroy)
+  before_action :authenticate_user!
+  before_action :current_ability
+  load_and_authorize_resource param_method: :params_certificate
+  before_action :load_certificates , only: :destroy
 
-  def new
-    @certificate = Certificate.new
-  end
 
   def create
-    @certificate = Certificate.new params_certificate
     respond_to do |format|
       if @certificate.save
-        format.js{flash[:success] = t "certificate.success"}
+        format.js{@message = t "certificate.create_success"}
       else
-        format.js{flash[:danger] = t "certificate.fail"}
+        format.js
       end
     end
   end
 
-  def edit; end
-
   def update
     respond_to do |format|
       if @certificate.update_attributes params_certificate
-        format.js{flash[:success] = t "certificate.success"}
+        format.js{@message = t "certificate.update_success"}
       else
-        format.js{flash[:danger] = t "certificate.fail"}
+        format.js
       end
     end
   end
@@ -31,23 +28,20 @@ class CertificatesController < ApplicationController
   def destroy
     respond_to do |format|
       if @certificate.destroy
-        format.js{flash[:success] = t "certificate.success"}
+        format.js{@success = t "certificate.destroy_success"}
       else
-        format.js{flash[:danger] = t "certificate.fail"}
+        format.js{@fail = t "certificate.destroy_fail"}
       end
     end
   end
 
   private
 
-  def params_certificate
-    params.require(:certificate).permit :name, :majors, :organization, :classification, :received_time, :user_id
+  def load_certificates
+    @certificates = current_user.certificates
   end
 
-  def load_certificate
-    @certificate = Certificate.find_by id: params[:id]
-    return if @certificate
-    flash[:warning] = t "certificate.fail"
-    redirect_to user_path
+  def params_certificate
+    params.require(:certificate).permit :name, :majors, :organization, :classification, :received_time
   end
 end

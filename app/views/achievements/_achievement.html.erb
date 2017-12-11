@@ -1,35 +1,37 @@
 <div id="info_achievement_<%= achievement.id %>" class="sortable content-section">
-  <span class="form-btn-edit">
-    <%= link_to achievement_path(achievement), method: :delete, data: {confirm: t("achievements.confirm")},
-      class: "btn btn-sm btn-default", remote: true do %>
-      <i class="glyphicon glyphicon-trash"></i>
-    <% end %>
-    <%= link_to edit_achievement_path(achievement), class: "btn btn-sm btn-default", remote: true do %>
-      <i class="glyphicon glyphicon-pencil"></i>
-    <% end %>
-  </span>
-  <div>
+  <% if can? :modify, achievement %>
+    <span class="form-btn-edit">
+      <%= link_to achievement_path(achievement), method: :delete, data: {confirm: t("achievements.confirm")},
+        class: "btn btn-sm btn-default", remote: true do %>
+        <i class="glyphicon glyphicon-trash"></i>
+      <% end %>
+      <%= link_to edit_achievement_path(achievement), class: "btn btn-sm btn-default", remote: true do %>
+        <i class="glyphicon glyphicon-pencil"></i>
+      <% end %>
+    </span>
+  <% end %>
+  <div class="profile_top_view">
     <div class="view-field">
       <h4 class="view-control"><%= achievement.name %></h4>
     </div>
-  </div>
-  <div>
-    <div class="view-field">
-      <strong class="view-control"><%= t "achievements.majors" %><%= achievement.majors %></strong>
+    <div class="view-field date_profile">
+      <span class="view-control" data-control="from-date">
+        <%= I18n.l achievement.received_time, format: :long %>
+      </span>
     </div>
   </div>
-  <div>
-    <div class="view-field">
-      <strong class="view-control"><%= t "achievements.organization" %><%= achievement.organization %></strong>
-    </div>
-  </div>
-  <div>
-    <div class="view-field">
-      <p>
-        <span class="view-control" data-control="from-date">
-          <%= I18n.l achievement.received_time, format: :long %>
-        </span>
-      </p>
-    </div>
-  </div>
+  <table class= "table table_profile">
+    <tr>
+      <td class="view-field">
+        <strong class="view-control"><%= t "profile.achievement.majors" %></strong>
+      </td>
+      <td class="profile_content"><%= achievement.majors %></td>
+    </tr>
+    <tr>
+      <td class="view-field">
+        <strong class="view-control"><%= t "profile.achievement.organization" %></strong>
+      </td>
+      <td class="profile_content"><%= achievement.organization %></td>
+    </tr>
+  </table>
 </div>

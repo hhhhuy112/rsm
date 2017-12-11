@@ -44,17 +44,19 @@
                     </div>
                   <% end %>
                   <div class="col-md-12 col-md-offset-0 show_jobs">
-                    <% if @company.jobs.any? %>
+                    <% if @jobs.any? %>
                       <h3 class="jobs-count">
                         <%= t ".jobs" %>
-                        <span id="jobs-numbers"> <%= @company.jobs.size %> </span>
+                        <span id="jobs-numbers"><%= @jobs.total_count %></span>
                       </h3>
                       <div id="jobs">
                         <%= render @jobs %>
                       </div>
                     <% else %>
                       <h3><%= t ".jobs" %></h3>
-                      <div class="no_jobs"><%= t"no_jobs" %></div>
+                      <div id="jobs">
+                        <div class="no_jobs"><%= t".no_jobs" %></div>
+                      </div>
                     <% end %>
                     <div id = "pag" class = "row text-center">
                       <%= paginate @jobs %>

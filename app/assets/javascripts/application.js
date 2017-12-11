@@ -15,7 +15,7 @@
 //= require rails-ujs
 //= require modernizr-2.7.1-respond-1.4.2.min
 //= require jquery-1.11.1.min
-//= require plugins
+//= require plugins.min
 //= require bootstrap
 //= require app
 //= require login
@@ -26,3 +26,6 @@
 //= require profile
 //= require pagination
 //= require clear_value
+//= require social-share-button
+//= require alertify/lib/alertify.min.js
+//= require cocoon

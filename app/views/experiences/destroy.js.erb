@@ -1,0 +1,9 @@
+<% if @success.present? %>
+  $('#info_experience_<%= @experience %>').remove();
+  <% if @experiences.blank? %>
+    $('.placeholder-experience').show();
+  <% end %>
+  alertify.success('<%= @success %>');
+<% else %>
+  alertify.error('<%= @destroy %>');
+<% end %>

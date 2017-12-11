@@ -1,0 +1,6 @@
+<% if @apply.errors.any? %>
+  alertify.error('<%= j (render partial: "shared/error_messages", locals: {object: @apply}) %>');
+<% else %>
+  alertify.success('<%= flash[:success] %>');
+  $('#apply_button').hide().after('<button type = "button" class = "btn btn-primary btn-block btn-apply disabled"><%= I18n.t "apply.applied" %></button>');
+<% end %>

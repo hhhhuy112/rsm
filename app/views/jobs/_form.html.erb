@@ -1,7 +1,6 @@
 <div class="job-form">
   <%= simple_form_for @job, remote: true do |f| %>
-    <%= f.hidden_field :company_id,
-      value: current_user.members.last.company.id %>
+    <%= f.hidden_field :company_id %>
     <%= f.input :name, label: t(".job_name"),
       input_html: {class: "form-control job-create-name"} %>
     <%= f.input :description, label: t(".description"),
@@ -14,6 +13,18 @@
         <%= f.input :max_salary, input_html: {class: "form-control"} %>
       </div>
     </div>
+
+    <p><strong><%= t ".benefit" %></strong></p>
+    <div class="reward_benefits">
+      <%= f.fields_for :reward_benefits do |reward| %>
+        <%= render "jobs/reward_benefit_fields", f: reward %>
+      <% end %>
+      <div class="links add_benefit_links">
+        <%= link_to_add_association t(".add_benefit"), f, :reward_benefits,
+          partial: "jobs/reward_benefit_fields" %>
+      </div>
+    </div>
+
     <%= f.input :language, label: t(".language"),
       input_html: {class: "form-control"} %>
     <%= f.input :position,

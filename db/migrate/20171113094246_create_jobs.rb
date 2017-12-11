@@ -7,6 +7,7 @@ class CreateJobs < ActiveRecord::Migration[5.1]
       t.string :language
       t.string :skill
       t.string :position
+      t.text :description
       t.references :user, foreign_key: true
       t.references :company, foreign_key: true
 

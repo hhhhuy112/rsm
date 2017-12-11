@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :club do
     name {Faker::Name.name}
-    user_id 1
+    association :user_id
     created_at Date.today
     updated_at Date.today
     position {Faker::Job.title}

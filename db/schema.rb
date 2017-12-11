@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20171201014822) do
   end
 
   create_table "applies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.boolean "status"
+    t.integer "status", default: 0
     t.bigint "user_id"
     t.bigint "job_id"
     t.datetime "created_at", null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20171201014822) do
   end
 
   create_table "bookmark_likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.boolean "bookmark"
+    t.integer "bookmark", default: 0
     t.bigint "user_id"
     t.bigint "job_id"
     t.datetime "created_at", null: false
@@ -75,6 +75,11 @@ ActiveRecord::Schema.define(version: 20171201014822) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "position", null: false
+    t.date "start_time"
+    t.date "end_time"
+    t.text "content"
+    t.boolean "current", default: false
     t.index ["name"], name: "index_clubs_on_name"
     t.index ["user_id"], name: "index_clubs_on_user_id"
   end
@@ -135,11 +140,11 @@ ActiveRecord::Schema.define(version: 20171201014822) do
     t.string "language"
     t.string "skill"
     t.string "position"
+    t.text "description"
     t.bigint "user_id"
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "description"
     t.float "min_salary", limit: 24
     t.float "max_salary", limit: 24
     t.index ["company_id"], name: "index_jobs_on_company_id"
@@ -237,7 +242,7 @@ ActiveRecord::Schema.define(version: 20171201014822) do
     t.string "email"
     t.string "phone"
     t.text "address"
-    t.boolean "sex"
+    t.integer "sex"
     t.integer "role", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -250,6 +255,7 @@ ActiveRecord::Schema.define(version: 20171201014822) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "picture"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

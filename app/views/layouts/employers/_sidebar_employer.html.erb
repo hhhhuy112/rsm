@@ -1,0 +1,65 @@
+<div id="sidebar">
+  <div id="sidebar-scroll">
+    <div class="sidebar-content">
+      <%= link_to employers_companies_path, class: "sidebar-brand" do %>
+        <i class="fa fa-bolt" aria-hidden="true"></i>
+        <span class="sidebar-nav-mini-hide"><strong><%= t "employer" %></span>
+      <% end %>
+      <div class="sidebar-section sidebar-user clearfix sidebar-nav-mini-hide">
+        <div class="sidebar-user-avatar">
+          <%= image_tag current_user.picture.url  %>
+        </div>
+        <div class="sidebar-user-name"><%= current_user.name %></div>
+        <div class="sidebar-user-links">
+          <%= link_to "#" do %>
+            <i class="fa fa-user" aria-hidden="true"></i>
+          <% end %>
+
+          <%= link_to "#" do %>
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+          <% end %>
+
+          <%= link_to "#" do %>
+            <i class="fa fa-cog" aria-hidden="true"></i>
+          <% end %>
+
+          <%= link_to "#" do %>
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      </div>
+      <ul class="sidebar-nav">
+        <li>
+          <%= link_to employers_companies_path do %>
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <span class="sidebar-nav-mini-hide"><%= t ".dashboard" %></span>
+          <% end %>
+        </li>
+        <li>
+          <a class="sidebar-nav-menu"><i class="fa fa-user" aria-hidden="true"></i>
+            <span class="sidebar-nav-mini-hide"><%= t ".member" %></span></a>
+          <ul>
+            <li>
+              <%= link_to employers_members_path do %>
+                <i class="fa fa-globe" aria-hidden="true"></i>
+                <%= t ".all_member" %>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="sidebar-nav-menu"><i class="fa fa-user" aria-hidden="true"></i>
+            <span class="sidebar-nav-mini-hide">Job</span></a>
+          <ul>
+            <li>
+              <%= link_to employers_jobs_path do %>
+                <i class="fa fa-globe" aria-hidden="true"></i>
+                All Job
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

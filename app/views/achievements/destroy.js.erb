@@ -1,6 +1,9 @@
-<% if flash[:success].present? %>
+<% if @success.present? %>
   $('#info_achievement_<%= @achievement.id %>').remove();
-  alertify.success('<%= flash[:success] %>');
+  <% if @achievements.blank? %>
+    $('.placeholder-achievement').show();
+  <% end %>
+  alertify.success('<%= @success %>');
 <% else %>
-  alertify.error('<%= flash[:danger] %>');
+  alertify.error('<%= @destroy %>');
 <% end %>

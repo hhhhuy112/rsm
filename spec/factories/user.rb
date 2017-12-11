@@ -4,7 +4,7 @@ FactoryGirl.define do
     password "123123123"
     password_confirmation "123123123"
     sex 1
-    role 2
+    role "user"
     phone "0965600364"
     sequence(:email) {|n| "psrsson#{n}@example.com" }
     address "Tam Ky"

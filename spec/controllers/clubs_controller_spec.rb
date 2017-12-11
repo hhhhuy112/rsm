@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe ClubsController, type: :controller do
-  let(:club) {FactoryGirl.create :club}
   let(:user) {FactoryGirl.create :user}
+  let(:club) {FactoryGirl.create :club, user_id: user.id}
   subject {club}
   before { sign_in user }
 
@@ -21,7 +21,7 @@ RSpec.describe ClubsController, type: :controller do
   describe "PATCH #update" do
     it "update club success" do
       patch :update, params: { id: club.id, club:{name: "Vux.", position: "member",
-        start_time: "10/12/2017", end_time: "11/11/2017", user_id: user.id} },
+        start_time: 100.day.ago, end_time: 10.day.ago, user_id: user.id} },
           xhr: true, format: "js"
       expect(flash[:success]).to match(I18n.t("clubs.update.update_success"))
     end
@@ -35,7 +35,7 @@ RSpec.describe ClubsController, type: :controller do
   describe "POST #create" do
     it "create club success" do
       post :create, params: {club:{name: "Vux.", position: "member",
-        start_time: "10/12/2017", end_time: "11/11/2017", user_id: user.id} },
+        start_time: 100.day.ago, end_time: 10.day.ago, user_id: user.id} },
           xhr: true, format: "js"
       expect(flash[:success]).to match(I18n.t("clubs.create.create_success"))
     end

@@ -255,7 +255,7 @@ th {
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -6827,7 +6827,7 @@ body{background-color: #ecf0f1}
 .cp_our_jobs_section .panel-default > .panel-heading strong{font-weight: 500}
 .cp_our_jobs_section .panel-default > .panel-heading h4{font-weight: 400}
 /* company basic info */
-.cp_basic_info{display: inline-block;width: 100%;padding: 15px 0;border-bottom: 1px solid #337ab7;background-color: #fff;}
+.cp_basic_info{display: inline-block;width: 100%;padding: 15px 0;background-color: #fff;}
 .cp_basic_info h2{font-size: 24px; font-weight: 400; margin: 0;padding: 0 0 5px;}
 .cp_logo{max-width: 200px;}
 .cp_logo div{width: 170px; height: 75px;background-color: #fff; position: relative; text-align: center; line-height: 80px;}
@@ -7206,7 +7206,7 @@ a.ic-social-google:hover span{background-color: #f34a38}
 .cp_our_job_item h4 {
     font-size: 16px;
     text-transform: capitalize;
-    font-weight: 500 ! important;
+    font-weight: 600 ! important;
     margin: 0;padding: 0 0 5px;
 }
 .cp_our_job_item h4 a{color: #333;}
@@ -8867,7 +8867,6 @@ footer .vnw-footer .copyright{padding-top: 12px;}
 }
 
 .info_company {
-  border-bottom-color:#00b9f2;
   border-top: 1px solid #00b9f2;
 }
 

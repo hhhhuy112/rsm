@@ -1,0 +1,7 @@
+<% if @experience.errors.any? %>
+  $('#area_form_experience_<%= @experience.id %>').html('<%= j render "experiences/form" %>');
+<% else %>
+  $('#area_form_experience_<%= @experience.id %>').remove();
+  $('#info_experience_<%= @experience.id %>').replaceWith('<%= j render @experience %>').show();
+  alertify.success('<%= @message %>');
+<% end %>

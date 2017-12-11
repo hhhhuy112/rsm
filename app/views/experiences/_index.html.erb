@@ -1,0 +1,23 @@
+<div class="section-detail section-employment">
+  <div class="box border-info">
+    <fieldset>
+      <legend class="box-md">
+        <i class="fa fa-fw fa-bank"></i><%= t "experiences._index.experience_title" %>
+      </legend>
+      <div class="placeholder-experience box-md <%= define_style_placeholder @experiences %>">
+        <p class="placeholder">
+          <%= current_user.is_user?(@user) ? t("experiences.describle") : t("placeholder.blank") %>
+        </p>
+      </div>
+      <div id="form-experience">
+        <%= render partial: "experiences/experience", collection: @experiences, as: :experience %>
+      </div>
+      <% if  current_user.is_user? @user %>
+        <%= link_to t("experiences._index.add"), new_experience_path, id: "btn-add-experience",
+          class: "btn btn-default btn-block no-border add-one-more-section", remote: true %>
+      <% end %>
+      <div id = "area_form_experience">
+      </div>
+    </fieldset>
+  </div>
+</div>

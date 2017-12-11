@@ -1,7 +1,12 @@
 class CompaniesController < ApplicationController
   layout "employer"
+
+  before_action :authenticate_user!, only: %i(update edit destroy)
   before_action :load_company, only: %i(show edit update)
   before_action :load_jobs, only: :show
+  before_action :create_job, only: :show, if: :user_signed_in?
+  before_action :create_reward_benefits,
+    only: :show, if: :user_signed_in?
 
   def show; end
 
@@ -31,7 +36,14 @@ class CompaniesController < ApplicationController
   end
 
   def load_jobs
-    @job = current_user.jobs.build if user_signed_in?
     @jobs = @company.jobs.sort_lastest.page(params[:page]).per(Settings.pagination.jobs_perpage)
+  end
+
+  def create_job
+    @job = @company.jobs.new user_id: current_user.id
+  end
+
+  def create_reward_benefits
+    @job.reward_benefits.build
   end
 end

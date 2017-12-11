@@ -1,7 +1,7 @@
 <% if @club.errors.any? %>
-  alertify.error('<%= j (render partial: "shared/error_messages", locals: {object: @club}) %>');
+  $('#area_form_club_<%= @club.id %>').html('<%= j render "clubs/form" %>');
 <% else %>
-  $('#edit_club_<%= params[:id] %>').remove();
-  $('#info_club_<%= params[:id] %>').replaceWith('<%= j render(@club) %>').show();
-  alertify.success('<%= flash[:success] %>');
+  $('#area_form_club_<%= @club.id %>').remove();
+  $('#info_club_<%= @club.id %>').replaceWith('<%= j render @club %>').show();
+  alertify.success('<%= @message %>');
 <% end %>

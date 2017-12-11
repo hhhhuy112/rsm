@@ -1,8 +1,10 @@
 <% if @certificate.errors.any? %>
-  alertify.error('<%= j (render partial: "shared/error_messages", locals: {object: @certificates}) %>');
+  $('#btn-add-certificate').hide();
+  $('#area_form_certificate').html('<%= j render("certificates/form") %>');
 <% else %>
+  $('.placeholder-certificate').hide();
   $('#new-certificate').remove();
   $('#btn-add-certificate').show();
-  $('#form-certificate').append('<%= j render(@certificate) %>');
+  $('#form-certificate').append('<%= j render @certificate %>');
+  alertify.success('<%= @message %>');
 <% end %>
-
