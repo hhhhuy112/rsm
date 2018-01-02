@@ -28,4 +28,6 @@
   <% end %>
   </td>
 </tr>
-<%= render partial: "employers/appointments/appointment", locals:{apply: apply, members: @members} %>
+<div class="appointment">
+  <%= render partial: "employers/appointments/appointment", locals:{apply: apply, template_members: @template_members, template_users:  @template_users} %>
+</div>

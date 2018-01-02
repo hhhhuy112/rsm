@@ -4,6 +4,8 @@ class Employers::JobsController < Employers::EmployersController
 
   def show
     @members = @company.members
+    @template_members = current_user.templates.template_member
+    @template_users = current_user.templates.template_user
     @appointment = @company.appointments.build
     @applies = @job.applies.page(params[:page]).per Settings.apply.page
   end

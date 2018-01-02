@@ -5,10 +5,13 @@ class Employers::AppointmentsController < ApplicationController
     respond_to do |format|
       @apply = @appointment.apply
       if @appointment.save
-        SendEmailUserJob.perform_later(@appointment)
+        load_template_user
+        SendEmailUserJob.perform_later(@appointment,@template_user)
         create_inforappointments if params[:states].present?
         format.js{@message = t "appointment.create_success"}
       else
+        @template_members = current_user.templates.template_member
+        @template_users = current_user.templates.template_user
         @members = @appointment.company.members
         format.js
       end
@@ -31,8 +34,17 @@ class Employers::AppointmentsController < ApplicationController
       inforappointments << info_appointment
     end
     Inforappointment.import inforappointments
+    load_template_member
     @appointment.inforappointments.each do |member|
-      SendEmailJob.perform_later(member)
+      SendEmailJob.perform_later(member,@template)
     end
+  end
+
+  def load_template_member
+    @template = Template.find_by id: params[:template]
+  end
+
+  def load_template_user
+    @template_user = Template.find_by id: params[:template_user]
   end
 end

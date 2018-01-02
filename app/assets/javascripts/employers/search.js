@@ -54,5 +54,3 @@ function get_value_checked(){
   });
   return values;
 }
-
-

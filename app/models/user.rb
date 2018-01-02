@@ -3,6 +3,7 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable
   has_many :achievements, dependent: :destroy
   has_many :clubs, dependent: :destroy
+  has_many :templates, dependent: :destroy
   has_many :certificates, dependent: :destroy
   has_many :experiences, dependent: :destroy
   has_many :friends, dependent: :destroy

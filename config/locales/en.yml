@@ -28,6 +28,9 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 en:
+  please_selecta: "--- Please Select ---"
+  templates:
+    error: "Id template not found"
   accountactivations:
     success: "Agree success!"
     fail: "Agree fail!"
@@ -37,7 +40,11 @@ en:
     info: "You not agree!"
     info_not: "Update fail"
     welcome_email:
+      time: "255-257 Hung Vuong"
+      address: "9h30 22/03/2018"
       agree: "Agree"
+      job: " Internal Advertising Facilitator"
+      company: "Framgia "
       not_agree: "Not agree"
       subject: "WELCOME TO FRAMGIA VIET NAM"
       see_more: "See more "
@@ -405,6 +412,10 @@ en:
   jobs:
     apply:
       click: "click"
+      member: "Interview"
+      view: "View"
+      user: "Candidate"
+      select: " Select template mail"
       interviewe: "create an interview schedule"
       address: "Address"
       start: "Starttime"
@@ -730,6 +741,7 @@ en:
     not_curriculum: "You has not Curriculum vitae "
     new_cv: "Upload New CV: "
     apply:  "Apply"
+    approve: "Approve"
     curriculum: "Curriculum vitae: "
     introducing: "Introducing letter "
     news_cv: "You want to upload a new curriculum vitae"

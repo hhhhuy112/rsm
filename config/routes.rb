@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     resources :activities
     resources :appointments
     resources :confirm_appointments, only: :edit
+    resources :templates
   end
   resources :bookmark_likes
   resources :experiences

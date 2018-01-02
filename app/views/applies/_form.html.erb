@@ -27,7 +27,7 @@
                     <%= image_tag current_user.picture.url, class: "img-circle img-thumbnail isTooltip",
                       size: Settings.img_cv %>
                   <% else %>
-                    <%= image_tag "avatar_2x.png", class: "img-responsive" %>
+                    <%= image_tag "avatar_2x.png", class: "img-circle img-thumbnail isTooltip", size: Settings.img_cv %>
                   <% end %>
                 </div>
                 <div class="col-md-5">

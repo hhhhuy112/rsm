@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="body-build">
+    <div class="body-first">
+      <div class="first-a">
+        <div class="start-body">
+          <div class="a-left">
+            <a>
+              <%= image_carrierwave_tag @apply.company, class: "img-lastss" %>
+            </a>
+            <div class="month">
+              <%= t "company_mailer.welcome_email.framgia" %>
+            </div>
+          </div>
+        </div>
+        <div class="clear-both"></div>
+      </div>
+      <div class="b-first"></div>
+      <div class="b-body">
+        <div class="menu-body">
+          <h2><%= t "company_mailer.welcome_email.received" %></h2>
+          <b class="title-first">
+            <%= t "company_mailer.welcome_email.user" %><%= @apply.information[:name] %>,
+          </b>
+          <p class="count">
+            <%= t "company_mailer.welcome_email.infor" %>
+            <%= @apply.job.name %>
+            <%= t "company_mailer.welcome_email.of_company" %>,
+            <%= t "company_mailer.welcome_email.pleas" %>
+            <%= @appointment.address %>
+            <%= t "company_mailer.welcome_email.one" %>
+            <%= l @appointment.start_time, format: :long %>
+            <%= t "company_mailer.welcome_email.to_get" %>
+          </p>
+          <h2><%= t "company_mailer.welcome_email.good" %></h2>
+        </div>
+        <div class="bodyname">
+          <div class="botlast">
+            <div class="secondlast">
+              <div class="vooter">
+                <%= email_image_tag "framgia.png", class: "img-lastss" %>
+              </div>
+              <div class="bottom-high">
+                <p style="" class="font-last">
+                  <%= t "company_mailer.welcome_email.addres" %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

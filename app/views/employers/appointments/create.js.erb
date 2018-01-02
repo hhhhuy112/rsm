@@ -1,5 +1,5 @@
 <% if @appointment.errors.any? %>
-  $("#appointment_apply_<%= @apply.id %>").html('<%= j (render partial: "employers/appointments/form" ,locals: {apply: @apply, members: @members}) %>');
+  $("#appointment_apply_<%= @apply.id %>").html('<%= j (render partial: "employers/appointments/form", locals: {apply: @apply, members: @members, template_members: @template_members, template_users:  @template_users}) %>');
 <% else %>
   $('#new_appointment')[0].reset();
   $('#myModal_<%= @apply.id %>').modal('hide');

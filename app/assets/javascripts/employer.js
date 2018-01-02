@@ -29,3 +29,4 @@
 //= require cocoon
 //= require employer/check-toggle
 //= require alertify/lib/alertify.min.js
+//= require employers/template

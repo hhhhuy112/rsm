@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="body-build">
+    <div class="body-first">
+      <div class="first-a">
+        <div class="start-body">
+          <div class="a-left">
+            <a>
+              <%= image_carrierwave_tag @appointment.company, class: "img-lastss" %>
+            </a>
+            <div class="month">
+              <%= t "company_mailer.welcome_email.framgia" %>
+            </div>
+          </div>
+        </div>
+        <div class="clear-both"></div>
+      </div>
+      <div class="b-first"></div>
+      <div class="b-body">
+        <div class="menu-body">
+          <h2><%= t "company_mailer.welcome_email.received" %></h2>
+          <b class="title-first">
+            <%= t "company_mailer.welcome_email.user" %>
+            <%= @user.name %>,
+          </b>
+          <p class="count">
+            <%= t "company_mailer.welcome_email.have_interview" %>
+            <%= @appointment.apply.information[:name] %>
+            <%= t "company_mailer.welcome_email.arrange" %>,
+          </p>
+          <h2><%= t "company_mailer.welcome_email.good" %></h2>
+        </div>
+        <div class="bodyname">
+          <div class="floatl">
+            <%= link_to t("company_mailer.welcome_email.agree"),
+              edit_employers_confirm_appointment_url(@inforappointment.id,
+              activation_digest: @inforappointment.activation_digest), class: "button" %>
+          </div>
+          <div class="floata">
+          <%= link_to t("company_mailer.welcome_email.not_agree"),
+            edit_employers_confirm_appointment_url(@inforappointment.id,
+            activation_digest: @inforappointment.activation_digest, not_agree: t("not_agree")),
+            class: "buttona" %>
+          </div>
+          <div class ="clear"></div>
+          <div class= "margin-top"></div>
+          <div class="botlast">
+            <div class="secondlast">
+              <div class="vooter">
+                <%= email_image_tag "framgia.png", class: "img-lastss" %>
+              </div>
+              <div class="bottom-high">
+                <p style="" class="font-last">
+                  <%= t "company_mailer.welcome_email.addres" %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

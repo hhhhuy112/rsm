@@ -175,3 +175,24 @@ end
     job_id: 1
   )
 end
+1.upto(2) do |x|
+  Template.create!(
+    template_body:
+      '<div class="container"><div class="body-build"><div class="body-first">
+      <div class="first-a"><div class="start-body"><div class="a-left"><a>@image_company@</a>
+      <div class="month">FRAMGIA RECRUIT</div></div></div>
+      <div class="clear-both"></div></div><div class="c-first"></div>
+      <div class="b-body"><div class="menu-body"><h2>Your application has been received</h2>
+      <b class="title-first">Hello you@user_name@</b><p class="count">You have an interview with you
+      @name_applied@Please arrange time for the interview to take place well,</p>
+      <h2>Good luck</h2></div><div class="bodyname"><div class="floatl">@agree@</div>
+      <div class="floata">@not_agree@</div><div class ="clear"></div>
+      <div class= "margin-top"></div><div class="botlast"><div class="secondlast">
+      <div class="vooter">@image_framgia@</div>
+      <div class="bottom-high"><p style="" class="font-last">255-257 Hung vuong, Hai Chau, Da Nang
+      </p></div></div></div></div></div></div></div></div>',
+    user_id: 1,
+    name: Faker::Name.name,
+    type_of: x-1
+  )
+end

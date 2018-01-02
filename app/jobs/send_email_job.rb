@@ -1,8 +1,9 @@
 class SendEmailJob < ApplicationJob
   queue_as :default
 
-  def perform user
+  def perform user,template
     @user = user
-    CompanyMailer.send_member(@user).deliver_later
+    @template = template
+    CompanyMailer.send_member(@user, @template).deliver_later
   end
 end
