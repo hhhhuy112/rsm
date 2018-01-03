@@ -165,8 +165,9 @@
               </ul>
             </div>
             <p>
-              <a class="fvn-btn btn-2" href="https://careers-framgia.icims.com/jobs/search?ss=1">
-                <%= t "homepage.vn.team.join" %></a>
+              <%= link_to jobs_path, class: "fvn-btn btn-2" do %>
+                <%= t "homepage.vn.team.join" %>
+              <% end %>
             </p>
           </div>
           <div class="col-md-6">
@@ -190,8 +191,11 @@
     </section>
     <section class="section-check-career alt-bg">
       <h2><%= t "homepage.vn.career.h2" %></h2>
-      <p><a class="fvn-btn btn-1" href="https://careers-framgia.icims.com/jobs/search?ss=1">
-        <%= t "homepage.vn.career.content_1" %></a></p>
+      <p>
+        <%= link_to jobs_path, class: "fvn-btn btn-1" do %>
+          <%= t "homepage.vn.career.content_1" %>
+        <% end %>
+      </p>
     </section>
   </div>
 </article>
