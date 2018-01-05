@@ -14,19 +14,43 @@ class CompanyMailer < ApplicationMailer
     mail(to: @apply.information[:email], subject: t("company_mailer.welcome_email.subject"))
   end
 
-  def approved_user appointment, template
-    @appointment = appointment
-    @template = template
-    @apply = @appointment.apply
-    @company = @apply.company
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fa774d8... fix status applies 1
+  def review_not_selected  apply, company
+    @apply = apply
+    @company = company
     mail(to: @apply.information[:email], subject: t("company_mailer.welcome_email.subject"))
   end
 
-  def send_member inforappointment, template
+  def interview_scheduled_candidate appointment, apply, template, company
+<<<<<<< HEAD
+    @appointment = appointment
+    @template = template
+    @apply = apply
+    @company = company
+=======
+  def approved_user appointment, apply, template
+    @appointment = appointment
+    @template = template
+    @apply = apply
+>>>>>>> bbf4e01... fix status apply
+=======
+    @appointment = appointment
+    @template = template
+    @apply = apply
+    @company = company
+>>>>>>> fa774d8... fix status applies 1
+    mail(to: @apply.information[:email], subject: t("company_mailer.welcome_email.subject"))
+  end
+
+  def interview_scheduled_interviewer inforappointment, template, company
     @inforappointment = inforappointment
     @appointment = @inforappointment.appointment
     @template = template
     @user = @inforappointment.user
+    @company = company
     mail(to: @user.email, subject: t("company_mailer.welcome_email.subject"))
   end
 end

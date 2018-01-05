@@ -2,10 +2,10 @@
     $('#show-view').html('<%= t "templates.error" %>');
 <% else %>
   <% if @template.template_member? %>
-    $('#content-template_<%= @apply %>').hide(1000);
-    $('#content-template_<%= @apply %>').html("<%= j show_exampleview_user(@template).html_safe %>").show(1000);
+    $('#content-template').hide(1000);
+    $('#content-template').html('<%= j show_exampleview_user(@template).html_safe %>').show(1000);
   <% else %>
-    $('#content-template-user_<%= @apply%>').hide(1000);
-    $('#content-template-user_<%= @apply%>').html("<%= j show_exampleview_user(@template).html_safe %>").show(1000);
+    $('#content-template-user').hide(1000);
+    $('#content-template-user').html('<%= j show_exampleview_user(@template).html_safe %>').show(1000);
   <% end %>
 <% end %>

@@ -1,7 +1,7 @@
 class Appointment < ApplicationRecord
   belongs_to :company
   belongs_to :apply
-  has_many :inforappointments
+  has_many :inforappointments, dependent: :destroy
   has_many :user, through: :inforappointments
   validates :start_time, presence: true
   validates :end_time, presence: true

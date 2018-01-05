@@ -1,27 +1,35 @@
 $(document).ready(function() {
-  $('.appointment').on('click', '.template',function(){
+<<<<<<< HEAD
+<<<<<<< HEAD
+  $('#area_apply_appointment').on('change', '.template', function(){
+=======
+  $('#area_apply_appointment').on('click', '.template',function(){
+>>>>>>> bbf4e01... fix status apply
+=======
+  $('#area_apply_appointment').on('change', '.template', function(){
+>>>>>>> fa774d8... fix status applies 1
     var template = $(this).val();
-    var id = $(this).closest('.parents').find('#example-chosen-multiple').data('id');
-    $.ajax({
-      url: '/employers/templates/' + template ,
-      data: {apply: id}
-    });
+    $.get('/employers/templates/' + template);
   });
 });
 
 $(document).ready(function() {
-  $('.appointment').on('click', '.template_user',function(){
+<<<<<<< HEAD
+<<<<<<< HEAD
+  $('#area_apply_appointment').on('change', '.template_user', function(){
+=======
+  $('#area_apply_appointment').on('click', '.template_user',function(){
+>>>>>>> bbf4e01... fix status apply
+=======
+  $('#area_apply_appointment').on('change', '.template_user', function(){
+>>>>>>> fa774d8... fix status applies 1
     var template = $(this).val();
-    var id = $(this).closest('.parents').find('#example-chosen-multiple').data('id');
-    $.ajax({
-      url: '/employers/templates/' + template ,
-      data: {apply: id}
-    });
+    $.get('/employers/templates/' + template );
   });
 });
 
 $(document).on('click', '.open', function(){
-  var id = $(this).closest('.parents').find('#example-chosen-multiple').data('id');
+  var id = $(this).val();
   if ($('.open').is(':checked')){
     $('.view_' + id).show();
   }else{

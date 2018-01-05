@@ -25,3 +25,7 @@
   pointer-events: none;
   cursor: default;
 }
+
+.text-template {
+  line-height: 28px;
+}

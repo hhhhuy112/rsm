@@ -10,12 +10,6 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $('#reset-appointment').on('click',function(){
-   $('#new_appointment')[0].reset();
-  });
-});
-
-$(document).ready(function() {
   $('.results :checkbox').click(function() {
     var values = $('#checked_values').val();
     if($(this).is(':checked')) {
