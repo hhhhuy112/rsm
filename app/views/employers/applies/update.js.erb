@@ -1,7 +1,18 @@
-<% if params[:apply][:status] == t("approve") %>
-  <% if @appointment.present? %>
-    alertify.success('<%= t("accepted")%>');
+<% if @apply.valid? %>
+    $('#myModal_<%= @apply.id %>').modal('hide');
+    alertify.success('<%= @messages %>');
+<% else %>
+  <% case  %>
+  <% when @apply.interview_scheduled? %>
+      $('#appointment_apply_<%= @apply.id %>').html('<%= j (render partial: "employers/applies/form",
+        locals:{apply: @apply, members: @members,  template_members: @template_members,
+        template_users:  @template_users, template_member: @template, template_user:  @template_user}) %>');
+      $('.open').prop('checked', true);
+      $('.view_<%= @apply.id %>').show();
   <% else %>
-    $('#myModal_<%= @apply.id %>').modal('show');
+      $('apply_content_<%= apply.id %>').html('<%= j (render partial: "employers/applies/form", locals:{apply: @apply}) %>')
+      alertify.error('<%= @errors %>');
   <% end %>
 <% end %>
+$('#img-loading').hide();
+$('.config').css('opacity', 1);

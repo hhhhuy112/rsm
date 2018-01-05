@@ -30,6 +30,7 @@ module ApplicationHelper
   end
 
   def show_exampleview_user template
+    return "" if template.blank?
     template.template_body.gsub("@image_company@", image_tag("framgia.png", size:Settings.apply.image)).
       gsub("@user_name@", current_user.name).
       gsub("@not_agree@", button_tag("agree", class: "buttona")).
