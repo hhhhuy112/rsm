@@ -2,23 +2,24 @@
 <%= javascript_include_tag "employer/plugins", "data-turbolinks-track": "reload" %>
 <%= javascript_include_tag "employer/app", "data-turbolinks-track": "reload" %>
 <%= javascript_include_tag "employers/search", "data-turbolinks-track": "reload" %>
-<%= stylesheet_link_tag "employer/checkbox" %>
-<%= simple_form_for [:employers, @appointment], remote: true do |f| %>
-  <%= f.hidden_field :apply_id, value: apply.id  %>
-  <%= f.hidden_field :company_id %>
-  <div class="modal-content parents">
+<%= simple_form_for [:employers, apply], remote: true do |f| %>
+  <%= f.hidden_field :id, value: apply.id  %>
+  <%= f.hidden_field :status, value: Apply.statuses.keys[6] %>
+  <div class="modal-content opacity-apply">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" id ="reset-appointment">&times;</button>
       <h4 class="modal-title"><%= t "jobs.apply.interviewe" %></h4>
     </div>
     <div class="modal-body">
+      <%= f.simple_fields_for :appointment do |appointment_builder| %>
+        <%= appointment_builder.hidden_field :company_id %>
       <div class="form-group">
         <div class="input-group">
           <span class="input-group-addon"><%= t "jobs.apply.address" %></span>
-          <%= f.text_field :address, class: "form-control" %>
+          <%= appointment_builder.text_field :address, class: "form-control" %>
         </div>
         <span class="error-message">
-          <%= f.full_error :address %>
+          <%= appointment_builder.full_error :address %>
         </span>
       </div>
       <div class="row">
@@ -26,10 +27,10 @@
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><%= t "jobs.apply.start" %></span>
-              <%= f.text_field :start_time, data: {provide: "datepicker"}, class: "datepick form-control edit-control" %>
+              <%= appointment_builder.text_field :start_time, data: {provide: "datepicker"}, class: "datepick form-control edit-control" %>
             </div>
             <span class="error-message">
-              <%= f.full_error :start_time %>
+              <%= appointment_builder.full_error :start_time %>
             </span>
           </div>
         </div>
@@ -37,10 +38,10 @@
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><%= t "jobs.apply.end" %></span>
-              <%= f.text_field :end_time, data: {provide: "datepicker"}, class: "datepick form-control edit-control" %>
+              <%= appointment_builder.text_field :end_time, data: {provide: "datepicker"}, class: "datepick form-control edit-control" %>
             </div>
             <span class="error-message">
-              <%= f.full_error :start_time %>
+              <%= appointment_builder.full_error :start_time %>
             </span>
           </div>
         </div>
@@ -113,9 +114,10 @@
       </section>
     </div>
     </div>
+  <% end %>
     <div class="modal-footer">
-      <button type="submit" class="btn btn-sm btn-warning pull-right load-page">
-        <i class="fa fa-plus" aria-hidden="true"></i><%= t "apply.approve" %>
+      <button type="submit" class="btn btn-sm btn-info pull-right load-page">
+        </i><%= t "submit" %>
       </button>
     </div>
   </div>

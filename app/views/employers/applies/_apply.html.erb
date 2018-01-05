@@ -4,8 +4,7 @@
   </button>
   <div class="modal fade" id="myModal_<%= apply.id %>" role="dialog">
     <div id = "appointment_apply_<%= apply.id %>" class="modal-dialog">
-      <%= render partial: "employers/appointments/form", locals:{apply: apply, members: @members,
-        template_members: @template_members, template_users:  @template_users} %>
+      <%= render partial: "employers/applies/form", locals:{apply: apply, members: @members, template_members: @template_members, template_users:  @template_users} %>
     </div>
   </div>
 </div>

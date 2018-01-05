@@ -31,6 +31,7 @@ en:
   please_selecta: "--- Please Select ---"
   templates:
     error: "Id template not found"
+  submit: "Submit"
   accountactivations:
     success: "Agree success!"
     fail: "Agree fail!"

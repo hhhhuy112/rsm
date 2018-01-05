@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('.appointment').on('click', '.template',function(){
+  $('#area_apply_appointment').on('click', '.template',function(){
     var template = $(this).val();
     var id = $(this).closest('.parents').find('#example-chosen-multiple').data('id');
     $.ajax({
@@ -10,7 +10,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $('.appointment').on('click', '.template_user',function(){
+  $('#area_apply_appointment').on('click', '.template_user',function(){
     var template = $(this).val();
     var id = $(this).closest('.parents').find('#example-chosen-multiple').data('id');
     $.ajax({
@@ -21,7 +21,7 @@ $(document).ready(function() {
 });
 
 $(document).on('click', '.open', function(){
-  var id = $(this).closest('.parents').find('#example-chosen-multiple').data('id');
+  var id = $(this).val();
   if ($('.open').is(':checked')){
     $('.view_' + id).show();
   }else{

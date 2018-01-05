@@ -14,11 +14,10 @@ class CompanyMailer < ApplicationMailer
     mail(to: @apply.information[:email], subject: t("company_mailer.welcome_email.subject"))
   end
 
-  def approved_user appointment, template
+  def approved_user appointment, apply, template
     @appointment = appointment
     @template = template
-    @apply = @appointment.apply
-    @company = @apply.company
+    @apply = apply
     mail(to: @apply.information[:email], subject: t("company_mailer.welcome_email.subject"))
   end
 

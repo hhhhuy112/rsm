@@ -21,13 +21,10 @@
   <td class="text-center hidden-xs">
   <% end %>
   <%= form_for [:employers, apply], remote: true do |f| %>
-    <div>
-      <%= f.select :status, Apply.statuses.map{|key, value| [t("#{key}"), key]}, {}, onchange: "javascript: this.form.commit.click();", class: "form-control" %>
-      <%= f.submit "save", class: "btn-submit-edit-applies" %>
-    </div>
+    <%= f.select :status, Apply.statuses.map{|key, value| [t("employers.applies.statuses.#{key}"), key]},
+      {}, class: "apply_select form-control" %>
+    <%= f.hidden_field :id, value: apply.id %>
+    <%= f.submit "save", class: "btn-submit-edit-applies" %>
   <% end %>
   </td>
 </tr>
-<div class="appointment">
-  <%= render partial: "employers/appointments/appointment", locals:{apply: apply, template_members: @template_members, template_users:  @template_users} %>
-</div>

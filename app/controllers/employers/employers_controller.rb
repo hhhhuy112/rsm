@@ -9,6 +9,10 @@ class Employers::EmployersController < ApplicationController
 
   private
 
+  def load_members
+    @members = @company.members
+  end
+
   def check_permissions_employer
     return if current_user.is_employer_of? @company.id
     flash[:danger] = t "company_mailer.fail"
