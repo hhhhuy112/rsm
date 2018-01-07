@@ -8,3 +8,8 @@ $(document).on('change', '.apply_select', function(event){
     this.form.commit.click();
   }
 });
+
+$(document).on('hidden.bs.modal', '.modal-apply', function () {
+  var apply_id = $(this).data("id");
+  $.get('/employers/applies/' +  apply_id);
+})

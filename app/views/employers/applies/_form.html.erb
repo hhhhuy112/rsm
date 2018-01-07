@@ -7,7 +7,7 @@
   <%= f.hidden_field :status, value: Apply.statuses.keys[6] %>
   <div class="modal-content opacity-apply">
     <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" id ="reset-appointment">&times;</button>
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
       <h4 class="modal-title"><%= t "jobs.apply.interviewe" %></h4>
     </div>
     <div class="modal-body">
@@ -61,7 +61,10 @@
       </div>
       <div class="row">
         <div class="col-md-4">
-          <i class="fa fa-get-pocket text-primary" aria-hidden="true"></i><%= t "jobs.apply.select" %>
+          <i class="fa fa-get-pocket text-primary" aria-hidden="true"></i>
+          <span class="text-template"><%= t "jobs.apply.select" %></span>
+        </div>
+        <div class="col-md-4">
           <label class="switch switch-primary">
             <input type="checkbox" class="open" name="checkcv" value="1">
             <span></span>
@@ -94,7 +97,8 @@
                 %>
               </div>
             </div>
-            <div id="content-template_<%= apply.id %>" class = "setting-tem">
+            <div id="content-template" class = "setting-tem">
+              <%= show_exampleview_user(template_member).html_safe %>
             </div>
           </div>
           <div role="tabpanel" class="tab-pane tab-pane-company-info box box-md animated fadeIn"
@@ -107,7 +111,8 @@
                 %>
               </div>
             </div>
-            <div id="content-template-user_<%= apply.id %>" class="setting-tem">
+            <div id="content-template-user" class="setting-tem">
+              <%= show_exampleview_user(template_user).html_safe %>
             </div>
           </div>
         </div>

@@ -1,30 +1,3 @@
-<tr>
-  <td class="text-center"><strong><%= apply.id %></strong></a></td>
-  <td class="text-center">
-  <% if apply.user.present? %>
-    <strong>
-      <%= link_to apply.user.name, apply.cv.url %>
-    </strong>
-  </td>
-  <td class="text-center"><strong><%= apply.user.email %></strong></td>
-  <td class="text-center"><strong><%= apply.user.phone %></strong></td>
-  <td class="text-center visible-lg"><%= l apply.created_at, format: :long %></td>
-  <td class="text-center hidden-xs">
-  <% else %>
-    <strong>
-      <%= link_to apply.information[:name], apply.cv.url %>
-    </strong>
-  </td>
-  <td class="text-center"><strong><%= apply.information[:email] %></strong></td>
-  <td class="text-center"><strong><%= apply.information[:phone] %></strong></td>
-  <td class="text-center visible-lg"><%= l apply.created_at, format: :long %></td>
-  <td class="text-center hidden-xs">
-  <% end %>
-  <%= form_for [:employers, apply], remote: true do |f| %>
-    <%= f.select :status, Apply.statuses.map{|key, value| [t("employers.applies.statuses.#{key}"), key]},
-      {}, class: "apply_select form-control" %>
-    <%= f.hidden_field :id, value: apply.id %>
-    <%= f.submit "save", class: "btn-submit-edit-applies" %>
-  <% end %>
-  </td>
+<tr id="apply_job_content_<%= apply.id %>">
+  <%= render partial: "employers/jobs/apply_content", locals: {apply: apply} %>
 </tr>

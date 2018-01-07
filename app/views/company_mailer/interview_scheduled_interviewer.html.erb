@@ -1,5 +1,5 @@
 <% if @template.present? %>
-  <%= send_template_member @template, @appointment, @user, @inforappointment %>
+  <%= send_template_member @template, @appointment, @user, @inforappointment, @company %>
 <% else %>
   <%= render "company_mailer/default_template_interview"%>
 <% end %>

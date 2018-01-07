@@ -1,0 +1,23 @@
+<td class="text-center"><strong><%= apply.id %></strong></a></td>
+<td class="text-center">
+  <% if apply.user.present? %>
+  <strong>
+    <%= link_to apply.user.name, apply.cv.url %>
+  </strong>
+</td>
+<td class="text-center"><strong><%= apply.user.email %></strong></td>
+<td class="text-center"><strong><%= apply.user.phone %></strong></td>
+<td class="text-center visible-lg"><%= l apply.created_at, format: :long %></td>
+<td id="apply_content_<%= apply.id %>" class="text-center hidden-xs">
+  <% else %>
+  <strong>
+    <%= link_to apply.information[:name], apply.cv.url %>
+  </strong>
+</td>
+<td class="text-center"><strong><%= apply.information[:email] %></strong></td>
+<td class="text-center"><strong><%= apply.information[:phone] %></strong></td>
+<td class="text-center visible-lg"><%= l apply.created_at, format: :long %></td>
+<td id="apply_content_<%= apply.id %>"  class="text-center hidden-xs">
+  <% end %>
+  <%= render partial: "employers/jobs/status_form", locals: {apply: apply} %>
+</td>
