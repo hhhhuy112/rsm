@@ -1,11 +1,9 @@
 class Employers::JobsController < Employers::EmployersController
   before_action :create_job, only: %i(index new)
   before_action :load_jobs, only: :index
+  before_action :load_members, :load_templates, only: :show
 
   def show
-    @members = @company.members
-    @template_members = current_user.templates.template_member
-    @template_users = current_user.templates.template_user
     @appointment = @company.appointments.build
     @applies = @job.applies.page(params[:page]).per Settings.apply.page
   end

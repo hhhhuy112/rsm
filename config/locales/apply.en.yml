@@ -1,0 +1,21 @@
+en:
+  employers:
+    applies:
+      statuses:
+        waitting: "Waitting"
+        review_passed: "CV Review: Reviewed - Passed"
+        review_not_selected: "CV Review: Reviewed - Not selected"
+        test_scheduled: "Test: Scheduled"
+        test_passed: "Test: Tested - Passed"
+        test_not_selected: "Test: Tested - Not selected"
+        interview_scheduled: "Interview: Scheduled"
+        interview_passed: "Interview: Interviewed - Passed"
+        interview_not_selected: "Interview: Interviewed - Not selected"
+        offer_sent: "Offer: Sent"
+        offer_accepted: "Offer: Accepted"
+        offer_declined: "Offer: Declined"
+        joined: "Joined"
+
+      update:
+        success: "Update success"
+        fail: "Update fail"

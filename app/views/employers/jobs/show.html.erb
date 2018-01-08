@@ -1,6 +1,6 @@
 <div class="block full">
   <div class="block-title">
-    <h2><strong><%= t "employers.apply.applyfor" %> <%= @job.name %></strong></h2>
+    <h2><%= t "employers.apply.applyfor" %><strong><%= @job.name %></strong></h2>
   </div>
   <% if @applies.present? %>
     <table class="table table-bordered table-striped table-vcenter">
@@ -19,6 +19,8 @@
       </tbody>
     </table>
     <%= paginate @applies %>
+    <div id="area_apply_appointment">
+    </div>
   <% else %>
     <p class="not_found_apply"><i><%= t "not_found_apply" %></i></p>
   <% end %>

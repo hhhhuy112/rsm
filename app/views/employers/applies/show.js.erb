@@ -1,0 +1,3 @@
+<%  if @apply.present? %>
+  $('#apply_job_content_<%= @apply.id %>').html('<%= j (render partial: "employers/jobs/apply_content", locals: {apply: @apply}) %>');
+<% end %>

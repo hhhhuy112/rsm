@@ -29,6 +29,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 en:
   please_selecta: "--- Please Select ---"
+  submit: "Submit"
   templates:
     error: "Id template not found"
   accountactivations:
@@ -46,7 +47,7 @@ en:
       job: " Internal Advertising Facilitator"
       company: "Framgia "
       not_agree: "Not agree"
-      subject: "WELCOME TO FRAMGIA VIET NAM"
+      subject: "FRAMGIA VIET NAM"
       see_more: "See more "
       dear: "Dear"
       framgia: " FRAMGIA RECRUIT"
@@ -416,7 +417,11 @@ en:
       view: "View"
       user: "Candidate"
       select: " Select template mail"
+<<<<<<< HEAD
       interviewe: "create an interview schedule"
+=======
+      interviewe: "Create an interview schedule"
+>>>>>>> 519353366f642c741bfab4899cb78c5bdaf7b5f0
       address: "Address"
       start: "Starttime"
       end: "Endtime"
@@ -689,7 +694,7 @@ en:
       picture: "Picture"
     apply:
       sure: "Are you sure ?"
-      applyfor: "Apply for"
+      applyfor: "Apply for "
       id: "ID"
       user: "User"
       email: "Email"

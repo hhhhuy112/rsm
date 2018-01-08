@@ -1,0 +1,2 @@
+$('#area_apply_appointment').html('<%= j (render partial: "employers/applies/apply", locals: {apply: @apply, members: @members, template_members: @template_members, template_users:  @template_users}) %>');
+$('#myModal_<%= @apply.id %>').modal('show');
