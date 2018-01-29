@@ -25,4 +25,5 @@
  *= require employers/employer_custom
  *= require_tree ../../../../node_modules/css-progress-wizard/sass
  *= require fancybox
+ *= require employers/radio_button
  */

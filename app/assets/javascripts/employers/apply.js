@@ -1,8 +1,8 @@
-$(document).on('change', '.apply_select', function(event){
+$(document).on('change', '#new_apply_status input[type="radio"]', function(event){
   let element = this.nextElementSibling;
-  var applyId = $(this).next().val();
+  var applyId = $('#apply_status_apply_id').val();
   var value = $(this).val();
-  var textStatus = $(this).find('option:selected').text();
+  var textStatus = $(this).next().text();
   $('#apply-handling-content').html('');
   swal({
     title: I18n.t('jobs.apply.confirm_change_status'),

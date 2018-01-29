@@ -4,13 +4,18 @@ module EmployersHelper
     case
     when status_step.is_status?(Settings.pending)
       Settings.warning
-    when status_step.is_status?(Settings.scheduled)
+    when status_step.is_status?(Settings.scheduled) || status_step.is_status?(Settings.sent)
       Settings.info
-    when status_step.is_status?(Settings.not_selected)
+    when status_step.is_status?(Settings.not_selected) || status_step.is_status?(Settings.decline)
       Settings.danger
     else
       Settings.success
     end
+  end
+
+  def show_class_gird status_steps
+    return Settings.grid.width_6 if status_steps.blank?
+    SelectApply.math_col_grid status_steps.size
   end
 
   def show_status_apply_job apply_statuses

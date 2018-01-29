@@ -75,13 +75,13 @@
         </h2>
       </div>
       <div class="tab-pane active row" id="apply-handling">
-        <div id="area-form-status">
+        <div id="area-form-status" class="col-md-12">
         <%= render partial: "form_status", locals: {apply: @apply,
           current_step: @current_step, current_status_steps: @current_status_steps,
           company_stattus_step_ids: @company_stattus_step_ids} %>
         <hr>
         </div>
-        <ul class="media-list media-feed push">
+        <ul class="media-list media-feed push content-media">
           <li class="media">
             <div class="media-body">
               <div id = "apply-handling-content">

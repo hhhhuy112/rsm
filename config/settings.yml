@@ -141,6 +141,7 @@ accepted: "accepted"
 scheduled: "scheduled"
 pending: "pending"
 active: "active"
+sent: "sent"
 interview_scheduled: "interview_scheduled"
 caclulate_applies_size: "size"
 next_step: 1
@@ -150,3 +151,6 @@ default_value: 0
 status_apply:
   joined: "joined"
   interview_passed: "interview_passed"
+grid:
+  width_6: 6
+  width_12: 12

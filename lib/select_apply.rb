@@ -18,5 +18,10 @@ class SelectApply
       end
       hashes
     end
+
+    def math_col_grid size
+      return Settings.grid.width_6 if size.zero?
+      Settings.grid.width_12 / size
+    end
   end
 end
