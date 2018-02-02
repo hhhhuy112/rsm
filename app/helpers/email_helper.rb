@@ -5,7 +5,7 @@ module EmailHelper
   end
 
   def image_carrierwave_tag image, **options
-    attachments[image.logo_identifier] =  File.read("#{Rails.root}/public#{image.logo.url}")
+    attachments[image.logo_identifier] =  File.read("image.logo.url")
     image_tag attachments[image.logo_identifier].url, **options
   end
 

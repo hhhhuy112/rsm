@@ -14,13 +14,11 @@ class CompanyMailer < ApplicationMailer
     mail(to: @apply.information[:email], subject: t("company_mailer.welcome_email.subject"))
   end
 
-  def interview_scheduled_candidate title, apply, template, company, apply_status
-    @title = title
-    @template = template
-    @apply = apply
+  def content_email_candidate email_sent, company
+    @title = email_sent.title
+    @template = email_sent.content
     @company = company
-    @apply_status = apply_status
-    mail(to: @apply.information[:email], subject: @title)
+    mail(to: "minhhuyho2011@gmail.com", subject: @title)
   end
 
   def interview_scheduled_interviewer inforappointment, company, apply
