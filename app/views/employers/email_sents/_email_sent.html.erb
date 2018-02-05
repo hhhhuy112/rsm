@@ -1,4 +1,4 @@
-<li class="media">
+<li class="media abc">
   <a href="page_ready_user_profile.html" class="pull-left">
     <%= image_tag email_sent.user_picture.url, class: "sender-avatar img-circle" %>
   </a>
@@ -14,3 +14,10 @@
     <p><%= email_sent.content.html_safe %></p>
   </div>
 </li>
+<script type="text/javascript">
+  $('.abc').readmore({
+    speed: 75,
+    moreLink: '<a href="#" class="btn btn-info">Read more</a>',
+    lessLink: '<a href="#" class="btn btn-info">Read less</a>'
+  });
+</script>

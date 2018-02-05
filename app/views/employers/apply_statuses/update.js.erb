@@ -1,6 +1,6 @@
 <% if @message.present? %>
   $('#apply-handling-content').html('');
-  $('#step-history').html('<%= j render partial: "employers/applies/step_history", locals:{data_step: @data_step, status_step_id: @current_apply_status.status_step_id, apply_status: @current_apply_status, apply: @apply, current_apply_status: @current_apply_status} %>');
+  $('#step-history').html('<%= j render partial: "employers/applies/step_history", locals:{data_step: @data_step, status_step: @current_apply_status.status_step, apply_status: @current_apply_status, apply: @apply, current_apply_status: @current_apply_status} %>');
   alertify.success('<%= @message %>');
 <% else %>
   $('#apply-handling-content').html('<%= j (render partial: "employers/applies/apply_status_form", locals: {apply_status: @apply_status, apply: @apply, members: @members, appointments: @appointments, template_users: @template_users}) %>');

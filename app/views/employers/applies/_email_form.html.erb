@@ -64,7 +64,7 @@
                       <%= t "jobs.apply.content" %>
                     </label>
                     <div class="col-md-9 col-lg-10">
-                      <%= email_sent_builder.text_area :content,
+                      <%= email_sent_builder.cktext_area :content,
                         class: "form-control mail-#{apply_status.status_step_id}",
                         id: "content-template-user-#{apply_status.status_step_id}", cols: Settings.text_area.cols_email,
                         rows: Settings.text_area.rows_email, placeholder: t("employers.your_message") %>

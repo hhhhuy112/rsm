@@ -48,3 +48,4 @@
 //= require fancybox
 //= require highcharts
 //= require chartkick
+//= require readmore-js/readmore.min.js

@@ -7,6 +7,7 @@
     "css-progress-wizard": "^0.0.9",
     "install": "^0.10.4",
     "moment": "^2.20.1",
+    "readmore-js": "^2.1.0",
     "selectboxit": "^3.8.2",
     "sweetalert": "^2.1.0"
   }
