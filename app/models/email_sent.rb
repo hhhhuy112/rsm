@@ -16,7 +16,8 @@ class EmailSent < ApplicationRecord
   after_update :send_mail
 
   def send_mail
-    @sendmail_service = SendmailService.new self, self.user.companies.last
+    self.user.oauth.check_access_token
+    @sendmail_service = SendmailService.new self, self.user.companies.last, self.user
     @sendmail_service.send_candidate
   end
 end

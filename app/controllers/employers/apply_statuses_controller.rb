@@ -82,8 +82,7 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
     end
     Inforappointment.import inforappointments
     appointment.inforappointments.each do |member|
-      @sendmail_service = SendmailService.new member, @company, @apply
-      @sendmail_service.send_interview
+     SendmailService.send_interview member, @company, @apply
     end
   end
 

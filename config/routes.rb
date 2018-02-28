@@ -52,6 +52,8 @@ Rails.application.routes.draw do
     resources :status_steps, only: :index
     resources :questions, only: :index
   end
+  get '/auth/:provider/callback', to: 'oauths#create'
+  delete '/disconnect', to: 'oauths#destroy'
   resources :bookmark_likes
   resources :experiences
   resources :reward_benefits

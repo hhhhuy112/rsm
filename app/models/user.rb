@@ -20,6 +20,7 @@ class User < ApplicationRecord
   has_many :applies, dependent: :destroy
   has_many :inforappointments
   has_many :offers, dependent: :destroy
+  has_one :oauth, dependent: :destroy
 
   validates :name, presence: true
   validates :email, uniqueness: { scope: :company_id,
