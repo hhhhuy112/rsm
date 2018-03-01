@@ -187,3 +187,5 @@ step:
   interview: "interview"
   offer: "offer"
 default_size: 0
+offer_salary: 0
+offer_salary_increase_step: 10

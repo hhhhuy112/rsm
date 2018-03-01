@@ -45,10 +45,10 @@
           <strong class="text-red">*</strong><%= t ".received_time" %>
         <% end %>
         <% if @achievement.received_time.present? %>
-        <%= f.text_field :received_time, data: {provide: "datepicker"},
-        class: "datepick form-control edit-control", value: @achievement.received_time.strftime(t "date_format") %>
+          <%= f.text_field :received_time, data: {provide: "datepicker"},
+            class: "datepick form-control edit-control", value: @achievement.received_time.strftime(t "date.formats.date_month_year_v1") %>
         <% else %>
-        <%= f.text_field :received_time, data: {provide: "datepicker"}, class: "datepick form-control edit-control" %>
+          <%= f.text_field :received_time, data: {provide: "datepicker"}, class: "datepick form-control edit-control" %>
         <% end %>
       </div>
       <span class="error-message">
@@ -64,9 +64,7 @@
           class="btn-cancel btn btn-default" value="<%= @achievement.id %>">
           <%= t ".cancle" %>
         </button>
-        <%= f.submit t(".save"), class: "btn-save btn btn-primary" do  %>
-        <i class="fa fa-plus"></i>
-        <% end %>
+        <%= f.submit t(".save"), class: "btn-save btn btn-primary" %>
         <span class="achievement-received_time-invalid error-message"></span>
       </div>
     </div>

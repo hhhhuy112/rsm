@@ -12,7 +12,8 @@
   </ul></br>
   <div class="block-body">
     <div class="col-sm-6 col-md-6 col-lg-6">
-      <%= f.input :salary %>
+      <%= f.input :salary, input_html: {min: Settings.offer_salary,
+        step: Settings.offer_salary_increase_step, type: "number"} %>
     </div>
     <div class="col-sm-6 col-md-6 col-lg-6">
       <label class="control-label date required" for="apply_status_offers_attributes_0_start_time_1i">
