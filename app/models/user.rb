@@ -29,11 +29,12 @@ class User < ApplicationRecord
   has_many :apply_statuses, through: :applies
   has_many :notes, dependent: :destroy
   has_many :email_sents, dependent: :destroy
+  belongs_to :company, class_name: Company.name, foreign_key: :company_id
 
   validates :name, presence: true
   validates :email, uniqueness: { scope: :company_id,
     message: I18n.t("users.form.empty") }
-    validates :code, uniqueness: {scope: :company_id}, presence: true
+  validates :code, uniqueness: {scope: :company_id}, presence: true
   validate :birthday_cannot_be_in_the_future
 
   before_validation(on: :create) do
@@ -54,6 +55,7 @@ class User < ApplicationRecord
   scope :get_by_id, ->ids{where id: ids}
   scope :get_company, ->company_id{where company_id: company_id}
   scope :newest, ->{order created_at: :desc}
+  scope :get_by_code, ->code{where "code LIKE :code", code: "%#{code}%"}
 
   mount_uploader :picture, PictureUploader
   mount_uploader :cv, CvUploader

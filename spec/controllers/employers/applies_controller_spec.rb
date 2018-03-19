@@ -1,11 +1,13 @@
 require "rails_helper"
 
 RSpec.describe Employers::AppliesController, type: :controller do
-  let(:user) {FactoryGirl.create :user, confirmed_at: Time.current}
+  let!(:employer) {FactoryGirl.create :user, role: "employer", confirmed_at: Time.current}
+  let!(:user) {FactoryGirl.create :user, role: "user", confirmed_at: Time.current}
   let(:company) {FactoryGirl.create :company}
   let(:branch) {FactoryGirl.create :branch, company_id: company.id}
   let(:category) {FactoryGirl.create :category, company_id: company.id}
   let(:step) {FactoryGirl.create :step}
+
   let!(:member) {FactoryGirl.create :member, company_id: company.id, user_id: user.id}
   let(:currency) {FactoryGirl.create :currency, company_id: company.id}
   let :job do

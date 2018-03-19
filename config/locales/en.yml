@@ -525,7 +525,7 @@ en:
         search: "Search"
         job_name: "Select Job Name"
         status_applies: "Select Status Apply"
-        apply: "apply"
+        apply: "Apply"
     job:
       id: "ID"
       jobname: "Name"
