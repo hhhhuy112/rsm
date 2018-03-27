@@ -16,7 +16,7 @@ class ApplyStatus < ApplicationRecord
   delegate :id, to: :appointment, allow_nil: true, prefix: true
   delegate :name, to: :status_step, allow_nil: true, prefix: true
   delegate :name, to: :step, allow_nil: true, prefix: true
-  delegate :id, :information, :created_at, to: :apply, allow_nil: true, prefix: true
+  delegate :id, :information, :created_at, :cv, to: :apply, allow_nil: true, prefix: true
   delegate :name, :id, :target, :level, to: :job, allow_nil: true, prefix: true
   delegate :name, to: :category, allow_nil: true, prefix: true
 

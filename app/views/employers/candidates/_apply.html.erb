@@ -9,8 +9,14 @@
   <td class="text-center"><%= show_status_apply apply_status.status_step %></td>
   <td class="text-center hidden-xs"><%= l apply_status.created_at, format: :short %></td>
   <td class="text-center hidden-xs">
-    <%= link_to employers_job_apply_path(apply_status.job, id: apply_status.apply_id), class: "btn btn-xs btn-default" do %>
-      <i class="fa fa-eye"></i>
-    <% end %>
+    <div class="btn-group">
+      <%= link_to employers_job_apply_path(apply_status.job, id: apply_status.apply_id), class: "btn btn-xs btn-default" do %>
+        <i class="fa fa-eye"></i>
+      <% end %>
+      <a href="<%= apply_status.apply_cv.url %>" data-fancybox title= '<%= t ".view_cv" %>'
+        class="thumbnail-cv btn btn-xs btn-info">
+        <i class="fa fa-file-text-o"></i>
+      </a>
+    </div>
   </td>
 </tr>

@@ -1116,6 +1116,8 @@ vn:
     like: "like"
     liked: "Liked"
     dislike: " Dislike"
+    create:
+      duplicate_apply: "Bạn đã apply vào công việc này rồi."
   bookmark_like:
     save: "Lưu"
   bookmark_likes:

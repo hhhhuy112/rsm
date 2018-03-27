@@ -6,7 +6,6 @@ RSpec.describe Employers::ApplyStatusesController, type: :controller do
   let(:branch) {FactoryGirl.create :branch, company_id: company.id}
   let(:category) {FactoryGirl.create :category, company_id: company.id}
   let(:step) {FactoryGirl.create :step}
-  let(:step) {FactoryGirl.create :step}
   let!(:member) {FactoryGirl.create :member, company_id: company.id, user_id: user.id}
   let(:currency) {FactoryGirl.create :currency, company_id: company.id}
   let :job do
@@ -14,11 +13,6 @@ RSpec.describe Employers::ApplyStatusesController, type: :controller do
       category_id: category.id, currency_id: currency.id
   end
   let(:status_step) {FactoryGirl.create :status_step, step_id: step.id}
-  let(:apply) do
-    FactoryGirl.create :apply, user_id: user.id, job_id: job.id,
-      information: { name: "Phan Dinh Lam", email: "user@gmail.com",
-      phone: Faker::Number.number(10), introducing: Faker::Lorem.sentence(50)}
-  end
   let(:apply) do
     FactoryGirl.create :apply, user_id: user.id, job_id: job.id
   end
@@ -34,7 +28,7 @@ RSpec.describe Employers::ApplyStatusesController, type: :controller do
 
     context "show success" do
       before :each do
-        get :show, xhr: true, params: {id: apply.id}
+        get :show, xhr: true, params: {id: subject.id}
       end
 
       it "assigns the requested job to @job" do

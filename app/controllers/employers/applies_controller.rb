@@ -30,6 +30,8 @@ class Employers::AppliesController < Employers::EmployersController
     information = params[:apply][:information].permit!.to_h
     job_ids = params[:job_ids]
     import_applies job_ids, information
+  rescue ActiveRecord::RecordNotUnique
+    @error = t ".duplicate_apply", email: information[:email]
   end
 
   def update

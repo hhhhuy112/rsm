@@ -1102,6 +1102,8 @@ en:
     questions:
       question: "Question %{index}"
       answer: "Answer"
+    create:
+      duplicate_apply: "You was apply into this job."
   bookmark_like:
     save: "Save"
   bookmark_likes:
