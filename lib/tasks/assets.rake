@@ -16,5 +16,4 @@ namespace :assets do
         puts
     end
   end
-
 end
