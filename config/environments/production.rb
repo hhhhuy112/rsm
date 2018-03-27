@@ -73,9 +73,10 @@ Rails.application.configure do
     authentication: "plain",
     user_name: ENV["username"],
     password: ENV["password"],
-    domain: ENV["host"],
+    domain: "gmail.com",
     enable_starttls_auto: true
   }
+  config.action_mailer.asset_host = ENV["host"]
 
 
   # Ignore bad email addresses and do not raise email delivery errors.
