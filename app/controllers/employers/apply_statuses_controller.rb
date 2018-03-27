@@ -78,7 +78,7 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
     return if @members.blank?
     appointment = @apply_status.appointment
     return unless appointment
-    user_ids = appointment.inforappointments.pluck(:user_ids)
+    user_ids = appointment.inforappointments.pluck(:user_id)
     inforappointments = @members.map do |member_id|
       next if member_id.blank? || user_ids.include?(member_id)
       info_appointment = Inforappointment.new(user_id: member_id,
