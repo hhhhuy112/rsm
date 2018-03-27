@@ -6,9 +6,9 @@ class Apply < ApplicationRecord
   belongs_to :user, optional: true
   has_many :answers, dependent: :destroy
   has_one :company, through: :job
-  has_many :inforappointments, through: :appointments
   has_many :apply_statuses, dependent: :destroy
   has_many :appointments, through: :apply_statuses, dependent: :destroy
+  has_many :inforappointments, through: :appointments
   has_many :status_steps, through: :apply_statuses, dependent: :destroy
   has_many :steps, through: :status_steps, dependent: :destroy
   has_many :offers, through: :apply_statuses

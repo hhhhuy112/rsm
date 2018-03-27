@@ -3,6 +3,8 @@ class EmailSent < ApplicationRecord
 
   belongs_to :apply_status, class_name: ApplyStatus.name, foreign_key: :type_id, optional: true
   belongs_to :user
+  has_one :apply, through: :apply_status
+  has_one :status_step, through: :apply_status
 
   delegate :picture, :name, :email, to: :user, prefix: true, allow_nil: true
 

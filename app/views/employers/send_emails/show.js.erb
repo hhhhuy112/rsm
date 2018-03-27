@@ -10,11 +10,11 @@
     if (isConfirm) {
       $('.loading').fadeIn('slow');
       window.location.href = '/devises/auth/google_oauth2?apply_id=' +
-        <%= @mail_service.apply_status.apply_id %> + '&job_id=' +
-        <%= @mail_service.apply_status.job_id %>;
+        <%= @email_sent.apply_status.apply_id %> + '&job_id=' +
+        <%= @email_sent.apply_status.job_id %>;
     }
   });
-<% elsif @mail_service.blank? %>
+<% elsif @email_sent.blank? %>
   alertify.warning('<%= t "employers.email_sents.email_sent.fail" %>');
 <% else %>
   alertify.success('<%= t "employers.email_sents.email_sent.success" %>');

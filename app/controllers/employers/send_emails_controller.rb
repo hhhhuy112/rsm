@@ -1,5 +1,6 @@
 class Employers::SendEmailsController < ApplicationController
-  before_action :load_company, :load_apply, :load_apply_status, :load_apply_statuses, except: :show
+  before_action :load_company
+  before_action :load_apply, :load_apply_status, :load_apply_statuses, except: :show
   before_action :load_oauth, only: :show
 
   def create
@@ -11,10 +12,13 @@ class Employers::SendEmailsController < ApplicationController
   end
 
   def show
-    @mail_service = EmailSent.find_by(id: params[:id])
-    return if @mail_service.blank? || @oauth.blank?
+    @email_sent = EmailSent.find_by(id: params[:id])
+    return if @email_sent.blank? || @oauth.blank?
     @oauth.check_access_token
-    @mail_service.send_mail current_user
+    @email_sent.send_mail current_user
+    @status_step = @email_sent.status_step
+    @apply = @email_sent.apply
+    send_mail_interviewer if @status_step.present? && @apply.present? && @status_step.is_status?(Settings.interview_scheduled)
     respond_to :js
   end
 
