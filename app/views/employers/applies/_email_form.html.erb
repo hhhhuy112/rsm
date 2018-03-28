@@ -54,7 +54,7 @@
                     <%= hidden_field_tag "user_name", apply.information[:name] %>
                     <div class="col-md-12 col-lg-12">
                       <%= button_tag  type: "button", title: t(".preview"),
-                        class: "btn btn-xs btn-info view_mail pull-right",
+                        class: "btn btn-xs btn-info view_mail pull-right animation-pulse",
                         value: "#{apply_status.status_step_id}" do %>
                         <i class="fa fa-eye"></i>
                       <% end %>

@@ -23,6 +23,7 @@ en:
     status: " Status"
     change: "Change"
     no_data: "No data"
+    accept: "Accept"
     applies:
       decripttion_email: "Click button 'OFF' to send email."
       decripttion_appoinment: "Please setting appointment for this apply"
@@ -60,6 +61,8 @@ en:
         success: "Successfully update this apply"
         fail: "Update failed this apply"
         error_message: "This apply has been locked."
+      notes_table:
+        note_by: "Note by: "
     history:
       title_history: "History"
       sent: "Sent "
@@ -80,6 +83,7 @@ en:
       address: "Address"
       start_time_appointment: "Start time"
       end_time_appointment: "End time"
+      type: "Lịch hẹn"
     apply_statuses:
       update:
         success: "Update success"
@@ -91,4 +95,5 @@ en:
         drop_calendar: "Drag and Drop Events on the Calendar"
     send_email:
       select_template: "Select template"
+      title: "Title"
 
