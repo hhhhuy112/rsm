@@ -6,7 +6,7 @@
         <% if (@prev_apply_status && @prev_apply_status.id == apply_status.id) || apply_status.current? %>
           <%= link_to new_employers_apply_status_path(status_step_id:
             status_step.id, apply_id: apply.id, apply_status_id: apply_status.id),
-            class: "btn btn-sm btn-alt btn-default", remote: true do %>
+            class: "btn btn-sm btn-alt btn-default animation-pulse", remote: true do %>
               <i class="fa fa-pencil"></i>
           <% end %>
         <% end %>
@@ -38,8 +38,6 @@
     <div class="block full overcast-custom <%= disabled_block apply %>">
       <div class="block-title">
         <div class="block-options pull-right">
-          <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="Friend Request"><i class="fa fa-plus"></i></a>
-          <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="Hire"><i class="fa fa-briefcase"></i></a>
         </div>
         <h2>
           <i class="fa fa-history"></i>

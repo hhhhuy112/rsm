@@ -20,7 +20,14 @@
         <%= appointment_builder.hidden_field :type_appointment %>
 
         <div class="form-group">
-          <%= appointment_builder.input :address, as: :string %>
+          <label class="col-md-5 control-label" for="address">
+            <abbr title="required">*</abbr>
+            <%= t ".address" %>
+          </label>
+          <%= appointment_builder.text_field :address, class: "form-control edit-control" %>
+          <span class="error-message">
+            <%= appointment_builder.full_error :address %>
+          </span>
         </div>
 
         <% if interview_scheduled_ids.include? apply_status.status_step_id %>

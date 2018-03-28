@@ -509,9 +509,11 @@ vn:
         candidate_information: "Thông tin ứng viên"
         other: "Khác"
         cv: "CV"
-        email: "Email"
+        email: "E-mail"
         status: "Trạng thái"
         phone: "Số điện thoại"
+        notes: "Ghi chú"
+        current_status: "Trạng thái Hiện tại"
       table_applies:
         user_name: "Tài khoản"
         job: "Công việc"

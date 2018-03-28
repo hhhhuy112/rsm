@@ -237,11 +237,11 @@ vn:
         branch: "Chi nhánh"
         target: "Chỉ tiêu"
         filter: "Lọc"
-        review: "Xem Xét"
+        review: "Xem xét hồ sơ"
         nodata: "Không có dữ liệu"
         test: " Kiểm Tra"
         interview: "Phỏng Vấn"
-        offer: "Phục vụ"
+        offer: "Thỏa thuận công việc"
         phone: "Số điện thoại"
         status: "Trạng thái"
         action: "Hoạt động"
@@ -251,10 +251,10 @@ vn:
         expires_on: "Hết hạn"
         expired: "hết hạn"
       list_statistic:
-        review: "Xem Xét"
+        review: "Xem xét hồ sơ"
         test: " Kiểm Tra"
         interview: "Phỏng Vấn"
-        offer: "Phục vụ"
+        offer: "Thỏa thuận công việc"
     jobs:
       search_job:
         text_search: "Nhập tiêu đề, ngôn ngữ, kỹ năng ..."

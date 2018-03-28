@@ -487,9 +487,11 @@ en:
         candidate_information: "Candidate Infomation"
         other: "Other"
         cv: "CV"
-        email: "Email"
+        email: "E-mail"
         status: "Status"
         phone: "Phone"
+        notes: "Notes"
+        current_status: "Current Status"
       table_applies:
         user_name: "User Name"
         job: "Job"
