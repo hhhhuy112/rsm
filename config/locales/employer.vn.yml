@@ -80,6 +80,7 @@ vn:
         job_nil: "Vui lòng chọn công việc"
         job: "Công việc"
         cv: "Cv"
+        failure_user: "Không thể tạo tài khoản."
       index:
         all_applies: "Tất cả đơn nộp"
         apply: "Ứng tuyển"
@@ -475,6 +476,49 @@ vn:
         not_found_apply: "Khôn tìm thấy apply!"
       show:
         not_found_apply: "Không tìm thấy apply!"
+    candidates:
+      table_candidates:
+        no: "STT"
+        name: "Tên"
+        email: "Thư điện tử"
+        phone: "Số điện thoại"
+        join_at: "Tham gia lúc"
+        action: "Hành động"
+        not_candidates: "Không có ứng viên."
+      index:
+        not_candidates: "Không có ứng viên."
+      candidates_search:
+        enter_search_candidates: "Nhập tên, điện thoại, địa chỉ hoặc mail"
+        filter: "Lọc"
+      choose_job:
+        choose: "Chọn"
+        name: "Tên công việc"
+      select_job:
+        add_apply: "Thêm apply cho ứng viên"
+        select_job: "Chọn công viẹc"
+        none_job_select: "Không có công việc đưọc chọn."
+        submit: "Submit"
+        job_name_placeholder: "Nhập tên công việc"
+      table_applies:
+        job_name: "Tên công việc"
+        category: "Loại"
+        step: "Bưóc"
+        status: "Trạng thái"
+        apply_at: "Ứng tuyển lúc"
+        action: "Hàng động"
+        apply_for: "Ứng tuyển cho"
+        job: "Công việc"
+        none_applies: "Chưa ứng tuyển."
+      new_apply:
+        add_candidate: "Thêm ứng viên"
+        create: "Tạo"
+      create:
+        success: "Đã tạo ứng viên."
+        failure: "Tạo ứng viên thất bại."
+        candidate_exist: "Ứng viên đã tồn tại."
+      show:
+        candidate_information: "Thông tin ứng viên"
+        not_cv: "Không có CV"
   layouts:
     employers:
       footer_employer:

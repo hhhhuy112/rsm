@@ -1,0 +1,14 @@
+<%= search_form_for @q_candidates, url: employers_company_candidates_path(@company), remote: true,
+  class: "d-inline-block" do |f| %>
+  <div class="form-group">
+    <div class="icon-addon addon-lg">
+      <%= f.search_field :name_or_phone_or_address_or_email_cont,
+        class: "form-control", placeholder: t(".enter_search_candidates") %>
+      <label for="name_or_phone_address_email_cont" class="fa fa-search rils" rel="tooltip"></label>
+    </div>
+  </div>
+  <%= f.button :submit, class: "btn btn-primary" do %>
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <%= t ".filter" %>
+  <% end %>
+<% end %>

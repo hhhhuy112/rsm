@@ -1,0 +1,6 @@
+<% if @error %>
+  alertify.error('<%= @error %>');
+<% else %>
+  $('#add-apply').html('<%= j render "select_job" %>');
+  $('#add-apply').modal('show');
+<% end %>

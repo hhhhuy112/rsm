@@ -192,6 +192,10 @@ default_size: 0
 offer_salary: 0
 offer_salary_increase_step: 10
 apply:
+  image: 50
+  page: 10
+  checked: "checked"
+  name: "Apply"
   model:
     name_max_length: 50
     name_min_length: 6
@@ -208,3 +212,5 @@ omniauth:
 password:
   length: 10
 delimiter: "."
+candidate: "candidate"
+candidates: "candidates"

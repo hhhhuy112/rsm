@@ -81,6 +81,7 @@ en:
         job_nil: "Please select job"
         job: "job"
         cv: "Cv"
+        failure_user: "Can't create user."
       index:
         all_applies: "All Applies"
         apply: "apply"
@@ -481,6 +482,50 @@ en:
         not_found_apply: "Not found apply!"
       show:
         not_found_apply: "Not found apply!"
+    candidates:
+      table_candidates:
+        no: "No"
+        name: "Name"
+        email: "Email"
+        phone: "Phone"
+        join_at: "Join at"
+        action: "Action"
+        not_candidates: "Haven't candidates."
+      index:
+        not_candidates: "Haven't candidates."
+      candidates_search:
+        enter_search_candidates: "Enter name or phone or address or email"
+        filter: "Filter"
+      choose_job:
+        choose: "Choose"
+        name: "Job name"
+      select_job:
+        add_apply: "Add apply for candidate"
+        select_job: "Select job"
+        none_job_select: "None jobs were chossen."
+        add_job_for_apply: "This is apply with undefined job, please select job to continues."
+        submit: "Submit"
+        job_name_placeholder: "Please input job name"
+      table_applies:
+        job_name: "Job name"
+        category: "Category"
+        step: "Step"
+        status: "Status"
+        apply_at: "Apply at"
+        action: "Action"
+        apply_for: "Apply for"
+        job: "Job"
+        none_applies: "Haven't applies."
+      new_apply:
+        add_candidate: "Add candidate"
+        create: "Create"
+      create:
+        success: "Created candidate."
+        failure: "Created candidate failure."
+        candidate_exist: "Candidate was existed."
+      show:
+        candidate_information: "Candidate Infomation"
+        not_cv: "No CV"
   layouts:
     employers:
       footer_employer:

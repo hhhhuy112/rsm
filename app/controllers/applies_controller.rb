@@ -65,10 +65,12 @@ class AppliesController < ApplicationController
 
   def save_apply
     @apply.self_attr_after_create current_user, :employer
-    if @apply.save
-      @success = t "apply.applied"
-    elsif !@job.not_exist?
+    @apply.save!
+    @success = t "apply.applied"
+  rescue ActiveRecord::RecordInvalid
+    if !@job.not_exist?
       @questions = @job.questions
     end
+    @error_record_invalid = t "apply.user_fail"
   end
 end

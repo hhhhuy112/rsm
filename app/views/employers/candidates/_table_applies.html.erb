@@ -1,0 +1,33 @@
+<div class="block full">
+  <div class="block-title">
+    <h2><%= t ".apply_for" %> <strong><%= t ".job" %></strong></h2>
+    <div class="block-options pull-right">
+      <%= link_to new_employers_company_candidate_path(@company, id: @candidate.id),
+        remote: true, class: "btn btn-sm btn-alt btn-default" do %>
+        <i class="fa fa-plus"></i>
+      <% end %>
+    </div>
+  </div>
+  <% if @apply_statuses.present? %>
+    <table class="table table-bordered table-striped table-vcenter">
+      <thead>
+        <tr>
+          <th class="text-center"><%= t ".job_name" %></th>
+          <th class="text-center"><%= t ".category" %></th>
+          <th class="text-center"><%= t ".step" %></th>
+          <th class="text-center"><%= t ".status" %></th>
+          <th class="text-center"><%= t ".apply_at" %></th>
+          <th class="text-center"><%= t ".action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "employers/candidates/apply", collection: @apply_statuses,
+          as: :apply_status %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="text-center text-danger">
+      <i class="fa fa-times"> <%= t ".none_applies" %></i>
+    </p>
+  <% end %>
+</div>

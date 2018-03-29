@@ -17,13 +17,10 @@
     $('.input-<%= message.split(" ").first %>')
       .css('border-color','red','important')
   <% end %>
-  alertify.error('<%= @error %>');
+<% elsif @error_record_invalid %>
+  alertify.error('<%= @error_record_invalid %>');
 <% elsif @success %>
-  <% if params[:role] == Settings.candidate %>
-    $('#table-applies').html('<%= j render "employers/candidates/table_applies" %>');
-  <% else %>
-    $('#table-applies').html('<%= j render "table_applies" %>');
-  <% end %>
-  $('#add-apply').modal('hide');
+  $('#table-candidates').html('<%= j render "table_candidates" %>');
+  $('#new-candidate').modal('hide');
   alertify.success('<%= @success %>');
 <% end %>

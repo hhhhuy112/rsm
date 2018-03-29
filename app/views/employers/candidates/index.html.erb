@@ -1,0 +1,29 @@
+<%= stylesheet_link_tag "employer/hidepaginate" %>
+<div class="block full">
+  <div class="block-title">
+    <h2><strong><%= t ".all_applies" %></strong></h2>
+    <div class="block-options pull-right">
+      <%= link_to "javascript:void(0)", data: {toggle: "modal", target: "#new-candidate"}, class: "btn btn-sm btn-alt btn-default" do %>
+        <i class="fa fa-plus"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <div id="example-datatable_wrapper" class="dataTables_wrapper form-inline no-footer">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="pull-right">
+            <%= render "candidates_search" %>
+          </div>
+        </div>
+      </div>
+      <div id="table-candidates">
+        <%= render "table_candidates" %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="new-candidate" role="dialog"
+  tabindex="-1" aria-hidden="true">
+  <%= render "new_apply" %>
+</div>

@@ -1,6 +1,6 @@
 <tr class="background-white">
-  <td class="border-bottom-custom"><strong><%= apply.job_name %></strong></td>
-  <td class="border-bottom-custom"><%= link_to employers_apply_status_path(apply), remote: true, class: "btn btn-default btn-xs float-r" do %>
+  <td class="border-bottom-custom"><strong><%= apply_status.job_name %></strong></td>
+  <td class="border-bottom-custom"><%= link_to employers_apply_status_path(apply_status), remote: true, class: "btn btn-default btn-xs float-r" do %>
     <i class="fa fa-eye"></i>
   <% end %></td>
 </tr>

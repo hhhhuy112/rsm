@@ -7,7 +7,7 @@ class Employers::EmployersController < BaseNotificationsController
   before_action :check_permissions_employer
   before_action :current_ability
   before_action :load_notifications
-  load_and_authorize_resource
+  load_and_authorize_resource unless: :candidate_controller?
 
   private
 
@@ -127,5 +127,32 @@ class Employers::EmployersController < BaseNotificationsController
 
   def load_notes
     @notes = @apply.notes.get_newest.includes :user if @apply
+  end
+
+  def candidate_controller?
+    controller_name_segments = params[:controller].split("/")
+    controller_name_segments.pop == Settings.candidates
+  end
+
+  def load_user_candidate
+    @candidate = User.find_by id: params[:id]
+    if @candidate.blank?
+      if request.xhr?
+        raise ActiveRecord::RecordNotFound
+      else
+        redirect_to root_url
+      end
+    end
+  end
+
+  def load_applies_candidate
+    apply_ids = @candidate.applies.get_have_job.pluck :id if @candidate
+    @apply_statuses = ApplyStatus.current.get_by(apply_ids).lastest_apply_status
+      .includes :job, :step, :status_step, :apply, :category
+  end
+
+  def load_jobs
+    @q = @company.jobs.search params[:q]
+    @jobs = @q.result
   end
 end

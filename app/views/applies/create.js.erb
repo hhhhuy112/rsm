@@ -2,7 +2,9 @@
   alertify.error('<%= j (render partial: "shared/error_messages", locals: {object: @apply}) %>');
 <% elsif @error %>
   alertify.error('<%= @error %>');
-<% else %>
+<% elsif @error_record_invalid %>
+  alertify.error('<%= @error_record_invalid %>');
+<% elsif @success %>
   alertify.success('<%= @success %>');
   $('#apply_button').hide().after('<%= button_tag t("apply.applied"), class: "btn btn-primary btn-block btn-apply post-job disabled", id: "post-job-btn" %>');
   $('#JobModal').modal('hide');

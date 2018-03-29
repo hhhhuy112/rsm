@@ -13,7 +13,6 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
   before_action :load_appointments, only: [:create, :new, :update], if: :is_scheduled?
   before_action :build_offer, :load_currency, only: :new, if: :is_offer_sent?
   before_action :load_offer_status_step_pending, :check_send_mail, only: %i(update create)
-  before_action :load_apply_status_current, only: :show
 
   def new
     respond_to :js
@@ -182,12 +181,5 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
       return if @oauth.blank?
       @oauth.check_access_token
     end
-  end
-
-  def load_apply_status_current
-    @apply_status = ApplyStatus.current.includes(:step, :status_step, :apply, :job)
-      .find_by apply_id: params[:id]
-    return if @apply_status
-    @error = t ".not_found_apply_status"
   end
 end

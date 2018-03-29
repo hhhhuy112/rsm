@@ -1,0 +1,15 @@
+<tr role="row" class="candidate-<%= candidate.id %>">
+  <td class="text-center">
+    <%= index_count_page candidate_counter, params[:page], Settings.apply.page %>
+  </td>
+  <td class="text-center"><%= candidate.name %></td>
+  <td class="text-center"><%= candidate.email %></td>
+  <td class="text-center"><%= candidate.phone %></td>
+  <td class="text-center"><%= l candidate.created_at.to_date, format: :long %></td>
+  <td class="text-center">
+    <%= link_to employers_company_candidate_path(@company, id: candidate.id),
+      class: "btn btn-default btn-xs" do %>
+      <i class="fa fa-eye"></i>
+    <% end %>
+  </td>
+</tr>

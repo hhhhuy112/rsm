@@ -1,0 +1,25 @@
+<% if @candidates.present? %>
+  <table id="candidates-datatable" class="table table-vcenter table-condensed table-bordered dataTable no-footer"
+    role="grid" aria-describedby="example-datatable_info">
+    <thead>
+      <tr role="row">
+        <th class="text-center"><%= t ".no" %></th>
+        <th class="text-center"><%= t ".name" %></th>
+        <th class="text-center"><%= t ".email" %></th>
+        <th class="text-center"><%= t ".phone" %></th>
+        <th class="text-center"><%= t ".join_at" %></th>
+        <th class="text-center"><%= t ".action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "candidate", collection: @candidates, as: :candidate %>
+    </tbody>
+  </table>
+  <div class="row text-center pag">
+    <%= paginate @candidates, remote: true %>
+  </div>
+<% else %>
+  <p class="text-danger text-center">
+    <i class="fa fa-times"></i> <%= t ".not_candidates" %>
+  </p>
+<% end %>

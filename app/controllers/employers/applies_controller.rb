@@ -10,20 +10,12 @@ class Employers::AppliesController < Employers::EmployersController
   before_action :load_offer_status_step_pending, only: %i(show update)
   before_action :load_jobs_applied, :load_notes, only: :show
   before_action :load_answers_for_survey, only: :show
+  before_action :load_applies, :select_size_steps, only: :index
+  before_action :load_user_candidate, only: :create, if: :is_params_candidate?
+  before_action :check_create_apply_for_candidate, only: :create
+  before_action :load_jobs, only: :new
 
-  def index
-    applies_status = @company.apply_statuses.current
-    @applies_total = applies_status.size
-    @size_steps = SelectApply.caclulate_applies_step @company
-    @q = applies_status.search params[:q]
-    @applies_status = @q.result.lastest_apply_status.includes(:apply)
-      .includes(:job).includes(:status_step)
-      .page(params[:page]).per Settings.applies_max
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
+  def index; end
 
   def show
     respond_to do |format|
@@ -32,22 +24,12 @@ class Employers::AppliesController < Employers::EmployersController
     end
   end
 
-  def new
-    @q = @company.jobs.search params[:q]
-    @jobs = @q.result
-  end
+  def new; end
 
   def create
     information = params[:apply][:information].permit!.to_h
     job_ids = params[:job_ids]
-
-    if job_ids[1].blank?
-      save_apply information
-    else
-      import_applies job_ids, information
-    end
-  rescue ActiveRecord::RecordInvalid
-    @error = t ".failure"
+    import_applies job_ids, information
   end
 
   def update
@@ -77,16 +59,6 @@ class Employers::AppliesController < Employers::EmployersController
     Apply.statuses["lock_apply"]
   end
 
-  def save_apply information
-    @apply = Apply.new apply_params
-    @apply.information = information
-    if @apply.save
-      @success = t ".success"
-    else
-      @error = t ".failure"
-    end
-  end
-
   def import_applies job_ids, information
     Apply.transaction requires_new: true do
       applies = []
@@ -95,18 +67,59 @@ class Employers::AppliesController < Employers::EmployersController
         params[:apply][:job_id] = id
         apply = Apply.new apply_params
         apply.information = information
+        apply.cv = @candidate.applies.first.cv if is_params_candidate?
         apply.save!
       end
       @success = t ".success"
+      load_applies_after_save
     end
+  rescue ActiveRecord::RecordInvalid
+    @error = t ".failure_user"
   end
 
   def load_jobs_applied
-    @applies = Apply.get_by_user(@apply.user_id).includes :job
+    apply_ids = Apply.get_have_job.get_by_user(@apply.user_id).pluck :id
+    @apply_statuses_applied = ApplyStatus.current.of_apply(apply_ids).includes :job
   end
 
   def load_answers_for_survey
     @answers = @apply.answers.name_not_blank
       .page(params[:page]).per Settings.survey.max_record
+  end
+
+  def check_create_apply_for_candidate
+    respond_to do |format|
+      if params[:job_ids] && params[:job_ids][1].blank?
+        @error = t ".job_nil"
+        format.js {render "employers/applies/create"}
+      else
+        format.js
+        format.html
+      end
+    end
+  end
+
+  def load_applies
+    applies_status = @company.apply_statuses.current
+    @applies_total = applies_status.size
+    @q = applies_status.search params[:q]
+    @applies_status = @q.result.lastest_apply_status.includes(:apply, :job, :status_step)
+      .page(params[:page]).per Settings.applies_max
+  end
+
+  def select_size_steps
+    @size_steps = SelectApply.caclulate_applies_step @company
+  end
+
+  def is_params_candidate?
+    params[:role] == Settings.candidate
+  end
+
+  def load_applies_after_save
+    if is_params_candidate?
+      load_applies_candidate
+    else
+      load_applies
+    end
   end
 end

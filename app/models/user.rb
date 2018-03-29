@@ -43,6 +43,9 @@ class User < ApplicationRecord
   scope :not_member, ->{where("id NOT IN (SELECT user_id FROM members where end_time IS NUll)")}
   scope :not_role, ->(role){where.not role: role}
   scope :of_company, ->(company){where company_id: company}
+  scope :get_by_id, ->ids{where id: ids}
+  scope :get_company, ->company_id{where company_id: company_id}
+  scope :newest, ->{order created_at: :desc}
 
   mount_uploader :picture, PictureUploader
   mount_uploader :cv, CvUploader
@@ -83,6 +86,27 @@ class User < ApplicationRecord
   def birthday_cannot_be_in_the_future
     if birthday.present? && birthday > Date.today
       errors.add :birthday, I18n.t("users.form.birthday.validate")
+    end
+  end
+
+  class << self
+    def is_user_candidate_exist? email
+      applies = Apply.get_by_email email
+      return true if applies.present?
+      user = User.find_by email: email
+      return false if user.blank?
+      applies_user = Apply.get_by_user user.id
+      return applies_user.present?
+    end
+
+    def auto_create_user company_id, information, cv
+      password = Devise.friendly_token.first(Settings.password.length)
+      user = User.new email: information[:email], name: information[:name],
+        password: password, company_id: company_id, phone: information[:phone],
+        address: information[:address], cv: cv
+      user.self_attr_after_save password
+      user.save!
+      user
     end
   end
 end

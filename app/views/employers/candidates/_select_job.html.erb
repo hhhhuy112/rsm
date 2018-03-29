@@ -1,0 +1,67 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title"><strong><%= t ".add_apply" %></strong></h4>
+    </div>
+    <div class="modal-body">
+      <div class="block full">
+        <div class="block-title">
+          <h2>
+            <i class="fa fa-briefcase"></i>
+            <strong><%= t ".select_job" %></strong>
+          </h2>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tagsinput h-35" id="example-tags_tagsinput">
+              <small class="text-muted no-job"><%= t ".none_job_select" %></small>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 m-top-15">
+            <%= search_form_for @q, url: employers_company_search_job_path, remote: true do |f| %>
+              <%= hidden_field_tag :id, @candidate.id %>
+              <%= hidden_field_tag :choosen_ids, nil, id: "choosen-ids" %>
+              <%= hidden_field_tag :is_candidate, nil %>
+              <label>
+                <div class="input-group">
+                  <%= f.text_field :name_cont, placeholder: t(".job_name_placeholder"),
+                    class: "form-group form-control input-md" %>
+                  <span class="input-group-addon p-0">
+                    <%= f.button :submit, class: "btn btn-primary btn-sm col-md-12" do %>
+                      <i class="fa fa-search"></i>
+                    <% end %>
+                  </span>
+                </div>
+              </label>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <%= simple_form_for [:employers, @apply], remote: :true, class: "form-horizontal form-bordered" do |f| %>
+            <div id="search-job">
+              <%= render "choose_job" %>
+            </div>
+            <%= f.simple_fields_for :information do |p| %>
+              <%= p.hidden_field :name, value: @candidate.name %>
+              <%= p.hidden_field :email, value: @candidate.email %>
+              <%= p.hidden_field :phone, value: @candidate.phone %>
+            <% end %>
+            <%= hidden_field_tag :id, @candidate.id %>
+            <%= hidden_field_tag :role, :candidate %>
+            <div class="row">
+              <center>
+                <%= f.submit t(".submit"), class: "btn btn-info" %>
+              </center>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

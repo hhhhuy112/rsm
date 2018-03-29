@@ -6,6 +6,7 @@ class ApplyStatus < ApplicationRecord
 
   has_one :step, through: :status_step
   has_one :job, through: :apply
+  has_one :category, through: :job
   has_one :appointment, dependent: :destroy
   has_one :user, through: :apply
   has_many :offers, dependent: :destroy
@@ -17,6 +18,7 @@ class ApplyStatus < ApplicationRecord
   delegate :name, to: :step, allow_nil: true, prefix: true
   delegate :id, :information, :created_at, to: :apply, allow_nil: true, prefix: true
   delegate :name, :id, :target, :level, to: :job, allow_nil: true, prefix: true
+  delegate :name, to: :category, allow_nil: true, prefix: true
 
   accepts_nested_attributes_for :appointment, allow_destroy: true , update_only: true
   accepts_nested_attributes_for :email_sents, allow_destroy: true , update_only: true

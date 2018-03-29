@@ -566,6 +566,7 @@ en:
     expires_on: "Expires on"
     applied_on: "Applied on"
     applyfail: "Apply Fail"
+    user_fail: "Can't create user."
   downloads:
     club:
       to: "To"
@@ -1202,3 +1203,4 @@ en:
   branch_in: "Workplace In "
   up_to: "Up To "
   expire_at: "Expire at "
+  not_found: "Not found %{error_message}"

@@ -1,0 +1,16 @@
+<tr>
+  <td class="text-center">
+    <strong>
+      <%= link_to apply_status.job_name, employers_job_path(apply_status.job) %>
+    </strong>
+  </td>
+  <td class="text-center"><%= apply_status.category_name %></td>
+  <td class="text-center"><%= show_step_apply apply_status.step %></td>
+  <td class="text-center"><%= show_status_apply apply_status.status_step %></td>
+  <td class="text-center hidden-xs"><%= l apply_status.created_at, format: :short %></td>
+  <td class="text-center hidden-xs">
+    <%= link_to employers_job_apply_path(apply_status.job, id: apply_status.apply_id), class: "btn btn-xs btn-default" do %>
+      <i class="fa fa-eye"></i>
+    <% end %>
+  </td>
+</tr>

@@ -1,0 +1,25 @@
+<div class="modal-dialog modal-md">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title"><strong><%= t ".add_candidate" %></strong></h4>
+    </div>
+    <div class="modal-body">
+      <%= simple_form_for [:employers, @apply], url: employers_company_candidates_path(@company),
+        method: :post, remote: :true, class: "form-horizontal form-bordered" do |f| %>
+        <div class="row">
+          <div class="block">
+            <%= render partial: "employers/applies/apply_form", locals: {f: f} %>
+          </div>
+        </div>
+
+        <div class="row">
+          <center>
+            <%= f.submit t(".create"), class: "btn btn-info btn-md" %>
+          </center>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag "employers/add_apply" %>

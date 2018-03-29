@@ -16,7 +16,7 @@ class Apply < ApplicationRecord
 
   serialize :information, Hash
 
-  after_create :create_activity_notify, :create_user
+  after_create :create_user, :create_activity_notify
 
   validates :cv, presence: true
   validates :information, presence: true
@@ -28,13 +28,17 @@ class Apply < ApplicationRecord
   scope :newest_apply, ->{order :created_at}
   scope :sort_apply, ->{order(created_at: :desc).limit Settings.job.limit}
   scope :lastest_apply, ->{order created_at: :desc}
-  scope :get_by_user, -> user_id {where user_id: user_id}
+  scope :get_by_user, ->user_id{where user_id: user_id}
+  scope :get_by_job, ->job_id{where job_id: job_id}
+  scope :get_have_job, ->{where.not job_id: nil}
+  scope :get_have_user, ->{where.not user_id: nil}
+  scope :get_by_email, ->email{where "information LIKE ?", "%\nemail: #{email}\n%"}
 
   mount_uploader :cv, CvUploader
 
   delegate :name, to: :job, prefix: true, allow_nil: true
   delegate :name, to: :step, prefix: true, allow_nil: true
-  delegate :phone, :email, :name, to: :user, prefix: true, allow_nil: true
+  delegate :phone, :email, :name, :id, to: :user, prefix: true, allow_nil: true
   delegate :id, to: :company, prefix: true, allow_nil: true
 
   include PublicActivity::Model
@@ -64,7 +68,7 @@ class Apply < ApplicationRecord
   rescue
   end
 
-  def self_attr_after_create current_user, key_apply
+  def self_attr_after_create current_user, key_apply = nil
     self.current_user = current_user
     self.key_apply = key_apply
   end
@@ -78,7 +82,7 @@ class Apply < ApplicationRecord
 
   def create_activity_notify
     self.save_activity :create, current_user
-    Notification.create_notification key_apply, self, current_user, self.job.company_id if current_user || key_apply
+    Notification.create_notification key_apply, self, current_user, self.user.company_id if current_user || key_apply
     AppliesUserJob.perform_later self
     AppliesEmployerJob.perform_later self
   rescue ActiveRecord::RecordInvalid
@@ -87,15 +91,22 @@ class Apply < ApplicationRecord
   def create_user
     return if self.user.present?
     user = User.find_by email: information[:email]
-    if user.blank?
-      password = Devise.friendly_token.first(Settings.password.length)
-      user = User.new email: information[:email], name: information[:name],
-        password: password, company_id: company_id, phone: information[:phone],
-        address: information[:address]
-      user.self_attr_after_save password
-      user.save!
+    candidate_id = if user.blank?
+      applies = Apply.get_have_user.get_by_email information[:email]
+      if applies.blank?
+        company_apply_id = if company_id
+          company_id
+        elsif current_user
+          current_user.company_id
+        end
+        user = User.auto_create_user company_apply_id, information, cv
+        user.id
+      else
+        applies.first.user_id
+      end
+    else
+      user.id
     end
-    self.update_attributes user_id: user.id
-  rescue ActiveRecord::RecordInvalid
+    self.update_attributes user_id: candidate_id
   end
 end

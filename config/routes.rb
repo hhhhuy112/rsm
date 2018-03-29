@@ -36,7 +36,10 @@ Rails.application.routes.draw do
       resources :applies, only: %i(show index update)
     end
     resources :users
-    resources :companies
+    resources :companies do
+      resources :candidates, except: %i(edit destroy update)
+      get "/search_job", to: "candidates#search_job"
+    end
     resources :members
     resources :company_activities
     resources :appointments

@@ -1,0 +1,12 @@
+<% if params[:is_candidate] %>
+  $('#search-job').html('<%= j render "choose_job" %>');
+<% else %>
+  $('#search-job').html('<%= j render "employers/applies/choose_jobs" %>');
+<% end %>
+<% choosen_ids = params[:choosen_ids].split(",") %>
+<% if choosen_ids.present? %>
+  <% choosen_ids.each do |id| %>
+    <% next if id.blank? %>
+    $('#job_ids_<%= id %>').prop('checked', true);
+  <% end %>
+<% end %>

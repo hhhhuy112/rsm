@@ -39,15 +39,16 @@ class Job < ApplicationRecord
   scope :sort_max_salary_and_target, -> do
     order(max_salary: :desc, target: :desc).limit Settings.job.limit
   end
-  scope :job_company, -> company {where company_id: company}
-  scope :sort_lastest, -> {order updated_at: :desc}
-  scope :get_top_jobs, -> company {where company_id: company}
-  scope :urgent_jobs, -> date_now, date_compare do
+  scope :job_company, ->company{where company_id: company}
+  scope :sort_lastest, ->{order updated_at: :desc}
+  scope :get_top_jobs, ->company{where company_id: company}
+  scope :urgent_jobs, ->date_now, date_compare do
     where "end_time >= ? AND end_time <= ?", date_now, date_compare
   end
-  scope :unexpired_jobs, -> date_compare {where "end_time >= ? OR end_time IS NULL", date_compare}
-  scope :expired_jobs, -> date_compare {where "end_time < ?", date_compare}
-  scope :get_job, -> ids {where id: ids}
+  scope :unexpired_jobs, ->date_compare{where "end_time >= ? OR end_time IS NULL", date_compare}
+  scope :expired_jobs, ->date_compare{where "end_time < ?", date_compare}
+  scope :get_job, ->ids{where id: ids}
+  scope :get_by_not_id, ->ids{where.not id: ids}
 
   delegate :id, to: :company, prefix: true, allow_nil: true
   delegate :sign, to: :currency, prefix: true, allow_nil: true

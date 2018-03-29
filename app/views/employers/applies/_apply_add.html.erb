@@ -4,7 +4,7 @@
       <button type="button" class="close" data-dismiss="modal">&times;</button>
       <h4 class="modal-title"><strong><%= t ".add_apply" %></strong></h4>
     </div>
-    <%= search_form_for @q, url: new_employers_apply_path,
+    <%= search_form_for @q, url: employers_company_search_job_path(@company.id),
       remote: true, class: "form-search" do |f| %>
       <div class="col-md-7">
         <%= f.text_field :name_cont, placeholder: t(".job_name_placeholder"),

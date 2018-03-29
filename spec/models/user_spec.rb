@@ -36,7 +36,6 @@ RSpec.describe User, type: :model do
     it {is_expected.to have_db_column(:address).of_type(:text)}
     it {is_expected.to have_db_column(:sex).of_type(:integer)}
     it {is_expected.to have_db_column(:role).of_type(:integer)}
-    it {is_expected.to have_db_column(:auto_password).of_type(:string)}
   end
 
   context "validates" do

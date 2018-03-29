@@ -218,6 +218,7 @@ vn:
         company: "Công ty"
         template: "Bản mẫu"
         applies: "Hồ sơ ứng tuyển"
+        candidates: "Ứng viên"
         connect_gmail: "Kết nối gmail"
         connected_gmail: "Đã kết nối gmail"
       header_employer:
