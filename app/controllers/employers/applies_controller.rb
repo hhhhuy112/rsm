@@ -28,7 +28,7 @@ class Employers::AppliesController < Employers::EmployersController
 
   def create
     information = params[:apply][:information].permit!.to_h
-    job_ids = params[:job_ids]
+    job_ids = params[:choosen_ids].split(",")
     import_applies job_ids, information
   end
 
@@ -60,6 +60,7 @@ class Employers::AppliesController < Employers::EmployersController
   end
 
   def import_applies job_ids, information
+    return @error = t(".job_nil") if job_ids.blank?
     Apply.transaction requires_new: true do
       applies = []
       job_ids.each do |id|
@@ -89,7 +90,7 @@ class Employers::AppliesController < Employers::EmployersController
 
   def check_create_apply_for_candidate
     respond_to do |format|
-      if params[:job_ids] && params[:job_ids][1].blank?
+      if params[:choosen_ids].blank?
         @error = t ".job_nil"
         format.js {render "employers/applies/create"}
       else

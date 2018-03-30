@@ -25,7 +25,7 @@
           <div class="col-md-12 m-top-15">
             <%= search_form_for @q, url: employers_company_search_job_path, remote: true do |f| %>
               <%= hidden_field_tag :id, @candidate.id %>
-              <%= hidden_field_tag :choosen_ids, nil, id: "choosen-ids" %>
+              <%= hidden_field_tag :choosen_ids, nil, class: "choosen-ids" %>
               <%= hidden_field_tag :is_candidate, nil %>
               <label>
                 <div class="input-group">
@@ -44,6 +44,7 @@
 
         <div class="col-md-12">
           <%= simple_form_for [:employers, @apply], remote: :true, class: "form-horizontal form-bordered" do |f| %>
+            <%= hidden_field_tag :choosen_ids, nil, class: "choosen-ids" %>
             <div id="search-job">
               <%= render "choose_job" %>
             </div>
