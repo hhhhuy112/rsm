@@ -18,23 +18,23 @@
               <td><span class="label label-primary"><%= @candidate.email %></span></td>
             </tr>
 
-            <tr class="background-none">
-              <td class="text-right"><strong><%= t ".phone" %></strong></td>
-              <td><%= @candidate.phone %></td>
-            </tr>
+            <% if @candidate.phone %>
+              <tr class="background-none">
+                <td class="text-right"><strong><%= t ".phone" %></strong></td>
+                <td><%= @candidate.phone %></td>
+              </tr>
+            <% end %>
 
-            <tr class="background-none">
-              <td class="text-right"><strong><%= t "employers.cv" %></strong></td>
-              <% if @candidate.cv.present? %>
-                <td>
-                  <a href="<%= @candidate.cv.url %>" data-fancybox class="thumbnail-cv label label-info">
-                    <i class="fa fa-eye"></i><b><%= t "employers.view" %></b>
-                  </a>
-                </td>
-              <% else %>
-                <td><span class="label label-danger"><%= t ".not_cv" %></span></td>
-              <% end %>
-            </tr>
+            <% if @candidate.cv.present? %>
+              <tr class="background-none">
+                <td class="text-right"><strong><%= t "employers.cv" %></strong></td>
+                  <td>
+                    <a href="<%= @candidate.cv.url %>" data-fancybox class="thumbnail-cv label label-info">
+                      <i class="fa fa-eye"></i><b><%= t "employers.view" %></b>
+                    </a>
+                  </td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>

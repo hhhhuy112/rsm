@@ -82,6 +82,7 @@ en:
         job: "job"
         cv: "Cv"
         failure_user: "Can't create user."
+        duplicate_apply: "%{email} was applied into this job."
       index:
         all_applies: "All Applies"
         apply: "apply"
@@ -526,6 +527,8 @@ en:
       show:
         candidate_information: "Candidate Infomation"
         not_cv: "No CV"
+      apply:
+        view_cv: "View CV"
   layouts:
     employers:
       footer_employer:

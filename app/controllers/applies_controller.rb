@@ -35,6 +35,8 @@ class AppliesController < ApplicationController
         format.js
       end
     end
+  rescue ActiveRecord::RecordNotUnique
+    @error = t "applies.create.duplicate_apply"
   end
 
   def update

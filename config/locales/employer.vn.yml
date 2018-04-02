@@ -81,6 +81,7 @@ vn:
         job: "Công việc"
         cv: "Cv"
         failure_user: "Không thể tạo tài khoản."
+        duplicate_apply: "%{email} đã apply vào công việc này."
       index:
         all_applies: "Tất cả đơn nộp"
         apply: "Ứng tuyển"
@@ -519,6 +520,8 @@ vn:
       show:
         candidate_information: "Thông tin ứng viên"
         not_cv: "Không có CV"
+      apply:
+        view_cv: "Xem CV"
   layouts:
     employers:
       footer_employer:

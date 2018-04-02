@@ -40,7 +40,9 @@ class Ability
     can :read, StatusStep, company_id: company.id
     can :manage, Question, company_id: company.id
     can :manage, Note
-    can :manage, :candidate {user.company_id == company.id}
+    can :manage, :candidate do
+      user.company_id == company.id
+    end
   end
 
   def permission_admin
