@@ -214,3 +214,5 @@ password:
 delimiter: "."
 candidate: "candidate"
 candidates: "candidates"
+benefit:
+  length_content_min: 20

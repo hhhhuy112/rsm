@@ -72,8 +72,10 @@ $(document).on('change', '#template_type_of', function(){
   var value = $(this).val();
   if(value == 'template_member'){
     CKEDITOR.instances['template_template_body'].setData(I18n.t('employers.templates.show.offer_content'));
-  }else{
+  }else if(value == 'template_user'){
     CKEDITOR.instances['template_template_body'].setData(I18n.t('employers.templates.show.content_template'));
+  }else {
+    CKEDITOR.instances['template_template_body'].setData('');
   }
 });
 
@@ -84,3 +86,16 @@ $(document).on('change', '#expire_on', function(){
     $('.display-job-end-time').slideUp();
   }
 });
+
+$(document).on('change', 'select[name="template_benefits"]', function() {
+  if ($(this).val() !== '') {
+    $.ajax('/employers/templates/' + $(this).val(), {
+      type: 'GET',
+      data: {is_benefit: true},
+      success: function(result) {
+        CKEDITOR.instances['content-benefits'].setData(result.data);
+      },
+    });
+  }
+});
+

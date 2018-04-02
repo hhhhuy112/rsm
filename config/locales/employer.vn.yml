@@ -292,6 +292,7 @@ vn:
         expires_on: "Hết hạn"
         back: "Trở về"
         work_place: "Nơi làm việc"
+        select_template_benefits: "Chọn bản mẫu lợi ích"
       job:
         expires_on: "Hết hạn"
         expired: "hết hạn"
@@ -470,6 +471,8 @@ vn:
         of_company: " của công ty "
         template_error: "Không thể tìm thấy mẫu. Hãy thử lại sau"
         company: "Công ty %{name} Việt Nam"
+      benefit:
+        sure: "Bạn muốn xóa bản mẫu này?"
     notes:
       create:
         success: "Đã tạo ghi chú thành công!"

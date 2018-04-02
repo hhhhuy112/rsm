@@ -43,16 +43,24 @@
     </div>
 
     <div class="col-md-12">
-      <label class="control-label">
-        <%= t ".benefit" %>
-      </label>
-      <div class="reward_benefits">
-        <%= f.fields_for :reward_benefits do |reward| %>
-          <%= render "reward_benefit_fields", f: reward %>
-        <% end %>
-        <div class="links add_benefit_links">
-          <%= link_to_add_association t(".add_benefit"), f, :reward_benefits,
-            class: "btn btn-primary", partial: "reward_benefit_fields" %>
+      <div class="row">
+        <div class="col-md-3">
+          <label class="control-label">
+            <%= t ".benefit" %>
+          </label>
+        </div>
+
+        <div class="col-md-5">
+          <%= select_tag :template_benefits, options_from_collection_for_select(
+            @template_benefits, :id, :title), class: "form-control",
+            include_blank: t(".select_template_benefits") %>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-md-12 reward_benefits">
+          <%= f.fields_for :reward_benefits do |reward| %>
+            <%= reward.input :content, as: :ckeditor, label: false, input_html: {id: "content-benefits"} %>
+          <% end %>
         </div>
       </div>
     </div>

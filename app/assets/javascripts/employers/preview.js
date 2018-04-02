@@ -125,15 +125,7 @@ $(document).ready(function(){
   }
 
   function getBenefits() {
-    removeChild('#reward-benefit');
-    if ($('.reward-benefit-content')[0] !== undefined) {
-      $.each($('.reward-benefit-content'), function(id) {
-        id = $('.reward-benefit-content').eq(id).attr('id');
-        $('#reward-benefit').append('<li id="benefit">' + CKEDITOR.instances[id].getData() + '</li>');
-      });
-    } else {
-      $('#reward-benefit').append('<small class="text-muted">' + I18n.t('none_content') + '</small>');
-    }
+    $('#reward-benefit').html(CKEDITOR.instances['content-benefits'].getData());
   }
 
   function removeChild(element) {

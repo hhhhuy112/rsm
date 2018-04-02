@@ -294,6 +294,7 @@ en:
         preview: "Preview"
         back: "Back"
         work_place: "Workplace"
+        select_template_benefits: "Select template benefits"
       job:
         expires_on: "Expires on"
         expired: "Expired"
@@ -409,9 +410,9 @@ en:
       show:
         disconnect_gmail: "Please connect gmail to send mail."
     templates:
-      create: "Create"
-      update: "Update"
-      destroy: "Destroy"
+      create: "Created."
+      update: "Updated."
+      destroy: "Destroyed."
       candidate:
         body: "Template body"
         close: "Close"
@@ -470,6 +471,8 @@ en:
         of_company: " of company "
         template_error: "Can not find teample. Please try again later"
         company: "Company %{name} Vietnamses"
+      benefit:
+        sure: "Are you want to delete template?"
     status_steps:
       select_status:
         enter_step: "Enter step"
