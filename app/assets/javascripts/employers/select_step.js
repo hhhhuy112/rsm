@@ -25,23 +25,23 @@ $(document).ready(function () {
   $(document).on('change', 'input[name="job_ids[]"]', function(){
     $('.no-job').remove();
     var id = $(this).val();
-    if ($.inArray(id, $('#choosen-ids').val().split(',')) === -1) {
+    if ($.inArray(id, $('.choosen-ids').val().split(',')) === -1) {
       $('.no-job').remove();
       var html_result = '<span class="tag" id="tag-' + id + '" data-id="' + id +
         '"><span>' + get_name_job(id) + '&nbsp;&nbsp;</span><a href="javascript:void(0)" title=' +
         I18n.t("employers.jobs.tag_job.remove_tag") +
         ' class= "remove-tag">&#10007;</a></span>';
       $('.tagsinput').append(html_result);
-      $('#choosen-ids').val($('#choosen-ids').val() + ',' + id);
+      $('.choosen-ids').val($('.choosen-ids').val() + ',' + id);
     } else {
       $('#tag-' + id).remove();
-      $('#choosen-ids').val($('#choosen-ids').val().replace(',' + id, ''));
+      $('.choosen-ids').val($('.choosen-ids').val().replace(',' + id, ''));
       check_job_choosen_ids();
     }
   });
 
   function check_job_choosen_ids() {
-    if ($('#choosen-ids').val() === '') {
+    if ($('.choosen-ids').val() === '') {
       no_job = '<span class="text-muted no-job"><small><em>' +
         I18n.t("no_job_choosen") + '</em></small></span>';
       $('.tagsinput').append(no_job);
@@ -58,7 +58,7 @@ $(document).ready(function () {
 
   $(document).on('click', '.remove-tag', function(){
     var id = $(this).parent().attr('data-id');
-    $('#choosen-ids').val($('#choosen-ids').val().replace(',' + id, ''));
+    $('.choosen-ids').val($('.choosen-ids').val().replace(',' + id, ''));
     $(this).parent().remove();
     $('#job_ids_' + id).prop('checked', false);
     check_job_choosen_ids();
