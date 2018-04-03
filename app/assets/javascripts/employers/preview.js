@@ -16,6 +16,7 @@ $(document).ready(function(){
     $('#level-job').text(job.level);
     $('#skill-job').text(job.skill);
     $('#language-job').text(job.language);
+    $('#position-types').text($("select[name='job[position_types]'] option:selected").text());
     if (job.survey_type !== null) {
       $('#survey-job').text('(' + getSurveyType(job.survey_type) + ')');
     }

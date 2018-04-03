@@ -290,6 +290,12 @@ en:
       all_position_types: "All position types"
     question_fields:
       remove_question: "Remove question"
+    position_types:
+      full_time_freshers: "Full time freshers"
+      full_time_careers: "Full time careers"
+      part_time: "Part time"
+      intern: "Intern"
+      freelance: "Freelance"
   experiences:
     blank: "Blank"
     index:

@@ -295,6 +295,12 @@ vn:
       all_position_types: "Tất cả loại vị trí"
     question_fields:
       remove_question: "Xóa câu hỏi"
+    position_types:
+      full_time_freshers: "Full time freshers"
+      full_time_careers: "Full time careers"
+      part_time: "Part time"
+      intern: "Intern"
+      freelance: "Freelance"
   experiences:
     blank: "Trống"
     index:

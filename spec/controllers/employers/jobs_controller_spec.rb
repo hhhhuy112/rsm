@@ -37,7 +37,7 @@ RSpec.describe Employers::JobsController, type: :controller do
       patch :update, params: { id: subject.id, job:{name: "Ruby on rails",
         description: "IT", min_salary: 500, position: "Manager", target: 10,
         survey_type: "not_exist", user_id: user.id, company_id: company.id,
-        branch_id: branch.id, category_id: category.id}},
+        branch_id: branch.id, category_id: category.id, position_types: :part_time}},
         xhr: true, format: "js"
       expect(assigns[:message]).to match I18n.t("employers.jobs.update.success")
     end
@@ -50,7 +50,7 @@ RSpec.describe Employers::JobsController, type: :controller do
   describe "POST #create" do
     before {request.host = "#{company.subdomain}.lvh.me:3000"}
     it "create jobs success" do
-      post :create, params: {job: {name: "Ruby on rails",
+      post :create, params: {job: {name: "Ruby on rails", position_types: :part_time,
         description: "IT", min_salary: 500, position: "Manager", target: 10,
         survey_type: "not_exist", user_id: user.id, company_id: company.id, currency_id: currency.id,
         branch_id: branch.id, category_id: category.id}}, xhr: true, format: "js"

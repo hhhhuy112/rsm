@@ -146,7 +146,7 @@
                       </span>
                     </div>
                   </div>
-                   <div class="row summary-item">
+                  <div class="row summary-item">
                     <div class="col-xs-2 summary-icon">
                       <i class="fa fa-bullseye" aria-hidden="true"></i>
                     </div>
@@ -164,44 +164,57 @@
                       <span class="content"><%= @job.position %></span>
                     </div>
                   </div>
-                  <div class="row summary-item">
-                    <div class="col-xs-2 summary-icon">
-                      <i class="fa fa-calendar-times-o "></i>
+
+                  <% if @job.position_types.present? %>
+                    <div class="row summary-item">
+                      <div class="col-xs-2 summary-icon">
+                        <i class="fa fa-calendar-times-o "></i>
+                      </div>
+                      <div class="col-xs-10 summary-content">
+                        <span class="content-label font-right"><%= t ".form" %></span>
+                        <span class="content"><%= t ".#{@job.position_types}" %></span>
+                      </div>
                     </div>
-                    <div class="col-xs-10 summary-content">
-                      <span class="content-label font-right"><%= t ".form" %></span>
-                      <span class="content"><%= t ".#{@job.position_types}" %></span>
+                  <% end %>
+
+                  <% if @job.level.present? %>
+                    <div class="row summary-item">
+                      <div class="col-xs-2 summary-icon">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                      </div>
+                      <div class="col-xs-10 summary-content">
+                        <span class="content-label font-right"><%= t ".level_requirement" %></span>
+                        <span class="content"><%= @job.level %></span>
+                      </div>
                     </div>
-                  </div>
-                  <div class="row summary-item">
-                    <div class="col-xs-2 summary-icon">
-                      <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                  <% end %>
+
+                  <% if @job.skill.present? %>
+                    <div class="row summary-item">
+                      <div class="col-xs-2 summary-icon">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                      </div>
+                      <div class="col-xs-10 summary-content">
+                        <span class="content-label font-right"><%= t ".skills" %></span>
+                        <span class="content">
+                          <%= @job.skill %>
+                        </span>
+                      </div>
                     </div>
-                    <div class="col-xs-10 summary-content">
-                      <span class="content-label font-right"><%= t ".level_requirement" %></span>
-                      <span class="content"><%= @job.level %></span>
+                  <% end %>
+
+                  <% if @job.language.present? %>
+                    <div class="row summary-item">
+                      <div class="col-xs-2 summary-icon">
+                        <i class="fa fa-language" aria-hidden="true"></i>
+                      </div>
+                      <div class="col-xs-10 summary-content">
+                        <span class="content-label font-right"><%= t ".language" %></span>
+                        <span class="content"><%= @job.language %></span>
+                      </div>
                     </div>
-                  </div>
-                  <div class="row summary-item">
-                    <div class="col-xs-2 summary-icon">
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-xs-10 summary-content">
-                      <span class="content-label font-right"><%= t ".skills" %></span>
-                      <span class="content">
-                        <%= @job.skill %>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="row summary-item">
-                    <div class="col-xs-2 summary-icon">
-                      <i class="fa fa-language" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-xs-10 summary-content">
-                      <span class="content-label font-right"><%= t ".language" %></span>
-                      <span class="content"><%= @job.language %></span>
-                    </div>
-                  </div>
+                  <% end %>
+
                   <div class="row summary-item">
                     <div class="col-xs-2 summary-icon">
                       <i class="fa fa-calendar-minus-o" aria-hidden="true"></i>

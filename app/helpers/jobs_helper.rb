@@ -96,4 +96,8 @@ module JobsHelper
   def check_expire_job end_time
     Time.zone.now.to_date > end_time
   end
+
+  def get_position_types
+    Job.position_types.map {|key, value| [t("jobs.position_types.#{key}"), key]}
+  end
 end

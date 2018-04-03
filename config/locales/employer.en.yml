@@ -298,6 +298,7 @@ en:
         back: "Back"
         work_place: "Workplace"
         select_template_benefits: "Select template benefits"
+        position_types: "Position types"
       job:
         expires_on: "Expires on"
         expired: "Expired"
