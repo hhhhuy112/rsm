@@ -73,12 +73,12 @@ class Employers::JobsController < Employers::EmployersController
     if params[:expire_on] == Settings.jobs.form.check_box_expire_on
       params.require(:job).permit :content, :name, :level, :language, :target, :end_time, :skill,
         :position, :company_id, :description, :min_salary, :max_salary, :branch_id, :category_id,
-        :survey_type, :currency_id, reward_benefits_attributes: %i(id content job_id _destroy),
+        :survey_type, :currency_id, :position_types, reward_benefits_attributes: %i(id content job_id _destroy),
         surveys_attributes: [:id, :_destroy, question_attributes: %i(name company_id _destroy)]
     else
       params.require(:job).permit(:content, :name, :level, :language, :target, :skill,
         :position, :company_id, :description, :min_salary, :max_salary, :branch_id, :category_id,
-        :survey_type, :currency_id, reward_benefits_attributes: %i(id content job_id _destroy),
+        :survey_type, :currency_id, :position_types, reward_benefits_attributes: %i(id content job_id _destroy),
         surveys_attributes: [:id, :_destroy, question_attributes: %i(name company_id _destroy)])
         .merge! end_time: nil
     end

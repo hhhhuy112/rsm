@@ -297,6 +297,7 @@ vn:
         back: "Trở về"
         work_place: "Nơi làm việc"
         select_template_benefits: "Chọn bản mẫu lợi ích"
+        position_types: "Loại vị trí"
       job:
         expires_on: "Hết hạn"
         expired: "hết hạn"

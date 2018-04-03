@@ -78,6 +78,11 @@
     </div>
 
     <div class="col-md-12">
+      <%= f.input :position_types, as: :select, label: t(".position_types"),
+        collection: get_position_types %>
+    </div>
+
+    <div class="col-md-12">
       <%= f.input :level, label: t(".level") %>
     </div>
 
