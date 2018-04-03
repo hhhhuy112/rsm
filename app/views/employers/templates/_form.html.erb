@@ -1,86 +1,81 @@
 <%= simple_form_for [:employers, @template], remote: :true do |f| %>
-  <%= f.hidden_field :user_id %>
-  <div class="block-body">
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <div class="row">
     <div class="col-sm-6 col-md-6 col-lg-6">
       <label class="control-label date required" for="apply_status_offers_attributes_0_start_time_1i">
-        <abbr title="required">*</abbr><%= t ".name" %>
+        <abbr title="required">*</abbr> <%= t ".name" %>
       </label>
-      <%= f.text_field :name, class: "form-control" %>
-      <%= f.full_error :name %>
+      <%= f.input :name, class: "form-control", label: false %>
     </div>
     <div class="col-sm-6 col-md-6 col-lg-6">
       <label class="control-label date required" for="apply_status_offers_attributes_0_start_time_1i">
-        <abbr title="required">*</abbr><%= t ".title" %>
+        <abbr title="required">*</abbr> <%= t ".title" %>
       </label>
-      <%= f.text_field :title, class: "form-control" %>
-      <%= f.full_error :title %>
+      <%= f.input :title, class: "form-control", label: false %>
     </div>
+  </div>
+
+  <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
       <label class="control-label date required" for="apply_status_offers_attributes_0_start_time_1i">
-        <abbr title="required">*</abbr><%= t ".type" %>
+        <abbr title="required">*</abbr> <%= t ".type" %>
       </label>
-      <%= f.select :type_of, @type_template.map {|value, id| [t(".#{value}"), value]},
-        {include_blank: t(".please_selected")}, class: "form-control" %>
-      <%= f.full_error :type_of %>
+      <%= f.input :type_of, as: :select, collection: @type_template.map {|value, id| [t(".#{value}"), value]}, label: false %>
     </div>
+  </div>
+
+  <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
       <label class="control-label date required" for="apply_status_offers_attributes_0_start_time_1i">
-        <abbr title="required">*</abbr><%= t ".body" %>
+        <abbr title="required">*</abbr> <%= t ".body" %>
       </label>
       <div id="text-template">
         <% if @template.template_body.present? %>
-          <%= f.cktext_area :template_body, cols: Settings.templates.textarea , class: "form-control" %>
+          <%= f.input :template_body, as: :ckeditor, label: false %>
         <% else %>
-          <%= f.cktext_area :template_body, cols: Settings.templates.textarea , class: "form-control",
-            value: view_template_body %>
+          <%= f.input :template_body, as: :ckeditor , value: view_template_body, label: false %>
         <% end %>
       </div>
-    </div>
-    <% if @template.name.blank? %>
-      <div class="col-sm-12 col-md-12 col-lg-12">
-        <abbr title="required">*</abbr><%= t ".note"%>
-        <label class="switch switch-primary">
-          <input type="checkbox" id="check-template">
-          <span></span>
-        </label>
-      </div>
-      <div class="col-sm-12 col-md-12 col-lg-12">
-        <div class="col-sm-12 hide-type" id="content-note">
-          <span class="f13 note-style-a"><%= t ".infor" %></span><br>
-          <span class="f11"><%= Settings.companies %></span>
-          <span class="note-style"><%= t ".note_company" %></span><br>
-          <span class="f11"><%= Settings.user %></span>
-          <span class="note-style"><%= t ".note_user" %></span><br>
-          <span class="f11"><%= Settings.address %></span>
-          <span class="note-style"><%= t ".note_address" %></span><br>
-          <span class="f11"><%= Settings.start_time %></span>
-          <span class="note-style"><%= t ".note_start_time" %></span><br>
-          <span class="f11"><%= Settings.end_time %></span>
-          <span class="note-style"><%= t ".note_end_time" %></span><br>
-          <span class="f11"><%= Settings.offer_address %></span>
-          <span class="note-style"><%= t ".offer_address" %></span><br>
-          <span class="f11"><%= Settings.requirement %></span>
-          <span class="note-style"><%= t ".requirement" %></span><br>
-          <span class="f11"><%= Settings.salary %></span>
-          <span class="note-style"><%= t ".salary" %></span><br>
-          <span class="f11"><%= Settings.currency_unit %></span>
-          <span class="note-style"><%= t ".currency_unit" %></span><br>
-          <span class="f11"><%= Settings.date_offer %></span>
-          <span class="note-style"><%= t ".date_offer" %></span><br>
+      <% if @template.name.blank? %>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <abbr title="required">*</abbr><%= t ".note"%>
+          <label class="switch switch-primary">
+            <input type="checkbox" id="check-template">
+            <span></span>
+          </label>
         </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="modal-footer">
-    <div class="row">
-      <div class="text-right col-sm-10">
-        <%= f.submit t(".save"), class: "btn btn-primary" %>
-      </div>
-      <div class="text-right col-sm-2">
-        <button type="button" class="btn btn-default" data-dismiss="modal">
-          <%= t ".close" %>
-        </button>
-      </div>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="col-sm-12 hide-type" id="content-note">
+            <span class="f13 note-style-a"><%= t ".infor" %></span><br>
+            <span class="f11"><%= Settings.companies %></span>
+            <span class="note-style"><%= t ".note_company" %></span><br>
+            <span class="f11"><%= Settings.user %></span>
+            <span class="note-style"><%= t ".note_user" %></span><br>
+            <span class="f11"><%= Settings.address %></span>
+            <span class="note-style"><%= t ".note_address" %></span><br>
+            <span class="f11"><%= Settings.start_time %></span>
+            <span class="note-style"><%= t ".note_start_time" %></span><br>
+            <span class="f11"><%= Settings.end_time %></span>
+            <span class="note-style"><%= t ".note_end_time" %></span><br>
+            <span class="f11"><%= Settings.offer_address %></span>
+            <span class="note-style"><%= t ".offer_address" %></span><br>
+            <span class="f11"><%= Settings.requirement %></span>
+            <span class="note-style"><%= t ".requirement" %></span><br>
+            <span class="f11"><%= Settings.salary %></span>
+            <span class="note-style"><%= t ".salary" %></span><br>
+            <span class="f11"><%= Settings.currency_unit %></span>
+            <span class="note-style"><%= t ".currency_unit" %></span><br>
+            <span class="f11"><%= Settings.date_offer %></span>
+            <span class="note-style"><%= t ".date_offer" %></span><br>
+          </div>
+        </div>
+      <% end %>
     </div>
+  </div>
+
+  <div class="row">
+    <center>
+      <%= f.submit t(".save"), class: "btn btn-primary" %>
+    </center>
   </div>
 <% end %>

@@ -2,6 +2,8 @@
   $('.employer-template-<%= @template.id %>').remove();
   $('#interview-load').html('<%= j render partial: "employers/templates/interview", collection: @interviewers, as: :interviewer %>');
   $('#load_user').html('<%= j render partial: "employers/templates/candidate", collection: @candidates, as: :candidate %>');
+  $('#benefit-list').html('<%= j render partial: "employers/templates/benefit",
+    collection: @benefits, as: :benefit %>');
   alertify.success('<%= @message %>');
 <% else %>
   alertify.error('<%= t "employers.templates.form.fail" %>');

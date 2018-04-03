@@ -1,0 +1,36 @@
+<div class="modal fade" id="body-benefit-<%= benefit.id %>" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= benefit.title %></h4>
+      </div>
+      <div class="modal-body">
+        <div class="block">
+          <%= raw benefit.template_body %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<tr>
+  <td class="text-center"><%= count_page benefit_counter, @page %></td>
+  <td class="text-center"><%= benefit.title %></td>
+  <td class="text-center">
+    <div class="btn-group">
+      <%= link_to "javascript:void(0)", class: "btn btn-xs btn-default",
+        data: {toggle: "modal", target: "#body-benefit-#{benefit.id}"} do %>
+        <i class="fa fa-eye"></i>
+      <% end %>
+      <%= link_to edit_employers_template_path(benefit), remote: true,
+        class: "btn btn-xs btn-warning", data: {toggle: "tooltip"} do %>
+        <i class="fa fa-pencil"></i>
+      <% end %>
+      <%= link_to employers_template_path(benefit), method: :delete, remote: true,
+        class: "btn btn-danger btn-xs", data: {confirm: (t ".sure")} do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
+    </div>
+  </td>
+</tr>

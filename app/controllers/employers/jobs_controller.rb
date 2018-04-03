@@ -3,7 +3,8 @@ class Employers::JobsController < Employers::EmployersController
   before_action :load_jobs, only: %i(index create update)
   before_action :load_branches_for_select_box, only: :index
   before_action :load_category_for_select_box, only: :index
-  before_action :load_questions, :build_surveys, only: :new
+  before_action :load_questions, :build_surveys, :buil_benefits,
+    :load_template_benefits, only: %i(new edit)
   before_action :check_params, :convert_params_questions, only: :create
   before_action :load_currency, only: %i(edit new)
   before_action :load_status_step, only: %i(index update)
@@ -120,5 +121,13 @@ class Employers::JobsController < Employers::EmployersController
   def convert_params_questions
     @question_names = params[:name_question_choosen].split(",") if params[:name_question_choosen].present?
     @question_ids = params[:choosen_ids].split(",") if params[:choosen_ids].present?
+  end
+
+  def buil_benefits
+    @job.reward_benefits.build if @job.reward_benefits.blank?
+  end
+
+  def load_template_benefits
+    @template_benefits = @company.templates.template_benefit
   end
 end
