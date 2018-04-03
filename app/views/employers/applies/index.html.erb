@@ -47,21 +47,12 @@
             <% end %>
           <% end %>
         </div>
-        <div class="pull-right">
-          <%= link_to new_employers_apply_path, remote: true,
-            class: "btn btn-primary btn-sm d-inline-block" do %>
-            <i class="fa fa-plus"></i> <%= t ".apply" %>
-          <% end %>
-        </div>
       </div>
     </div>
     <div id="table-applies">
       <%= render "table_applies" %>
     </div>
   </div>
-</div>
-<div class="modal fade" id="add-apply" role="dialog"
-  tabindex="-1" aria-hidden="true">
 </div>
 <%= javascript_include_tag "employers/select_step",
   "data-turbolinks-track": "reload" %>

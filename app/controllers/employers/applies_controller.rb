@@ -74,7 +74,7 @@ class Employers::AppliesController < Employers::EmployersController
         apply.save!
       end
       @success = t ".success"
-      load_applies_after_save
+      load_applies_after_save information
     end
   rescue ActiveRecord::RecordInvalid
     @error = t ".failure_user"
@@ -118,11 +118,17 @@ class Employers::AppliesController < Employers::EmployersController
     params[:role] == Settings.candidate
   end
 
-  def load_applies_after_save
+  def load_candidate information
+    applies = Apply.get_by_email information[:email]
+    return @error = t(".not_applies") if applies.blank?
+    @candidate = applies.first.user
+  end
+
+  def load_applies_after_save information
     if is_params_candidate?
       load_applies_candidate
     else
-      load_applies
+      load_candidate information
     end
   end
 end

@@ -690,3 +690,31 @@ td.font-times {
 .p-0 {
   padding: 0;
 }
+
+.m-b-70 {
+  margin-bottom: 70px;
+}
+
+.search-job-custom {
+  position: relative;
+  left: 15px;
+  width: 500px;
+  top: 50px;
+  z-index: 1000;
+}
+
+.w-409 {
+  width: 409px;
+}
+
+.m-i-t-60 {
+  margin-top: -60px;
+}
+
+.h-480 {
+  min-height: 480px;
+}
+
+.border-top-1 {
+  border-top: 1px dotted $grey-light2;
+}

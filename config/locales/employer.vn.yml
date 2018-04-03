@@ -11,7 +11,7 @@ vn:
     applies:
       apply:
         click: "Nhấp chuột"
-      apply_add:
+      new:
         add_apply: "Thêm Đơn"
         job_name_placeholder: "Vui lòng nhập tên công việc"
         search: "Tìm kiếm"
@@ -82,6 +82,7 @@ vn:
         cv: "Cv"
         failure_user: "Không thể tạo tài khoản."
         duplicate_apply: "%{email} đã apply vào công việc này."
+        not_applies: "Không tìm thấy applies."
       index:
         all_applies: "Tất cả đơn nộp"
         apply: "Ứng tuyển"
@@ -105,6 +106,8 @@ vn:
         start_time: "Ngày bắt đầu"
         address: "Địa điểm"
         requirement: "Yêu cầu"
+      notes:
+        haven't_notes: "Không có ghi chú."
     apply_statuses:
       confirm_send_email: "Bạn có muốn gửi email cho ứng cử viên?"
       mgs_send_email_susscess: "Thay đổi trạng thái thành công"
@@ -477,6 +480,8 @@ vn:
         not_found_apply: "Khôn tìm thấy apply!"
       show:
         not_found_apply: "Không tìm thấy apply!"
+      new_note:
+        create: "Tạo ghi chú"
     candidates:
       table_candidates:
         no: "STT"
