@@ -18,6 +18,29 @@
             &nbsp;<span class="sidebar-nav-mini-hide lion"><%= t ".dashboard" %></span>
           <% end %>
         </li>
+
+        <li>
+          <%= link_to "javascript:void(0)", class: "sidebar-nav-menu hasmi" do %>
+            <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+            <i class="fa fa-clone"></i>
+            &nbsp;<span class="sidebar-nav-mini-hide lion"><%= t ".apply" %></span>
+          <% end %>
+          <ul>
+            <li>
+              <%= link_to employers_applies_path do %>
+                <i class="fa fa-newspaper-o"></i>
+                <span class="sidebar-nav-mini-hide lion"><%= t ".applies" %></span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_employers_apply_path do %>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                <span class="sidebar-nav-mini-hide lion"><%= t ".new_apply" %></span>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+
         <li>
           <a href="#" class="sidebar-nav-menu hasmi">
             <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-user"></i>
@@ -56,12 +79,7 @@
             <span class="sidebar-nav-mini-hide lion"><%= t ".template" %></span>
           <% end %>
         </li>
-        <li>
-          <%= link_to employers_applies_path do %>
-            <i class="fa fa-list-alt" aria-hidden="true"></i>
-            <span class="sidebar-nav-mini-hide lion"><%= t ".applies" %></span>
-          <% end %>
-        </li>
+
         <li>
           <%= link_to employers_company_candidates_path(@company) do %>
             <i class="fa fa-users" aria-hidden="true"></i>

@@ -147,7 +147,6 @@ label:before {
 
 .job-header-info {
   position: relative;
-  top: -20px;
 }
 
 p {
@@ -158,4 +157,8 @@ li#benefit {
   p {
     display: inline-block;
   }
+}
+
+.top-minus-20 {
+  top: -20px;
 }

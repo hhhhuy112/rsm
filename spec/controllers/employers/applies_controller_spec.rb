@@ -31,7 +31,7 @@ RSpec.describe Employers::AppliesController, type: :controller do
     context "create success" do
       before :each do
         cv = fixture_file_upload("template_cv.pdf", "text/pdf")
-        post :create, xhr: true, params: {job_ids: ["", "#{job.id}"], apply: {information: {
+        post :create, xhr: true, params: {choosen_ids: ",#{job.id}", apply: {information: {
           name: "NguyenVanA", email: "user12@example.com", phone: "1234567890"
           }, cv: cv}}
       end
@@ -48,7 +48,7 @@ RSpec.describe Employers::AppliesController, type: :controller do
     context "create duplicate" do
       before :each do
         cv = fixture_file_upload("template_cv.pdf", "text/pdf")
-        post :create, xhr: true, params: {job_ids: ["", "#{job.id}"], apply: {information: {
+        post :create, xhr: true, params: {choosen_ids: ",#{job.id}", apply: {information: {
           name: "NguyenVanA", email: User.first.email, phone: "1234567890"}, cv: cv}}
       end
 
@@ -59,7 +59,7 @@ RSpec.describe Employers::AppliesController, type: :controller do
 
     context "craete RecordInvalid" do
       before :each do
-        post :create, xhr: true, params: {job_ids: ["", "#{job.id}"], apply: {information: {
+        post :create, xhr: true, params: {choosen_ids: ",#{job.id}", apply: {information: {
           name: "NguyenVanA", email: "psrsson1@example.com"}}}
       end
 
@@ -70,7 +70,7 @@ RSpec.describe Employers::AppliesController, type: :controller do
 
     context "craete fail with no job" do
       before :each do
-        post :create, xhr: true, params: {job_ids: [""], apply: {information: {
+        post :create, xhr: true, params: {choosen_ids: "", apply: {information: {
           name: "NguyenVanA", email: "psrsson1@example.com"}}}
       end
 

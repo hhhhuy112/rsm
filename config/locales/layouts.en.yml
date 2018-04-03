@@ -217,10 +217,12 @@ en:
         all_jobs: "All jobs"
         company: "Company"
         template: "Template"
-        applies: "Applies"
+        applies: "All applies"
+        new_apply: "New apply"
         connect_gmail: "Connect gmail"
         connected_gmail: "Connected gmail"
         candidates: "Candidates"
+        apply: "Apply"
       header_employer:
         messages: "Messasges"
         profile: "Profile"

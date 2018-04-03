@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="block">
+      <div class="block-title">
+        <h2><strong><%= t ".create_apply" %></strong></h2>
+      </div>
+      <div class="search-job-custom row">
+        <%= search_form_for @q, url: employers_company_search_job_path(@company.id),
+        remote: true, class: "form-search" do |f| %>
+          <%= hidden_field_tag :choosen_ids, nil, class: "choosen-ids" %>
+          <div class="w-409">
+            <label>
+              <div class="input-group">
+                <%= f.text_field :name_cont, placeholder: t(".job_name_placeholder"),
+                  class: "form-group form-control input-md search-job" %>
+                <span class="input-group-addon p-0">
+                  <%= f.button :submit, class: "btn btn-primary btn-sm col-md-12" do %>
+                    <i class="fa fa-search"></i>
+                  <% end %>
+                </span>
+              </div>
+            </label>
+          </div>
+        <% end %>
+      </div>
+      <%= simple_form_for [:employers, @apply], remote: :true, html: {
+        class: "m-i-t-60"} do |f| %>
+        <%= hidden_field_tag :choosen_ids, nil, class: "choosen-ids" %>
+        <div class="row">
+          <div class="col-md-5">
+            <h3 class="sub-header m-b-70"><%= t ".choose_job" %></h3>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="tagsinput" id="example-tags_tagsinput">
+                  <span class="text-muted no-job">
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div id="search-job">
+                  <%= render "choose_jobs" %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-7">
+            <h3 class="sub-header"><%= t ".apply" %></h3>
+            <div class="row">
+              <div class="col-md-12">
+                <%= render partial: "apply_form", locals: {f: f} %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row border-top-1">
+          <center>
+            <%= f.submit t(".create"), class: "btn btn-info w125 m-10" %>
+          </center>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag "employers/add_apply" %>
+<%= javascript_include_tag "employers/select_step",
+  "data-turbolinks-track": "reload" %>

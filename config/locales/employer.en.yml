@@ -11,7 +11,7 @@ en:
     applies:
       apply:
         click: "click"
-      apply_add:
+      new:
         add_apply: "Add Apply"
         job_name_placeholder: "Please input job name"
         search: "Search"
@@ -83,6 +83,7 @@ en:
         cv: "Cv"
         failure_user: "Can't create user."
         duplicate_apply: "%{email} was applied into this job."
+        not_applies: "Not found apply."
       index:
         all_applies: "All Applies"
         apply: "apply"
@@ -98,7 +99,6 @@ en:
         phone: "Phone"
         cv: "CV"
         job_applied: "Job Applied"
-        haven't_notes: "Don't have notes."
       offers_list:
         offer_send_by: "Offer was sent by"
       offer_detail:
@@ -107,6 +107,8 @@ en:
         start_time: "Start time"
         address: "Address company"
         requirement: "Requirement"
+      notes:
+        haven't_notes: "Don't have notes."
     apply_statuses:
       confirm_send_email: "Do you want to send email for candidate ?"
       mgs_send_email_susscess: "You changed status success"
@@ -483,6 +485,8 @@ en:
         not_found_apply: "Not found apply!"
       show:
         not_found_apply: "Not found apply!"
+      new_note:
+        create: "Create note"
     candidates:
       table_candidates:
         no: "No"

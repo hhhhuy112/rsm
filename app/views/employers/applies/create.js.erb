@@ -21,9 +21,9 @@
 <% elsif @success %>
   <% if params[:role] == Settings.candidate %>
     $('#table-applies').html('<%= j render "employers/candidates/table_applies" %>');
+    $('#add-apply').modal('hide');
   <% else %>
-    $('#table-applies').html('<%= j render "table_applies" %>');
+    window.location.href = '<%= employers_company_candidate_path(@company, id: @candidate.id) %>';
   <% end %>
-  $('#add-apply').modal('hide');
   alertify.success('<%= @success %>');
 <% end %>
