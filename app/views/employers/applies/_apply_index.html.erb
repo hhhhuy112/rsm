@@ -10,8 +10,10 @@
   <td class="text-center">
     <%= show_status_apply apply_status.status_step %>
   </td>
-  <td class="text-center"><%= l apply_status.created_at.to_date, format: :long %></td>
-  <td class="text-center"><%= l apply_status.updated_at.to_date, format: :long %></td>
+  <td class="text-center"><%= l apply_status.apply_created_at.to_date, format: :long %></td>
+  <td class="text-center">
+    <%= get_update_date apply_status.apply_id, @activities %>
+  </td>
   <td class="text-center">
     <%= link_to employers_job_apply_path(apply_status.job, id: apply_status.apply_id),
       class: "btn btn-default btn-xs" do %>

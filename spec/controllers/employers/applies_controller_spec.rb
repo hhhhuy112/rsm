@@ -27,6 +27,30 @@ RSpec.describe Employers::AppliesController, type: :controller do
     request.host = "#{company.subdomain}.lvh.me:3000"
   end
 
+  describe "GET #index" do
+    context "index applies" do
+      before :each do
+        get :index
+      end
+
+      it "assigns the requested activities to @activities" do
+        expect(assigns(:activities)).to be_truthy
+      end
+
+      it "assigns the requested applies_status to @applies_status" do
+        expect(assigns(:applies_status)).to be_truthy
+      end
+
+      it "assigns the requested size_steps to @size_steps" do
+        expect(assigns(:size_steps)).to be_truthy
+      end
+
+      it "renders the #create view" do
+        expect(response).to render_template "employers/applies/index"
+      end
+    end
+  end
+
   describe "POST #create" do
     context "create success" do
       before :each do

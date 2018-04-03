@@ -497,6 +497,7 @@ vn:
         not_candidates: "Không có ứng viên."
       index:
         not_candidates: "Không có ứng viên."
+        all_candidates: "All candidates"
       candidates_search:
         enter_search_candidates: "Nhập tên, điện thoại, địa chỉ hoặc mail"
         filter: "Lọc"

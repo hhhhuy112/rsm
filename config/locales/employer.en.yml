@@ -502,6 +502,7 @@ en:
         not_candidates: "Haven't candidates."
       index:
         not_candidates: "Haven't candidates."
+        all_candidates: "All candidates"
       candidates_search:
         enter_search_candidates: "Enter name or phone or address or email"
         filter: "Filter"

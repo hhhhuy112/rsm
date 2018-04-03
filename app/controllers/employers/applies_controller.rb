@@ -10,7 +10,7 @@ class Employers::AppliesController < Employers::EmployersController
   before_action :load_offer_status_step_pending, only: %i(show update)
   before_action :load_jobs_applied, :load_notes, only: :show
   before_action :load_answers_for_survey, only: :show
-  before_action :load_applies, :select_size_steps, only: :index
+  before_action :load_applies, :select_size_steps, :get_update_date_apply, only: :index
   before_action :load_user_candidate, only: :create, if: :is_params_candidate?
   before_action :check_create_apply_for_candidate, only: :create
   before_action :load_jobs, only: :new
@@ -130,5 +130,9 @@ class Employers::AppliesController < Employers::EmployersController
     else
       load_candidate information
     end
+  end
+
+  def get_update_date_apply
+    @activities = Activity.get_update_date_apply
   end
 end

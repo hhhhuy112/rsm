@@ -19,8 +19,17 @@ class EmailSent < ApplicationRecord
   after_save :send_mail
   after_update :send_mail
 
+  include PublicActivity::Model
+
   def send_mail user = nil
     @sendmail_service = SendmailService.new self, self.user.companies.last
     @sendmail_service.send_candidate user
+  end
+
+  def save_activity key, user
+    self.transaction do
+      self.create_activity key, owner: user, recipient: self.apply
+    end
+  rescue
   end
 end

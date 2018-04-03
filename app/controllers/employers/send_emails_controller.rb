@@ -15,6 +15,7 @@ class Employers::SendEmailsController < ApplicationController
     @email_sent = EmailSent.find_by(id: params[:id])
     return if @email_sent.blank? || @oauth.blank?
     @oauth.check_access_token
+    @email_sent.save_activity :show, current_user
     @email_sent.send_mail current_user
     @status_step = @email_sent.status_step
     @apply = @email_sent.apply

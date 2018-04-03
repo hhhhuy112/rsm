@@ -38,7 +38,7 @@ class ApplyStatus < ApplicationRecord
 
   def save_activity key, user
     self.transaction do
-      self.create_activity key, owner: user
+      self.create_activity key, owner: user, recipient: self.apply
     end
   end
 end
