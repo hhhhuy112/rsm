@@ -33,6 +33,7 @@ RSpec.describe Employers::TemplatesController, type: :controller do
       expect(assigns[:interviewers]).to be_truthy
       expect(assigns[:candidates]).to be_truthy
       expect(assigns[:benefits]).to be_truthy
+      expect(assigns[:skills]).to be_truthy
     end
 
     it "create template fail" do
@@ -68,6 +69,13 @@ RSpec.describe Employers::TemplatesController, type: :controller do
       it "update template success with messae" do
         expect(assigns(:message)).to eq I18n.t("employers.templates.update")
       end
+
+      it "update template success with reload templates" do
+        expect(assigns[:interviewers]).to be_truthy
+        expect(assigns[:candidates]).to be_truthy
+        expect(assigns[:benefits]).to be_truthy
+        expect(assigns[:skills]).to be_truthy
+      end
     end
 
     context "update fail" do
@@ -94,6 +102,13 @@ RSpec.describe Employers::TemplatesController, type: :controller do
 
       it "update template success with messae" do
         expect(assigns(:message)).to eq I18n.t("employers.templates.destroy")
+      end
+
+      it "delete template success with reload templates" do
+        expect(assigns[:interviewers]).to be_truthy
+        expect(assigns[:candidates]).to be_truthy
+        expect(assigns[:benefits]).to be_truthy
+        expect(assigns[:skills]).to be_truthy
       end
     end
   end

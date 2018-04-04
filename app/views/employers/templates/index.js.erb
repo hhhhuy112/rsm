@@ -1,8 +1,4 @@
-<% if @template.errors.any? %>
-  $('#templates-boby').html('<%= j render "form" %>');
-<% else %>
-  $('.show-template').remove();
-  $('#body_template_<%= @template.id %>').remove();
+<% if request.xhr? %>
   $('#interview-load').html('<%= j render partial: "employers/templates/interview",
     collection: @interviewers, as: :interviewer %>');
   $('.pag.interviewer').html('<%= j paginate @interviewers, param_name: :page_interviewer %>');
@@ -15,6 +11,4 @@
   $('#skills-list').html('<%= j render partial: "employers/templates/skill",
     collection: @skills, as: :skill %>');
   $('.pag.skill').html('<%= j paginate @skills,  param_name: :page_skill %>');
-  $('#manage-template').modal('hide');
-  alertify.success('<%= @message %>');
 <% end %>

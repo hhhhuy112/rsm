@@ -2,10 +2,18 @@
   $('#templates-boby').html('<%= j render "form" %>');
 <% else %>
   alertify.success('<%= @message %>');
-  $('#interview-load').html('<%= j render partial: "employers/templates/interview", collection: @interviewers, as: :interviewer %>');
-  $('#load_user').html('<%= j render partial: "employers/templates/candidate", collection: @candidates, as: :candidate %>');
+  $('#interview-load').html('<%= j render partial: "employers/templates/interview",
+    collection: @interviewers, as: :interviewer %>');
+  $('.pag.interviewer').html('<%= j paginate @interviewers, param_name: :page_interviewer %>');
+  $('#load_user').html('<%= j render partial: "employers/templates/candidate",
+    collection: @candidates, as: :candidate %>');
+  $('.pag.candidate').html('<%= j paginate @candidates,  param_name: :page_candidate %>');
   $('#benefit-list').html('<%= j render partial: "employers/templates/benefit",
-    collection: @benefits, as: :benefit %>')
+    collection: @benefits, as: :benefit %>');
+  $('.pag.benefit').html('<%= j paginate @benefits,  param_name: :page_benefit %>');
+  $('#skills-list').html('<%= j render partial: "employers/templates/skill",
+    collection: @skills, as: :skill %>');
+  $('.pag.skill').html('<%= j paginate @skills,  param_name: :page_skill %>');
   $('#manage-template').modal('hide');
   $('#new_template').reset[0];
 <% end %>

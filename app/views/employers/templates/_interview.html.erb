@@ -15,7 +15,9 @@
   </div>
 </div>
 <tr class="employer-template-<%= interviewer.id %>">
-  <td class="text-center"><%= count_page interviewer_counter, @page %></td>
+  <td class="text-center">
+    <%= count_page interviewer_counter, params[:page_interviewer] %>
+  </td>
   <td class="text-center"><%= interviewer.name %></td>
   <td class="text-center">
     <div class="btn-group btn-group-xs">

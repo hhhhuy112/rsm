@@ -32,7 +32,7 @@ RSpec.describe Job, type: :model do
     it {is_expected.to have_db_column(:name).of_type(:string)}
     it {is_expected.to have_db_column(:level).of_type(:string)}
     it {is_expected.to have_db_column(:language).of_type(:string)}
-    it {is_expected.to have_db_column(:skill).of_type(:string)}
+    it {is_expected.to have_db_column(:skill).of_type(:text)}
     it {is_expected.to have_db_column(:position).of_type(:string)}
     it {is_expected.to have_db_column(:user_id).of_type(:integer)}
     it {is_expected.to have_db_column(:company_id).of_type(:integer)}
@@ -50,7 +50,6 @@ RSpec.describe Job, type: :model do
     it {is_expected.to validate_presence_of(:description)}
     it {is_expected.to validate_presence_of(:min_salary)}
     it {is_expected.to validate_presence_of(:description)}
-    it {is_expected.to validate_presence_of(:position)}
     it {is_expected.to validate_presence_of(:branch_id)}
     it {is_expected.to validate_presence_of(:target)}
     it {is_expected.to validate_presence_of(:category_id)}
@@ -94,14 +93,6 @@ RSpec.describe Job, type: :model do
     it "matches the error message" do
       subject.valid?
       subject.errors[:survey_type].should include I18n.t("activerecord.errors.models.job.attributes.survey_type.blank")
-    end
-  end
-
-  context "when position is not valid" do
-    before {subject.position = Settings.rspec.blank}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:position].should include  I18n.t("activerecord.errors.models.job.attributes.position.blank")
     end
   end
 
