@@ -15,7 +15,9 @@
   </div>
 </div>
 <tr class="employer-template-<%= candidate.id %>">
-  <td class="text-center"><%= count_page candidate_counter,@page %></td>
+  <td class="text-center">
+    <%= count_page candidate_counter, params[:page_candidate] %>
+  </td>
   <td class="text-center"><%= candidate.name %></td>
   <td class="text-center"><%= candidate.title %></td>
   <td class="text-center">

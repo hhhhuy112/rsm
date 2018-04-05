@@ -298,6 +298,7 @@ vn:
         work_place: "Nơi làm việc"
         select_template_benefits: "Chọn bản mẫu lợi ích"
         position_types: "Loại vị trí"
+        select_template_skills: "Chọn bản mẫu kỹ năng"
       job:
         expires_on: "Hết hạn"
         expired: "hết hạn"
@@ -413,6 +414,7 @@ vn:
       show:
         disconnect_gmail: "Vui lòng kết nối với tài khoản gmail để gửi mail."
     templates:
+      create_success: "Đã tạo."
       create: "Tạo mới"
       update: "Cập nhật"
       destroy: "Xóa"
@@ -424,6 +426,8 @@ vn:
       form:
         template_member: "Mẫu Offer"
         template_user: "Mẫu ứng cử viên"
+        template_benefit: "Bản mẫu lợi ích"
+        template_skill: "Bản mẫu kỹ năng"
         name: "Tên"
         type: "Kiểu"
         please_selected: "--- Xin hãy chọn ---"
@@ -468,6 +472,8 @@ vn:
         edit: "Chỉnh sửa"
         delete: "Xóa"
         post_job: "Đăng việc"
+        benefits: "Lợi ích"
+        skills: "Kỹ năng"
       show:
         offer_content: "@company@<br>Hello you @user@<br>Chúng tôi xin gửi mail cho bạn để thông báo rằng từ ngày @date_offer@ là
           thời gian bạn làm chính thức, địa điểm là @offer_address@. mức lương khởi điểm của bạn là @salary@ @currency_unit@,
@@ -477,6 +483,8 @@ vn:
         template_error: "Không thể tìm thấy mẫu. Hãy thử lại sau"
         company: "Công ty %{name} Việt Nam"
       benefit:
+        sure: "Bạn muốn xóa bản mẫu này?"
+      skill:
         sure: "Bạn muốn xóa bản mẫu này?"
     notes:
       create:

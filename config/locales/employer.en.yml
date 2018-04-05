@@ -299,6 +299,7 @@ en:
         work_place: "Workplace"
         select_template_benefits: "Select template benefits"
         position_types: "Position types"
+        select_template_skills: "Select template skills"
       job:
         expires_on: "Expires on"
         expired: "Expired"
@@ -414,6 +415,7 @@ en:
       show:
         disconnect_gmail: "Please connect gmail to send mail."
     templates:
+      create_success: "Created success."
       create: "Created."
       update: "Updated."
       destroy: "Destroyed."
@@ -425,6 +427,8 @@ en:
       form:
         template_member: "Template Offer"
         template_user: "Template Candidate"
+        template_benefit: "Template Benefit"
+        template_skill: "Template Skill"
         name: "Name"
         type: "Type"
         please_selected: "--- Please Select ---"
@@ -469,6 +473,7 @@ en:
         edit: "Edit"
         delete: "Delete"
         post_job: "Post Job"
+        skills: "Skills"
       show:
         offer_content: "@company@ <br> Hello you @user@ <br> We would like to send you a mail to inform you that from @date_offer@ is your official time, the place is @offer_address@. Your starting salary is @ salary @ @currency_unit@, however this number may increase according to your capacity. Also we have some requirements such as @requirement@"
         content_template: "@company@</br>Hello you @user@</br>Please come at @start_time@ in @address@ to interview, later on @end_time@"
@@ -476,6 +481,8 @@ en:
         template_error: "Can not find teample. Please try again later"
         company: "Company %{name} Vietnamses"
       benefit:
+        sure: "Are you want to delete template?"
+      skill:
         sure: "Are you want to delete template?"
     status_steps:
       select_status:

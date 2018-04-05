@@ -44,18 +44,21 @@
 
     <div class="col-md-12">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-12">
           <label class="control-label">
             <%= t ".benefit" %>
           </label>
         </div>
+      </div>
 
-        <div class="col-md-5">
+      <div class="row">
+        <div class="col-md-12">
           <%= select_tag :template_benefits, options_from_collection_for_select(
             @template_benefits, :id, :title), class: "form-control",
             include_blank: t(".select_template_benefits") %>
         </div>
-      </div><br>
+      </div>
+
       <div class="row">
         <div class="col-md-12 reward_benefits">
           <%= f.fields_for :reward_benefits do |reward| %>
@@ -87,7 +90,27 @@
     </div>
 
     <div class="col-md-12">
-      <%= f.input :skill, label: t(".skill") %>
+      <div class="row">
+        <div class="col-md-12">
+          <label class="control-label">
+            <%= t ".skill" %>
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <%= select_tag :template_skills, options_from_collection_for_select(
+            @template_skills, :id, :title), class: "form-control",
+            include_blank: t(".select_template_skills") %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <%= f.input :skill, as: :ckeditor, label: false %>
+        </div>
+      </div>
     </div>
 
     <div class="col-md-12">

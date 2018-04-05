@@ -14,7 +14,7 @@ $(document).ready(function(){
     $('#target-job').text(job.target);
     $('#position-job').text(job.position);
     $('#level-job').text(job.level);
-    $('#skill-job').text(job.skill);
+    $('#skill-job').append($.parseHTML(job.skill));
     $('#language-job').text(job.language);
     $('#position-types').text($("select[name='job[position_types]'] option:selected").text());
     if (job.survey_type !== null) {
@@ -68,7 +68,7 @@ $(document).ready(function(){
       language: data_job.get('job[language]'),
       position: data_job.get('job[position]'),
       level: data_job.get('job[level]'),
-      skill: data_job.get('job[skill]'),
+      skill: CKEDITOR.instances['job_skill'].getData(),
       description: CKEDITOR.instances['job_description'].getData(),
       request: CKEDITOR.instances['job_content'].getData(),
       survey_type: data_job.get('job[survey_type]'),

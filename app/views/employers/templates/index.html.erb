@@ -26,63 +26,123 @@
             <%= t ".benefits" %>
           <% end %>
         </li>
+        <li class>
+          <%= link_to "#template-skill" do %>
+            <%= t ".skills" %>
+          <% end %>
+        </li>
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="job-info">
           <div class="block full">
-            <table class="table table-striped table-vcenter">
-              <thead>
-                <tr>
-                  <th class="text-center"><%= t ".stt" %></th>
-                  <th class="text-center"><%= t ".name" %></th>
-                  <th class="text-center"><%= t ".action" %></th>
-                </tr>
-              </thead>
-              <tbody id="interview-load">
-                <%= render partial: "employers/templates/interview",
-                  collection: @interviewers, as: :interviewer %>
-              </tbody>
-            </table>
-            <%= paginate @interviewers %>
+            <div class="row">
+              <table class="table table-striped table-vcenter">
+                <thead>
+                  <tr>
+                    <th class="text-center"><%= t ".stt" %></th>
+                    <th class="text-center"><%= t ".name" %></th>
+                    <th class="text-center"><%= t ".action" %></th>
+                  </tr>
+                </thead>
+                <tbody id="interview-load">
+                  <%= render partial: "employers/templates/interview",
+                    collection: @interviewers, as: :interviewer %>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="row">
+              <center>
+                <div class="pag interviewer pag-template">
+                  <%= paginate @interviewers, param_name: :page_interviewer %>
+                </div>
+              </center>
+            </div>
           </div>
         </div>
 
         <div class="tab-pane" id="company-info">
           <div class="block full">
-            <table class="table table-striped table-vcenter">
-              <thead>
-                <tr>
-                  <th class="text-center"><%= t ".stt" %></th>
-                  <th class="text-center"><%= t ".name" %></th>
-                  <th class="text-center"><%= t ".title" %></th>
-                  <th class="text-center"><%= t ".action" %></th>
-                </tr>
-              </thead>
-              <tbody id="load_user">
-                <%= render partial: "employers/templates/candidate",
-                  collection: @candidates, as: :candidate %>
-              </tbody>
-            </table>
-            <%= paginate @candidates %>
+            <div class="row">
+              <table class="table table-striped table-vcenter">
+                <thead>
+                  <tr>
+                    <th class="text-center"><%= t ".stt" %></th>
+                    <th class="text-center"><%= t ".name" %></th>
+                    <th class="text-center"><%= t ".title" %></th>
+                    <th class="text-center"><%= t ".action" %></th>
+                  </tr>
+                </thead>
+                <tbody id="load_user">
+                  <%= render partial: "employers/templates/candidate",
+                    collection: @candidates, as: :candidate %>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="row">
+              <center>
+                <div class="pag candidate pag-template">
+                  <%= paginate @candidates, param_name: :page_candidate %>
+                </div>
+              </center>
+            </div>
           </div>
         </div>
 
         <div class="tab-pane" id="template-benefit">
           <div class="block full">
-            <table class="table table-striped table-vcenter">
-              <thead>
-                <tr>
-                  <th class="text-center"><%= t ".stt" %></th>
-                  <th class="text-center"><%= t ".title" %></th>
-                  <th class="text-center"><%= t ".action" %></th>
-                </tr>
-              </thead>
-              <tbody id="benefit-list">
-                <%= render partial: "employers/templates/benefit",
-                  collection: @benefits, as: :benefit %>
-              </tbody>
-            </table>
-            <%= paginate @benefits %>
+            <div class="row">
+              <table class="table table-striped table-vcenter">
+                <thead>
+                  <tr>
+                    <th class="text-center"><%= t ".stt" %></th>
+                    <th class="text-center"><%= t ".title" %></th>
+                    <th class="text-center"><%= t ".action" %></th>
+                  </tr>
+                </thead>
+                <tbody id="benefit-list">
+                  <%= render partial: "employers/templates/benefit",
+                    collection: @benefits, as: :benefit %>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="row">
+              <center>
+                <div class="pag benefit pag-template">
+                  <%= paginate @benefits, param_name: :page_benefit %>
+                </div>
+              </center>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="template-skill">
+          <div class="block full">
+            <div class="row">
+              <table class="table table-striped table-vcenter">
+                <thead>
+                  <tr>
+                    <th class="text-center"><%= t ".stt" %></th>
+                    <th class="text-center"><%= t ".title" %></th>
+                    <th class="text-center"><%= t ".action" %></th>
+                  </tr>
+                </thead>
+                <tbody id="skills-list">
+                  <%= render partial: "employers/templates/skill",
+                    collection: @skills, as: :skill %>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="row">
+              <center>
+                <div class="pag skill pag-template">
+                  <%= paginate @skills, param_name: :page_skill %>
+                </div>
+              </center>
+            </div>
           </div>
         </div>
       </div>

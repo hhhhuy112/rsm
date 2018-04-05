@@ -1,7 +1,7 @@
 class Employers::TemplatesController < Employers::EmployersController
   before_action :load_templates, only: :index
   before_action :load_type_template, expect: %i(index)
-  before_action :load_currency, only: :show, unless: :is_template_benefit?
+  before_action :load_currency, only: :show, unless: :is_template_benefit_skill?
 
   def index; end
 
@@ -10,7 +10,7 @@ class Employers::TemplatesController < Employers::EmployersController
   def create
     respond_to do |format|
       if @template.save
-        format.js{@message = t"employers.template.create_success"}
+        format.js{@message = t"employers.templates.create_success"}
         load_templates
       else
         load_type_template
@@ -20,7 +20,7 @@ class Employers::TemplatesController < Employers::EmployersController
   end
 
   def show
-    if is_template_benefit?
+    if is_template_benefit_skill?
       render json: {data: @template.template_body}
     else
       @information = {name: params[:name], address: params[:address],
@@ -61,13 +61,14 @@ class Employers::TemplatesController < Employers::EmployersController
   end
 
   def load_templates
-    @interviewers = Template.template_member.get_newest.page(params[:page])
+    @interviewers = Template.template_member.get_newest.page(params[:page_interviewer])
       .per Settings.templates.page
-    @candidates = Template.template_user.get_newest.page(params[:page])
+    @candidates = Template.template_user.get_newest.page(params[:page_candidate])
       .per Settings.templates.page
-    @benefits = @company.templates.template_benefit.get_newest.page(params[:page])
+    @benefits = @company.templates.template_benefit.get_newest.page(params[:page_benefit])
       .per Settings.templates.page
-    @page = params[:page]
+    @skills = @company.templates.template_skill.get_newest.page(params[:page_skill])
+      .per Settings.templates.page
   end
 
   def load_type_template
@@ -78,8 +79,8 @@ class Employers::TemplatesController < Employers::EmployersController
     @currency = Currency.find_by id: params[:currency_id]
   end
 
-  def is_template_benefit?
-    params[:is_benefit].present?
+  def is_template_benefit_skill?
+    params[:is_benefit].present? || params[:is_skill].present?
   end
 end
 

@@ -71,7 +71,7 @@ module JobsHelper
   end
 
   def count_page counter, page
-    counter + CouterIndex.couter(@page, Settings.job.page)
+    counter + CouterIndex.couter(page, Settings.job.page)
   end
 
   def check_member? company

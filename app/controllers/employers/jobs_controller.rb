@@ -4,7 +4,7 @@ class Employers::JobsController < Employers::EmployersController
   before_action :load_branches_for_select_box, only: :index
   before_action :load_category_for_select_box, only: :index
   before_action :load_questions, :build_surveys, :buil_benefits,
-    :load_template_benefits, only: %i(new edit)
+    :load_templates, only: %i(new edit)
   before_action :check_params, :convert_params_questions, only: :create
   before_action :load_currency, only: %i(edit new)
   before_action :load_status_step, only: %i(index update)
@@ -127,7 +127,8 @@ class Employers::JobsController < Employers::EmployersController
     @job.reward_benefits.build if @job.reward_benefits.blank?
   end
 
-  def load_template_benefits
+  def load_templates
     @template_benefits = @company.templates.template_benefit
+    @template_skills = @company.templates.template_skill
   end
 end

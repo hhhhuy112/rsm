@@ -99,3 +99,20 @@ $(document).on('change', 'select[name="template_benefits"]', function() {
   }
 });
 
+$(document).on('change', 'select[name="template_skills"]', function() {
+  if ($(this).val() !== '') {
+    $.ajax('/employers/templates/' + $(this).val(), {
+      type: 'GET',
+      data: {is_skill: true},
+      success: function(result) {
+        CKEDITOR.instances['job_skill'].setData(result.data);
+      },
+    });
+  }
+});
+
+$(document).on('click', '.pag-template .pagination a', function (event) {
+  event.preventDefault();
+  $.getScript('/employers/templates?' + $(this).attr('href').split('?').pop());
+  return false;
+});
