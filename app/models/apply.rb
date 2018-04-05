@@ -60,9 +60,9 @@ class Apply < ApplicationRecord
   def save_activity key, user = nil, params = nil
     self.transaction requires_new: true do
       if params
-        self.create_activity key, owner: user, parameters: {status: params}
+        self.create_activity key, owner: user, parameters: {status: params}, recipient: self
       else
-        self.create_activity key, owner: user
+        self.create_activity key, owner: user, recipient: self
       end
     end
   rescue

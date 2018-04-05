@@ -10,4 +10,10 @@ module AppliesHelper
   def cv_update_at user
     "(#{t ".update"} #{l current_user.updated_at, format: :date_time})"
   end
+
+  def get_update_date apply_id, activities
+    return if activities.blank?
+    date = activities[apply_id]
+    l(date, format: :short) if date
+  end
 end
