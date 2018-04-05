@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "employer/jquery-ui" %>
 <div class="block full">
   <div class="block-title">
     <h2><strong><%= t ".add_member" %></strong></h2>
@@ -52,7 +53,7 @@
           <h4 class="modal-title"><%= t ".edit_member" %></h4>
         </div>
         <div class="modal-body" id="form_edit_member">
-          <%= render "form" %>
+          <div class="member-form"></div>
         </div>
       </div>
     </div>

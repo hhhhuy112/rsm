@@ -1,5 +1,5 @@
 <% if @member.errors.any? %>
-  $('#form_edit_member').html('<%= j render "form" %>');
+  $('.member-form').html('<%= j render "form" %>');
 <% else %>
   $('#members').html('<%= j render @members %>');
   alertify.success('<%= @message %>');

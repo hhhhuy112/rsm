@@ -1,20 +1,22 @@
 <% readed_unread_notify notification, @notify_readed %>
-<li class="list-group-item <%= @type %>">
-  <div class="notify-image">
-    <% if  notification.user_id %>
-      <%= image_tag(notification.user_picture.url,
-        width: Settings.picture_user_width,
-        height: Settings.picture_user_height) %>
-    <% else %>
-      <%= image_tag("user_avatar_default.png",
-        width: Settings.picture_user_width,
-        height: Settings.picture_user_height) %>
-    <% end %>
-  </div>
-  <% check_notify notification %>
-  <div class="notify-content" onclick="window.location='<%= @notice[:link] %>';">
-    <p><b><%= @notice[:name] %></b> <%= @notice[:content] %>
-      <b><%= notification.user_name if notification.user_id %></b></p>
-    <p class="time"><%= t ".time_ago", time: time_ago_in_words(notification.created_at) %></p>
-  </div>
-</li>
+<div class="row">
+  <li class="list-group-item <%= @type %>">
+    <div class="notify-image">
+      <% if  notification.user_id %>
+        <%= image_tag(notification.user_picture.url,
+          width: Settings.picture_user_width,
+          height: Settings.picture_user_height) %>
+      <% else %>
+        <%= image_tag("user_avatar_default.png",
+          width: Settings.picture_user_width,
+          height: Settings.picture_user_height) %>
+      <% end %>
+    </div>
+    <% check_notify notification %>
+    <div class="notify-content" onclick="window.location='<%= @notice[:link] %>';">
+      <p><b><%= @notice[:name] %></b> <%= @notice[:content] %>
+        <b><%= notification.user_name if notification.user_id %></b></p>
+      <p class="time"><%= t ".time_ago", time: time_ago_in_words(notification.created_at) %></p>
+    </div>
+  </li>
+</div>

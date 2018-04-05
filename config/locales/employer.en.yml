@@ -401,6 +401,7 @@ en:
       create:
         add_member_complete: "Add member completed"
         can_not_add_member: "Can not add member!"
+        user_ids_nil: "Please choose user to add!"
       update:
         update_success: "User update success"
         update_fail: "User update fail"

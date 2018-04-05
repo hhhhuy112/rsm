@@ -400,6 +400,7 @@ vn:
       create:
         add_member_complete: "Thêm nhân viên thành công"
         can_not_add_member: "Không thể thêm nhân viên"
+        user_ids_nil: "Vui lòng chọn user để thêm!"
       update:
         update_success: "Cập nhật thành công"
         update_fail: "Cập nhật thất bại"

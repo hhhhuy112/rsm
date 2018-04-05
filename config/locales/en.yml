@@ -1212,3 +1212,9 @@ en:
   up_to: "Up To "
   expire_at: "Expire at "
   not_found: "Not found %{error_message}"
+  member_date2: "Can't in future."
+  member_date1: "Can't after start time."
+  member:
+    roles:
+      employer: "Employer"
+      user: "User"
