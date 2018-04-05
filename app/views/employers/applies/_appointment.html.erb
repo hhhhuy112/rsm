@@ -12,7 +12,7 @@
       <td><strong><%= t "employers.history.start_time_appointment" %></strong></td>
       <td>
         <a href="javascript:void(0)" class="label label-info">
-          <%= l @data_step[:appointment].start_time, format: :format_time %>
+          <%= show_time_local @data_step[:appointment].start_time %>
         </a>
       </td>
     </tr>
@@ -21,7 +21,7 @@
       <td><strong><%= t "employers.history.end_time_appointment" %></strong></td>
       <td>
         <a href="javascript:void(0)" class="label label-info">
-          <%= l @data_step[:appointment].end_time, format: :format_time %>
+          <%= show_time_local @data_step[:appointment].end_time %>
         </a>
       </td>
     </tr>
@@ -30,7 +30,7 @@
       <td><strong><%= t "employers.history.date" %></strong></td>
       <td>
         <a href="javascript:void(0)" class="label label-info">
-          <%= l @data_step[:appointment].end_time, format: :date_month_year_v1 %>
+          <%= show_date_local @data_step[:appointment].end_time %>
         </a>
       </td>
     </tr>

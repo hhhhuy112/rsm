@@ -69,6 +69,21 @@ module EmployersHelper
     l time.to_s.to_datetime, format: :format_datetime_v3
   end
 
+  def show_date_time_local time
+    return if time.blank?
+    l time.in_time_zone(File.read("/etc/timezone").chomp).to_s.to_datetime, format: :format_datetime_v3
+  end
+
+  def show_time_local time
+    return if time.blank?
+    l time.in_time_zone(File.read("/etc/timezone").chomp).to_s.to_datetime, format: :format_time
+  end
+
+  def show_date_local time
+    return if time.blank?
+    l time.in_time_zone(File.read("/etc/timezone").chomp).to_s.to_datetime, format: :date_month_year_v1
+  end
+
   def filter_object object
     object.id.blank?
   end

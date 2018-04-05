@@ -146,8 +146,10 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
   end
 
   def load_appointments
-    @appointments = @company.appointments.includes(:apply_status, :apply)
-      .get_greater_equal_by(Date.current).group_by{|appointment| appointment.apply.information[:name]}
+    @appointments = {}
+    @company.appointments.includes(:apply_status, :apply, :job).get_greater_equal_by(Date.current)
+      .newest.group_by{|appointment| [appointment.apply, appointment.job]}
+      .each{|k,v| @appointments["#{k.first.information[:name]}-#{k.last.name}-#{k.first.id}"] = v}
   end
 
   def is_scheduled?

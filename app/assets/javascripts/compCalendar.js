@@ -11,8 +11,8 @@ var CompCalendar = function() {
   return {
     init: function() {
       initEvents();
-      var startValue = $('.apply-appointment-start-time').val();
-      var endValue = $('.apply-appointment-end-time').val();
+      var startValue = $('.apply-appointment-start_time').val();
+      var endValue = $('.apply-appointment-end_time').val();
       var startDate = getStartDate(startValue);
       var endDate = getEndDate(endValue, startDate);
 
@@ -95,8 +95,8 @@ var CompCalendar = function() {
             $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
             $(this).remove();
 
-            setValueDate('.apply-appointment-start-time', moment(startTime).format(I18n.t('time.formats.datetimepicker_full_calendar')));
-            setValueDate('.apply-appointment-end-time', moment(endTime).format(I18n.t('time.formats.datetimepicker_full_calendar')));
+            setValueDate('.apply-appointment-start_time', moment(startTime).format(I18n.t('time.formats.datetimepicker_full_calendar')));
+            setValueDate('.apply-appointment-end_time', moment(endTime).format(I18n.t('time.formats.datetimepicker_full_calendar')));
           }
         },
 
@@ -105,12 +105,12 @@ var CompCalendar = function() {
           if(event.changing){
             if(event.start !== null) {
               var startTime = moment(event.start).format(I18n.t('time.formats.datetimepicker_full_calendar'));
-              setValueDate ('.apply-appointment-start-time', startTime);
+              setValueDate ('.apply-appointment-start_time', startTime);
             }
 
             if(event.end !== null) {
               var endTime = moment(event.end).format(I18n.t('time.formats.datetimepicker_full_calendar'));
-              setValueDate ('.apply-appointment-end-time', endTime);
+              setValueDate ('.apply-appointment-end_time', endTime);
             }
           }
         },
@@ -135,11 +135,11 @@ var CompCalendar = function() {
 
         eventResize: function(event, delta, revertFunc) {
           var endTime = event.end.format(I18n.t('time.formats.datetimepicker_full_calendar'));
-          setValueDate ('.apply-appointment-end-time', endTime);
+          setValueDate ('.apply-appointment-end_time', endTime);
         }
       });
 
-      $('.apply-appointment-start-time').datetimepicker({
+      $('.apply-appointment-start_time').datetimepicker({
         format: I18n.t('time.formats.datetimepicker'),
         minDate: new Date(),
         minTime: '7:45',
@@ -150,7 +150,7 @@ var CompCalendar = function() {
         }
       });
 
-      $('.apply-appointment-end-time').datetimepicker({
+      $('.apply-appointment-end_time').datetimepicker({
         format: I18n.t('time.formats.datetimepicker'),
         minTime: '7:45',
         maxTime: '17:00',

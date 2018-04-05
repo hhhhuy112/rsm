@@ -11,7 +11,7 @@
       </div>
       <% if appointment.start_time.blank? %>
         <ul class="calendar-events">
-          <li class="label label-info" ><%= apply.information[:name] %></li>
+          <li class="label label-info" ><%= "#{apply.information[:name]}-#{apply.job_name}" %></li>
         </ul>
       <% end %>
     </div>

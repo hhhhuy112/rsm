@@ -1,26 +1,27 @@
-<% readed_unread_notify notification, @notify_readed %>
-<li class="<%= @type %>">
-  <div class="col-md-3 col-sm-3 col-xs-3">
-    <div class="notify-img">
-      <% if  notification.user_id %>
-        <%= image_tag(notification.user_picture.url,
-          width: Settings.picture_user_width,
-          height: Settings.picture_user_height) %>
-      <% else %>
-        <%= image_tag("user_avatar_default.png",
-          width: Settings.picture_user_width,
-          height: Settings.picture_user_height) %>
-      <% end %>
+<% if check_notify notification %>
+  <% readed_unread_notify notification, @notify_readed %>
+  <li class="<%= @type %>">
+    <div class="col-md-3 col-sm-3 col-xs-3">
+      <div class="notify-img">
+        <% if  notification.user_id %>
+          <%= image_tag(notification.user_picture.url,
+            width: Settings.picture_user_width,
+            height: Settings.picture_user_height) %>
+        <% else %>
+          <%= image_tag("user_avatar_default.png",
+            width: Settings.picture_user_width,
+            height: Settings.picture_user_height) %>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <% check_notify notification %>
-  <div class="col-md-9 col-sm-9 col-xs-9 pd-l0 notification"
-    onclick="window.location='<%= @notice[:link] %>';">
-    <p><b><%= @notice[:name] %>:</b> <%= @notice[:content] %>
-      <% if notification.user_id %>
-        <%= t ".by" %> <b><%= notification.user_name %></b>
-      <% end %>
-    </p>
-    <p class="time"><%= t ".time_ago", time: time_ago_in_words(notification.created_at) %></p>
-  </div>
-</li>
+    <div class="col-md-9 col-sm-9 col-xs-9 pd-l0 notification"
+      onclick="window.location='<%= @notice[:link] %>';">
+      <p><b><%= @notice[:name] %>:</b> <%= @notice[:content] %>
+        <% if notification.user_id %>
+          <%= t ".by" %> <b><%= notification.user_name %></b>
+        <% end %>
+      </p>
+      <p class="time"><%= t ".time_ago", time: time_ago_in_words(notification.created_at) %></p>
+    </div>
+  </li>
+<% end %>

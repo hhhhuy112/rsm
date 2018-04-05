@@ -54,9 +54,7 @@
                 <abbr title="required">*</abbr>
                 <%= t ".start" %>
               </label>
-              <%= appointment_builder.text_field :start_time,
-                value: show_time(appointment_builder.object.start_time),
-                class: "form-control edit-control apply-appointment-start-time", readonly: true %>
+              <%= show_time_appointment_by_local appointment_builder, :start_time %>
               <span class="error-message">
                 <%= appointment_builder.full_error :start_time %>
               </span>
@@ -69,9 +67,7 @@
                 <abbr title="required">*</abbr>
                 <%= t ".end" %>
               </label>
-              <%= appointment_builder.text_field :end_time,
-                value: show_time(appointment_builder.object.end_time),
-                class: "form-control edit-control apply-appointment-end-time", readonly: true %>
+              <%= show_time_appointment_by_local appointment_builder, :end_time %>
               <span class="error-message">
                 <%= appointment_builder.full_error :end_time %>
               </span>
