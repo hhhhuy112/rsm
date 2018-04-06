@@ -35,9 +35,7 @@ class Employers::AppointmentsController < ApplicationController
     end
     Inforappointment.import inforappointments
     load_template_member
-    @appointment.inforappointments.each do |member|
-      SendEmailJob.perform_later(member,@template)
-    end
+    SendmailService.send_interview @appointment, @company, @apply
   end
 
   def load_template_member
