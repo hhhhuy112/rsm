@@ -26,13 +26,13 @@
   <% if job.opend? %>
     <td class="text-center color_date_job_expires">
       <strong>
-      <% if job.end_time.present? %>
-        <% if check_expire_job job.end_time %>
-          <%= t ".expired" %>
-        <% else %>
-          <%= t ".expires_on" %><br><%= l job.end_time.to_date, format: :long %>
+        <% if job.end_time.present? %>
+          <% if check_expire_job job.end_time %>
+            <%= t ".expired" %>
+          <% else %>
+            <%= t ".expires_on" %><br><%= l job.end_time.to_date, format: :long %>
+          <% end %>
         <% end %>
-      <% end %>
       </strong>
     </td>
   <% else %>
@@ -48,9 +48,11 @@
         remote: true, data: {toggle: "tooltip"} do %>
         <i class="fa fa-pencil" aria-hidden="true"></i>
       <% end %>
-      <%= link_to employers_job_path(job), method: :delete, remote: true,
-        class: "btn btn-danger btn-xs", data: {confirm: (t ".sure")} do %>
-        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      <% if job.applies.blank? %>
+        <%= link_to employers_job_path(job), method: :delete, remote: true,
+          class: "btn btn-danger btn-xs", data: {confirm: (t ".sure")} do %>
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+        <% end %>
       <% end %>
     </div>
   </td>

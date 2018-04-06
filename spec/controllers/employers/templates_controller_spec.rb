@@ -29,7 +29,7 @@ RSpec.describe Employers::TemplatesController, type: :controller do
       post :create, params: {template: {name: "phamd1ucpho", type_of: "template_member",
         template_body: "index.html",title: "admin", user_id: user.id}},
         xhr: true, format: "js"
-      expect(assigns[:message]).to eq I18n.t("employers.template.create_success")
+      expect(assigns[:message]).to eq I18n.t("employers.templates.create_success")
       expect(assigns[:interviewers]).to be_truthy
       expect(assigns[:candidates]).to be_truthy
       expect(assigns[:benefits]).to be_truthy

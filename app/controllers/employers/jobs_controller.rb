@@ -25,8 +25,10 @@ class Employers::JobsController < Employers::EmployersController
           .last.step.status_steps
         @message = t ".success"
       else
+        load_templates
         load_questions
         load_currency
+        buil_benefits
       end
       format.js
     end
@@ -43,6 +45,8 @@ class Employers::JobsController < Employers::EmployersController
     respond_to do |format|
       if @job.destroy
         @message = t ".success"
+        load_jobs
+        load_status_step
       end
       format.js
     end
@@ -56,7 +60,9 @@ class Employers::JobsController < Employers::EmployersController
         @message = t ".success"
         format.js
       else
+        load_templates
         load_currency
+        buil_benefits
         format.js
       end
     end

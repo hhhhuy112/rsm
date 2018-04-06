@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "employer/jquery-ui" %>
 <%= stylesheet_link_tag "survey" %>
-<%= simple_form_for [:employers, @job], remote: true do |f| %>
+<%= simple_form_for [:employers, @job], remote: true, html: {id: "form-job"} do |f| %>
   <div class="job-form">
     <%= f.hidden_field :company_id %>
     <div class="col-md-12">
@@ -46,6 +46,7 @@
       <div class="row">
         <div class="col-md-12">
           <label class="control-label">
+            <abbr title="required">*</abbr>
             <%= t ".benefit" %>
           </label>
         </div>
@@ -64,6 +65,7 @@
           <%= f.fields_for :reward_benefits do |reward| %>
             <%= reward.input :content, as: :ckeditor, label: false, input_html: {id: "content-benefits"} %>
           <% end %>
+          <span class="help-block m-top-10-minus"><%= f.error :reward_benefits %></span>
         </div>
       </div>
     </div>

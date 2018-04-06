@@ -1,6 +1,8 @@
 <% if @message.present? %>
   $('.interview-load').html('<%= j render partial: "employers/templates/interview", collection: @interviewers, as: :interviewer %>');
   $('#load_user').html('<%= j render partial: "employers/templates/candidate", collection: @candidates, as: :candidate %>');
+  $('#jobs').html('<%= j render @jobs %>');
+  $('.pag').html('<%= j paginate @jobs, params: {controller: "jobs", action: "index"} %>');
   alertify.success('<%= @message %>');
 <% else %>
   alertify.error('<%= @job.error.full_messages %>');
