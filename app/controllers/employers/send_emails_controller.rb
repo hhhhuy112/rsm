@@ -52,9 +52,9 @@ class Employers::SendEmailsController < ApplicationController
   end
 
   def send_mail_interviewer
-    @apply.inforappointments.each do |inforappointment|
-      SendEmailJob.perform_later inforappointment, @company, @apply
-    end
+    appointments = @apply.appointments
+    return if appointments.blank?
+    SendEmailJob.perform_later appointments.last, @company, @apply
   end
 
   def load_apply_statuses

@@ -20,11 +20,11 @@ class CompanyMailer < ApplicationMailer
     mail(to: email, subject: title)
   end
 
-  def send_mailer_interviewer inforappointment, apply, company
-    @inforappointment = inforappointment
-    @user = @inforappointment.user
+  def send_mailer_interviewer appointment, apply, company
+    @appointment = appointment
+    @user_emails = @appointment.inforappointments.map {|info| info.user_email}
     @company = company
     @apply = apply
-    mail(to: @user.email, subject: t("company_mailer.welcome_email.subject"))
+    mail(to: @user_emails, subject: t("company_mailer.welcome_email.subject"))
   end
 end
