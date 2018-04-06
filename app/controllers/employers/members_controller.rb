@@ -1,6 +1,7 @@
 class Employers::MembersController < Employers::EmployersController
   before_action :get_values_checked, only: :index
   before_action :load_members, only: :index
+  before_action :check_user_ids, only: :create
 
   def index
     @page = params[:page]
@@ -68,5 +69,16 @@ class Employers::MembersController < Employers::EmployersController
 
   def load_members
     @members = @company.members.sort_by_updated.page(params[:page]).per Settings.apply.page
+  end
+
+  def check_user_ids
+    if params[:member] && params[:member][:user_ids] && params[:member][:user_ids][1].blank?
+      flash[:danger] = t ".user_ids_nil"
+      if request.xhr?
+        render js: "window.location = '#{employers_members_path}'"
+      else
+        redirect_to employers_members_path
+      end
+    end
   end
 end

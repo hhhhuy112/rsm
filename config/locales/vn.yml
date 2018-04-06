@@ -448,6 +448,16 @@ vn:
           attributes:
             cv:
               blank: "Không thể để trống"
+        offer:
+          attributes:
+            address:
+              blank: "Không thể để trống"
+            salary:
+              blank: "Không thể để trống"
+            currency:
+              required: "Không thể để trống"
+            start_time:
+              blank: "Không thể để trống"
   activemodel:
     errors:
       models:
@@ -1230,3 +1240,9 @@ vn:
   up_to: "Trên "
   expire_at: "Hết hạn lúc "
   not_found: "Không tìm thấy %{error_message}"
+  member_date2: "Không thể ở tương lai."
+  member_date1: "Không thể sau thời gian bắt đầu."
+  member:
+    roles:
+      employer: "Nhà tuyển dụng"
+      user: "Người dùng"

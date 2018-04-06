@@ -1,54 +1,74 @@
-<%= javascript_include_tag "format_datepicker", "data-turbolinks-track": "reload" %>
-<div class="member-form">
-  <% if @member.present? %>
-    <%= simple_form_for @member, url: employers_member_path, remote: :true do |f| %>
-      <div class="form-group">
-        <abbr title="required">*</abbr> <%= f.label :name, t(".name") %>
-        <%= f.text_field :name, value: @member.user.name, class: "form-control", disabled: :true %>
+<% if @member.present? %>
+  <%= simple_form_for @member, url: employers_member_path, remote: :true do |f| %>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <abbr title="required">*</abbr>&nbsp;<%= f.label :name, t(".name") %>
+          <%= f.text_field :name, value: @member.user.name, class: "form-control", disabled: :true %>
+        </div>
       </div>
-      <div class="form-group">
-        <abbr title="required">*</abbr> <%= f.label :position, t(".position") %>
-        <%= f.text_field :position, class: "form-control" %>
-        <span class="error-message">
-          <%= f.full_error :position %>
-        </span>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <abbr title="required">*</abbr>&nbsp;<%= f.label :position, t(".position") %>
+          <%= f.text_field :position, class: "form-control" %>
+          <span class="error-message">
+            <%= f.full_error :position %>
+          </span>
+        </div>
       </div>
-      <div class="form-group">
-        <abbr title="required">*</abbr> <%= f.label :role, t(".role") %>
-        <%= f.select :role, options_for_select(Member.roles.collect{|r| [r[0].capitalize, r[0]]},
-          @member.role), {}, class: "form-control" %>
-        <span class="error-message">
-          <%= f.full_error :role %>
-        </span>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <abbr title="required">*</abbr>&nbsp;<%= f.label :role, t(".role") %>
+          <%= f.select :role, options_for_select(get_role_member, @member.role), {},
+            class: "form-control" %>
+          <span class="error-message">
+            <%= f.full_error :role %>
+          </span>
+        </div>
       </div>
-      <div class="form-group">
-        <abbr title="required">*</abbr> <%= f.label :start_time, t(".start_time") %>
-        <% if @member.start_time.present? %>
-          <%= f.text_field :start_time, data: {provide: "datepicker"},
-            class: "datepick form-control", value: (l @member.start_time, format: :long) %>
-        <% else %>
-          <%= f.text_field :start_time, data: {provide: "datepicker"}, class: "datepick form-control" %>
-        <% end %>
-        <span class="error-message">
-          <%= f.full_error :start_time %>
-        </span>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <abbr title="required">*</abbr>&nbsp;<%= f.label :start_time, t(".start_time") %>
+          <% if @member.start_time.present? %>
+            <%= f.text_field :start_time, autocomplete: :off,
+              class: "datepick form-control", value: (l @member.start_time, format: :long) %>
+          <% else %>
+            <%= f.text_field :start_time, autocomplete: :off, class: "datepick form-control" %>
+          <% end %>
+          <span class="error-message">
+            <%= f.full_error :start_time %>
+          </span>
+        </div>
       </div>
-      <div class="form-group">
-        <%= f.label :end_time, t(".end_time") %>
-        <% if @member.end_time.present? %>
-          <%= f.text_field :end_time, data: {provide: "datepicker"},
-            class: "datepick form-control", value: (l @member.end_time, format: :long) %>
-        <% else %>
-          <%= f.text_field :end_time, data: {provide: "datepicker"}, class: "datepick form-control" %>
-        <% end %>
-        <span class="error-message">
-          <%= f.full_error :end_time %>
-        </span>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label :end_time, t(".end_time") %>
+          <% if @member.end_time.present? %>
+            <%= f.text_field :end_time, autocomplete: :off,
+              class: "datepick form-control", value: (l @member.end_time, format: :long) %>
+          <% else %>
+            <%= f.text_field :end_time, autocomplete: :off, class: "datepick form-control" %>
+          <% end %>
+          <span class="error-message">
+            <%= f.full_error :end_time %>
+          </span>
+        </div>
       </div>
-      <div class="form-group">
+    </div>
+
+    <div class="row">
+      <center>
         <%= f.button :submit, t(".save"), class: "btn btn-primary" %>
-        <button type="button" class="btn btn-default" data-dismiss="modal"><%= t ".close" %></button>
-      </div>
-    <% end %>
+      </center>
+    </div>
   <% end %>
-</div>
+<% end %>
+<%= javascript_include_tag "format_datepicker", "data-turbolinks-track": "reload" %>

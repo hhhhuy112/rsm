@@ -22,19 +22,19 @@
         <%= f.input :salary, input_html: {min: Settings.offer_salary,
           step: Settings.offer_salary_increase_step, type: "number"} %>
       </div>
-      <div class="col-sm-2 col-md-2 col-lg-2">
+      <div class="col-sm-3 col-md-3 col-lg-3">
         <label class="control-label">
           <abbr title="required">*</abbr> <%= t ".currency" %>
         </label>
         <%= f.input :currency_id, as: :select, collection: @currencies.map{|x| [x.unit, x.id]},
           label: false %>
-        <%= f.full_error :currency, class: "m-top-10-minus" %>
+        <%= f.error :currency, class: "m-top-10-minus" %>
       </div>
-      <div class="col-sm-6 col-md-6 col-lg-6">
+      <div class="col-sm-5 col-md-5 col-lg-5">
         <label class="control-label">
           <abbr title="required">*</abbr> <%= t ".start_time" %>
         </label>
-        <%= f.text_field :start_time, class: "date_apply form-control", id: "datepicker" %>
+        <%= f.text_field :start_time, class: "form-control", id: "datepicker", autocomplete: :off %>
         <%= f.error :start_time %>
       </div>
     </div>

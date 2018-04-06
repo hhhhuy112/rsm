@@ -56,4 +56,4 @@ vn:
         other: "%{count} ngày trước"
   datepicker:
     format: "dd/mm/yyyy"
-    long: "dd/mm/yyyy"
+    long: "dd/mm/yy"

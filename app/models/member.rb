@@ -29,6 +29,6 @@ class Member < ApplicationRecord
       errors.add :end_time, I18n.t("member_date2") if end_time > Time.zone.today
     end
     return if start_time.blank?
-    errors.add :start_time, I18n.t("memeber_date2") if start_time > Time.zone.today
+    errors.add :start_time, I18n.t("member_date2") if start_time > Time.zone.today
   end
 end

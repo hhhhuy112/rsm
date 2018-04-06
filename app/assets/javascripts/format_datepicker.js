@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $('.datepick').datepicker( {
-    format: I18n.t('datepicker.long'),
+    dateFormat: I18n.t('datepicker.long'),
     startView: 'months'
   });
 
@@ -11,8 +11,14 @@ $(document).ready(function() {
   });
 
   $('.datepick-birthday').datepicker( {
-    format: I18n.t('datepicker.long'),
+    dateFormat: I18n.t('datepicker.long'),
     startView: 'months',
     endDate: '+0d'
+  });
+
+  $('#datepicker').datepicker({
+    dateFormat: I18n.t('datepicker.long'),
+    startView: 'months',
+    minDate: 0
   });
 });
