@@ -5,7 +5,7 @@ $(document).ready(function(){
     $(this).hide(700);
     $('#btn-back').show(700);
 
-    job = getDataForm('new_job');
+    job = getDataForm('form-job');
 
     $('.job-title').text(job.name);
     $('.branch-name').text(('(' + I18n.t('branch_in') + job.branch + ')').toUpperCase());
@@ -49,12 +49,16 @@ $(document).ready(function(){
     $('#btn-preview').show(700);
   });
 
-  $(document).on('change', '#job_name, #job_currency_id, #job_min_salary, #job_target, #job_position, #job_branch_id, #job_category_id', function() {
-    check_validate_form('new_job');
+  $(document).on('change', '#job_name, #job_currency_id, #job_min_salary, #job_target, #job_branch_id, #job_category_id', function() {
+    check_validate_form('form-job');
   });
 
   CKEDITOR.instances['job_description'].on('change', function() {
-    check_validate_form('new_job');
+    check_validate_form('form-job');
+  });
+
+  CKEDITOR.instances['content-benefits'].on('change', function() {
+    check_validate_form('form-job');
   });
 
   function getDataForm (element) {
@@ -73,7 +77,8 @@ $(document).ready(function(){
       request: CKEDITOR.instances['job_content'].getData(),
       survey_type: data_job.get('job[survey_type]'),
       question_ids: data_job.get('choosen_ids'),
-      end_time: data_job.get('job[end_time]')
+      end_time: data_job.get('job[end_time]'),
+      benefit: CKEDITOR.instances['content-benefits'].getData()
     }
 
     if ($('#job_branch_id').val() !== '') {
@@ -133,8 +138,8 @@ $(document).ready(function(){
     $(element).children().remove();
   }
 
-  function check_value(name, description, min_salary, target, position, branch_id, category_id, currency) {
-    if (name === '' || description === '' || min_salary === '' || target === '' || position === '' || branch_id === undefined || category_id === undefined || currency === '') {
+  function check_value(name, description, min_salary, target, branch_id, category_id, currency, benefit) {
+    if (name === '' || description === '' || min_salary === '' || target === '' || branch_id === undefined || category_id === undefined || currency === '' || benefit === '') {
       $('#btn-preview').attr('disabled', true);
     } else {
       $('#btn-preview').attr('disabled', false);
@@ -143,10 +148,10 @@ $(document).ready(function(){
 
   function check_validate_form(element) {
     job = getDataForm(element);
-    check_value(job.name, job.description, job.min_salary, job.target, job.position, job.branch, job.category, job.currency);
+    check_value(job.name, job.description, job.min_salary, job.target, job.branch, job.category, job.currency, job.benefit);
   }
 
-  $('#new_job').validate({
+  $('#form-job').validate({
     errorClass: 'help-block animation-slideDown',
     errorElement: 'div',
     errorPlacement: function(error, e) {
@@ -170,9 +175,6 @@ $(document).ready(function(){
       'job[name]': {
         required: true
       },
-      'job[description]': {
-        required: true
-      },
       'job[min_salary]': {
         required: true,
         number: true
@@ -180,9 +182,6 @@ $(document).ready(function(){
       'job[target]': {
         required: true,
         number: true
-      },
-      'job[position]': {
-        required: true
       },
       'job[branch_id]': {
         required: true
@@ -198,7 +197,21 @@ $(document).ready(function(){
         {
           CKEDITOR.instances[textarea.id].updateElement();
           var editorcontent = textarea.value.replace(/<[^>]*>/gi, '');
-          return editorcontent.length === 0;
+          if(editorcontent.length === 0) {
+            $('#manageJob').animate({scrollTop: $('textarea[name="job[description]"]').position().top}, 'slow');
+            return true;
+          }
+        }
+      },
+      'job[reward_benefits_attributes][0][content]': {
+        required: function(textarea)
+        {
+          CKEDITOR.instances[textarea.id].updateElement();
+          var editorcontent = textarea.value.replace(/<[^>]*>/gi, '');
+          if (editorcontent.length === 0) {
+            $('#manageJob').animate({scrollTop: $('.reward_benefits').position().top}, 'slow');
+            return true;
+          }
         }
       }
     }
