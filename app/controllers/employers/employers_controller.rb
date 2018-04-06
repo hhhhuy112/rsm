@@ -27,7 +27,7 @@ class Employers::EmployersController < BaseNotificationsController
   end
 
   def load_templates
-    @template_users = @company.templates.get_not_benefit.get_newest
+    @template_users = @company.templates.get_not_benefit.get_not_skill.get_newest
   end
 
   def check_permissions_employer

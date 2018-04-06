@@ -83,7 +83,7 @@ en:
       address: "Address"
       start_time_appointment: "Start time"
       end_time_appointment: "End time"
-      type: "Lịch hẹn"
+      type: "Schedule"
     apply_statuses:
       update:
         success: "Update success"

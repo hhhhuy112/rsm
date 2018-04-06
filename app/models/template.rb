@@ -13,4 +13,5 @@ class Template < ApplicationRecord
 
   scope :get_newest, ->{order created_at: :desc}
   scope :get_not_benefit, ->{where.not type_of: :template_benefit}
+  scope :get_not_skill, ->{where.not type_of: :template_skill}
 end
