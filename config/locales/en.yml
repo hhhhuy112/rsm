@@ -17,6 +17,7 @@ en:
     formats:
       long: "%d/%m/%Y"
       date_time: "%d/%m/%Y %H:%M"
+      short: "%d/%m %H:%M"
   shared:
     language_local:
       vietnam: "Việt Nam"

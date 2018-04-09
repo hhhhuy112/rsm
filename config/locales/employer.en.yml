@@ -75,6 +75,7 @@ en:
         not_applies: "No have applies"
         step: "Step"
         no: "No"
+        updated: "Updated at"
       create:
         success: "Applied success"
         failure: "Applied failure"
@@ -99,6 +100,7 @@ en:
         phone: "Phone"
         cv: "CV"
         job_applied: "Job Applied"
+        code: "Code"
       offers_list:
         offer_send_by: "Offer was sent by"
       offer_detail:
@@ -508,6 +510,7 @@ en:
         join_at: "Join at"
         action: "Action"
         not_candidates: "Haven't candidates."
+        code: "Code"
       index:
         not_candidates: "Haven't candidates."
         all_candidates: "All candidates"

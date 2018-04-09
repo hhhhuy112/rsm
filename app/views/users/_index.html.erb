@@ -12,6 +12,13 @@
           </div>
           <div class="form-group form-custom">
             <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-barcode"></i></span>
+              <%= text_field_tag :code, @user.code, disabled: true, class: "form-control
+                input-custom input-lg input-disabled" %>
+            </div>
+          </div>
+          <div class="form-group form-custom">
+            <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
               <%= text_field_tag :email, @user.email, disabled: true, class: "form-control
                 input-custom input-lg input-disabled" %>

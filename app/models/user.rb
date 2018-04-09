@@ -32,7 +32,14 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, uniqueness: { scope: :company_id,
     message: I18n.t("users.form.empty") }
+    validates :code, uniqueness: {scope: :company_id}, presence: true
   validate :birthday_cannot_be_in_the_future
+
+  before_validation(on: :create) do
+    code_id = User.with_deleted.last&.id
+    code_id = code_id ? (code_id + Settings.code.default_val) : Settings.code.default_val
+    self.code = "#{Settings.code.text}#{code_id}"
+  end
 
   enum role: %i(user employer admin)
   enum sex: {female: 0, male: 1}

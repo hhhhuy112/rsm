@@ -53,7 +53,7 @@ class StepService
 
   def get_offers
     return if @apply_status_lastest.blank?
-    @apply_status_lastest.offers.get_newest.includes :user
+    @apply_status_lastest.offers.get_newest.includes :user, :currency
   end
 
   def get_company_step step

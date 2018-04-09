@@ -133,6 +133,26 @@ var CompCalendar = function() {
 
         },
 
+        eventMouseover: function(calEvent, jsEvent) {
+          var tooltip = '<div class="tooltipevent" style="width:100px;min-height:50px;background:black;position:absolute;z-index:10001;color:white;padding:2px">'
+            + calEvent.title + '</div>';
+          var $tooltip = $(tooltip).appendTo('body');
+
+          $(this).mouseover(function(e) {
+            $(this).css('z-index', 10000);
+            $tooltip.fadeIn('500');
+            $tooltip.fadeTo('10', 1.9);
+          }).mousemove(function(e) {
+            $tooltip.css('top', e.pageY + 10);
+            $tooltip.css('left', e.pageX + 20);
+          });
+        },
+
+        eventMouseout: function(calEvent, jsEvent) {
+          $(this).css('z-index', 8);
+          $('.tooltipevent').remove();
+        },
+
         eventResize: function(event, delta, revertFunc) {
           var endTime = event.end.format(I18n.t('time.formats.datetimepicker_full_calendar'));
           setValueDate ('.apply-appointment-end_time', endTime);
