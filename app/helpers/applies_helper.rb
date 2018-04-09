@@ -4,7 +4,7 @@ module AppliesHelper
   end
 
   def get_name_to apply
-    apply && apply.information[:name] && apply.job_name ? "#{apply.information[:name]}-#{apply.job_name}" : ''
+    apply && apply.information[:name] && apply.job_name ? "#{apply.information[:name]} - #{apply.job_name}" : ''
   end
 
   def cv_update_at user
@@ -13,8 +13,8 @@ module AppliesHelper
 
   def get_update_date apply_id, activities
     return if activities.blank?
-    date = activities[apply_id]
-    l(date, format: :short) if date
+    date = activities[apply_id].in_time_zone(File.read("/etc/timezone").chomp)
+    l(date, format: :date_time) if date
   end
 
   def show_time_appointment_by_local appointment_builder, key

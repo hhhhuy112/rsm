@@ -36,6 +36,7 @@ RSpec.describe User, type: :model do
     it {is_expected.to have_db_column(:address).of_type(:text)}
     it {is_expected.to have_db_column(:sex).of_type(:integer)}
     it {is_expected.to have_db_column(:role).of_type(:integer)}
+    it {is_expected.to have_db_column(:code).of_type(:string)}
   end
 
   context "validates" do
@@ -78,6 +79,14 @@ RSpec.describe User, type: :model do
       it "matches the error message" do
         subject.valid?
         subject.errors[:birthday].should include(I18n.t("users.form.birthday.validate"))
+      end
+    end
+
+    context "when code is duplicate" do
+      before {subject.code = user1.code}
+      it "matches the error message" do
+        subject.valid?
+        subject.errors[:code].should include("has already been taken")
       end
     end
   end

@@ -24,6 +24,7 @@ vn:
     placeholder_date_picker: "mm-dd-yyyy"
   time:
     formats:
+      short: "%d/%m %H:%M"
       resigned_date: *default_date
       long: "%d/%m/%Y %H:%M"
       default: "%H:%M:%S %-d %B %Y"

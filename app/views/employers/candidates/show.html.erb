@@ -14,6 +14,11 @@
         <table class="ml-18 table table-borderless table-striped">
           <tbody>
             <tr class="background-none">
+              <td class="text-right"><strong><%= t ".code" %></strong></td>
+              <td><span class="label label-primary"><strong><%= @candidate.code %></strong></span></td>
+            </tr>
+
+            <tr class="background-none">
               <td class="text-right"><strong><%= t ".email" %></strong></td>
               <td><span class="label label-primary"><%= @candidate.email %></span></td>
             </tr>

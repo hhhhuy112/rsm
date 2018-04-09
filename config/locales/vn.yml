@@ -458,6 +458,17 @@ vn:
               required: "Không thể để trống"
             start_time:
               blank: "Không thể để trống"
+        user:
+          attributes:
+            email:
+              invalid: "Không hợp lệ"
+              blank: "Không để trống"
+              taken: "Đã tồn tại"
+            name:
+              blank: "Không để trống"
+            code:
+              blank: "Không để trống"
+              taken: "Đã tồn tại"
   activemodel:
     errors:
       models:

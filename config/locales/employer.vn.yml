@@ -74,6 +74,7 @@ vn:
         not_applies: "Không có CV nào"
         step: "Bước"
         no: "STT"
+        updated: "Cập nhật lúc"
       create:
         success: "Đã tạo đơn thành công"
         failure: "Tạo đơn thất bại"
@@ -98,6 +99,7 @@ vn:
         phone: "Điện thoại"
         cv: "Sơ yếu lý lịch"
         job_applied: "Công việc đã ứng tuyển"
+        code: "Mã số"
       offers_list:
         offer_send_by: "Offer đưọc gởi bởi"
       offer_detail:
@@ -504,6 +506,7 @@ vn:
         join_at: "Tham gia lúc"
         action: "Hành động"
         not_candidates: "Không có ứng viên."
+        code: "Mã số"
       index:
         not_candidates: "Không có ứng viên."
         all_candidates: "All candidates"
