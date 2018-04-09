@@ -140,6 +140,10 @@ en:
         apply_at: "Apply at"
         show_job: "Show job"
         show_apply: "Show apply"
+      apply_status:
+        by: "By %{name}"
+        was_applied: "Was Applied"
+        resend_email: "Resend Email"
     appointments:
       appointment:
         click: "Click"

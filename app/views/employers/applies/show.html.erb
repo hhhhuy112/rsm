@@ -159,13 +159,13 @@
               <h3 class="timeline-header"><strong><%= l Date.current, format: :date_month_year_v2 %></strong></h3>
               <ul class="timeline-list timeline-hover" id="area-hisory-apply-load">
                 <%= (render partial: "employers/apply_statuses/apply_status",
-                collection: @apply_statuses, as: :apply_status) || t("employers.no_data") %>
+                  collection: @apply_activities, as: :activity) || t("employers.no_data") %>
               </ul>
             </div>
           </div>
         </div>
         <div id="pagination-history-apply" class="row text-center pag pag-history-apply">
-          <%= paginate @apply_statuses %>
+          <%= paginate @apply_activities %>
         </div>
       </div>
     </div>
@@ -225,3 +225,4 @@
 </div>
 <%= hidden_field_tag :apply_id, @apply.id %>
 <%= hidden_field_tag :job_id, @apply.job_id %>
+<%= javascript_include_tag "history_activity" %>

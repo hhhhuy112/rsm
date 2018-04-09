@@ -1,6 +1,6 @@
 class Employers::SendEmailsController < ApplicationController
   before_action :load_company
-  before_action :load_apply, :load_apply_status, :load_apply_statuses, except: :show
+  before_action :load_apply, :load_apply_status, :load_apply_statuses, :load_activities_apply, except: :show
   before_action :load_oauth, only: :show
 
   def create
@@ -19,6 +19,7 @@ class Employers::SendEmailsController < ApplicationController
     @email_sent.send_mail current_user
     @status_step = @email_sent.status_step
     @apply = @email_sent.apply
+    load_activities_apply
     send_mail_interviewer if @status_step.present? && @apply.present? && @status_step.is_status?(Settings.interview_scheduled)
     respond_to :js
   end

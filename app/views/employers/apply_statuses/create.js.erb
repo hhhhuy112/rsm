@@ -19,8 +19,8 @@
   $('#btn-prev-apply').html('<%= j render partial: "employers/applies/form_apply_status", locals: {apply_status: @prev_apply_status, btn_name: t("employers.applies.btn_name.prev"), step: @prev_step} %>');
   $('#btn-next-apply').html('<%= j render partial: "employers/applies/form_apply_status", locals: {apply_status: @next_apply_status, btn_name: t("employers.applies.btn_name.next"), step: @next_step} %>');
   $('#status-infor-apply').html('<%= j show_status_apply @current_apply_status.status_step %>');
-  $('#area-hisory-apply-load').html('<%= j render partial: "employers/apply_statuses/apply_status", collection: @apply_statuses, as: :apply_status %>');
-  $('#pagination-history-apply').html('<%= j paginate @apply_statuses %>');
+  $('#area-hisory-apply-load').html('<%= j render partial: "employers/apply_statuses/apply_status", collection: @apply_activities, as: :activity %>');
+  $('#pagination-history-apply').html('<%= j paginate @apply_activities %>');
   $('#step-history').html('<%= j render partial: "employers/applies/step_history", locals:{data_step: @data_step, status_step: @current_apply_status.status_step, apply_status: @current_apply_status, apply: @apply, current_apply_status: @current_apply_status} %>');
   $('#apply-cv-content').html('<%= j render partial: "employers/applies/apply_cv"%>');
   alertify.success('<%= @message %>');

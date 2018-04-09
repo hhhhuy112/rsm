@@ -122,6 +122,17 @@ module EmployersHelper
     end
   end
 
+  def show_activity_icon activity
+    case activity.trackable_type
+    when Apply.name
+      Settings.created
+    when ApplyStatus.name
+      show_class_icon activity.trackable.status_step
+    else
+      Settings.email_sent
+    end
+  end
+
   def show_interviewer inforappointments
     interviewers = inforappointments.map do |inforappointment|
       inforappointment.user_name

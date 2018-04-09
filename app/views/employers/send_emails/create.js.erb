@@ -1,7 +1,7 @@
 <% if @messages.present? %>
   $('#apply-handling-content').html('');
-  $('#area-hisory-apply-load').html('<%= j render partial: "employers/apply_statuses/apply_status", collection: @apply_statuses, as: :apply_status %>');
-  $('#pagination-history-apply').html('<%= j paginate @apply_statuses %>');
+  $('#area-hisory-apply-load').html('<%= j render partial: "employers/apply_statuses/apply_status", collection: @apply_activities, as: :activity %>');
+  $('#pagination-history-apply').html('<%= j paginate @apply_activities %>');
   swal(I18n.t('employers.send_emails.sent_email'), '', '<%= @messages %>');
 <% end %>
 $('.loading').fadeOut('slow');

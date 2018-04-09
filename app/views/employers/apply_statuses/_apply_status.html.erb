@@ -1,34 +1,55 @@
 <li class="active">
-  <div class="timeline-icon <%= show_class_icon apply_status.status_step %>"><i class="fa fa-file-text"></i></div>
+  <div class="timeline-icon <%= show_activity_icon activity %>"><i class="fa fa-file-text"></i></div>
   <div class="timeline-time">
     <small class="text-muted">
-      <%= l apply_status.created_at, format: :default %>
+      <%= l activity.trackable_created_at, format: :default %>
     </small>
   </div>
   <div class="timeline-content">
-    <p class="push-bit">
-      <strong>
-        <%= t "employers.applies.statuses.#{apply_status.status_step.code}" %>
-      </strong>
-    </p>
-    <% if apply_status.appointment %>
-      <p class="push-bit font-weight-normal font-size-10 margin-bottom-0">
-        <%= t "employers.history.start_time" %><%= show_time apply_status.appointment.start_time %>
+    <% case activity.trackable_type %>
+    <% when Apply.name %>
+      <p class="push-bit">
+        <strong>
+          <%= t ".was_applied" %>
+        </strong>
       </p>
-
-      <p class="push-bit font-weight-normal font-size-10 margin-bottom-0">
-        <%= t "employers.history.end_time" %><%= show_time apply_status.appointment.end_time %>
+    <% when ApplyStatus.name %>
+      <p class="push-bit">
+        <strong>
+          <%= t "employers.applies.statuses.#{activity.trackable.status_step_code}" %>
+        </strong>
       </p>
-      <% if apply_status.appointment.inforappointments %>
+      <% if activity.trackable&.appointment %>
         <p class="push-bit font-weight-normal font-size-10 margin-bottom-0">
-          <%= t "employers.history.interviewer" %><%= show_interviewer apply_status.appointment.inforappointments %>
+          <%= t "employers.history.start_time" %><%= show_time activity.trackable.appointment_start_time %>
         </p>
+
+        <p class="push-bit font-weight-normal font-size-10 margin-bottom-0">
+          <%= t "employers.history.end_time" %><%= show_time activity.trackable.appointment_end_time %>
+        </p>
+        <% if activity.trackable&.inforappointments.present? %>
+          <p class="push-bit font-weight-normal font-size-10 margin-bottom-0">
+            <%= t "employers.history.interviewer" %><%= show_interviewer activity.trackable.appointment.inforappointments %>
+          </p>
+        <% end %>
       <% end %>
-    <% end %>
-    <% if apply_status.content_email %>
-      <p class="push-bit font-weight-normal font-size-10 margin-bottom-0">
-        <%= t "employers.history.content_email" %><%= apply_status.content_email %>
+    <% when EmailSent.name %>
+      <p class="push-bit">
+        <strong><%= t ".resend_email" %></strong>
       </p>
+      <p class="push-bit font-weight-normal font-size-10 margin-bottom-0">
+        <%= activity.trackable.title %>
+      </p>
+      <p>
+        <%= link_to t("read_more"), "javascript:void(0)", class: "btn-see-more",
+          data: {open: false, id: activity.id} %>
+      </p>
+      <div class="content-mail-activity display-none" id="content-mail-<%= activity.id %>">
+        <%= raw activity.trackable.content %>
+      </div>
     <% end %>
+    <p class="push-bit">
+      <small class="text-muted font-weight-normal"><%= t ".by", name: activity.owner&.name %></small>
+    </p>
   </div>
 </li>
