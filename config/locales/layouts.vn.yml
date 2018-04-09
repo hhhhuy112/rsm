@@ -207,6 +207,9 @@ vn:
       year: "2018"
     employers:
       sidebar_employer:
+        company_setting: "Thiết lập công ty"
+        manage-candidate: "Quản lý tuyển dụng"
+        employer: "Nhà tuyển dụng"
         employer: "Nhà tuyển dụng"
         dashboard: "Bảng điều khiển"
         member: "Thành viên"
