@@ -22,31 +22,13 @@
       <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
         <li class="dropdown-header text-center"><%= t ".account" %></li>
         <li>
-          <%= link_to "javascript:void(0)", class: "col-do" do %>
-            <i class="fa fa-envelope-o fa-fw pull-right"></i>
-            <span class="badge pull-right">5</span>
-            <%= t ".messages" %>
-          <% end %>
-        </li>
-        <li class="divider"></li>
-        <li>
           <%= link_to user_url current_user do %>
             <i class="fa fa-user fa-fw pull-right"></i>
             <%= t ".profile" %>
           <% end %>
-
-          <%= link_to "javascript:void(0)", class: "col-do" do %>
-            <i class="fa fa-cog fa-fw pull-right"></i>
-            <%= t ".settings" %>
-          <% end %>
         </li>
         <li class="divider"></li>
         <li>
-          <%= link_to "javascript:void(0)", class: "col-do" do %>
-            <i class="fa fa-lock fa-fw pull-right"></i>
-            <%= t ".lock_account" %>
-          <% end %>
-
           <%= link_to destroy_user_session_path, method: :delete, class: "col-do" do %>
             <i class="fa fa-ban fa-fw pull-right"></i>
             <%= t ".logout" %>

@@ -207,6 +207,9 @@ en:
       year: "2018"
     employers:
       sidebar_employer:
+        company_setting: "Company Settings"
+        manage-candidate: "Manage Recruiment"
+        personal-setting: "Personal Settings"
         employer: "Employer"
         dashboard: "Dashboard"
         member: "Member"

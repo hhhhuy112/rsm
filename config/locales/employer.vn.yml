@@ -607,7 +607,6 @@ vn:
         status_nil: "Không tìm thấy trạng thái"
       transmission_error: "Đường truyền bị lỗi"
       sidebar_employer:
-        employer: "Nhà tuyển dụng"
         dashboard: "Bảng điều khiển"
         member: "Nhân viên"
         all_member: "Tất cả nhân viên"

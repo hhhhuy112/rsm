@@ -49,3 +49,8 @@
 //= require highcharts
 //= require chartkick
 //= require jquery.datetimepicker
+
+$('.sidebar-nav').ready(function () {
+  $('a[href="' + this.location.pathname + '"]').parent().parent().parent().addClass('active');
+  $('a[href="' + this.location.pathname + '"]').addClass('active');
+});

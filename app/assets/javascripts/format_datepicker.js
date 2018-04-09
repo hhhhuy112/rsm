@@ -5,8 +5,8 @@ $(document).ready(function() {
   });
 
   $('.date_apply').datepicker({
-    format: I18n.t('datepicker.format'),
     startView: 'months',
+    dateFormat: I18n.t("datepicker.long"),
     minDate: 0
   });
 
