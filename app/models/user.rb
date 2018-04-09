@@ -38,7 +38,7 @@ class User < ApplicationRecord
   before_validation(on: :create) do
     code_id = User.with_deleted.last&.id
     code_id = code_id ? (code_id + Settings.code.default_val) : Settings.code.default_val
-    self.code = "#{Settings.code.text}#{code_id}"
+    self.code = "#{Settings.code.text}#{Faker::Number.number(Settings.code.element)}#{code_id}"
   end
 
   enum role: %i(user employer admin)

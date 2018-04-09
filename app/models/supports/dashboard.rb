@@ -14,7 +14,7 @@ class Supports::Dashboard
   end
 
   def prioritize_apply_statues
-    @company.apply_statuses.current.sort_apply_statues.includes(:job, :status_step)
+    @company.apply_statuses.current.sort_apply_statues.includes(:job, :status_step, :user)
   end
 
   def total_apply_statuses

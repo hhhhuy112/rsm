@@ -1,6 +1,11 @@
 <tr>
   <td class="text-center">
     <%= link_to "javascript:void(0)" do %>
+      <strong><%= apply_status.user&.code %></strong>
+    <% end %>
+  </td>
+  <td class="text-center">
+    <%= link_to "javascript:void(0)" do %>
       <strong><%= apply_status.job_name %></strong>
     <% end %>
   </td>
