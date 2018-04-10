@@ -13,6 +13,22 @@ class Employers::NotesController < Employers::EmployersController
     end
   end
 
+  def edit; end
+
+  def update
+    if @note.update_attributes note_params
+      load_apply
+      @success = t ".updated_success"
+    end
+  end
+
+  def destroy
+    if @note.destroy
+      load_apply
+      @success = t ".destroyed_success"
+    end
+  end
+
   private
 
   def note_params

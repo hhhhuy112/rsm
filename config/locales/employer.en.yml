@@ -111,6 +111,8 @@ en:
         requirement: "Requirement"
       notes:
         haven't_notes: "Don't have notes."
+      notes_table:
+        sure: "Are you sure want delete this note ?"
     apply_statuses:
       confirm_send_email: "Do you want to send email for candidate ?"
       mgs_send_email_susscess: "You changed status success"
@@ -505,6 +507,10 @@ en:
         not_found_apply: "Not found apply!"
       new_note:
         create: "Create note"
+      update:
+        updated_success: "Updated success!"
+      destroy:
+        destroyed_success: "Destroyed success!"
     candidates:
       table_candidates:
         no: "No"

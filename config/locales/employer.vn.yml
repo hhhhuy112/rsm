@@ -110,6 +110,8 @@ vn:
         requirement: "Yêu cầu"
       notes:
         haven't_notes: "Không có ghi chú."
+      notes_table:
+        sure: "Bạn có chắc muốn xóa ghi chú này ?"
     apply_statuses:
       confirm_send_email: "Bạn có muốn gửi email cho ứng cử viên?"
       mgs_send_email_susscess: "Thay đổi trạng thái thành công"
@@ -501,6 +503,10 @@ vn:
         not_found_apply: "Không tìm thấy apply!"
       new_note:
         create: "Tạo ghi chú"
+      update:
+        updated_success: "Đã cập nhật thành công!"
+      destroy:
+        destroyed_success: "Đã xóa thành công!"
     candidates:
       table_candidates:
         no: "STT"

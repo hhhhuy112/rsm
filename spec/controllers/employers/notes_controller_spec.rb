@@ -24,7 +24,11 @@ RSpec.describe Employers::NotesController, type: :controller do
   let!(:apply_status) do
     FactoryGirl.create :apply_status, apply_id: apply.id, status_step_id: status_step.id
   end
+  let!(:note) do
+    FactoryGirl.create :note, user_id: user.id, apply_id: apply.id
+  end
 
+  subject {note}
   before do
     sign_in user
     request.host = "#{company.subdomain}.lvh.me:3000"
@@ -66,6 +70,77 @@ RSpec.describe Employers::NotesController, type: :controller do
 
       it "create notes fail with message" do
         expect(assigns[:note].errors.full_messages.present?).to be_truthy
+      end
+    end
+  end
+
+  describe "GET #edit" do
+    context "edit success" do
+      before :each do
+        get :edit, xhr: true, params: {apply_id: apply.id, id: subject.id}
+      end
+
+      it "renders the #edit" do
+        expect(response).to render_template "employers/notes/edit"
+      end
+    end
+  end
+
+  describe "patch #update" do
+    context "update success" do
+      before :each do
+        patch :update, xhr: true, params: {apply_id: apply.id, id: subject.id,
+          note: {content: Faker::Lorem.paragraph}}
+      end
+
+      it "renders the #update view" do
+        expect(response).to render_template "employers/notes/update"
+      end
+
+      it "update success with message" do
+        expect(assigns[:success]).to match I18n.t("employers.notes.update.updated_success")
+      end
+    end
+
+    context "update fail" do
+      before :each do
+        patch :update, xhr: true, params: {apply_id: apply.id, id: subject.id,
+          note: {content: ""}}
+      end
+
+      it "renders the #update view" do
+        expect(response).to render_template "employers/notes/update"
+      end
+
+      it "update success with message" do
+        expect(assigns[:note].errors).to be_truthy
+      end
+    end
+  end
+
+
+  describe "delete #destroy" do
+    context "delete success" do
+      before :each do
+        delete :destroy, xhr: true, params: {apply_id: apply.id, id: subject.id}
+      end
+
+      it "renders the #destroy view" do
+        expect(response).to render_template "employers/notes/destroy"
+      end
+
+      it "destroy success with message" do
+        expect(assigns[:success]).to match I18n.t("employers.notes.destroy.destroyed_success")
+      end
+    end
+
+    context "delete fail" do
+      before :each do
+        delete :destroy, xhr: true, params: {apply_id: apply.id, id: 10}
+      end
+
+      it "renders the not found object view" do
+        expect(response).to render_template "errors/error"
       end
     end
   end

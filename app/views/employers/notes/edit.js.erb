@@ -1,0 +1,6 @@
+<% if @error %>
+  alertify.error('<%= @error %>');
+<% else %>
+  $('#new-note').html('<%= j render "new_note" %>');
+  $('#new-note').modal('show');
+<% end %>

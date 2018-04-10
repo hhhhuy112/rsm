@@ -39,7 +39,8 @@ class Ability
     can :manage, ApplyStatus, apply_id: company.applies.pluck(:id)
     can :read, StatusStep, company_id: company.id
     can :manage, Question, company_id: company.id
-    can :manage, Note
+    can %i(read create), Note
+    can %i(update destroy), Note, user_id: user.id
     can :manage, :candidate do
       user.company_id == company.id
     end
