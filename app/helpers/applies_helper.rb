@@ -12,7 +12,7 @@ module AppliesHelper
   end
 
   def get_update_date apply_id, activities
-    return if activities.blank?
+    return if activities.blank? || activities[apply_id].blank?
     date = activities[apply_id].in_time_zone(File.read("/etc/timezone").chomp)
     l(date, format: :date_time) if date
   end
