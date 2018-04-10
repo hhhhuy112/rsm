@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     resources :confirm_appointments, only: :edit
     resources :templates
     resources :applies do
-      resources :notes
+      resources :notes, except: %i(index show)
     end
     resources :dashboards
     resources :apply_statuses

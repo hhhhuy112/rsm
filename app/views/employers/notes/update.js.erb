@@ -1,0 +1,8 @@
+<% if @note.errors.any? %>
+  $('#new-note').html('<%= j render "new_note" %>');
+<% else %>
+  $('#note-<%= @note.id %>').remove();
+  $('#notes-table').prepend('<%= j render partial: "employers/applies/notes_table", locals: {note: @note} %>');
+  alertify.success('<%= j @success %>');
+  $('#new-note').modal('hide');
+<% end %>

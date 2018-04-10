@@ -1,0 +1,6 @@
+<% if @note.errors.any? %>
+  alertify.error('<%= j (render partial: "shared/error_messages", locals: {object: @note}) %>');
+<% else %>
+  $('#note-<%= @note.id %>').remove();
+  alertify.success('<%= @success %>');
+<% end %>

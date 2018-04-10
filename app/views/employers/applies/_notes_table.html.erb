@@ -1,7 +1,17 @@
-<tr class="background-white border-bottom-custom">
+<tr class="background-white border-bottom-custom" id="note-<%= note.id %>">
   <td class="border-bottom-custom chil-margin-0">
     <small class="text-muted"><%= t ".note_by" %>:</small> <%= note.user_name %>
-
+    <% if can? :update, note %>
+      <div class="btn-group">
+        <%= link_to edit_employers_apply_note_path(@apply, id: note.id), remote: true, class: "btn btn-basic btn-xs margin-top-minus-2" do %>
+          <i class="fa fa-pencil text-warning"></i>
+        <% end %>
+        <%= link_to employers_apply_note_path(@apply, id: note.id), method: :delete, remote: true,
+          class: "btn btn-basic btn-xs margin-top-minus-2", data: {confirm: t(".sure")} do %>
+          <i class="fa fa-trash text-danger"></i>
+        <% end %>
+      </div>
+    <% end %>
     <div class="collapse break" id="content-<%= note.id %>">
       <%= raw note.content %>
     </div>

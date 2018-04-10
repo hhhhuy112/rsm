@@ -14,13 +14,13 @@
     <div class="block full">
       <div class="search-group ml-215">
         <div class="row">
-          <%= search_form_for @support_dashboard.params_q, url: employers_dashboards_path do |f| %>
+          <%= search_form_for @support_dashboard.params_q, url: employers_dashboards_path, remote: true do |f| %>
             <div class="col-md-4 padding-left-right-5">
               <div class="form-group margin-bottom-5">
                 <div class="icon-addon addon-lg">
                   <%= f.text_field :created_at_gteq,
                     value: set_value_datepicker(params[:q], "created_at_gteq"),
-                    placeholder: t(".start"), class: "date_apply form-control" %>
+                    placeholder: t(".start"), class: "datepick form-control" %>
                   <label for="name_or_language_or_skill_cont" class="fa fa-calendar rils" rel="tooltip"></label>
                 </div>
               </div>
@@ -30,7 +30,7 @@
                 <div class="icon-addon addon-lg">
                   <%= f.text_field :created_at_lteq,
                     value: set_value_datepicker(params[:q], "created_at_lteq"),
-                    placeholder: t(".end"), class: "date_apply form-control"%>
+                    placeholder: t(".end"), class: "datepick form-control"%>
                   <label for="name_or_language_or_skill_cont" class="fa fa-calendar rils" rel="tooltip"></label>
                 </div>
               </div>

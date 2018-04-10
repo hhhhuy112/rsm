@@ -25,7 +25,8 @@ $(document).ready(function(){
       'apply[information][phone]': {
         required: true,
         number: true,
-        minlength: 10
+        minlength: 10,
+        maxlength: 13
       },
       'apply[cv]': {
         required: true

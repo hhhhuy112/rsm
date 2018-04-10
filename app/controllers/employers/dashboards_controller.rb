@@ -9,7 +9,7 @@ class Employers::DashboardsController < BaseNotificationsController
   before_action :load_notifications
 
   def index
-    check_params
+    check_params if request.xhr?
     @support_dashboard = Supports::Dashboard.new(@company, params[:q], @company.apply_statuses)
   end
 
@@ -22,10 +22,11 @@ class Employers::DashboardsController < BaseNotificationsController
   end
 
   def check_params
-    if params[:q].present? && params[:q][:created_at_gteq].to_date >
-      params[:q][:created_at_lteq].to_date && params[:q][:created_at_lteq].present?
-        flash[:warning] = t ".error"
-        redirect_back fallback_location: root_path
+    if params[:q].present? && params[:q][:created_at_gteq].present? &&
+      params[:q][:created_at_lteq].present? && params[:q][:created_at_lteq].to_date &&
+      params[:q][:created_at_gteq].to_date && params[:q][:created_at_gteq].to_date >
+      params[:q][:created_at_lteq].to_date
+        @message = t ".error"
     end
   end
 end

@@ -1,0 +1,7 @@
+<% if request.xhr? %>
+  <% if @message.present? %>
+    alertify.error('<%= @message %>');
+  <% else %>
+    $('#chart-overview').html('<%= j line_chart @support_dashboard.count_apply %>');
+  <% end %>
+<% end %>
