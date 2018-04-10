@@ -4,7 +4,7 @@ class Employers::AppliesController < Employers::EmployersController
   before_action :get_step_by_company, :load_current_step, :load_next_step,
     :load_prev_step, :build_apply_statuses, :load_status_step_scheduled,
     :load_statuses_by_current_step, :build_next_and_prev_apply_statuses,
-    :load_apply_statuses, :load_history_apply_status, only: %i(show update)
+    :load_apply_statuses, :load_history_apply_status, :load_activities_apply, only: %i(show update)
   before_action :load_steps, only: :index
   before_action :load_statuses, only: :index
   before_action :load_offer_status_step_pending, only: %i(show update)
@@ -71,6 +71,7 @@ class Employers::AppliesController < Employers::EmployersController
         apply = Apply.new apply_params
         apply.information = information
         apply.cv = @candidate.applies.first.cv if is_params_candidate?
+        apply.self_attr_after_create current_user
         apply.save!
       end
       @success = t ".success"

@@ -139,6 +139,10 @@ vn:
         show_apply: "Xem đơn ứng tuyển"
       show:
         not_found_apply_status: "Không tìm thấy apply."
+      apply_status:
+        by: "Bởi %{name}"
+        was_applied: "Đã Ưng Tuyển"
+        resend_email: "Gửi Lại Mail"
     appointments:
       appointment:
         click: "Nhấp chuột"

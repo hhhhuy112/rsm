@@ -17,6 +17,8 @@
 <% elsif @email_sent.blank? %>
   alertify.warning('<%= t "employers.email_sents.email_sent.fail" %>');
 <% else %>
+  $('#area-hisory-apply-load').html('<%= j render partial: "employers/apply_statuses/apply_status", collection: @apply_activities, as: :activity %>');
+  $('#pagination-history-apply').html('<%= j paginate @apply_activities %>');
   alertify.success('<%= t "employers.email_sents.email_sent.success" %>');
 <% end %>
 $('.loading').fadeOut('slow');

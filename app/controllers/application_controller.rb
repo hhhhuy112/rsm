@@ -53,6 +53,13 @@ class ApplicationController < ActionController::Base
     @disconnect_gmail = t "oauth.google.disconnect_gmail"
   end
 
+  def load_activities_apply
+    return if @apply.blank?
+    @apply_activities = Activity.get_by_apply(@apply.id).includes(
+      :trackable, :owner).page params[:page]
+    Activity.preload @apply_activities
+  end
+
   private
 
   def set_locale

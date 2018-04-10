@@ -10,11 +10,12 @@ class ApplyStatus < ApplicationRecord
   has_one :appointment, dependent: :destroy
   has_one :user, through: :apply
   has_many :offers, dependent: :destroy
+  has_many :inforappointments, through: :appointment
 
   has_many :email_sents, class_name: EmailSent.name, foreign_key: :type_id, dependent: :destroy
 
-  delegate :id, to: :appointment, allow_nil: true, prefix: true
-  delegate :name, to: :status_step, allow_nil: true, prefix: true
+  delegate :id, :start_time, :end_time, to: :appointment, allow_nil: true, prefix: true
+  delegate :name, :code, to: :status_step, allow_nil: true, prefix: true
   delegate :name, to: :step, allow_nil: true, prefix: true
   delegate :id, :information, :created_at, :cv, to: :apply, allow_nil: true, prefix: true
   delegate :name, :id, :target, :level, to: :job, allow_nil: true, prefix: true

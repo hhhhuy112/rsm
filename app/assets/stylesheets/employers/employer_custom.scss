@@ -175,6 +175,16 @@ form.form-search {
   border-color: $blue-light-14 !important;
 }
 
+.created {
+  background: blue !important;
+  border-color: blue !important;
+}
+
+.email-sent {
+  background: $yellow-green !important;
+  border-color: $yellow-green !important;
+}
+
 .font-weight-normal {
   font-weight: normal;
   font-style: italic;
@@ -786,4 +796,10 @@ button.close {
 
 .title-header {
   padding: 5px;
+}
+
+.content-mail-activity {
+  overflow: auto;
+  border: 3px inset $black-light-2;
+  padding: 10px;
 }

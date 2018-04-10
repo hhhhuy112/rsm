@@ -18,6 +18,6 @@ Rails.application.config.assets.precompile += %w(employers/calendar.js compCalen
 Rails.application.config.assets.precompile += %w(read_notification.scss custom_height_layout.js)
 Rails.application.config.assets.precompile += %w(employer/jquery-ui.css employers/select_step.js survey.scss
   employers/search_question.js employers/choose_question.js employers/sidebar_employer.js employers/add_apply.js
-  employers/preview.js)
+  employers/preview.js history_activity.js)
 Rails.application.config.assets.precompile += %w(ckeditor/filebrowser/images/gal_del.png choose_file.js)
 Rails.application.config.assets.precompile += %w( ckeditor/* )
