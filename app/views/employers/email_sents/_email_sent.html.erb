@@ -14,10 +14,11 @@
       <a href="javascript:void(0)"><strong><%= email_sent.title %></strong></a>
     </div>
     <div class="col-md-12">
-      <button class="send_email btn btn-xs btn-info pull-right l-5" >
+      <%= link_to "javascript:void(0)", class: "send_email btn btn-xs
+        btn-#{show_status_email email_sent} pull-right l-5" do %>
         <i class="fa fa-reply" aria-hidden="true"></i>
         <%= t ".resend" %>
-      </button>
+      <% end %>
       <%= link_to "", employers_send_email_path(email_sent), remote: true %>
       <button data-toggle="modal" class= "btn btn-xs btn-default pull-right" data-target="#my-<%= email_sent.id %>">
         <i class="fa fa-eye"></i>

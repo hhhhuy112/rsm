@@ -1,5 +1,4 @@
 class Employers::CandidatesController < Employers::EmployersController
-  authorize_resource class: false
   before_action :load_user_candidate, only: %i(new show)
   before_action :load_applies_candidate, only: :show
   before_action :build_candidate, only: %i(index new)

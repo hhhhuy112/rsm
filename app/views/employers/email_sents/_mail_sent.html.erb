@@ -1,0 +1,18 @@
+<li id="email-<%= email_sent.id %>" onclick="window.location='<%= employers_apply_path email_sent.apply %>';">
+  <div class="col-md-3 col-sm-3 col-xs-3">
+    <div class="notify-img">
+      <%= image_tag "frc.png", size: Settings.picture_user_width %>
+    </div>
+  </div>
+  <div class="col-md-9 col-sm-9 col-xs-9 pd-l0 notification"">
+    <p><%= t ".you_send_mail" %> <strong><%= email_sent.title %></strong> <%= t ".for" %>
+      <strong><%= email_sent.apply_information[:name] %></strong> <%= t ".have_mail" %>
+      <strong><%= email_sent.apply_information[:email] %></strong> <%= t ".about_job" %>
+      <strong><%= email_sent.job_name %></strong>
+    </p>
+    <p class="time"><%= t ".time_ago", time: time_ago_in_words(email_sent.created_at) %></p>
+    <p class="time pull-right color-<%= email_sent.status %>" id="status-email-<%= email_sent.id %>">
+      <%= t "email_sents.#{email_sent.status}" %>
+    </p>
+  </div>
+</li>

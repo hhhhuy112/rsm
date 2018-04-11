@@ -34,6 +34,11 @@ class BaseNotificationsController < ApplicationController
     end
   end
 
+  def load_email_sents
+    return if request.xhr? && not_send_mail_controller?
+    @email_sents = current_user.email_sents.newest.includes :apply, :job
+  end
+
   private
 
   def classify_notify company_manager = nil
@@ -49,5 +54,10 @@ class BaseNotificationsController < ApplicationController
   def load_search_form
     applies_status = @company.apply_statuses.current
     @q = applies_status.search params[:q]
+  end
+
+  def not_send_mail_controller?
+    controller_name_segments = params[:controller].split("/")
+    controller_name_segments.pop != Settings.send_emails
   end
 end

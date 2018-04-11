@@ -807,3 +807,23 @@ button.close {
 .margin-top-minus-2 {
   margin-top: -2px;
 }
+
+.nav > li i.notify {
+  font-size: 18px;
+}
+
+.color-success {
+  color: green !important;
+}
+
+.color-failure {
+  color: red !important;
+}
+
+.font-weight-nor {
+  font-weight: normal !important;
+}
+
+.border-bottom-dash {
+  border-bottom: 1px dashed $grey-light2;
+}

@@ -44,6 +44,12 @@ class Ability
     can :manage, :candidate do
       user.company_id == company.id
     end
+    can :manage, :dashboard do
+      user.company_id == company.id
+    end
+    can :manage, :send_email do
+      user.company_id == company.id
+    end
   end
 
   def permission_admin

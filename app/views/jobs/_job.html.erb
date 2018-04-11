@@ -34,7 +34,7 @@
           <li><i class="fa fa-briefcase col-info"></i><%= job.level %></li>
           <li><i class="fa fa-calendar-o col-info"></i><%= l job.created_at, format: :long %></li>
         </ul>
-        <p><%= job.description.first(Settings.jobs.description.limit_show) + t("gap") %></p>
+        <p><%= get_text_description_job job.description %></p>
       </div>
       <div class="col-xs-12 col-sm-2 cp_job_view_detail text-a">
         <%= link_to job, class: "border-none-and-radius btn-primary text-color-white" do %>

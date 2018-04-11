@@ -1,6 +1,8 @@
 vn:
   employers:
     email_sents:
+      success: "Thành công"
+      failure: "Thất bại"
       email_sent:
         information: "Thông tin"
         view: "Xem thêm"
@@ -8,6 +10,23 @@ vn:
         success: "Gửi thành công"
         fail: "Gửi thất bại"
         sure: "Bạn có muốn gửi mail lại không"
+      mail_sent:
+        time_ago: "%{time} trước"
+        you_send_mail: "Bạn đã gửi thư"
+        for: "cho"
+        have_mail: "có email"
+        about_job: "về công việc"
+      email:
+        time_ago: "%{time} ago"
+        you_send_mail: "You was send email"
+        for: "for"
+        have_mail: "have email"
+        about_job: "about job"
+      email_sent_index:
+        yours_email_sents: "Thư đã gửi của bạn"
+        not_email_sent: "Không có email đã gửi"
+      list_mail_sent:
+        not_email_sent: "Không có email đã gửi"
     applies:
       apply:
         click: "Nhấp chuột"
