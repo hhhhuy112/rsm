@@ -139,30 +139,25 @@
     </div>
 
     <div class="col-md-12">
-      <% if @job.new_record? %>
-        <%= render partial: "add_survey", locals: {f: f} %>
-      <% end %>
+      <%= render partial: "add_survey", locals: {f: f} %>
+      <%= f.full_error :survey_type  %>
     </div>
   </div>
 
-  <% if @job.new_record? %>
-    <div id="preview" class="display-none">
-      <%= render "preview_job" %>
-    </div>
-  <% end %>
+  <div id="preview" class="display-none">
+    <%= render "preview_job" %>
+  </div>
 
  <div class="row">
     <div class="col-md-12">
       <center>
         <%= f.button :submit, label: t("jobs.form.save_job"),
           class: "btn btn-info btn-md w-90 m-top-20" %>
-        <% if @job.new_record? %>
-          <%= link_to t(".preview"), "javascript:void(0)", id: "btn-preview",
-            class: "btn btn-info btn-md w-90 m-top-20", disabled: "disabled" %>
+        <%= link_to t(".preview"), "javascript:void(0)", id: "btn-preview",
+          class: "btn btn-info btn-md w-90 m-top-20", disabled: "disabled" %>
 
-          <%= link_to t(".back"), "javascript:void(0)", id: "btn-back",
-            class: "btn btn-info btn-md w-90 m-top-20 display-none" %>
-        <% end %>
+        <%= link_to t(".back"), "javascript:void(0)", id: "btn-back",
+          class: "btn btn-info btn-md w-90 m-top-20 display-none" %>
       </center>
     </div>
   </div>

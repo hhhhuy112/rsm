@@ -296,10 +296,14 @@ en:
         filter: "Search"
       create:
         success: "Created Job success."
+        nil_questions: "Please choose questions for survey."
+        nil_survey_type: "Please choose survey_type."
       destroy:
         success: "Deleted Job success."
       update:
         success: "Updated job success."
+        nil_questions: "Please choose questions for survey."
+        nil_survey_type: "Please choose survey_type."
       job_updated:
         success: "Updated Job success."
       form:

@@ -855,7 +855,6 @@ button.close {
   color: $black-lighs;
 }
 
-
 #email-sent-table  tbody {
   display: inline-block;
   overflow-y: auto;
@@ -881,4 +880,15 @@ button.close {
 
 .sidebar-nav-mini-hide {
   font-weight: normal;
+}
+
+@media only screen and (min-width: 991px) {
+  .btn-add-new-questions {
+    position: relative;
+    left: 386px;
+    top: 25px;
+  }
+  .h-0 {
+    height: 0px;
+  }
 }

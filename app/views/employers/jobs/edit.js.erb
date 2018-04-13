@@ -1,2 +1,17 @@
 $('#manageJob').modal('show');
 $('#manage-job-form').html('<%= j render "form" %>');
+<% if @questions_job_ids.present? %>
+  <% if @job.has_survey? %>
+    $('input[name="onoffswitch"]').click();
+    $('.no-survey').hide(700);
+    $('.has-survey').show(700);
+  <% end %>
+  <% @questions_job_ids.each_with_index do |question, index| %>
+    $('#job_question_ids_' + <%= question.id %>).prop('checked', 'checked');
+    $('.tagsinput').append('<span class="tag" id="tag-<%= question.id %>" data-id="<%= question.id %>"><span><%= question.name.truncate(18) %>&nbsp;&nbsp;</span><a href="#" title="Removing" tag="" class="remove-tag">✗</a></span>');
+    $('#choosen-ids').val($('#choosen-ids').val() + ',' + <%= question.id %>);
+    $('#name-question-choosen').val($('#name-question-choosen').val() + ',<%= question.name.truncate(18) %>');
+    $('#nested-question-id').append('<input type="hidden" value="false" name="job[surveys_attributes][' + <%= index %> + '][_destroy]" id="destroy-nested-question-' + <%= question.id %> + '">');
+  <% end %>
+  $('.no-question').remove();
+<% end %>

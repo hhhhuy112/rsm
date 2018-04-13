@@ -1,4 +1,6 @@
-<% if @job.errors.any? %>
+<% if @error %>
+  alertify.error('<%= @error %>');
+<% elsif @job.errors.any? %>
   $('.form-group').removeClass('has-error');
   $('#manage-job-form').html('<%= j render "form" %>');
   <% if params[:onoffswitch] %>

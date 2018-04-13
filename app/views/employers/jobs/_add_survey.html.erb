@@ -22,18 +22,20 @@
         </label>
         <div class="funkyradio form-group m-i-top-20">
           <% Job.survey_types.drop(1).each do |key, value| %>
-            <%= radio_survey_type key, value, f %>
+            <%= radio_survey_type key, key, f %>
           <% end %>
         </div>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row h-0">
       <%= render "new_question", f: f %>
     </div>
 
     <div class="row">
-      <%= render "search_question" %>
+      <div class="col-md-6 m-top-15">
+        <%= render "search_question" %>
+      </div>
     </div>
 
     <div class="row">
@@ -69,5 +71,7 @@
   <div class="no-survey p-bottom-20">
     <small><i><strong><%= t ".add_survey" %></strong></i></small>
   </div>
+</div>
+<div id="nested-question-id">
 </div>
 <%= javascript_include_tag "employers/search_question" %>

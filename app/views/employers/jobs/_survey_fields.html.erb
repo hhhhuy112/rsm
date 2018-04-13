@@ -1,13 +1,15 @@
-<div class="nested-fields">
-  <%= f.simple_fields_for :question do |survey_question| %>
-    <div class="col-md-11">
-      <%= survey_question.input :name, input_html: {class: "question-survey"} %>
-      <%= survey_question.hidden_field :company_id, value: @company.id %>
-    </div>
-    <div class="col-md-1">
-      <%= link_to_remove_association f, class: "btn btn-danger btn-sm m-top-30" do %>
-        <i class="fa fa-trash-o"></i>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+<% if f.object.new_record? %>
+  <div class="nested-fields">
+    <%= f.simple_fields_for :question do |survey_question| %>
+      <div class="col-md-11">
+        <%= survey_question.input :name, input_html: {class: "question-survey"} %>
+        <%= survey_question.hidden_field :company_id, value: @company.id %>
+      </div>
+      <div class="col-md-1">
+        <%= link_to_remove_association f, class: "btn btn-danger btn-sm m-top-30" do %>
+          <i class="fa fa-trash-o"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -296,10 +296,14 @@ vn:
         filter: "Tìm kiếm"
       create:
         success: "Tạo công việc thành công."
+        nil_questions: "Vui lòng chọn loại khảo sát."
+        nil_questions: "Vui lòng chọn câu hỏi cho khảo sát."
       destroy:
         success: "Xóa công việc thành công."
       update:
         success: "Cập nhật công việc thành công."
+        nil_questions: "Vui lòng chọn loại khảo sát."
+        nil_questions: "Vui lòng chọn câu hỏi cho khảo sát."
       job_updated:
         success: "Cập nhật công việc thành công."
       form:

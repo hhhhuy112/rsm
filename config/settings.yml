@@ -164,8 +164,8 @@ increase_one: 1
 rows_text_area: 5
 default_survey: 0
 survey:
-  optional: 1
-  compulsory: 2
+  optional: "optional"
+  compulsory: "compulsory"
   max_record: 10
 step_1: "1"
 step_2: "2"
@@ -226,3 +226,6 @@ failure: "failure"
 wait_time: 2
 dashboards: "dashboards"
 send_emails: "send_emails"
+str_true: "true"
+nested_attributes:
+  destroy: "_destroy"

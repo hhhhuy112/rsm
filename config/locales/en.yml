@@ -270,6 +270,7 @@ en:
       job_cant_create: "Job can not be created"
     validates:
       check_max_salary: "Max salary must greater than min salary"
+      question_nil: "Questions can't blank"
     job:
       sure: "Sure?"
       up_to: " - Up to "
