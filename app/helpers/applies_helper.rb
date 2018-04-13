@@ -28,4 +28,8 @@ module AppliesHelper
         readonly: true
     end
   end
+
+  def show_status_email email_sent
+    email_sent.failure? ? Settings.danger : Settings.primary
+  end
 end

@@ -1,12 +1,5 @@
-class Employers::DashboardsController < BaseNotificationsController
+class Employers::DashboardsController < Employers::EmployersController
   layout "employers/employer"
-
-  before_action :authenticate_user!
-  before_action :load_company
-  before_action :load_search_form
-  before_action :check_permissions_employer
-  before_action :current_ability
-  before_action :load_notifications
 
   def index
     check_params if request.xhr?

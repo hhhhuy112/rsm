@@ -5,8 +5,13 @@ class EmailSent < ApplicationRecord
   belongs_to :user
   has_one :apply, through: :apply_status
   has_one :status_step, through: :apply_status
+  has_one :job, through: :apply
 
-  delegate :picture, :name, :email, to: :user, prefix: true, allow_nil: true
+  enum status: %i(failure success)
+
+  delegate :id, :picture, :name, :email, to: :user, prefix: true, allow_nil: true
+  delegate :name, to: :job, prefix: true, allow_nil: true
+  delegate :information, to: :apply, prefix: true, allow_nil: true
 
   self.inheritance_column = nil
 
@@ -20,6 +25,8 @@ class EmailSent < ApplicationRecord
   after_update :send_mail
 
   include PublicActivity::Model
+
+  scope :newest, ->{order created_at: :desc}
 
   def send_mail user = nil
     @sendmail_service = SendmailService.new self, self.user.companies.last

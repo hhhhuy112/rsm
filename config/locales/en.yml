@@ -30,6 +30,9 @@ en:
       see_all: "See all"
       read_all: "Mark all as read"
       time_ago: "%{time} ago"
+    notify_email_sent:
+      email_send: "Email send"
+      see_all: "See All"
   fullcalendar:
     error_mgs: "Do not pick schedule in the past"
   certificates:
@@ -1224,3 +1227,6 @@ en:
   year: "© 2018"
   close: "Close"
   read_more: "Read more"
+  email_sents:
+    success: "Success"
+    failure: "Failure"

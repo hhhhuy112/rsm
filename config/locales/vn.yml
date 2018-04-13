@@ -33,6 +33,9 @@ vn:
       see_all: "Xem tất cả"
       read_all: "Đánh dấu đọc tất cả"
       time_ago: "%{time} trước"
+    notify_email_sent:
+      email_send: "Thư đã gửi"
+      see_all: "Xem tất cả"
   fullcalendar:
     error_mgs: "Không chọn lịch trong quá khứ"
   certificates:
@@ -1262,3 +1265,6 @@ vn:
   year: "© 2018"
   close: "Đóng"
   read_more: "Read more"
+  email_sents:
+    success: "Thành công"
+    failure: "Thất bại"

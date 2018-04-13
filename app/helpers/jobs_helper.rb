@@ -100,4 +100,8 @@ module JobsHelper
   def get_position_types
     Job.position_types.map {|key, value| [t("jobs.position_types.#{key}"), key]}
   end
+
+  def get_text_description_job description
+    description.gsub(/<\/?[^>]*>/,"").truncate Settings.jobs.description.limit_show
+  end
 end

@@ -1,0 +1,28 @@
+<li class="dropdown">
+  <%= link_to "javascript:void(0)", class: "animation-floating", data: {toggle: "dropdown"},
+    role: "button", aria: {haspopup: "true", expanded: "false"} do %>
+    <i class="fa fa-bolt notify"></i>
+    <span class="badge animation-floating counter-notify-mail background-color-organe">
+      <%= @email_sents&.failure&.size %>
+    </span>
+  <% end %>
+  <ul class="dropdown-menu notify-drop">
+    <li class="arrow-up"><span class="border-arrow"></span><span class="arrow"></span></li>
+    <div class="notify-drop-title">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <b><%= t ".email_send" %></b>
+        </div>
+      </div>
+    </div>
+    <div class="drop-content notify-mail-list">
+      <%= render partial: "employers/email_sents/list_mail_sent", locals: {email_sents: @email_sents} %>
+    </div>
+    <div class="notify-drop-footer text-center">
+      <%= link_to employers_send_emails_path, class: "text-title", remote: true do %>
+        <i class="fa fa-eye"></i> <%= t ".see_all" %>
+      <% end %>
+    </div>
+  </ul>
+</li>
+<%= hidden_field_tag "current-user-id", current_user.id%>

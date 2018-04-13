@@ -8,7 +8,7 @@ class CompaniesController < BaseNotificationsController
   before_action :load_branches, only: %i(edit update show)
   before_action :load_partners, only: %i(edit update show)
   before_action :load_activities, only: %i(edit update show)
-  before_action :load_notifications,only: :show
+  before_action :load_notifications, only: :show
 
   def show
     if params[:require_login].present?

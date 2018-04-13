@@ -1,7 +1,10 @@
-class Employers::SendEmailsController < ApplicationController
-  before_action :load_company
-  before_action :load_apply, :load_apply_status, :load_apply_statuses, :load_activities_apply, except: :show
+class Employers::SendEmailsController < Employers::EmployersController
+  before_action :load_apply, :load_apply_status, :load_apply_statuses, :load_activities_apply, except: %i(index show)
   before_action :load_oauth, only: :show
+
+  def index
+    @email_sents = @email_sents.page params[:page]
+  end
 
   def create
     SendEmailUserJob.perform_later params[:title], @apply, params[:template_content], @company, @apply_status

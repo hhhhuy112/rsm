@@ -1,25 +1,24 @@
 <tr class="background-white border-bottom-custom" id="note-<%= note.id %>">
   <td class="border-bottom-custom chil-margin-0">
     <small class="text-muted"><%= t ".note_by" %>:</small> <%= note.user_name %>
-    <% if can? :update, note %>
-      <div class="btn-group">
-        <%= link_to edit_employers_apply_note_path(@apply, id: note.id), remote: true, class: "btn btn-basic btn-xs margin-top-minus-2" do %>
-          <i class="fa fa-pencil text-warning"></i>
+    <div class="btn-group pull-right">
+      <%= link_to "javascript:", class: "btn btn-xs btn-default margin-top-minus-2", id: "read-more",
+        data: {toggle: "collapse", target: "#content-#{note.id}"} do %>
+        <i class="fa fa-eye"></i>
+      <% end %>
+      <% if can? :update, note %>
+        <%= link_to edit_employers_apply_note_path(@apply, id: note.id), remote: true, class: "btn btn-warning btn-xs margin-top-minus-2" do %>
+          <i class="fa fa-pencil"></i>
         <% end %>
+
         <%= link_to employers_apply_note_path(@apply, id: note.id), method: :delete, remote: true,
-          class: "btn btn-basic btn-xs margin-top-minus-2", data: {confirm: t(".sure")} do %>
-          <i class="fa fa-trash text-danger"></i>
+          class: "btn btn-danger btn-xs margin-top-minus-2", data: {confirm: t(".sure")} do %>
+          <i class="fa fa-trash"></i>
         <% end %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
     <div class="collapse break" id="content-<%= note.id %>">
       <%= raw note.content %>
     </div>
-  </td>
-  <td class="border-bottom-custom">
-    <%= link_to "javascript:void(0)", class: "btn btn-xs btn-default float-r", id: "read-more",
-      data: {toggle: "collapse", target: "#content-#{note.id}"} do %>
-      <i class="fa fa-ellipsis-h"></i>
-    <% end %>
   </td>
 </tr>

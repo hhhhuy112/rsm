@@ -1,6 +1,8 @@
 en:
   employers:
     email_sents:
+      success: "Success"
+      failure: "Failure"
       email_sent:
         information: "Information"
         view: "See more"
@@ -8,6 +10,23 @@ en:
         success: "Send mail success!"
         fail: "Send mail fail"
         sure: "Do you want to send mail back?"
+      mail_sent:
+        time_ago: "%{time} ago"
+        you_send_mail: "You was send email"
+        for: "for"
+        have_mail: "have email"
+        about_job: "about job"
+      email:
+        time_ago: "%{time} ago"
+        you_send_mail: "You was send email"
+        for: "for"
+        have_mail: "have email"
+        about_job: "about job"
+      email_sent_index:
+        yours_email_sents: "Yours email send"
+        not_email_sent: "Haven't email send"
+      list_mail_sent:
+        not_email_sent: "Haven't email send"
     applies:
       apply:
         click: "click"

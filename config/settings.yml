@@ -222,3 +222,7 @@ code:
   element: 5
 created: "created"
 email_sent: "email-sent"
+failure: "failure"
+wait_time: 2
+dashboards: "dashboards"
+send_emails: "send_emails"
