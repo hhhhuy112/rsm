@@ -1,5 +1,5 @@
 class Employers::NotesController < Employers::EmployersController
-  before_action :load_apply, only: :new
+  before_action :load_apply, except: :destroy
 
   def new
     @note = current_user.notes.build apply_id: @apply.id
@@ -7,7 +7,6 @@ class Employers::NotesController < Employers::EmployersController
 
   def create
     if @note.save
-      load_apply
       load_notes
       @success = t ".success"
     end
@@ -17,14 +16,12 @@ class Employers::NotesController < Employers::EmployersController
 
   def update
     if @note.update_attributes note_params
-      load_apply
       @success = t ".updated_success"
     end
   end
 
   def destroy
     if @note.destroy
-      load_apply
       @success = t ".destroyed_success"
     end
   end
