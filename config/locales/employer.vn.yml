@@ -532,7 +532,7 @@ vn:
         name: "Tên"
         email: "Thư điện tử"
         phone: "Số điện thoại"
-        join_at: "Tham gia lúc"
+        created_at: "Tạo lúc"
         action: "Hành động"
         not_candidates: "Không có ứng viên."
         code: "Mã số"

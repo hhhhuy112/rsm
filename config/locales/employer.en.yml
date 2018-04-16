@@ -536,7 +536,7 @@ en:
         name: "Name"
         email: "Email"
         phone: "Phone"
-        join_at: "Join at"
+        created_at: "Created at"
         action: "Action"
         not_candidates: "Haven't candidates."
         code: "Code"

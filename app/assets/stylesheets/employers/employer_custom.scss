@@ -827,3 +827,9 @@ button.close {
 .border-bottom-dash {
   border-bottom: 1px dashed $grey-light2;
 }
+
+.italic-gray {
+  font-style: italic;
+  font-weight: normal;
+  color: $black-lighs;
+}

@@ -1,6 +1,5 @@
 <tr class="background-white border-bottom-custom" id="note-<%= note.id %>">
   <td class="border-bottom-custom chil-margin-0">
-    <small class="text-muted"><%= t ".note_by" %>:</small> <%= note.user_name %>
     <div class="btn-group pull-right">
       <%= link_to "javascript:", class: "btn btn-xs btn-default margin-top-minus-2", id: "read-more",
         data: {toggle: "collapse", target: "#content-#{note.id}"} do %>
@@ -17,7 +16,8 @@
         <% end %>
       <% end %>
     </div>
-    <div class="collapse break" id="content-<%= note.id %>">
+    <small class="text-muted"><%= t ".note_by" %></small> <%= note.user_name %>
+    <div class="collapse break italic-gray" id="content-<%= note.id %>">
       <%= raw note.content %>
     </div>
   </td>
