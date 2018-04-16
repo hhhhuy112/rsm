@@ -1,6 +1,21 @@
 require "rails_helper"
 
 RSpec.describe Apply, type: :model do
+  let(:user) {FactoryGirl.create :user, confirmed_at: Time.current}
+  let(:company) {FactoryGirl.create :company}
+  let(:branch) {FactoryGirl.create :branch, company_id: company.id}
+  let(:category) {FactoryGirl.create :category, company_id: company.id}
+  let(:step) {FactoryGirl.create :step}
+  let(:currency) {FactoryGirl.create :currency, company_id: company.id}
+  let :job do
+    FactoryGirl.create :job, company_id: company.id, branch_id: branch.id,
+      category_id: category.id, currency_id: currency.id
+  end
+  let(:status_step) {FactoryGirl.create :status_step, step_id: step.id}
+  let(:apply) do
+    FactoryGirl.create :apply, user_id: user.id, job_id: job.id
+  end
+
   context "associations" do
     it {is_expected.to belong_to :user}
     it {is_expected.to belong_to :job}
@@ -69,6 +84,17 @@ RSpec.describe Apply, type: :model do
     it "exits delegate_method phone to user " do
       expect delegate_method(:phone).to(:user)
       expect delegate_method(:phone).to(:user).with_prefix(true)
+    end
+  end
+
+  context "when cv not file pdf" do
+    before do
+      cv = cv = fixture_file_upload("template_cv.doc", "text/doc")
+      subject.cv = cv
+    end
+    it "matches the error message" do
+      subject.valid?
+      subject.errors[:cv].should include(I18n.t("errors.messages.extension_whitelist_error"))
     end
   end
 end

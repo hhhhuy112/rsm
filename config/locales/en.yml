@@ -1230,3 +1230,8 @@ en:
   email_sents:
     success: "Success"
     failure: "Failure"
+  cv:
+    only_pdf: "Please select only pdf file."
+  errors:
+    messages:
+      extension_whitelist_error: "Please select only pdf file."

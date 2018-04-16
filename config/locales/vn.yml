@@ -1268,3 +1268,8 @@ vn:
   email_sents:
     success: "Thành công"
     failure: "Thất bại"
+  cv:
+    only_pdf: "Vui lòng chỉ chọn file pdf."
+  errors:
+    messages:
+      extension_whitelist_error: "Vui lòng chỉ chọn file pdf."

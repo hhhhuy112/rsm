@@ -21,6 +21,9 @@
           class="edit-user-img view-cv <%= @user.cv.present? ? '' : 'not-active' %>">
           <i class="fa fa-eye"></i>
         </a>
+        <span class="error-message">
+          <%= f.error :cv %>
+        </span>
       </div>
     </div>
     <div class="col-xs-7 col-sm-7 col-md-8">
