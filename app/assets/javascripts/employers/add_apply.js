@@ -29,7 +29,13 @@ $(document).ready(function(){
         maxlength: 13
       },
       'apply[cv]': {
-        required: true
+        required: true,
+        extension: "pdf"
+      }
+    },
+    messages: {
+      'apply[cv]': {
+        extension: I18n.t("cv.only_pdf")
       }
     }
   });

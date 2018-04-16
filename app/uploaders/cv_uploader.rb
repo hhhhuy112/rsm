@@ -6,6 +6,6 @@ class CvUploader < CarrierWave::Uploader::Base
   end
 
   def extension_whitelist
-    %w(pdf doc docx)
+    %w(pdf)
   end
 end
