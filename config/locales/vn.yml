@@ -543,7 +543,7 @@ vn:
         status: "Trạng thái"
         phone: "Số điện thoại"
         notes: "Ghi chú"
-        current_status: "Trạng thái Hiện tại"
+        current_status: "Trạng thái"
       table_applies:
         user_name: "Tài khoản"
         job: "Công việc"
