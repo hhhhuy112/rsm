@@ -1,72 +1,76 @@
 <div class="row">
   <div class="col-sm-4 col-lg-3">
-    <div class="block full">
-      <div class="block-title clearfix">
+    <div class="block">
+      <div class="block-title">
         <h2><i class="fa fa-ticket"></i> <strong><%= t ".candidate_information" %></strong></h2>
       </div>
       <div class="block">
         <div class="block-section text-center">
-          <%= show_image_apply @apply %>
-          <h3>
-            <strong><%= @apply.information[:name] %></strong><br><small></small>
-          </h3>
+          <div class="col-xs-12">
+            <%= show_image_apply @apply %>
+            <h3>
+              <strong><%= @apply.information[:name] %></strong><br><small></small>
+            </h3>
+          </div>
+          <div class="clearfix"></div>
         </div>
-        <table class="ml-18 table table-borderless table-striped">
-          <tbody>
-            <tr class="background-none">
-              <td class="text-right"><strong><%= t ".code" %></strong></td>
-              <td><span class="label label-primary"><strong><%= @apply.user&.code %></strong></span></td>
-            </tr>
-            <tr class="background-none">
-              <td class="text-right"><strong><%= t ".email" %></strong></td>
-              <td><span class="label label-primary"><strong><%= @apply.information[:email] %></strong></span></td>
-            </tr>
-            <tr class="background-none">
-              <td class="text-right"><strong><%= t ".phone" %></strong></td>
-              <td><%= @apply.information[:phone] %></td>
-            </tr>
-            <tr class="background-none">
-              <td class="text-right"><strong><%= t ".status" %></strong></td>
-              <td id="status-infor-apply">
-                <%= show_status_apply @current_apply_status.status_step %>
-              </td>
-            </tr>
-            <tr class="background-none">
-              <td class="text-right"><strong><%= t "employers.cv" %></strong></td>
-              <td>
-                <a href="<%= @apply.cv.url %>" data-fancybox class="thumbnail-cv label label-info">
-                  <i class="fa fa-eye"></i><b><%= t "employers.view" %></b>
-                </a>
-              </td>
-            </tr>
-
-            <tr class="background-none">
-              <td class="text-right"><strong><%= t "employers.history.title_history" %></strong></td>
-              <td>
-                <a data-toggle="modal" class= "label label-info" data-target="#area-hisory-apply">
-                  <i class="fa fa-eye"></i><b><%= t "employers.view" %></b>
-                </a>
-              </td>
-            </tr>
-            <% if @answers.present? %>
-              <tr class="background-none">
-                <td class="text-right"><strong><%= t "employers.survey" %></strong></td>
+        <div class=" block-content-information">
+          <table class="table table-hover table-borderless table-striped table-vcenter">
+            <tbody>
+              <tr>
+                <td class="text-right"><%= t ".code" %></td>
+                <td class="font-weight-normal"><span><%= @apply.user&.code %></span></td>
+              </tr>
+              <tr>
+                <td class="text-right"><%= t ".email" %></td>
+                <td class="font-weight-normal"><span><%= @apply.information[:email] %></span></td>
+              </tr>
+              <tr>
+                <td class="text-right"><%= t ".phone" %></td>
+                <td class="font-weight-normal"><%= @apply.information[:phone] %></td>
+              </tr>
+              <tr>
+                <td class="text-right"><%= t ".status" %></td>
+                <td id="status-infor-apply">
+                  <%= show_status_apply @current_apply_status.status_step %>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-right"><%= t "employers.cv" %></td>
                 <td>
-                  <a data-toggle="modal" class= "label label-info" data-target="#area-survey-apply">
-                    <i class="fa fa-eye"></i><b><%= t "employers.view" %></b>
+                  <a href="<%= @apply.cv.url %>" data-fancybox class="thumbnail-cv">
+                    <i class="fa fa-tag fa-fw"></i><b><%= t "employers.view" %></b>
                   </a>
                 </td>
               </tr>
-            <% end %>
 
-          </tbody>
-        </table>
+              <tr>
+                <td class="text-right"><%= t "employers.history.title_history" %></td>
+                <td>
+                  <a href="javascript" data-toggle="modal" data-target="#area-hisory-apply">
+                    <i class="fa fa-tag fa-fw"></i><b><%= t "employers.view" %></b>
+                  </a>
+                </td>
+              </tr>
+              <% if @answers.present? %>
+                <tr>
+                  <td class="text-right"><%= t "employers.survey" %></td>
+                  <td>
+                    <a data-toggle="modal" data-target="#area-survey-apply">
+                      <i class="fa fa-tag fa-fw"></i><b><%= t "employers.view" %></b>
+                    </a>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
     <div class="block">
       <div class="block-title clearfix">
-        <h2><i class="fa fa-briefcase"></i> <strong><%= t ".job_applied" %></strong></h2>
+        <h2><i class="fa fa-briefcase"></i><%= t ".job_applied" %></h2>
       </div>
 
       <div class="row">

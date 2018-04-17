@@ -501,7 +501,7 @@ en:
         status: "Status"
         phone: "Phone"
         notes: "Notes"
-        current_status: "Current Status"
+        current_status: "Steps"
       table_applies:
         user_name: "User Name"
         job: "Job"

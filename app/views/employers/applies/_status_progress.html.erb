@@ -4,11 +4,11 @@
     <% if status_class %>
       <%= link_to employers_step_path(step, apply_id: @apply.id, current_step_id: current_step.id), remote: true do %>
         <span class="bubble"></span>
-        <%= show_value current_step, step %>
+        <%= show_value step %>
       <% end %>
     <% else %>
       <span class="bubble"></span>
-      <%= show_value current_step, step %>
+      <%= show_value step %>
     <% end %>
   </li>
 <% end %>

@@ -100,13 +100,8 @@ module EmployersHelper
     Settings.active
   end
 
-  def show_value current_step, step
-    name = if current_step == step
-      @current_apply_status.status_step.code
-    else
-      step.name
-    end
-    t "employers.applies.statuses.#{name}"
+  def show_value step
+    t "employers.applies.statuses.#{step.name}"
   end
 
   def show_class_icon status_step

@@ -218,7 +218,7 @@ benefit:
   length_content_min: 20
 code:
   default_val: 1
-  text: "C"
+  text: "ID"
   element: 5
 created: "created"
 email_sent: "email-sent"
