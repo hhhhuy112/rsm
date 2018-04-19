@@ -44,6 +44,12 @@ module EmployersHelper
     end
   end
 
+  def show_status_apply_not_bold status_step
+    content_tag :span, class: "label label-#{show_status(status_step)} #{status_step.code}" do
+      t "employers.applies.statuses.#{status_step.code}"
+    end
+  end
+
   def show_step_apply step
     content_tag :span, class: "label label-#{show_step(step)}" do
       content_tag :b do

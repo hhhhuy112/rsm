@@ -502,6 +502,9 @@ en:
         phone: "Phone"
         notes: "Notes"
         current_status: "Steps"
+      step_history:
+        compose_email: "Compose email"
+        sent_mail: "Sent mail"
       table_applies:
         user_name: "User Name"
         job: "Job"

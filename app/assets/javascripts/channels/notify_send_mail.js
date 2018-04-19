@@ -18,13 +18,17 @@ $(document).ready(function() {
             $('.notify-mail-list').prepend(data.notify_mail);
           } else {
             val--;
+            if(val < 0){
+              val = 0;
+            }
             $('.counter-notify-mail').text(val);
             $('#status-email-' + data.id).attr('class', 'time pull-right color-success');
             $('#status-email-' + data.id).attr('id', 'status-email-' + data.id);
             $('#status-email-' + data.id).text(I18n.t('employers.email_sents.success'));
           }
           if (data.status === 'success') {
-            $('.send_email').attr('class', 'send_email btn btn-xs btn-primary pull-right l-5');
+            $('#status-sent-inbox' + data.id).attr('class', 'text-success msg-read-btn');
+            $('#cell-button-resend' + data.id).html('');
             alertify.success(data.message);
           } else {
             alertify.error(data.message);

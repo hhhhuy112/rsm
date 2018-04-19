@@ -453,6 +453,14 @@ a.disabled {
   width: 90px;
 }
 
+.w-30 {
+  width: 30px;
+}
+
+.w-20-p {
+  width: 20%;
+}
+
 .job-header-info {
   .time_ago {
     color: $gray-medium-1;
@@ -784,6 +792,14 @@ button.close {
   width: 100%;
 }
 
+.w-60-p {
+  width: 60%;
+}
+
+.w-30-p {
+  width: 30%;
+}
+
 .w-100-important {
   width: 100% !important;
 }
@@ -837,4 +853,15 @@ button.close {
   font-style: italic;
   font-weight: normal;
   color: $black-lighs;
+}
+
+
+#email-sent-table  tbody {
+  display: inline-block;
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+#email-sent-table  tbody, tr {
+  width: 100%;
 }

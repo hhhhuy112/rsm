@@ -48,7 +48,7 @@ class StepService
 
   def get_email_sents
     return {} if @apply_statuses.blank?
-    @apply_status_lastest.email_sents.includes :user
+    EmailSent.by_type(ApplyStatus.name).by_type_ids(@apply_statuses.ids).newest.includes :user, :status_step
   end
 
   def get_offers

@@ -30,6 +30,14 @@ module AppliesHelper
   end
 
   def show_status_email email_sent
-    email_sent.failure? ? Settings.danger : Settings.primary
+    return if email_sent.blank?
+    status_text = if email_sent.failure?
+      Settings.danger
+    elsif email_sent.success?
+      Settings.success
+    else
+      Settings.warning
+    end
+    "text-#{status_text}"
   end
 end

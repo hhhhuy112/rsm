@@ -7,7 +7,7 @@ class EmailSent < ApplicationRecord
   has_one :status_step, through: :apply_status
   has_one :job, through: :apply
 
-  enum status: %i(failure success)
+  enum status: %i(sending failure success)
 
   delegate :id, :picture, :name, :email, to: :user, prefix: true, allow_nil: true
   delegate :name, to: :job, prefix: true, allow_nil: true
@@ -27,6 +27,10 @@ class EmailSent < ApplicationRecord
   include PublicActivity::Model
 
   scope :newest, ->{order created_at: :desc}
+
+  scope :by_type_ids, -> type_ids{where type_id: type_ids}
+
+  scope :by_type, ->type_name{where type: type_name}
 
   def send_mail user = nil
     @sendmail_service = SendmailService.new self, self.user.companies.last

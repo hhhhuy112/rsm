@@ -1,69 +1,27 @@
-<li class="media">
-  <a href="javascript:void(0)" class="pull-left">
-    <%= image_tag email_sent.user_picture.url, class: "sender-avatar img-circle" %>
-  </a>
-  <div class="media-body">
-    <div class="col-md-12">
-      <span class="text-muted pull-right">
-        <small><em>
-          <%= t "employers.history.sent" %>
-          <%= time_ago_in_words(email_sent.created_at) %>
-          <%= t "employers.history.ago" %>
-        </em></small>
-      </span>
-      <a href="javascript:void(0)"><strong><%= email_sent.title %></strong></a>
-    </div>
-    <div class="col-md-12">
+<tr class="item-<%= email_sent.status %>">
+  <td class="text-center w-30">
+    <a href="javascript:void(0)" class="text-muted msg-fav-btn"><i class="fa fa-star-o"></i></a>
+  </td>
+  <td class="text-center w-30">
+    <a id="status-sent-inbox<%= email_sent.id %>" href="javascript:void(0)" class="<%= show_status_email email_sent %> msg-read-btn"><i class="fa fa-circle"></i></a>
+  </td>
+  <td class="w-20-p"><%= email_sent.user_name %></td>
+  <td class="w-60-p">
+    <%= show_status_apply_not_bold email_sent.status_step %>
+    <a href="javascript" data-toggle="modal" data-target="#my-<%= email_sent.id %>">
+      <strong><%= email_sent.title %></strong>
+    </a>
+  </td>
+  <td id="cell-button-resend<%= email_sent.id %>" class="text-center">
+    <% if !email_sent.success? %>
       <%= link_to "javascript:void(0)", class: "send_email btn btn-xs
-        btn-#{show_status_email email_sent} pull-right l-5" do %>
+        btn-#{show_status_email email_sent} pull-right l-5 #{disabled_block apply}" do %>
         <i class="fa fa-reply" aria-hidden="true"></i>
-        <%= t ".resend" %>
       <% end %>
       <%= link_to "", employers_send_email_path(email_sent), remote: true %>
-      <button data-toggle="modal" class= "btn btn-xs btn-default pull-right" data-target="#my-<%= email_sent.id %>">
-        <i class="fa fa-eye"></i>
-      </button>
-    </div>
-  </div>
-</li>
-<div class="clearfix"></div>
-
-<div class="modal fade" id="my-<%= email_sent.id %>" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">
-          <i class="fa fa-info"></i>
-            <%= t".information" %>
-        </h4>
-      </div>
-      <div class="modal-body">
-        <p>
-        </p>
-        <table class="container-mailer" border="0" cellpadding="0" cellspacing="0">
-          <tbody>
-            <tr>
-              <td class="header-mailer" align="center" valign="middle">
-                <%= image_tag "logo.png" %>
-                <h1><%= t "devise.mailer.header.app_name" %></h1>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <%= raw email_sent.content %>
-              </td>
-            </tr>
-            <tr>
-              <td class="footer-mailer checkter" align="center" valign="middle">
-                <%= t "devise.mailer.footer.year" %>
-                <strong><%= t "devise.mailer.footer.author" %></strong>
-                <span><%= t "devise.mailer.footer.copyright" %></span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
+    <% end %>
+  </td>
+  <td class="text-right font-weight-normal text-muted w-30-p">
+    <%= time_ago_in_words(email_sent.created_at) %>
+  </td>
+</tr>
