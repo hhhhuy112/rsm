@@ -14,7 +14,7 @@ Rails.application.config.assets.precompile += %w(selectboxit/custom_selectboxit.
 Rails.application.config.assets.precompile += %w(employers/edit_companies.css employer/checkbox.css)
 Rails.application.config.assets.precompile += %w(employers/notification.scss employer/hidepaginate.css)
 Rails.application.config.assets.precompile += %w(company/login.js survey.js employers/apply_block.js)
-Rails.application.config.assets.precompile += %w(employers/calendar.js compCalendar.js employers/validate.js)
+Rails.application.config.assets.precompile += %w(employers/calendar.js compCalendar.js employers/validate.js employers/show_email_sent_table.js)
 Rails.application.config.assets.precompile += %w(read_notification.scss custom_height_layout.js)
 Rails.application.config.assets.precompile += %w(employer/jquery-ui.css employers/select_step.js survey.scss
   employers/search_question.js employers/choose_question.js employers/sidebar_employer.js employers/add_apply.js

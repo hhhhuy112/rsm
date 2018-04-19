@@ -544,6 +544,9 @@ vn:
         phone: "Số điện thoại"
         notes: "Ghi chú"
         current_status: "Trạng thái"
+      step_history:
+        compose_email: "Soạn thảo thư"
+        sent_mail: "Thư đã gởi"
       table_applies:
         user_name: "Tài khoản"
         job: "Công việc"

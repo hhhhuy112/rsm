@@ -1,37 +1,5 @@
 <%= stylesheet_link_tag "employer/checkbox" %>
-<div class="col-md-6">
-  <div class="block full overcast-custom <%= disabled_block apply %>">
-    <div class="block-title">
-      <div class="block-options pull-right">
-        <% if (@prev_apply_status && @prev_apply_status.id == apply_status.id) || apply_status.current? %>
-          <%= link_to new_employers_apply_status_path(status_step_id:
-            status_step.id, apply_id: apply.id, apply_status_id: apply_status.id),
-            class: "btn btn-sm btn-alt btn-default animation-pulse", remote: true do %>
-              <i class="fa fa-pencil"></i>
-          <% end %>
-        <% end %>
-      </div>
-      <h2>
-        <i class="fa fa-history"></i>
-        <strong><%= t "employers.history.title_email" %></strong>
-      </h2>
-    </div>
-    <div class="block-top block-content-mini-padding">
-      <div class="clearfix">
-          <span class="btn btn-icon">
-            <i class="fa fa-location-arrow"></i>
-            <%= t "employers.applies.statuses.#{@data_step[:status_step_lastest].code}" %>
-          </span>
-      </div>
-    </div>
-    <ul class="media-list">
-      <%= hidden_field_tag "val_step", @data_step[:status_step_lastest].code %>
-      <%= (render partial: "employers/email_sents/email_sent",
-        collection: data_step[:email_sents], as: :email_sent,
-        locals: {status_step: status_step, apply_id: apply, apply_status: apply_status}) || t("employers.no_data") %>
-    </ul>
-  </div>
-</div>
+<%= javascript_include_tag "employers/show_email_sent_table" %>
 
 <% if data_step[:appointment].present? %>
   <div class="col-md-6">
@@ -64,3 +32,42 @@
     </div>
   </div>
 <% end %>
+
+<div class="col-sm-12">
+  <div class="block">
+    <div class="block-title">
+      <div class="block-options pull-right">
+        <% if (@prev_apply_status && @prev_apply_status.id == apply_status.id) || apply_status.current? %>
+          <%= link_to new_employers_apply_status_path(status_step_id:
+            status_step.id, apply_id: apply.id, apply_status_id: apply_status.id),
+            class: "btn btn-sm btn-alt btn-default animation-pulse", remote: true do %>
+              <i class="fa fa-pencil"></i><%= t ".compose_email" %>
+          <% end %>
+        <% end %>
+      </div>
+      <h2><%= t".sent_mail" %> <strong>(<%= data_step[:email_sents].count %>)</strong></h2>
+    </div>
+    <div class="table-responsive">
+      <table id="email-sent-table" class="table table-hover table-vcenter">
+        <thead>
+          <tr>
+            <td colspan="3">
+              <div class="btn-group btn-group-sm">
+                <a id="all-email" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Archive Selected">ALL</a>
+                <a id="sending-email" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Star Selected">Sending</a>
+                <a id="success-email" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Delete Selected">Success</a>
+                <a id="failure-email" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Delete Selected">Failure</a>
+              </div>
+            </td>
+          </tr>
+        </thead>
+            <%= hidden_field_tag "val_step", @data_step[:status_step_lastest].code %>
+            <%= (render partial: "employers/email_sents/email_sent",
+              collection: data_step[:email_sents], as: :email_sent,
+              locals: {status_step: status_step, apply: apply, apply_status: apply_status}) || t("employers.no_data") %>
+      </table>
+    </div>
+  </div>
+</div>
+<%= (render partial: "employers/email_sents/email_sent_modal",
+  collection: data_step[:email_sents], as: :email_sent) %>
