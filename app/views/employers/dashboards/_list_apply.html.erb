@@ -1,18 +1,16 @@
 <tr>
   <td class="text-center">
-    <%= link_to "javascript:void(0)" do %>
-      <strong><%= apply_status.user&.code %></strong>
+    <% if  apply_status.user.present? %>
+      <%= link_to employers_company_candidate_path(@company, id: apply_status.user.id) do %>
+        <strong><%= apply_status.user&.code %></strong>
+      <% end %>
     <% end %>
   </td>
   <td class="text-center">
-    <%= link_to "javascript:void(0)" do %>
-      <strong><%= apply_status.job_name %></strong>
-    <% end %>
+    <%= apply_status.apply.information[:name] %>
   </td>
   <td class="text-center">
-    <%= link_to "javascript:void(0)" do %>
-      <%= apply_status.apply.information[:phone] %>
-    <% end %>
+    <%= apply_status.apply.information[:phone] %>
   </td>
   <td class="text-center">
     <%= show_status_apply apply_status.status_step %>

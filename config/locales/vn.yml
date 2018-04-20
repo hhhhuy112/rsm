@@ -545,6 +545,10 @@ vn:
         notes: "Ghi chú"
         current_status: "Trạng thái"
       step_history:
+        all: "Tất cả"
+        success: "Thành công"
+        failure: "Thất bại"
+        sending: "Đang gửi"
         compose_email: "Soạn thảo thư"
         sent_mail: "Thư đã gởi"
       table_applies:

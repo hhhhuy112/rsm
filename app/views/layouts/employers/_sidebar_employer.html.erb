@@ -17,7 +17,7 @@
         <li>
           <%= link_to employers_dashboards_path do  %>
             <i class="fa fa-tachometer" aria-hidden="true"></i>
-            &nbsp;<span class="sidebar-nav-mini-hide lion"><%= t ".dashboard" %></span>
+            &nbsp;<span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".dashboard" %></span>
           <% end %>
         </li>
 
@@ -28,7 +28,7 @@
         <li>
           <a href="#" class="sidebar-nav-menu hasmi">
             <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-minus"></i>
-            &nbsp;<span class="sidebar-nav-mini-hide lion"><%= t ".sidebar_jobs" %></span></a>
+            &nbsp;<span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".sidebar_jobs" %></span></a>
           <ul>
             <li>
               <%= link_to employers_jobs_path do %>
@@ -41,7 +41,7 @@
         <li>
           <%= link_to employers_company_candidates_path(@company) do %>
             <i class="fa fa-users" aria-hidden="true"></i>
-            <span class="sidebar-nav-mini-hide lion"><%= t ".candidates" %></span>
+            <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".candidates" %></span>
           <% end %>
         </li>
 
@@ -49,7 +49,7 @@
           <%= link_to "javascript:void(0)", class: "sidebar-nav-menu hasmi" do %>
             <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
             <i class="fa fa-clone"></i>
-            &nbsp;<span class="sidebar-nav-mini-hide lion"><%= t ".apply" %></span>
+            &nbsp;<span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".apply" %></span>
           <% end %>
           <ul>
             <li>
@@ -72,14 +72,14 @@
         <li>
           <%= link_to edit_employers_company_path @company do %>
             <i class="fa fa-building-o gli hight"></i>
-            <span class="sidebar-nav-mini-hide lion"><%= t ".company" %></span>
+            <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".company" %></span>
           <% end %>
         </li>
 
         <li>
           <a href="#" class="sidebar-nav-menu hasmi">
             <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-users"></i>
-            &nbsp;<span class="sidebar-nav-mini-hide lion"><%= t ".member" %></span></a>
+            &nbsp;<span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".member" %></span></a>
           <ul>
             <li>
               <%= link_to employers_members_path do %>
@@ -92,7 +92,7 @@
         <li>
           <%= link_to employers_templates_path  do %>
             <i class="fa fa-columns" aria-hidden="true"></i>
-            <span class="sidebar-nav-mini-hide lion"><%= t ".template" %></span>
+            <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".template" %></span>
           <% end %>
         </li>
 
@@ -104,14 +104,14 @@
           <li>
             <%= link_to "javascript:void(0)", class: "disabled" do %>
               <i class="fa fa-google" aria-hidden="true"></i>
-              <span class="sidebar-nav-mini-hide lion"><%= t ".connected_gmail" %></span>
+              <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".connected_gmail" %></span>
             <% end %>
           </li>
         <% else %>
           <li>
             <%= link_to "javascript:void(0)", class: "connect-google" do %>
               <i class="fa fa-google" aria-hidden="true"></i>
-              <span class="sidebar-nav-mini-hide lion"><%= t ".connect_gmail" %></span>
+              <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".connect_gmail" %></span>
             <% end %>
           </li>
         <% end %>
