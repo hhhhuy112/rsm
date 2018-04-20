@@ -1,5 +1,5 @@
 <div class="modal fade" id="my-<%= email_sent.id %>" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -18,7 +18,7 @@
               </td>
             </tr>
             <tr>
-              <td>
+              <td  class="email-sent-modal">
                 <%= raw email_sent.content %>
               </td>
             </tr>

@@ -48,24 +48,30 @@
       <h2><%= t".sent_mail" %> <strong>(<%= data_step[:email_sents].count %>)</strong></h2>
     </div>
     <div class="table-responsive">
-      <table id="email-sent-table" class="table table-hover table-vcenter">
-        <thead>
-          <tr>
-            <td colspan="3">
-              <div class="btn-group btn-group-sm">
-                <a id="all-email" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Archive Selected">ALL</a>
-                <a id="sending-email" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Star Selected">Sending</a>
-                <a id="success-email" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Delete Selected">Success</a>
-                <a id="failure-email" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Delete Selected">Failure</a>
-              </div>
-            </td>
-          </tr>
-        </thead>
+      <% if data_step[:email_sents].present? %>
+        <table id="email-sent-table" class="table table-hover table-vcenter">
+          <thead>
+            <tr>
+              <td colspan="3">
+                <div class="btn-group btn-group-sm">
+                  <a id="all-email" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Archive Selected"><%= t ".all" %></a>
+                  <a id="sending-email" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Star Selected"><%= t ".sending" %></a>
+                  <a id="success-email" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Delete Selected"><%= t ".success" %></a>
+                  <a id="failure-email" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Delete Selected"><%= t ".failure" %></a>
+                </div>
+              </td>
+            </tr>
+          </thead>
             <%= hidden_field_tag "val_step", @data_step[:status_step_lastest].code %>
             <%= (render partial: "employers/email_sents/email_sent",
               collection: data_step[:email_sents], as: :email_sent,
-              locals: {status_step: status_step, apply: apply, apply_status: apply_status}) || t("employers.no_data") %>
-      </table>
+              locals: {status_step: status_step, apply: apply, apply_status: apply_status})%>
+        </table>
+      <% else %>
+        <p class="text-center text-danger">
+          <i class="fa fa-times"></i> <%= t "employers.no_data" %>
+        </p>
+      <% end %>
     </div>
   </div>
 </div>

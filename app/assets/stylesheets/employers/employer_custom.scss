@@ -217,7 +217,7 @@ form.form-search {
   padding: 0;
 }
 
-.font-weight-normal {
+.font-weight-normal-only {
   font-weight: normal;
 }
 
@@ -864,4 +864,21 @@ button.close {
 
 #email-sent-table  tbody, tr {
   width: 100%;
+}
+
+
+#page-container, #sidebar, #sidebar-alt {
+  background-color: $black-light1 !important;
+}
+
+#example-datatable .progress {
+  margin: 0;
+}
+
+.font-style-normal {
+  font-style: normal;
+}
+
+.sidebar-nav-mini-hide {
+  font-weight: normal;
 }

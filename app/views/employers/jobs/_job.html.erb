@@ -3,17 +3,17 @@
   <td class="text-center td-widh">
     <ul class="nav navbar-nav-custom hight">
       <li>
-        <%= link_to employers_job_path job do  %>
-          <%= job.name %>
-          <span class="badge badge-notify">
-            <%= count_applies job.applies %>
-          </span>
-        <% end %>
+          <%= link_to employers_job_path job do  %>
+            <%= job.name %>
+            <span class="badge badge-notify">
+              <%= count_applies job.applies %>
+            </span>
+          <% end %>
       </li>
     </ul>
   </td>
-  <td class="text-center"><strong><%= salary_job job %></strong></td>
-  <td class="text-center"><strong><%= job.position %></strong></td>
+  <td class="text-center"><%= salary_job job %></td>
+  <td class="text-center"><%= job.position %></td>
   <td class="text-center td-widh">
      <div class="progress progress-striped active">
         <div class="progress-bar progress-bar-<%= class_dashboard job, @status_step %>" role="progressbar"
@@ -25,15 +25,13 @@
   </td>
   <% if job.opend? %>
     <td class="text-center color_date_job_expires">
-      <strong>
-        <% if job.end_time.present? %>
-          <% if check_expire_job job.end_time %>
-            <%= t ".expired" %>
-          <% else %>
-            <%= t ".expires_on" %><br><%= l job.end_time.to_date, format: :long %>
-          <% end %>
+      <% if job.end_time.present? %>
+        <% if check_expire_job job.end_time %>
+          <%= t ".expired" %>
+        <% else %>
+          <%= t ".expires_on" %><br><%= l job.end_time.to_date, format: :long %>
         <% end %>
-      </strong>
+      <% end %>
     </td>
   <% else %>
     <td class="text-center color_date_job_expired">

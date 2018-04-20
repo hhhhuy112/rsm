@@ -503,6 +503,10 @@ en:
         notes: "Notes"
         current_status: "Steps"
       step_history:
+        all: "All"
+        success: "Success"
+        failure: "Failure"
+        sending: "Sending"
         compose_email: "Compose email"
         sent_mail: "Sent mail"
       table_applies:
