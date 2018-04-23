@@ -274,6 +274,7 @@ vn:
       job_cant_create: "Đã có lỗi xảy ra, không thể tạo công việc"
     validates:
       check_max_salary: "Mức lương tối đa phải lớn hơn mức lương tối thiểu"
+      question_nil: "Câu hỏi không thể trống"
     job:
       sure: "Bạn có chắc chắn muốn làm điều này?"
       up_to: " - lên đến "

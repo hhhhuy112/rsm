@@ -1,6 +1,22 @@
 <% if @job.errors.any? %>
   $(".form-group").removeClass("has-error");
   $('#manage-job-form').html('<%= j render "form" %>');
+  <% if params[:onoffswitch] %>
+    $('#survey-checkbox').prop('checked', true);
+    $('.no-survey').hide(700);
+    $('.has-survey').show(700);
+  <% end %>
+  <% if @question_ids.present? %>
+    $('#radio<%= params[:job][:survey_type] %>').prop('checked', true);
+    <% @question_ids.each_with_index do |id, index| %>
+      $('#job_question_ids_<%= id %>').prop('checked', true);
+      $('#nested-question-id').append('<input type="hidden" value="false" name="job[surveys_attributes][' + <%= index %> + '][_destroy]" id="destroy-nested-question-' + <%= id %> + '">');
+    <% end %>
+    $('.tagsinput').append('<%= j render "tag_question",
+      question_ids: @question_ids, question_names: @question_names %>');
+    $('#choosen-ids').val('<%= params[:choosen_ids] %>');
+    $('#name-question-choosen').val('<%= params[:name_question_choosen] %>');
+  <% end %>
 <% else %>
   $('#jobs').html('<%= j render @jobs %>');
   alertify.success('<%= @message %>');

@@ -13,6 +13,7 @@ RSpec.describe Employers::JobsController, type: :controller do
     FactoryGirl.create :job, company_id: company.id, branch_id: branch.id,
       category_id: category.id, currency_id: currency.id
   end
+  let!(:question) {FactoryGirl.create :question, company_id: company.id}
   subject {job}
   before { sign_in user }
 
@@ -44,6 +45,55 @@ RSpec.describe Employers::JobsController, type: :controller do
 
     it "update jobs fail" do
       patch :update, params: { id: subject.id, job:{name: ""}}, xhr: true, format: "js"
+    end
+
+    context "update survey job success" do
+      before :each do
+        patch :update, params: { id: subject.id, job:{name: "Ruby on rails",
+        description: "IT", min_salary: 500, position: "Manager", target: 10,
+        survey_type: "optional", user_id: user.id, company_id: company.id,
+        branch_id: branch.id, category_id: category.id, position_types: :part_time},
+        surveys_attributes: {question: question.id}},
+        xhr: true, format: "js"
+      end
+
+      it "update success with message" do
+        expect(assigns[:message]).to match I18n.t("employers.jobs.update.success")
+      end
+
+      it "assigns the surveys 's job present" do
+        expect(assigns[:job].surveys).to be_truthy
+      end
+    end
+
+    context "update survey job fail with no question choosen" do
+      before :each do
+        patch :update, params: { id: subject.id, job:{name: "Ruby on rails",
+        description: "IT", min_salary: 500, position: "Manager", target: 10,
+        survey_type: "optional", user_id: user.id, company_id: company.id,
+        branch_id: branch.id, category_id: category.id, position_types: :part_time},
+        onoffswitch: true},
+        xhr: true, format: "js"
+      end
+
+      it "update error with error" do
+        expect(assigns[:error]).to match I18n.t("employers.jobs.update.nil_questions")
+      end
+    end
+
+    context "update survey job fail with no surveys_type" do
+      before :each do
+        patch :update, params: {id: subject.id, job:{name: "Ruby on rails",
+        description: "IT", min_salary: 500, position: "Manager", target: 10,
+        user_id: user.id, company_id: company.id,
+        branch_id: branch.id, category_id: category.id, position_types: :part_time,
+        surveys_attributes: {question_id: question.id}}, onoffswitch: true},
+        xhr: true, format: "js"
+      end
+
+      it "update error with error" do
+        expect(assigns[:error]).to match I18n.t("employers.jobs.update.nil_survey_type")
+      end
     end
   end
 

@@ -16,7 +16,7 @@ class Job < ApplicationRecord
   has_many :surveys, dependent: :destroy
   has_many :questions, through: :surveys
 
-  after_create :create_survey, unless: :survey_not_exist?
+  after_save :questions_exists_when_job_has_survey, if: :has_survey?
 
   accepts_nested_attributes_for :reward_benefits, allow_destroy: true,
     reject_if: ->(attrs){attrs["content"].blank?}
@@ -89,6 +89,10 @@ class Job < ApplicationRecord
     self.not_exist?
   end
 
+  def has_survey?
+    self.optional? || self.compulsory?
+  end
+
   private
 
   def max_salary_less_than_min_salary
@@ -96,14 +100,10 @@ class Job < ApplicationRecord
     errors.add :max_salary, I18n.t("jobs.validates.check_max_salary") if max_salary < min_salary
   end
 
-  def create_survey
-    questions = []
-    question_ids.each_with_index do |id, i|
-      next if id.blank?
-      questions << self.surveys.build(question_id: id)
-    end
-    Survey.transaction do
-      Survey.import! questions
+  def questions_exists_when_job_has_survey
+    if self.questions.reload.blank?
+      errors.add :survey_type, I18n.t("jobs.validates.question_nil")
+      raise ActiveRecord::RecordInvalid
     end
   end
 end

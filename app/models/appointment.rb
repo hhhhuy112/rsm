@@ -4,7 +4,7 @@ class Appointment < ApplicationRecord
   belongs_to :company
   belongs_to :apply_status
   has_many :inforappointments, dependent: :destroy
-  has_many :user, through: :inforappointments
+  has_many :users, through: :inforappointments
   has_one :apply, through: :apply_status
   has_one :job, through: :apply
 

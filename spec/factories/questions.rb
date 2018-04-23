@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :question do
-    association :job, factory: :job
+    association :company, factory: :company
     name {Faker::Name.name}
   end
 end

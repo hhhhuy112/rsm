@@ -1,12 +1,10 @@
-<div class="col-md-5 m-top-15">
-  <label>
-    <div class="input-group">
-      <%= text_field_tag :name_question, "", class: "form-group form-control input-lg", placeholder: "#{t ".search_questions"}" %>
-      <span class="input-group-addon">
-        <%= link_to "javascript:void(0)", class: "btn btn-primary btn-sm seach-question" do %>
-          <i class="fa fa-search"></i>
-        <% end %>
-      </span>
-    </div>
-  </label>
-</div>
+<label>
+  <div class="input-group">
+    <%= text_field_tag :name_question, "", class: "form-group form-control input-lg", placeholder: "#{t ".search_questions"}" %>
+    <span class="input-group-addon">
+      <%= link_to "javascript:void(0)", class: "btn btn-primary btn-sm seach-question" do %>
+        <i class="fa fa-search"></i>
+      <% end %>
+    </span>
+  </div>
+</label>

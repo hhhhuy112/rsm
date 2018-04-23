@@ -1,13 +1,15 @@
 class Employers::JobsController < Employers::EmployersController
   before_action :create_job, only: %i(index new)
   before_action :load_jobs, only: %i(index create update)
+  before_action :check_question, only: %i(update create)
   before_action :load_branches_for_select_box, only: :index
   before_action :load_category_for_select_box, only: :index
   before_action :load_questions, :build_surveys, :buil_benefits,
     :load_templates, only: %i(new edit)
-  before_action :check_params, :convert_params_questions, only: :create
+  before_action :check_params, :convert_params_questions, only: %i(update create)
   before_action :load_currency, only: %i(edit new)
   before_action :load_status_step, only: %i(index update)
+  before_action :load_questions_job, only: :edit
 
   def show
     @applies = @job.applies.includes(:user).page(params[:page]).per Settings.apply.page
@@ -35,7 +37,7 @@ class Employers::JobsController < Employers::EmployersController
   end
 
   def index
-    @search = @company.jobs.includes(:applies).search params[:q]
+    @search = @company.jobs.includes(:applies, :currency).search params[:q]
     @jobs = @search.result(distinct: true).sort_lastest
       .page(params[:page]).per Settings.job.page
     @page = params[:page]
@@ -58,13 +60,14 @@ class Employers::JobsController < Employers::EmployersController
     respond_to do |format|
       if @job.update_attributes job_params
         @message = t ".success"
-        format.js
       else
         load_templates
         load_currency
         buil_benefits
-        format.js
+        load_questions
+        load_questions_job
       end
+        format.js
     end
   end
 
@@ -75,19 +78,12 @@ class Employers::JobsController < Employers::EmployersController
   end
 
   def job_params
-    params[:job][:survey_type] = params[:job][:survey_type].to_i if params[:job]
-    if params[:expire_on] == Settings.jobs.form.check_box_expire_on
-      params.require(:job).permit :content, :name, :level, :language, :target, :end_time, :skill,
-        :position, :company_id, :description, :min_salary, :max_salary, :branch_id, :category_id,
-        :survey_type, :currency_id, :position_types, reward_benefits_attributes: %i(id content job_id _destroy),
-        surveys_attributes: [:id, :_destroy, question_attributes: %i(name company_id _destroy)]
-    else
-      params.require(:job).permit(:content, :name, :level, :language, :target, :skill,
-        :position, :company_id, :description, :min_salary, :max_salary, :branch_id, :category_id,
-        :survey_type, :currency_id, :position_types, reward_benefits_attributes: %i(id content job_id _destroy),
-        surveys_attributes: [:id, :_destroy, question_attributes: %i(name company_id _destroy)])
-        .merge! end_time: nil
-    end
+    end_time = params[:expire_on] == Settings.jobs.form.check_box_expire_on && params[:job] ? params[:job][:end_time] : nil
+    params.require(:job).permit(:content, :name, :level, :language, :target, :skill,
+      :position, :company_id, :description, :min_salary, :max_salary, :branch_id, :category_id,
+      :survey_type, :currency_id, :position_types, reward_benefits_attributes: %i(id content job_id _destroy),
+      surveys_attributes: [:id, :_destroy, :question_id, :job_id, question_attributes: %i(name company_id _destroy)])
+      .merge! end_time: end_time
   end
 
   def load_jobs
@@ -107,7 +103,7 @@ class Employers::JobsController < Employers::EmployersController
   end
 
   def build_surveys
-    @job.surveys.build
+    @job.surveys.build if @job.new_record?
   end
 
   def check_params
@@ -136,5 +132,22 @@ class Employers::JobsController < Employers::EmployersController
   def load_templates
     @template_benefits = @company.templates.template_benefit
     @template_skills = @company.templates.template_skill
+  end
+
+  def load_questions_job
+    @questions_job_ids = @job.questions
+  end
+
+  def has_params_destroy_fasle? params
+    return false if params.blank?
+    params.select{|key, value| value[Settings.nested_attributes.destroy] != Settings.str_true}.present?
+  end
+
+  def check_question
+    return if params[:job].blank? || params[:onoffswitch].blank?
+    return if (params[:choosen_ids].present? || has_params_destroy_fasle?(job_params[:surveys_attributes])) && params[:job][:survey_type].present?
+    @error = t(".nil_survey_type") if params[:job][:survey_type].blank?
+    @error = t(".nil_questions") if params[:choosen_ids].blank? && !has_params_destroy_fasle?(job_params[:surveys_attributes])
+    render "employers/jobs/create"
   end
 end
