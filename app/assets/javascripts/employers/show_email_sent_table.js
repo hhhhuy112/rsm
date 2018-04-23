@@ -17,4 +17,18 @@ $(document).ready(function(){
     $('#email-sent-table tbody tr').addClass('display-none');
     $('#email-sent-table tbody .item-failure').removeClass('display-none');
   });
+
+  $('.collapse-offer-detail').on('hidden.bs.collapse', function () {
+    var panelHeading = $(this).prev('.panel-heading');
+    panelHeading.find('i').remove();
+    panelHeading.find('.panel-title').prepend('<i class="fa fa-angle-right"></i>');
+
+  });
+  $('.collapse-offer-detail').on('show.bs.collapse', function () {
+    var panelHeading = $(this).prev('.panel-heading');
+    panelHeading.find('i').remove();
+    panelHeading.find('.panel-title').prepend('<i class="fa fa-angle-down"></i>');
+
+  });
+
 });
