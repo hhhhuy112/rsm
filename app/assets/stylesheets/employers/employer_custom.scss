@@ -865,7 +865,6 @@ button.close {
   width: 100%;
 }
 
-
 #page-container, #sidebar, #sidebar-alt {
   background-color: $black-light1 !important;
 }
@@ -880,6 +879,19 @@ button.close {
 
 .sidebar-nav-mini-hide {
   font-weight: normal;
+}
+
+.table-offer-detail {
+  margin: 0;
+}
+
+li.media-offer {
+  margin: 0;
+}
+
+.panel-offer {
+  margin-bottom: 10px;
+  border: 1px solid $gray-light-3;
 }
 
 @media only screen and (min-width: 991px) {

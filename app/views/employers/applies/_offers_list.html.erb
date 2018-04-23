@@ -1,28 +1,50 @@
-<li class="media">
-  <%= link_to offer.user, class: "pull-left" do %>
-    <%= image_tag offer.user.picture.url,
-      class: "sender-avatar img-circle" %>
-  <% end %>
-  <div class="media-body">
-    <div class="col-md-12">
-      <span class="text-muted pull-right m-l-5">
-        <small><em>
-          <%= t "employers.history.sent" %>
-          <%= time_ago_in_words offer.created_at %>
-          <%= t "employers.history.ago" %>
-        </em></small>
-      </span>
-      <a href="javascript:void(0)"><strong><%= t ".offer_send_by" %> <%= offer.user_name %></strong></a>
+<li class="media media-offer">
+  <div class="panel panel-offer">
+    <div class="panel-heading">
+      <h4 class="panel-title"><i class="fa fa-angle-right"></i>
+        <span class="text-muted pull-right m-l-5">
+          <small><em>
+            <%= t "employers.history.sent" %>
+            <%= time_ago_in_words offer.created_at %>
+            <%= t "employers.history.ago" %>
+          </em></small>
+        </span>
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#faq1" href="#my-offer-<%= offer.id %>">
+          <%= t ".offer_send_by" %> <%= offer.user_name %>
+        </a>
     </div>
-    <div class="col-md-12">
-      <button data-toggle="modal" class= "btn btn-xs btn-default pull-right" data-target="#my-offer-<%= offer.id %>">
-        <i class="fa fa-eye"></i>
-      </button>
+    <div id="my-offer-<%= offer.id %>" class="panel-collapse collapse">
+      <div class="panel-body">
+        <table class="table table-offer-detail table-vcenter table-striped">
+          <tbody>
+            <tr>
+              <td class="w-150"><%= t ".sender" %></td>
+              <td class="detail-content"><%= offer.user_name %></td>
+            </tr>
+
+            <tr>
+              <td class="w-150"><%= t ".salary" %></td>
+              <td class="detail-content"><%= show_salary offer %></td>
+            </tr>
+
+            <tr>
+              <td class="w-150"><%= t ".start_time" %></td>
+              <td class="detail-content"><%= offer.start_time %></td>
+            </tr>
+
+            <tr>
+              <td class="w-150"><%= t ".address" %></td>
+              <td class="detail-content"><%= offer.address %></td>
+            </tr>
+
+            <tr>
+              <td class="w-150"><%= t ".requirement" %></td>
+              <td class="detail-content"><%= raw offer.requirement %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </li>
 <div class="clearfix"></div>
-
-<div class="modal fade" id="my-offer-<%= offer.id %>" role="dialog">
-  <%= render partial: "employers/applies/offer_detail", locals: {offer: offer} %>
-</div>

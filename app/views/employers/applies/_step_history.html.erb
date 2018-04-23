@@ -18,7 +18,7 @@
 <% end %>
 
 <% if data_step[:offers].present? %>
-  <div class="col-md-6">
+  <div class="col-md-12">
     <div class="block full overcast-custom">
       <div class="block-title">
         <h2>
@@ -54,10 +54,10 @@
             <tr>
               <td colspan="3">
                 <div class="btn-group btn-group-sm">
-                  <a id="all-email" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Archive Selected"><%= t ".all" %></a>
-                  <a id="sending-email" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Star Selected"><%= t ".sending" %></a>
-                  <a id="success-email" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Delete Selected"><%= t ".success" %></a>
-                  <a id="failure-email" href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Delete Selected"><%= t ".failure" %></a>
+                  <a id="all-email" href="javascript:void(0)" class="btn btn-default"><%= t ".all" %></a>
+                  <a id="sending-email" href="javascript:void(0)" class="btn btn-default"><%= t ".sending" %></a>
+                  <a id="success-email" href="javascript:void(0)" class="btn btn-default"><%= t ".success" %></a>
+                  <a id="failure-email" href="javascript:void(0)" class="btn btn-default"><%= t ".failure" %></a>
                 </div>
               </td>
             </tr>
