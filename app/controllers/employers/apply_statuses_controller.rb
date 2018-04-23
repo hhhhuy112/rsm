@@ -145,7 +145,7 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
 
   def load_appointments
     @appointments = {}
-    @company.appointments.includes(:apply_status, :apply, :job, :user).get_greater_equal_by(Date.current)
+    @company.appointments.includes(:apply_status, :apply, :job, :users).get_greater_equal_by(Date.current)
       .newest.group_by{|appointment| [appointment.apply, appointment.job]}
       .each{|k,v| @appointments["#{k.first.information[:name]} - #{k.last.name} - #{k.first.user_code}"] = v}
   end

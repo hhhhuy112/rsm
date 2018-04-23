@@ -1,7 +1,8 @@
 <li class="media media-offer">
   <div class="panel panel-offer">
     <div class="panel-heading">
-      <h4 class="panel-title"><i class="fa fa-angle-right"></i>
+      <h4 class="panel-title">
+        <i class="fa fa-angle-right"></i>
         <span class="text-muted pull-right m-l-5">
           <small><em>
             <%= t "employers.history.sent" %>
@@ -9,11 +10,11 @@
             <%= t "employers.history.ago" %>
           </em></small>
         </span>
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#faq1" href="#my-offer-<%= offer.id %>">
+        <a class="accordion-toggle button-show-detail-offer" data-toggle="collapse" data-parent="#faq1" href="#my-offer-<%= offer.id %>">
           <%= t ".offer_send_by" %> <%= offer.user_name %>
         </a>
     </div>
-    <div id="my-offer-<%= offer.id %>" class="panel-collapse collapse">
+    <div id="my-offer-<%= offer.id %>" class="panel-collapse collapse collapse-offer-detail">
       <div class="panel-body">
         <table class="table table-offer-detail table-vcenter table-striped">
           <tbody>
