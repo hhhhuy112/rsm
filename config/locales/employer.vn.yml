@@ -371,6 +371,8 @@ vn:
         questions: "Câu hỏi"
         add_survey: "Thêm survey"
         survey_type: "Loại survey"
+        choose_question: "Chọn câu hỏi"
+        add_question: "Thêm câu hỏi"
       search_question:
         search_questions: "Tìm câu hỏi"
       new_question:

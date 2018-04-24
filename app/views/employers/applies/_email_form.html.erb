@@ -54,7 +54,7 @@
                     <%= hidden_field_tag "user_name", apply.information[:name] %>
                     <div class="col-md-12 col-lg-12">
                       <%= button_tag  type: "button", title: t(".preview"),
-                        class: "btn btn-xs btn-info view_mail pull-right animation-pulse",
+                        class: "btn btn-sm view_mail pull-right animation-pulse",
                         value: "#{apply_status.status_step_id}" do %>
                         <i class="fa fa-eye"></i>
                       <% end %>
@@ -77,37 +77,29 @@
   </div>
 </div>
 <div class="modal fade" id="review_template_<%= apply_status.status_step_id %>" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title"><%= t ".show_template" %></h4>
       </div>
-      <div class="modal-body">
-        <table class="container-mailer" border="0" cellpadding="0" cellspacing="0">
-          <tbody>
-            <tr>
-              <td class="header-mailer" align="center" valign="middle">
-                <%= image_tag "logo.png" %>
-                <h1><%= t "devise.mailer.header.app_name" %></h1>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <%= text_area_tag "contentmail-#{apply_status.status_step_id}",
-                  "", class: "form-control backgroud-content", disabled: true,
-                  cols: Settings.templates.cols, rows: Settings.templates.cols %>
-              </td>
-            </tr>
-            <tr>
-              <td class="footer-mailer checkter" align="center" valign="middle">
-                <%= t "devise.mailer.footer.year" %>
-                <strong><%= t "devise.mailer.footer.author" %></strong>
-                <span><%= t "devise.mailer.footer.copyright" %></span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="modal-body content-modal">
+        <div class="row">
+          <div class="col-md-12 text-center header-mailer-custom">
+            <%= image_tag "logo.png" %>
+            <h1><%= t "devise.mailer.header.app_name" %></h1>
+          </div>
+          <div class="col-md-12 content-mailer-custom">
+            <%= text_area_tag "contentmail-#{apply_status.status_step_id}",
+              "", class: "form-control backgroud-content", disabled: true,
+              cols: Settings.templates.cols, rows: Settings.templates.cols %>
+          </div>
+          <div class="col-md-12 text-center footer-mailer-custom">
+            <%= t "devise.mailer.footer.year" %>
+            <strong><%= t "devise.mailer.footer.author" %></strong>
+            <span><%= t "devise.mailer.footer.copyright" %></span>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal"><%= t ".close" %></button>

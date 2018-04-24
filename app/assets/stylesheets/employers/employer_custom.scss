@@ -787,7 +787,6 @@ button.close {
   border-radius: 7px;
 }
 
-
 .w-100 {
   width: 100%;
 }
@@ -894,13 +893,32 @@ li.media-offer {
   border: 1px solid $gray-light-3;
 }
 
-@media only screen and (min-width: 991px) {
-  .btn-add-new-questions {
-    position: relative;
-    left: 386px;
-    top: 25px;
-  }
-  .h-0 {
-    height: 0px;
-  }
+.content-modal .row {
+  border: 10px solid $black-light1;
+  border-radius: 5px;
+}
+
+.content-modal .header-mailer-custom {
+  background-color: $blue-light-15;
+  padding: 10px;
+}
+
+.header-mailer-custom h1 {
+  font-weight: bold;
+  color: white;
+}
+
+.header-mailer-custom img {
+  width: 70px;
+  height: 47px;
+}
+
+.content-mailer-custom {
+  overflow: auto;
+}
+
+.footer-mailer-custom {
+  padding: 10px;
+  background-color:$black-light1;
+  color: white;
 }

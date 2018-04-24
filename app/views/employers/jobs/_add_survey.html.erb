@@ -28,13 +28,18 @@
       </div>
     </div>
 
+    <label class="control-label">
+      <abbr title="required">*</abbr>
+      <%= t ".choose_question" %>
+    </label>
+
     <div class="row h-0">
       <%= render "new_question", f: f %>
     </div>
 
     <div class="row">
-      <div class="col-md-6 m-top-15">
-        <%= render "search_question" %>
+      <div class="col-md-12">
+        <%= render "search_question", f: f %>
       </div>
     </div>
 
