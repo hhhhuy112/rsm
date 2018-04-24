@@ -372,6 +372,8 @@ en:
         questions: "Questions"
         add_survey: "Add survey"
         survey_type: "Survey type"
+        choose_question: "Choose questions"
+        add_question: "Add Question"
       search_question:
         search_questions: "Search questions"
       new_question:

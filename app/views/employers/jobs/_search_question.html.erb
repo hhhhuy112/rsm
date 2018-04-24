@@ -5,6 +5,12 @@
       <%= link_to "javascript:void(0)", class: "btn btn-primary btn-sm seach-question" do %>
         <i class="fa fa-search"></i>
       <% end %>
+
+      <%= link_to_add_association t(".add_question"), f, :surveys,
+        "data-association-insertion-node" => "#survey-fields",
+        "data-association-insertion-method" => "append",
+        wrap_object: Proc.new {|survey| survey.build_question; survey},
+        class: "btn btn-info btn-sm btn-add-new-questions" %>
     </span>
   </div>
 </label>

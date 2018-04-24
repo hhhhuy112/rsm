@@ -3,8 +3,3 @@
     <%= render "survey_fields", f: survey %>
   <% end %>
 </div>
-<%= link_to_add_association t(".add_question"), f, :surveys,
-  "data-association-insertion-node" => "#survey-fields",
-  "data-association-insertion-method" => "append",
-  wrap_object: Proc.new {|survey| survey.build_question; survey},
-  class: "btn btn-info btn-sm m-l-15 btn-add-new-questions" %>

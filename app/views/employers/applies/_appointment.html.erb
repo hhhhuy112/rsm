@@ -2,45 +2,35 @@
   <tbody>
     <tr>
       <td><strong><%= t "employers.history.type" %></strong></td>
-      <td>
-        <a href="javascript:void(0)">
-          <%= t "employers.history.#{@data_step[:appointment].type_appointment}" %>
-        </a>
+      <td class="font-weight-normal-only">
+        <%= t "employers.history.#{@data_step[:appointment].type_appointment}" %>
       </td>
     </tr>
     <tr>
       <td><strong><%= t "employers.history.start_time_appointment" %></strong></td>
-      <td>
-        <a href="javascript:void(0)" class="label label-info">
-          <%= show_time_local @data_step[:appointment].start_time %>
-        </a>
+      <td class="font-weight-normal-only">
+        <%= show_time_local @data_step[:appointment].start_time %>
       </td>
     </tr>
 
     <tr>
       <td><strong><%= t "employers.history.end_time_appointment" %></strong></td>
-      <td>
-        <a href="javascript:void(0)" class="label label-info">
-          <%= show_time_local @data_step[:appointment].end_time %>
-        </a>
+      <td class="font-weight-normal-only">
+        <%= show_time_local @data_step[:appointment].end_time %>
       </td>
     </tr>
 
     <tr>
       <td><strong><%= t "employers.history.date" %></strong></td>
-      <td>
-        <a href="javascript:void(0)" class="label label-info">
-          <%= show_date_local @data_step[:appointment].end_time %>
-        </a>
+      <td class="font-weight-normal-only">
+        <%= show_date_local @data_step[:appointment].end_time %>
       </td>
     </tr>
 
     <tr>
       <td><strong><%= t "employers.history.address" %></strong></td>
-      <td>
-        <a href="javascript:void(0)" class="label label-info">
-          <%= @data_step[:appointment].address %>
-        </a>
+      <td class="font-weight-normal-only">
+        <%= @data_step[:appointment].address %>
       </td>
     </tr>
   </tbody>
