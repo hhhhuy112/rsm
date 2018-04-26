@@ -5,5 +5,6 @@
   $('#show-user').replaceWith('<%= j (render partial: "users/index", locals: {object: @user}) %>').show();
   $('#new-action').replaceWith('<div class="name-user" id= "new-action"><h3><%= @user.name %></h3><h4>(<%= @user.email %>)</h4></div>')
   $('#avatar_user').replaceWith('<div class="avatar" id="avatar_user"><%= show_avatar @user %></div>');
+  $('.user-img-change').html('<%= show_avatar_sidebar @user %>');
   alertify.success('<%= @message %>');
 <% end %>

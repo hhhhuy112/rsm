@@ -15,7 +15,7 @@ $(document).ready(function() {
     $('.view-cv').prop('href', URL.createObjectURL(event.target.files[0]));
   })
 
-  $(document).on('click', '.container-avatar .profile-label', function(){
+  $(document).on('click', '.form-update-user .profile-label', function(){
     $('#bannerSelect').click();
   });
 });
