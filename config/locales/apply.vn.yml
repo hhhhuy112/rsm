@@ -46,6 +46,7 @@ vn:
         review: "Duyệt CV"
         test: "Test"
         interview: "Phỏng vấn"
+        please_address: "Vui lòng chọn địa điểm"
         offer: "Offer"
       btn_name:
         next: "Tiếp tục"

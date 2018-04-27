@@ -24,7 +24,9 @@
             <abbr title="required">*</abbr>
             <%= t ".address" %>
           </label>
-          <%= appointment_builder.text_field :address, class: "form-control edit-control" %>
+
+          <%= appointment_builder.select :address, @company.branches.map{ |branch| [show_branch_appointment(branch), show_branch_appointment(branch)] },
+            {include_blank: t(".please_address")}, class: "form-control edit-control" %>
           <span class="error-message">
             <%= appointment_builder.full_error :address %>
           </span>
