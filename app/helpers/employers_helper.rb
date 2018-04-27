@@ -13,6 +13,10 @@ module EmployersHelper
     end
   end
 
+  def show_branch_appointment branch
+   "#{branch.street} #{branch.ward}, #{branch.district}, #{branch.province}, #{branch.country}"
+  end
+
   def show_step step
     case
     when step.is_step?(Settings.step.review)

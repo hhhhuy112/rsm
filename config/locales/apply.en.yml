@@ -45,6 +45,7 @@ en:
         review: "Review CV"
         test: "Test"
         interview: "Interview"
+        please_address: "Choose Address"
         offer: "Offer"
       btn_name:
         next: "Next"

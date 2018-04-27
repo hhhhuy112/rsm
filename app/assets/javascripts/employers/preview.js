@@ -2,6 +2,8 @@ $(document).ready(function(){
   $('#btn-preview').click(function(){
     $('.job-form').hide(700);
     $('#preview').show(700);
+    $('#modal-job-full').addClass('modal-ex-lg-90');
+    $('#manage-job-form').addClass('bg-dark');
     $(this).hide(700);
     $('#btn-back').show(700);
 
@@ -14,7 +16,7 @@ $(document).ready(function(){
     $('#target-job').text(job.target);
     $('#position-job').text(job.position);
     $('#level-job').text(job.level);
-    $('#skill-job').append($.parseHTML(job.skill));
+    $('#skill-job').html($.parseHTML(job.skill));
     $('#language-job').text(job.language);
     $('#position-types').text($("select[name='job[position_types]'] option:selected").text());
     if (job.survey_type !== null) {
@@ -44,6 +46,8 @@ $(document).ready(function(){
 
   $('#btn-back').click(function(){
     $('#preview').hide(700);
+    $('#modal-job-full').removeClass('modal-ex-lg-90');
+    $('#manage-job-form').removeClass('bg-dark');
     $('.job-form').show(700);
     $(this).hide(700);
     $('#btn-preview').show(700);

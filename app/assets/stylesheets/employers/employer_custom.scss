@@ -926,3 +926,30 @@ li.media-offer {
 .overflow-auto-custom {
   overflow: auto;
 }
+
+/*css preview job*/
+.modal-ex-lg-90 {
+  width: 90%;
+}
+
+.bg-dark {
+  background-color: #eee;
+}
+
+.page-job-detail__header, .page-job-detail__detail {
+  padding: 15px;
+  background: white;
+}
+
+.page-job-detail__header {
+  margin-bottom: 10px;
+  border: 1px ridge;
+}
+
+.summary-question {
+  padding: 10px 30px;
+}
+
+.summary-question li {
+  margin-bottom: 15px;
+}
