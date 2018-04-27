@@ -54,6 +54,7 @@ gem "groupdate", github: "ankane/groupdate", branch: "debug_time_zone_support"
 gem "delayed_job_active_record"
 gem "redis"
 gem "gmail"
+gem 'google-api-client', '~> 0.9', require: 'google/apis/gmail_v1'
 gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-facebook"

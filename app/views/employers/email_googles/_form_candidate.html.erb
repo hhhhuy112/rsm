@@ -1,0 +1,16 @@
+<%= javascript_include_tag "employers/email_googles", "data-turbolinks-track": "reload" %>
+
+<div class="block full">
+  <div class="block-title">
+    <h2><%= t "employers.candidates.index.add_candidate" %></h2>
+    <div class="block-options pull-right">
+      <button class="btn btn-sm btn-alt btn-default cancel-candidate-form-email">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <div class="block-section" id="form_add_cadidate">
+    <%= render partial: "form_candidate",
+      locals: {url_content: employers_company_candidates_path(@company), method_name: :post, url_path: url_path} %>
+  </div>
+</div>

@@ -1,3 +1,5 @@
+$('#modal-job-full').removeClass('modal-ex-lg-90');
+$('#manage-job-form').removeClass('bg-dark');
 <% if @job.errors.any? %>
   $(".form-group").removeClass("has-error");
   $('#manage-job-form').html('<%= j render "form" %>');

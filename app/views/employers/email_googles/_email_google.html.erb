@@ -1,0 +1,31 @@
+<tr>
+  <td class="text-center">
+    <input type="checkbox" id="checkbox1" name="checkbox1">
+  </td>
+  <td class="text-center">
+    <a href="javascript:void(0)" class="text-muted msg-fav-btn"><i class="fa fa-star-o"></i></a>
+  </td>
+  <td class="text-center">
+    <a href="javascript:void(0)" class="text-success msg-read-btn"><i class="fa fa-circle"></i></a>
+  </td>
+  <td><%= show_name email_google %></td>
+  <td>
+    <span class="text-muted"><%= show_string_encode email_google.subject %></span>
+  </td>
+  <td class="text-center">
+
+  </td>
+  <td class="text-right"><em><%= time_ago_in_words(email_google.date) %></em></td>
+
+  <td>
+  <!--  -->
+  </td>
+  <td class="text-center">
+    <div class="btn-group btn-group-xs">
+      <%= link_to employers_email_google_path(id: email_google.uid), class: "btn btn-default show-loading" do %>
+        <i class="fa fa-eye"></i>
+      <% end %>
+      <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+    </div>
+  </td>
+</tr>

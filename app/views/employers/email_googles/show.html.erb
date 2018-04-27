@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="block full">
+    <div class="block-title">
+      <div class="block-options pull-right">
+        <%= link_to "#", class: "btn btn-alt btn-sm btn-default", data:{ toggle: "modal", target:"#save-candidate" } do %>
+          <i class="fa fa-save"></i>
+        <% end %>
+        <%= link_to new_employers_company_candidate_path(@company, url: file_path(@email_google)), remote: true,
+          class: "btn btn-sm btn-alt btn-default" do %>
+          <i class="fa fa-plus"></i>
+        <% end %>
+        <%= link_to "#", class: "btn btn-alt btn-sm btn-default" do %>
+          <i class="fa fa-save"></i>
+        <% end %>
+      </div>
+      <h2><%= show_string_encode @email_google.subject %> (<%= time_ago_in_words(@email_google.date) %>)</h2>
+    </div>
+    <%= show_body @email_google %>
+    <hr>
+    <% if @email_google.attachments.present? %>
+      <div class="row block-section">
+        <div class="col-xs-4 col-sm-2 text-center">
+          <%= link_to attachment_download_path(id: @email_google.uid), target: :_blank, class: "show-loading", remote: true do %>
+            <%= image_tag "pdf.png" %>
+            <span class="text-muted col-xs-12 col-sm-12"><%= @email_google.attachments.first.filename %></span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div id="add-candidate-through-email"></div>
+  <div id="cv-content"></div>
+</div>

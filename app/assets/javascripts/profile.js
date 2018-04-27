@@ -75,6 +75,7 @@ $(document).on('click', '#checkcv', function(){
     $('.files_field').hide();
   }
 });
+
 $(document).on('click', '.load-page', function(){
   $('#img-loading ').show();
   $('.opacity-apply').css('opacity' ,0.8);

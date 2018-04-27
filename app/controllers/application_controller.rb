@@ -3,11 +3,12 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
   before_action :rack_mini_profiler_authorize_request
+  helper_method :file_path
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
     @error_message = exception.model
-    respond_to do |f|
-      f.js{render "errors/error", status: 401}
+    respond_to do |format|
+      format.js{render "errors/error", status: 401}
     end
   end
 
@@ -16,7 +17,16 @@ class ApplicationController < ActionController::Base
     redirect_to main_app.root_url
   end
 
+  def file_path email_google
+    email_from = @email_google.from.first.mailbox + @email_google.from.first.host
+    "opt/cv/#{email_from}/cv.pdf"
+  end
+
   protected
+
+  def load_service
+    @google_client_service = GoogleClientService.new current_user
+  end
 
   def load_company
     @company = Company.find_by subdomain: request.subdomain

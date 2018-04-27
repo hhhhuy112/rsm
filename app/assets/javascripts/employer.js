@@ -55,3 +55,9 @@ $('.sidebar-nav').ready(function () {
   $('a[href="' + this.location.pathname + '"]').parent().parent().parent().addClass('active');
   $('a[href="' + this.location.pathname + '"]').addClass('active');
 });
+
+$(document).ready(function(){
+  $('.show-loading').click(function(){
+    $('.loading').fadeIn('slow');
+  });
+});

@@ -6,14 +6,8 @@
       <h4 class="modal-title"><%= t ".edit_candidate" %></h4>
     </div>
     <div class="modal-body" id="cadidate">
-      <%= simple_form_for [:employers, @candidate],
-        url: employers_company_candidate_path(@company, @candidate),
-        html: {id: "cadidate-form-edit"}, remote: true, method: :put do |f| %>
-
-        <div class="row">
-          <%= render partial: "employers/candidates/form_candidate", locals: {f: f} %>
-        </div>
-      <% end %>
+      <%= render partial: "employers/candidates/form_candidate",
+        locals: {url_content: employers_company_candidate_path(@company),  method_name: :put, url_path: nil} %>
     </div>
   </div>
 </div>
