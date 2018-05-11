@@ -10,7 +10,7 @@ class Employers::AppliesController < Employers::EmployersController
   before_action :load_offer_status_step_pending, only: %i(show update)
   before_action :load_jobs_applied, :load_notes, only: :show
   before_action :load_answers_for_survey, only: :show
-  before_action :load_applies, :select_size_steps, :get_update_date_apply, only: :index
+  before_action :value_email_of_info_or_code, :load_applies, :select_size_steps, :get_update_date_apply, only: :index
   before_action :load_user_candidate, only: :create, if: :is_params_candidate?
   before_action :check_create_apply_for_candidate, only: :create
   before_action :load_jobs, only: :new
@@ -106,8 +106,21 @@ class Employers::AppliesController < Employers::EmployersController
   def load_applies
     applies_status = @company.apply_statuses.current
     @applies_total = applies_status.size
+
+    applies_status_email_or_code = if @email_of_info_or_code.present?
+      ApplyStatus.current.of_apply(
+        Apply.email_of_information(@email_of_info_or_code).or(Apply.of_cadidate(@company.user_systems.get_by_code(@email_of_info_or_code).pluck(:id)))
+        .get_by_job(@company.job_ids)
+        .pluck(:id).uniq
+      )
+    end
+
     @q = applies_status.search params[:q]
-    @applies_status = @q.result.lastest_apply_status.includes(:apply, :job, :status_step)
+    applies_status = @q.result.lastest_apply_status.includes :apply, :job, :status_step
+
+    search_applies_status applies_status_email_or_code, applies_status
+
+    @applies_status = Kaminari.paginate_array(@applies_status)
       .page(params[:page]).per Settings.applies_max
   end
 
@@ -135,5 +148,25 @@ class Employers::AppliesController < Employers::EmployersController
 
   def get_update_date_apply
     @activities = Activity.get_update_date_apply
+  end
+
+  def value_email_of_info_or_code
+    @email_of_info_or_code = if params[:email_of_info_or_code].present?
+      params[:email_of_info_or_code]
+    else
+      params[:q].present? ? params[:q][:email_of_info_or_code] : nil
+    end
+  end
+
+  def search_applies_status applies_status_by_email_or_code, applies_status_by_other_condition
+    @applies_status = if @email_of_info_or_code.present?
+      if applies_status_by_email_or_code.nil? || applies_status_by_other_condition.nil?
+        []
+      else
+        applies_status_by_email_or_code&applies_status_by_other_condition
+      end
+    else
+      applies_status_by_other_condition
+    end
   end
 end

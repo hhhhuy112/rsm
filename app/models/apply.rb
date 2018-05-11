@@ -33,6 +33,10 @@ class Apply < ApplicationRecord
   scope :get_have_job, ->{where.not job_id: nil}
   scope :get_have_user, ->{where.not user_id: nil}
   scope :get_by_email, ->email{where "information LIKE ?", "%\nemail: #{email}\n%"}
+  scope :email_of_information, -> email do
+    where "SUBSTRING_INDEX(SUBSTRING_INDEX(information, ':', #{Settings.apply.information.email_end}), ':', #{Settings.apply.information.email_start}) LIKE ?", "%#{email}%"
+  end
+  scope :of_cadidate, -> user_ids{where user_id: user_ids}
 
   mount_uploader :cv, CvUploader
 

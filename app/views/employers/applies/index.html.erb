@@ -41,6 +41,8 @@
                 <label for="job_name_cont" class="fa fa-search rils" rel="tooltip"></label>
               </div>
             </div>
+
+            <%= f.hidden_field :email_of_info_or_code, value: @email_of_info_or_code %>
             <%= f.button :submit, class: "btn btn-primary" do %>
               <i class="fa fa-search" aria-hidden="true"></i>
               <%= t ".filter" %>

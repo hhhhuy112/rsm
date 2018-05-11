@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe CompaniesController, type: :controller do
-  let!(:user) {FactoryGirl.create :user, confirmed_at: Time.current}
+  let!(:user) {FactoryGirl.create :user, confirmed_at: Time.current, role: "admin"}
   let(:company) {FactoryGirl.create :company}
   subject {company}
   before { sign_in user }

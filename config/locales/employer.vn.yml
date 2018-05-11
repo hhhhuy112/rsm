@@ -316,6 +316,7 @@ vn:
         level: "Mức"
         skill: "Kỹ năng"
         request: "Yêu cầu"
+        requirement: "Yêu cầu"
         please_selected: "--- Vui lòng chọn ---"
         position: "Vị trí"
         save: "Tạo công việc"

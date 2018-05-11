@@ -7,11 +7,13 @@
       <% end %>
     </li>
   </ul>
-  <%= search_form_for @q, url: employers_applies_path, id: "form_search_email", class: "navbar-form-custom" do |f| %>
-    <div class="form-group">
-      <%= f.search_field :user_email_cont, class: "form-control", id: "input_button_search", placeholder: t(".search") %>
-    </div>
+
+  <%= form_tag employers_applies_path,
+      method: :GET, id: "form_search_email", class: "navbar-form-custom" do %>
+    <%= text_field_tag :email_of_info_or_code, params[:email_of_info_or_code],
+      class: "form-control", id: "input_button_search", placeholder: t(".search") %>
   <% end %>
+
   <ul class="nav navbar-nav-custom navbar-right">
     <%= render "shared/notify_email_sent" %>
     <%= render "shared/notification" %>

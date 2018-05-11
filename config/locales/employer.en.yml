@@ -106,7 +106,7 @@ en:
         not_applies: "Not found apply."
       index:
         all_applies: "All Applies"
-        apply: "apply"
+        apply: "Apply"
         filter: "Filter"
         enter_job: "Enter job"
         enter_step: "Enter step"
@@ -315,7 +315,8 @@ en:
         target: "Target"
         level: "Level"
         skill: "Skill"
-        request: "Requirement"
+        request: "Request"
+        requirement: "Requirement"
         please_selected: "--- Please Select ---"
         position: "Position"
         save: "Create Job"

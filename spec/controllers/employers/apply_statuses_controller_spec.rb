@@ -14,7 +14,14 @@ RSpec.describe Employers::ApplyStatusesController, type: :controller do
   end
   let(:status_step) {FactoryGirl.create :status_step, step_id: step.id}
   let(:apply) do
-    FactoryGirl.create :apply, user_id: user.id, job_id: job.id
+    FactoryGirl.create :apply, user_id: user.id, job_id: job.id,
+      cv: File.new(Rails.root.join("lib", "seeds", "template_cv.pdf")),
+      information: Hash[
+        name: Faker::Name.name,
+        email: "user@gmail.com",
+        phone: Faker::Number.number(10),
+        introducing: Faker::Lorem.sentence(50)
+      ]
   end
   let!(:apply_status) do
     FactoryGirl.create :apply_status, apply_id: apply.id, status_step_id: status_step.id
