@@ -21,3 +21,4 @@ Rails.application.config.assets.precompile += %w(employer/jquery-ui.css employer
   employers/preview.js history_activity.js)
 Rails.application.config.assets.precompile += %w(ckeditor/filebrowser/images/gal_del.png choose_file.js)
 Rails.application.config.assets.precompile += %w( ckeditor/* )
+Rails.application.config.assets.precompile += %w(employers/edit_candidate.js)

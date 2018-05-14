@@ -1,5 +1,5 @@
 class Employers::CandidatesController < Employers::EmployersController
-  before_action :load_user_candidate, only: %i(new show)
+  before_action :load_user_candidate, only: %i(new show edit update)
   before_action :load_applies_candidate, only: :show
   before_action :build_candidate, only: %i(index new)
   before_action :load_candidates, only: :index
@@ -26,7 +26,22 @@ class Employers::CandidatesController < Employers::EmployersController
     end
   end
 
+  def edit; end
+
+  def update
+    if @candidate.update_attributes candidate_param
+      load_candidates
+      @success = t ".success"
+    else
+      @error_record_invalid = t ".failure"
+    end
+  end
+
   private
+
+  def candidate_param
+    params.require(:user).permit :name, :phone, :email
+  end
 
   def build_candidate
     @apply = Apply.new

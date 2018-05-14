@@ -1,0 +1,63 @@
+<%= javascript_include_tag "load_image", "data-turbolinks-track": "reload" %>
+<div class="table-responsive">
+  <%= simple_form_for [:employers, @candidate],
+    url: employers_company_candidate_path(@company, @candidate),
+    html: {id: "cadidate-form"}, remote: true, method: :put do |f| %>
+
+    <div class="form-group form-custom input-inline width-inline">
+      <div class="col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon apply-un input-name">
+            <i class="fa fa-key" aria-hidden="true"></i>
+          </span>
+          <%= f.text_field :code, disabled: true,
+            class: "form-control input-custom input-lg input-name" %>
+        </div>
+        <span class="error-message-name"></span>
+      </div>
+    </div>
+
+    <div class="form-group form-custom input-inline width-inline">
+      <div class="col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon apply-un input-name">
+            <i class="fa fa-address-book" aria-hidden="true"></i>
+          </span>
+          <%= f.text_field :name, autofocus: true, placeholder: t(".name"),
+            class: "form-control input-custom input-lg input-name" %>
+        </div>
+        <span class="error-message-name"></span>
+      </div>
+    </div>
+
+    <div class="form-group form-custom input-inline width-inline">
+      <div class="col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon apply-un input-email"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+          <%= f.text_field :email, autofocus: true, placeholder: t(".email"),
+            class: "form-control input-custom input-lg input-email" %>
+        </div>
+        <span class="error-message-email"></span>
+      </div>
+    </div>
+
+    <div class="form-group form-custom input-inline width-inline">
+      <div class="col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon apply-un input-phone"><i class="fa fa-phone" aria-hidden="true"></i></span>
+          <%= f.text_field :phone, autofocus: true, placeholder: t(".phone"),
+            class: "form-control input-custom input-lg input-phone" %>
+        </div>
+        <span class="error-message-phone"></span>
+      </div>
+    </div>
+    <div class="form-group form-custom">
+      <div class="col-xs-12 pt-15">
+        <center>
+          <%= f.submit t(".save"), id: "edit_cadidate", class: "btn btn-info btn-md" %>
+        </center>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= javascript_include_tag "employers/edit_candidate" %>

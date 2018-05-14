@@ -568,6 +568,14 @@ vn:
         apply_for: "Ứng tuyển cho"
         job: "Công việc"
         none_applies: "Chưa ứng tuyển."
+      form_candidate:
+        save: "Lưu"
+        phone: "Số điện thoại"
+        name: "Tên"
+        email: "Email"
+      update:
+        success: "Cập nhật thông tin ứng viên thành công."
+        failure: "Cập nhật thông tin ứng viên thất bại."
       new_apply:
         add_candidate: "Thêm ứng viên"
         create: "Tạo"
