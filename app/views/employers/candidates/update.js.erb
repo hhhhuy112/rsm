@@ -1,0 +1,21 @@
+<% if @error %>
+  alertify.error('<%= @error %>');
+<% elsif @candidate.errors.any? %>
+  $('.help-block').remove();
+  $('.input-lg').css('border-color','#dbe1e8')
+  $('.apply-un').css('border-color','#dbe1e8')
+  $('.input-introducing').css('border-color','#dbe1e8')
+
+  <% @candidate.errors.messages.each do |message| %>
+    $('.error-message-<%= message.split(" ").first %>')
+      .append('<span class="help-block"><%= message %></span>')
+    $('.input-<%= message.split(" ").first %>')
+      .css('border-color','red','important')
+  <% end %>
+<% elsif @error_record_invalid %>
+  alertify.error('<%= @error_record_invalid %>');
+<% elsif @success %>
+  $('#table-candidates').html('<%= j render "table_candidates" %>');
+  $('#edit-candidate').modal('hide');
+  alertify.success('<%= @success %>');
+<% end %>

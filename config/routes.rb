@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     end
     resources :users
     resources :companies do
-      resources :candidates, except: %i(edit destroy update)
+      resources :candidates, except: %i(destroy)
       get "/search_job", to: "candidates#search_job"
     end
     resources :members

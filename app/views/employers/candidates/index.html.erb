@@ -27,3 +27,17 @@
   tabindex="-1" aria-hidden="true">
   <%= render "new_apply" %>
 </div>
+<% if @candidates.present? %>
+  <div class="modal fade" id="edit-candidate" role="dialog">
+    <div id="modal-job-full" class="modal-dialog job-modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><%= t ".edit_candidate" %></h4>
+        </div>
+        <div class="modal-body" id="cadidate">
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
