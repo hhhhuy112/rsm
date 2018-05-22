@@ -27,6 +27,14 @@ $(document).ready(function(){
         number: true,
         minlength: 10,
         maxlength: 13
+      },
+      'user[cv]': {
+        extension: "pdf"
+      }
+    },
+    messages: {
+      'user[cv]': {
+        extension: I18n.t("cv.only_pdf")
       }
     }
   });
