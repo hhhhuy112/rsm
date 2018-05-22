@@ -64,10 +64,8 @@ class Employers::CandidatesController < Employers::EmployersController
   end
 
   def load_candidates
-    user_ids = User.get_company(@company.id).pluck :id
-    candidate_ids = Apply.get_by_user(user_ids).pluck(:user_id).uniq
-    @q_candidates = User.get_by_id(candidate_ids).search params[:q]
-    @candidates = @q_candidates.result.newest.page(params[:page]).per Settings.apply.page
+    @q_candidates = User.get_company(@company.id).search params[:q]
+    @candidates = @q_candidates.result.includes(:assignment_person).newest.page(params[:page]).per Settings.apply.page
   end
 
   def check_candidate_exist

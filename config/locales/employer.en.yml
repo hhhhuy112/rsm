@@ -538,6 +538,7 @@ en:
       destroy:
         destroyed_success: "Destroyed success!"
     candidates:
+      oneself: "Oneself"
       table_candidates:
         no: "No"
         name: "Name"
@@ -547,6 +548,7 @@ en:
         action: "Action"
         not_candidates: "Haven't candidates."
         code: "Code"
+        create_by: "Create by"
       index:
         not_candidates: "Haven't candidates."
         all_candidates: "All candidates"
