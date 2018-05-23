@@ -40,7 +40,7 @@ class Employers::CandidatesController < Employers::EmployersController
   private
 
   def candidate_param
-    params.require(:user).permit :name, :phone, :email
+    params.require(:user).permit :name, :phone, :email, :cv
   end
 
   def build_candidate
