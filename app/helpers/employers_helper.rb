@@ -194,4 +194,8 @@ module EmployersHelper
   def index_count_page counter, page, max_per
     counter + CouterIndex.couter(page, max_per)
   end
+
+  def name_of_assignment_person assignment_person
+    assignment_person.present? ? assignment_person.name : I18n.t("employers.candidates.oneself")
+  end
 end

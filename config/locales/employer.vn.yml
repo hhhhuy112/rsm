@@ -534,6 +534,7 @@ vn:
       destroy:
         destroyed_success: "Đã xóa thành công!"
     candidates:
+      oneself: "Tự đăng ký"
       table_candidates:
         no: "STT"
         name: "Tên"
@@ -543,6 +544,7 @@ vn:
         action: "Hành động"
         not_candidates: "Không có ứng viên."
         code: "Mã số"
+        create_by: "Tạo bởi"
       index:
         not_candidates: "Không có ứng viên."
         all_candidates: "All candidates"

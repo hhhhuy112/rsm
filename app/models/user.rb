@@ -29,6 +29,7 @@ class User < ApplicationRecord
   has_many :apply_statuses, through: :applies
   has_many :notes, dependent: :destroy
   has_many :email_sents, dependent: :destroy
+  belongs_to :assignment_person, class_name: User.name, foreign_key: :create_by, optional: true
   belongs_to :company, class_name: Company.name, foreign_key: :company_id
 
   validates :name, presence: true
