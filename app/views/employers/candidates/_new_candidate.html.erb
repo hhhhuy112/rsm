@@ -1,0 +1,22 @@
+<%= javascript_include_tag "load_image", "data-turbolinks-track": "reload" %>
+  <div id="modal-job-full" class="modal-dialog job-modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">
+          <%= t "employers.candidates.index.add_candidate" %>
+        </h4>
+      </div>
+      <div class="modal-body" id="form_add_cadidate">
+        <%= simple_form_for [:employers, @candidate],
+          url: employers_company_candidates_path(@company),
+          html: {id: "cadidate-form"},
+          method: :post, remote: :true, class: "form-horizontal form-bordered" do |f| %>
+          <div class="row">
+            <%= render partial: "employers/candidates/form_candidate", locals: {f: f} %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<%= javascript_include_tag "employers/candidate" %>

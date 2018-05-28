@@ -36,6 +36,8 @@ class User < ApplicationRecord
   validates :email, uniqueness: { scope: :company_id,
     message: I18n.t("users.form.empty") }
   validates :code, uniqueness: {scope: :company_id}, presence: true
+  validates :cv, presence: true, allow_nil: true
+  validates :phone, presence: true, length: {maximum: Settings.phone_max_length}
   validate :birthday_cannot_be_in_the_future
 
   before_validation(on: :create) do
@@ -110,11 +112,11 @@ class User < ApplicationRecord
       return applies_user.present?
     end
 
-    def auto_create_user company_id, information, cv
+    def auto_create_user company_id, information, cv, user_id
       password = Devise.friendly_token.first(Settings.password.length)
       user = User.new email: information[:email], name: information[:name],
         password: password, company_id: company_id, phone: information[:phone],
-        address: information[:address], cv: cv
+        address: information[:address], cv: cv, create_by: user_id
       user.self_attr_after_save password
       user.save!
       user

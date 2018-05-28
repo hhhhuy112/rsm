@@ -104,7 +104,7 @@ class Apply < ApplicationRecord
         elsif current_user
           current_user.company_id
         end
-        user = User.auto_create_user company_apply_id, information, cv
+        user = User.auto_create_user company_apply_id, information, cv, current_user.id
         user.id
       else
         applies.first.user_id

@@ -1,20 +1,24 @@
 class Employers::CandidatesController < Employers::EmployersController
-  before_action :load_user_candidate, only: %i(new show edit update)
+  before_action :load_user_candidate, only: %i(show edit update)
   before_action :load_applies_candidate, only: :show
-  before_action :build_candidate, only: %i(index new)
   before_action :load_candidates, only: :index
-  before_action :check_candidate_exist, only: :create
-  before_action :load_job_applied_candidate, only: :new
+  before_action :check_candidate_exist, :auto_value_for_create, only: :create
 
   def index; end
 
   def show; end
 
-  def new; end
+  def new
+   @candidate = User.new
+  end
 
   def create
-    information = params[:apply][:information].permit!.to_h if params[:apply]
-    save_apply information
+    if @candidate.save
+      load_candidates
+      @success = t ".success"
+    else
+      @error_record_invalid = t ".failure"
+    end
   end
 
   def search_job
@@ -44,7 +48,7 @@ class Employers::CandidatesController < Employers::EmployersController
   end
 
   def build_candidate
-    @apply = Apply.new
+    @candidate = User.new
   end
 
   def apply_params
@@ -85,5 +89,14 @@ class Employers::CandidatesController < Employers::EmployersController
     job_ids = @candidate.applies.pluck :job_id
     @q = @company.jobs.get_by_not_id(job_ids).search params[:q]
     @jobs = @q.result.page(params[:page]).per Settings.apply.page
+  end
+
+  def auto_value_for_create
+    password = Devise.friendly_token.first Settings.password.length
+    @candidate = User.new candidate_param
+    @candidate.password = @candidate.self_attr_after_save password
+    @candidate.role = User.roles[:user]
+    @candidate.company_id = @company.id
+    @candidate.create_by = @current_user.id
   end
 end

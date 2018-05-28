@@ -1,0 +1,20 @@
+<%= javascript_include_tag "load_image", "data-turbolinks-track": "reload" %>
+<div id="modal-job-full" class="modal-dialog job-modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title"><%= t ".edit_candidate" %></h4>
+    </div>
+    <div class="modal-body" id="cadidate">
+      <%= simple_form_for [:employers, @candidate],
+        url: employers_company_candidate_path(@company, @candidate),
+        html: {id: "cadidate-form-edit"}, remote: true, method: :put do |f| %>
+
+        <div class="row">
+          <%= render partial: "employers/candidates/form_candidate", locals: {f: f} %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag "employers/candidate" %>

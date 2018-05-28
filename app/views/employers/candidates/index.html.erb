@@ -3,7 +3,8 @@
   <div class="block-title">
     <h2><strong><%= t ".all_candidates" %></strong></h2>
     <div class="block-options pull-right">
-      <%= link_to "javascript:void(0)", data: {toggle: "modal", target: "#new-candidate"}, class: "btn btn-sm btn-alt btn-default" do %>
+      <%= link_to new_employers_company_candidate_path(@company), remote: true,
+        class: "btn btn-sm btn-alt btn-default" do %>
         <i class="fa fa-plus"></i>
       <% end %>
     </div>
@@ -23,21 +24,7 @@
     </div>
   </div>
 </div>
-<div class="modal fade" id="new-candidate" role="dialog"
-  tabindex="-1" aria-hidden="true">
-  <%= render "new_apply" %>
-</div>
+<div class="modal fade" id="add-candidate" role="dialog"></div>
 <% if @candidates.present? %>
-  <div class="modal fade" id="edit-candidate" role="dialog">
-    <div id="modal-job-full" class="modal-dialog job-modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"><%= t ".edit_candidate" %></h4>
-        </div>
-        <div class="modal-body" id="cadidate">
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="modal fade" id="edit-candidate" role="dialog"></div>
 <% end %>
