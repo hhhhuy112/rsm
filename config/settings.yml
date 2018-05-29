@@ -232,3 +232,4 @@ send_emails: "send_emails"
 str_true: "true"
 nested_attributes:
   destroy: "_destroy"
+phone_max_length: 13

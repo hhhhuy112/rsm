@@ -553,6 +553,7 @@ en:
         not_candidates: "Haven't candidates."
         all_candidates: "All candidates"
         edit_candidate: "Edit candidate"
+        add_candidate: "Add candidate"
       candidates_search:
         enter_search_candidates: "Enter name or phone or address or email"
         filter: "Filter"
@@ -580,6 +581,11 @@ en:
         add_candidate: "Add candidate"
         create: "Create"
       form_candidate:
+        save: "Save"
+        phone: "Phone"
+        name: "Name"
+        email: "Email"
+      candidate_form:
         save: "Save"
         phone: "Phone"
         name: "Name"
