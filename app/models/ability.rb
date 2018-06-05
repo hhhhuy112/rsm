@@ -7,6 +7,7 @@ class Ability
     when "Employers"
       permission_employer user
     else
+      permission_user user
       if user.is_employer?
         permission_employer user
       end
@@ -14,7 +15,6 @@ class Ability
       if user.admin?
         permission_admin
       end
-      permission_user user
     end
   end
 
@@ -27,29 +27,22 @@ class Ability
   end
 
   def manage_company user, company
+    can :read, User, company_id: company.id
     can :update, Company, id: company.id
     can :manage, Member, company_id: company.id
     can :manage, Job, company_id: company.id
     can :manage, Appointment, company_id: company.id
     can :manage, Template, company_id: company.id
-    can :create, Apply
-    can :manage, Apply, job_id: company.jobs.pluck(:id)
-    can :create, ApplyStatus
+    can :manage, Apply, job_id: company.job_ids
     can :read, Step
-    can :manage, ApplyStatus, apply_id: company.applies.pluck(:id)
-    can :read, StatusStep, company_id: company.id
+    can :manage, ApplyStatus, apply_id: company.apply_ids
+    can :read, StatusStep
     can :manage, Question, company_id: company.id
     can %i(read create), Note
     can %i(update destroy), Note, user_id: user.id
-    can :manage, :candidate do
-      user.company_id == company.id
-    end
-    can :manage, :dashboard do
-      user.company_id == company.id
-    end
-    can :manage, :send_email do
-      user.company_id == company.id
-    end
+    can :manage, :candidate if user.company_id == company.id
+    can :manage, :dashboard if user.company_id == company.id
+    can :manage, :send_email if user.company_id == company.id
   end
 
   def permission_admin
@@ -57,7 +50,7 @@ class Ability
   end
 
   def permission_user user
-    can :read, :all
+    can :read, :all, id: user.id
     can :update, User, id: user.id
     can :manage, Club, user_id: user.id
     can :manage, Achievement, user_id: user.id
