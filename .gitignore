@@ -37,3 +37,4 @@ coverage/index.html
 /Gemfile.lock
 /public/*
 coverage/*
+/opt/*
