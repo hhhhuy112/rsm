@@ -99,22 +99,12 @@
         <li class="title-header">
             <span class="title-sidebar"><%= t ".personal-setting" %></span>
         </li>
-
-        <% if current_user.oauth %>
-          <li>
-            <%= link_to "javascript:void(0)", class: "disabled" do %>
-              <i class="fa fa-google" aria-hidden="true"></i>
-              <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".connected_gmail" %></span>
-            <% end %>
-          </li>
-        <% else %>
           <li>
             <%= link_to "javascript:void(0)", class: "connect-google" do %>
               <i class="fa fa-google" aria-hidden="true"></i>
               <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".connect_gmail" %></span>
             <% end %>
           </li>
-        <% end %>
       </ul>
     </div>
   </div>

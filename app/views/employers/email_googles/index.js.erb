@@ -1,0 +1,6 @@
+$(document).ready(function(){
+  $('#pagination-email').html('<%= j render partial: "pagination", locals: {email_googles: @data[:email_googles], \
+    page:@data[:page], start_index: @data[:start_index], end_index: @data[:end_index], size: @data[:size]} %>');
+  $('#list-email-googles').html('<%= j render partial: "email_google", collection: @data[:email_googles], as: :email_google %>');
+  $('.loading').fadeOut('slow');
+});

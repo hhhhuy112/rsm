@@ -552,6 +552,8 @@ en:
     like: "like"
     liked: "Liked"
     dislike: " Dislike"
+    email_googles:
+      not_save_file: "Can't save file"
   placeholder:
     blank: "No information"
   apply:

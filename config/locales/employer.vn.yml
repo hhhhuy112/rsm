@@ -590,6 +590,12 @@ vn:
         not_cv: "Không có CV"
       apply:
         view_cv: "Xem CV"
+    email_googles:
+      index:
+        inbox: "Hộp thư"
+        pagination:
+          from: "từ"
+
   layouts:
     employers:
       footer_employer:

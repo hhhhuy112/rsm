@@ -38,3 +38,4 @@ coverage/index.html
 /public/*
 coverage/*
 /opt/*
+/bower_components

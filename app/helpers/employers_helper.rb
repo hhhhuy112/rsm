@@ -198,4 +198,22 @@ module EmployersHelper
   def name_of_assignment_person assignment_person
     assignment_person.present? ? assignment_person.name : I18n.t("employers.candidates.oneself")
   end
+
+  def show_name email_google
+    name = email_google.from.first.name || email_google.from.first.mailbox
+    show_string_encode name
+  end
+
+  def show_string_encode str
+    Mail::Encodings.value_decode str
+  end
+
+  def show_body email
+    text_body = (email.html_part || email.text_part || email).body.decoded
+    content = if text_body.present?
+      raw text_body.force_encoding('UTF-8')
+    end
+    return if content
+    content_tag(:span, content)
+  end
 end

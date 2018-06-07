@@ -4,6 +4,7 @@
   "dependencies": {
     "@fancyapps/fancybox": "^3.2.5",
     "alertify": "^0.3.0",
+    "alertify.js": "^1.0.12",
     "css-progress-wizard": "^0.0.9",
     "install": "^0.10.4",
     "moment": "^2.20.1",
