@@ -13,5 +13,6 @@
 <% elsif @success %>
   $('#table-candidates').html('<%= j render "table_candidates" %>');
   $('#add-candidate').modal('hide');
+  $('#add-candidate-through-email').html('');
   alertify.success('<%= @success %>');
 <% end %>

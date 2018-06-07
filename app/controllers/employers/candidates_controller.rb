@@ -9,10 +9,14 @@ class Employers::CandidatesController < Employers::EmployersController
   def show; end
 
   def new
-   @candidate = User.new
+    @url_content = params[:url]
+    @candidate = User.new
   end
 
   def create
+    if params.require(:user)[:cv].blank? && params[:url].present?
+      @candidate.cv = Pathname.new(params[:url]).open
+    end
     if @candidate.save
       load_candidates
       @success = t ".success"

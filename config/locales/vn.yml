@@ -592,6 +592,8 @@ vn:
     like: "like"
     liked: "Liked"
     dislike: " Dislike"
+    email_googles:
+      not_save_file: "File không hợp lệ"
   placeholder:
     blank: "No information"
   apply:

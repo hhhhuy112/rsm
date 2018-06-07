@@ -55,10 +55,14 @@ Rails.application.routes.draw do
     resources :steps
     resources :status_steps, only: :index
     resources :questions, only: :index
+    resources :email_googles
   end
   resources :bookmark_likes
   resources :experiences
   resources :reward_benefits
-  resources :downloads
+  resources :downloads do
+    get :attachment, on: :member
+    get :show_attachment, on: :member
+  end
   resources :notifications, only: :index
 end

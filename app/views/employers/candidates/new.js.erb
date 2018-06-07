@@ -3,4 +3,5 @@
 <% else %>
   $('#add-candidate').modal('show');
   $('#add-candidate').html('<%= j render "new_candidate" %>');
+  $('#add-candidate-through-email').html('<%= j render partial: "employers/email_googles/form_candidate", locals: {url_path: @url_content} %>');
 <% end %>

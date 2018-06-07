@@ -1,3 +1,5 @@
+$('#modal-job-full').removeClass('modal-ex-lg-90');
+$('#manage-job-form').removeClass('bg-dark');
 <% if @error %>
   alertify.error('<%= @error %>');
 <% elsif @job.errors.any? %>
