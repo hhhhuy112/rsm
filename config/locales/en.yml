@@ -526,6 +526,8 @@ en:
         job_name: "Select Job Name"
         status_applies: "Select Status Apply"
         apply: "Apply"
+      new_form:
+        job_name_placeholder: "Please input job name"
     job:
       id: "ID"
       jobname: "Name"
@@ -554,6 +556,10 @@ en:
     dislike: " Dislike"
     email_googles:
       not_save_file: "Can't save file"
+      show:
+        add_candidate: "Add Candidate"
+        add_apply: "Add Apply"
+
   placeholder:
     blank: "No information"
   apply:

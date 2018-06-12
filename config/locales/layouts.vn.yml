@@ -226,6 +226,7 @@ vn:
         connected_gmail: "Đã kết nối gmail"
         apply: "Apply"
         new_apply: "Apply mới"
+        email_googles: "Thư điện tử"
       header_employer:
         messages: "Tin nhắn"
         profile: "Hồ sơ cá nhân"
