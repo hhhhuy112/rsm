@@ -1,7 +1,12 @@
 require "rails_helper"
 
 RSpec.describe Achievement, type: :model do
-  let(:achievement) {FactoryGirl.create :achievement}
+
+  let(:company){FactoryGirl.create :company}
+  let(:user){FactoryGirl.create :user, email: Faker::Internet.email, company_id: company.id,
+    cv: Rails.root.join("public/uploads/user/cv/1/abc.pdf").open}
+  let(:achievement) {FactoryGirl.create :achievement, user_id: user.id}
+
   subject {achievement}
 
   context "associations" do
@@ -16,18 +21,14 @@ RSpec.describe Achievement, type: :model do
     it {is_expected.to have_db_column(:user_id).of_type(:integer)}
   end
 
-  context "when name is not valid" do
-    before {subject.name = ""}
-    it {is_expected.not_to be_valid}
-  end
-
-  context "when majors is not valid" do
-    before {subject.majors = ""}
-    it {is_expected.not_to be_valid}
-  end
-
-  context "when organization is not valid" do
-    before {subject.organization = ""}
-    it {is_expected.not_to be_valid}
+  context "validates" do
+    it {is_expected.to validate_presence_of(:name)
+      .with_message(I18n.t("activerecord.errors.models.achievement.attributes.name.blank"))}
+    it {is_expected.to validate_presence_of(:majors)
+      .with_message(I18n.t("activerecord.errors.models.achievement.attributes.majors.blank"))}
+    it {is_expected.to validate_presence_of(:organization)
+      .with_message(I18n.t("activerecord.errors.models.achievement.attributes.organization.blank"))}
+    it {is_expected.to validate_presence_of(:received_time)
+      .with_message(I18n.t("activerecord.errors.models.achievement.attributes.received_time.blank"))}
   end
 end
