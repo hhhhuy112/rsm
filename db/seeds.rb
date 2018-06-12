@@ -32,9 +32,9 @@ Company.create!(
 )
 User.delete_all
 User.create!(name: "Nguyen Van A", email: "nguyenvana@gmail.com", password: "123456",
-  phone: "01698624222", birthday: "1996-01-13", address: "Tam Ky, Quang Nam", company_id: 1)
+  cv: Rails.root.join("public/uploads/user/cv/1/abc.pdf").open, phone: "01698624222", birthday: "1996-01-13", address: "Tam Ky, Quang Nam", company_id: 1)
 User.create!(name: "Nguyen Van Pho", email: "nguyenvanb@gmail.com", password: "123456",
-  phone: "01698624222", birthday: "1996-01-13", address: "Tam Ky, Quang Nam", company_id: 2)
+  cv: Rails.root.join("public/uploads/user/cv/1/abc.pdf").open, phone: "01698624222", birthday: "1996-01-13", address: "Tam Ky, Quang Nam", company_id: 2)
 1.upto(5) do |x|
   name = Faker::Name.name
   email = "employer#{x}@gmail.com"
@@ -43,11 +43,12 @@ User.create!(name: "Nguyen Van Pho", email: "nguyenvanb@gmail.com", password: "1
   pass_conf = "123123"
   birthday = Date.current
   role = "employer"
+  cv = cv: Rails.root.join("public/uploads/user/cv/1/abc.pdf").open
   phone = "0965600364"
   company_id = 1
   User.create!(name: name, email: email, password: pass, birthday: birthday,
                password_confirmation: pass_conf, role: role, address: address,
-               phone: phone, company_id: company_id)
+               cv: cv, phone: phone, company_id: company_id)
 end
 1.upto(5) do |x|
   name = Faker::Name.name
