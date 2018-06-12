@@ -448,10 +448,6 @@ vn:
           attributes:
             name:
               blank: "Không thể để trống"
-        apply:
-          attributes:
-            cv:
-              blank: "Không thể để trống"
         offer:
           attributes:
             address:
@@ -473,6 +469,38 @@ vn:
             code:
               blank: "Không để trống"
               taken: "Đã tồn tại"
+            cv:
+              blank: "CV không được để trống"
+            phone:
+              blank: "không được để trống"
+              too_long: "phải nhỏ hơn 13 ký tự"
+        template:
+          attributes:
+            name:
+              blank: "Không để trống"
+            title:
+              blank: "Không để trống"
+            type_of:
+              blank: "Không để trống"
+            template_body:
+              blank: "Không để trống"
+        company:
+          attributes:
+            name:
+              blank: "Không để trống"
+            majors:
+              blank: "Không để trống"
+            contact_person:
+              blank: "Không để trống"
+            phone:
+              blank: "Không để trống"
+              already_exist: "Đã tồn tại"
+        apply:
+          attributes:
+            cv:
+              blank: "Không thể để trống"
+            information:
+              blank: "Không thể để trống"
   activemodel:
     errors:
       models:

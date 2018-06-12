@@ -13,7 +13,8 @@ RSpec.describe Apply, type: :model do
   end
   let(:status_step) {FactoryGirl.create :status_step, step_id: step.id}
   let(:apply) do
-    FactoryGirl.create :apply, user_id: user.id, job_id: job.id
+    FactoryGirl.create :apply, user_id: user.id, job_id: job.id,
+      cv: fixture_file_upload("template_cv.pdf", "text/pdf")
   end
 
   context "associations" do
@@ -37,8 +38,11 @@ RSpec.describe Apply, type: :model do
   end
 
   context "validates" do
-    it {is_expected.to validate_presence_of(:cv)}
-    it {is_expected.to validate_presence_of(:information)}
+    it {is_expected.to validate_presence_of(:cv)
+      .with_message(I18n.t("activerecord.errors.models.apply.attributes.cv.blank"))}
+    it {is_expected.to validate_presence_of(:information)
+      .with_message(I18n.t("activerecord.errors.models.apply.attributes.information.blank"))}
+    it {is_expected.to define_enum_for(:status).with(%i(unlock_apply lock_apply cancel_apply))}
   end
 
   context "nested attributes for apply_statuses" do
@@ -89,7 +93,7 @@ RSpec.describe Apply, type: :model do
 
   context "when cv not file pdf" do
     before do
-      cv = cv = fixture_file_upload("template_cv.doc", "text/doc")
+      cv = fixture_file_upload("template_cv.doc", "text/doc")
       subject.cv = cv
     end
     it "matches the error message" do

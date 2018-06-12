@@ -27,48 +27,15 @@ RSpec.describe Company, type: :model do
   end
 
   context "validates" do
-    it {is_expected.to validate_presence_of(:name)}
-    it {is_expected.to validate_presence_of(:majors)}
-    it {is_expected.to validate_presence_of(:contact_person)}
-    it {is_expected.to validate_presence_of(:phone)}
-  end
-
-  context "when name is not valid" do
-    before {subject.name = ""}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:name].should include("can't be blank")
-    end
-  end
-
-  context "when majors is not valid" do
-    before {subject.majors = ""}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:majors].should include("can't be blank")
-    end
-  end
-
-  context "when contact_person is not valid" do
-    before {subject.contact_person = ""}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:contact_person].should include("can't be blank")
-    end
-  end
-
-  context "when phone is not valid" do
-    before {subject.phone = ""}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:phone].should include("can't be blank")
-    end
-  end
-
-  context "when phone is not matches regex" do
-    before {subject.phone = Faker::Lorem.characters(10)}
-    it "matches the error message" do
-      expect(subject.phone).not_to match(/\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/)
-    end
+    it {is_expected.to validate_presence_of(:name)
+      .with_message(I18n.t("activerecord.errors.models.company.attributes.name.blank"))}
+    it {is_expected.to validate_presence_of(:majors)
+      .with_message(I18n.t("activerecord.errors.models.company.attributes.majors.blank"))}
+    it {is_expected.to validate_presence_of(:contact_person)
+      .with_message(I18n.t("activerecord.errors.models.company.attributes.contact_person.blank"))}
+    it {is_expected.to validate_presence_of(:phone)
+      .with_message(I18n.t("activerecord.errors.models.company.attributes.phone.blank"))}
+    it {is_expected.to validate_uniqueness_of(:phone).case_insensitive
+      .with_message(I18n.t("activerecord.errors.models.company.attributes.phone.already_exist"))}
   end
 end
