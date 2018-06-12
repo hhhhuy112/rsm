@@ -3,6 +3,7 @@ class Employers::CandidatesController < Employers::EmployersController
   before_action :load_applies_candidate, only: :show
   before_action :load_candidates, only: :index
   before_action :check_candidate_exist, :auto_value_for_create, only: :create
+  before_action :load_jobs, only: :new
 
   def index; end
 
@@ -11,6 +12,10 @@ class Employers::CandidatesController < Employers::EmployersController
   def new
     @url_content = params[:url]
     @candidate = User.new
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def create

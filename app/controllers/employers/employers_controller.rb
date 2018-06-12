@@ -154,6 +154,8 @@ class Employers::EmployersController < BaseNotificationsController
   end
 
   def load_jobs
+    params[:q] = {} if params[:q].blank?
+    params[:q][:id_not_in] = @candidate.jobs_applied_ids if @candidate.present?
     @q = @company.jobs.search params[:q]
     @jobs = @q.result
   end

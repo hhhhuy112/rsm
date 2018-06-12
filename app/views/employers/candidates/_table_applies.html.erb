@@ -2,10 +2,11 @@
   <div class="block-title">
     <h2><%= t ".apply_for" %> <strong><%= t ".job" %></strong></h2>
     <div class="block-options pull-right">
-      <%= link_to new_employers_company_candidate_path(@company, id: @candidate.id),
-        remote: true, class: "btn btn-sm btn-alt btn-default" do %>
-        <i class="fa fa-plus"></i>
+      <%= link_to new_employers_apply_path(user_id: @candidate.id), remote: true,
+        class: "btn btn-sm btn-alt btn-default" do %>
+        <i class="fa fa-plus"></i> <%= t ".add_apply" %>
       <% end %>
+
     </div>
   </div>
   <% if @apply_statuses.present? %>

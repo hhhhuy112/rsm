@@ -13,7 +13,7 @@ class Employers::AppliesController < Employers::EmployersController
   before_action :value_email_of_info_or_code, :load_applies, :select_size_steps, :get_update_date_apply, only: :index
   before_action :load_user_candidate, only: :create, if: :is_params_candidate?
   before_action :check_create_apply_for_candidate, only: :create
-  before_action :load_jobs, only: :new
+  before_action :load_candidate_and_job_applied, :load_jobs, only: :new
 
   def index; end
 
@@ -26,6 +26,7 @@ class Employers::AppliesController < Employers::EmployersController
 
   def new
     @url_content = params[:url]
+    @apply = Apply.new
     respond_to do |format|
       format.js
       format.html
@@ -145,6 +146,13 @@ class Employers::AppliesController < Employers::EmployersController
     applies = Apply.get_by_email information[:email]
     return @error = t(".not_applies") if applies.blank?
     @candidate = applies.first.user
+  end
+
+  def load_candidate_and_job_applied
+    return if params[:user_id].blank?
+    @candidate = User.find_by id: params[:user_id]
+    return @error = t(".not_applies") if @candidate.blank?
+    @job_joined_ids = @candidate.jobs_applied_ids
   end
 
   def load_applies_after_save information
