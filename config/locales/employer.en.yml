@@ -132,6 +132,8 @@ en:
         haven't_notes: "Don't have notes."
       notes_table:
         sure: "Are you sure want delete this note ?"
+      new_form:
+        create: "Add candidate"
     apply_statuses:
       confirm_send_email: "Do you want to send email for candidate ?"
       mgs_send_email_susscess: "You changed status success"
@@ -554,6 +556,7 @@ en:
         all_candidates: "All candidates"
         edit_candidate: "Edit candidate"
         add_candidate: "Add candidate"
+        add_apply: "Add apply"
       candidates_search:
         enter_search_candidates: "Enter name or phone or address or email"
         filter: "Filter"

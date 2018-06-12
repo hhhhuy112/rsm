@@ -131,6 +131,8 @@ vn:
         haven't_notes: "Không có ghi chú."
       notes_table:
         sure: "Bạn có chắc muốn xóa ghi chú này ?"
+      new_form:
+        create: "Thêm ứng viên"
     apply_statuses:
       confirm_send_email: "Bạn có muốn gửi email cho ứng cử viên?"
       mgs_send_email_susscess: "Thay đổi trạng thái thành công"

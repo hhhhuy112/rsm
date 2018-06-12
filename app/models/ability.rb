@@ -33,8 +33,10 @@ class Ability
     can :manage, Job, company_id: company.id
     can :manage, Appointment, company_id: company.id
     can :manage, Template, company_id: company.id
+    can :create, Apply
     can :manage, Apply, job_id: company.job_ids
     can :read, Step
+    can :create, ApplyStatus
     can :manage, ApplyStatus, apply_id: company.apply_ids
     can :read, StatusStep
     can :manage, Question, company_id: company.id
@@ -43,6 +45,7 @@ class Ability
     can :manage, :candidate if user.company_id == company.id
     can :manage, :dashboard if user.company_id == company.id
     can :manage, :send_email if user.company_id == company.id
+    can :manage, :email_google if user.company_id == company.id
   end
 
   def permission_admin

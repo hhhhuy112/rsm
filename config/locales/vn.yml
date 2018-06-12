@@ -568,6 +568,8 @@ vn:
         job_name: "Select Job Name"
         status_applies: "Select Status Apply"
         apply: "Ứng tuyển"
+      new_form:
+        job_name_placeholder: "Nhập tên công việc"
     job:
       id: "ID"
       jobname: "Tên"
@@ -594,6 +596,10 @@ vn:
     dislike: " Dislike"
     email_googles:
       not_save_file: "File không hợp lệ"
+      show:
+        add_candidate: "Thêm ứng viên"
+        add_apply: "Thêm công việc"
+
   placeholder:
     blank: "No information"
   apply:

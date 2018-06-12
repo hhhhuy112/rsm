@@ -24,7 +24,13 @@ class Employers::AppliesController < Employers::EmployersController
     end
   end
 
-  def new; end
+  def new
+    @url_content = params[:url]
+    respond_to do |format|
+      format.js
+      format.html
+    end
+  end
 
   def create
     information = params[:apply][:information].permit!.to_h
@@ -71,6 +77,9 @@ class Employers::AppliesController < Employers::EmployersController
         apply = Apply.new apply_params
         apply.information = information
         apply.cv = @candidate.applies.first.cv if is_params_candidate?
+        if params.require(:apply)[:cv].blank? && params[:url].present?
+          apply.cv = Pathname.new(params[:url]).open
+        end
         apply.self_attr_after_create current_user
         apply.save!
       end

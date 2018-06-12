@@ -2,15 +2,14 @@
   <div class="block full">
     <div class="block-title">
       <div class="block-options pull-right">
-        <%= link_to "#", class: "btn btn-alt btn-sm btn-default", data:{ toggle: "modal", target:"#save-candidate" } do %>
-          <i class="fa fa-save"></i>
-        <% end %>
         <%= link_to new_employers_company_candidate_path(@company, url: file_path(@email_google)), remote: true,
           class: "btn btn-sm btn-alt btn-default" do %>
-          <i class="fa fa-plus"></i>
+          <i class="fa fa-plus"></i> <%= t ".add_candidate" %>
         <% end %>
-        <%= link_to "#", class: "btn btn-alt btn-sm btn-default" do %>
-          <i class="fa fa-save"></i>
+
+        <%= link_to new_employers_apply_path(url: file_path(@email_google)), remote: true,
+          class: "btn btn-sm btn-alt btn-default" do %>
+          <i class="fa fa-plus"></i> <%= t ".add_apply" %>
         <% end %>
       </div>
       <h2><%= show_string_encode @email_google.subject %> (<%= time_ago_in_words(@email_google.date) %>)</h2>
@@ -29,5 +28,6 @@
     <% end %>
   </div>
   <div id="add-candidate-through-email"></div>
+  <div id="add-apply-through-email"></div>
   <div id="cv-content"></div>
 </div>
