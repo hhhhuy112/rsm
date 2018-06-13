@@ -1,6 +1,7 @@
 require "rails_helper"
 RSpec.describe UsersController, type: :controller do
-  let(:user) {FactoryGirl.create :user, confirmed_at: Time.current}
+  let(:company) {FactoryGirl.create :company}
+  let(:user) {FactoryGirl.create :user, confirmed_at: Time.current, company_id: company.id}
   subject {user}
   before {sign_in user}
 
