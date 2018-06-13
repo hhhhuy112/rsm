@@ -23,6 +23,7 @@ class User < ApplicationRecord
   has_many :members, dependent: :destroy
   has_many :companies, through: :members
   has_many :applies, dependent: :destroy
+  has_many :jobs_applied, class_name: Job.name, through: :applies, source: :job, dependent: :destroy
   has_many :inforappointments
   has_many :offers, dependent: :destroy
   has_one :oauth, dependent: :destroy

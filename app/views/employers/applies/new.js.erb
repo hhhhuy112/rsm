@@ -1,1 +1,5 @@
+<% if @candidate.present? %>
+  $('#add-apply').html('<%= j render "employers/candidates/select_job" %>');
+  $('#add-apply').modal('show');
+<% end %>
 $('#add-apply-through-email').html('<%= j render("employers/applies/new_form") %>');
