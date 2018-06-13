@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe BookmarkLikesController, type: :controller do
-  let(:user) {FactoryGirl.create :user, confirmed_at: Time.current, role: "admin"}
   let(:company) {FactoryGirl.create :company}
+  let(:user) {FactoryGirl.create :user, confirmed_at: Time.current, company_id: company.id}
   let(:branch) {FactoryGirl.create :branch, company_id: company.id}
   let(:category) {FactoryGirl.create :category, company_id: company.id}
   let(:currency) {FactoryGirl.create :currency, company_id: company.id}

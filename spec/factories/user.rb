@@ -8,5 +8,6 @@ FactoryGirl.define do
     sequence(:email) {|n| "psrsson#{n}@example.com" }
     address "Tam Ky"
     birthday "1996-01-13"
+    cv Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, "/spec/fixtures/template_cv.pdf")))
   end
 end

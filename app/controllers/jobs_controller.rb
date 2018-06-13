@@ -92,7 +92,7 @@ class JobsController < BaseNotificationsController
   end
 
   def load_jobs
-    @jobs = @company.jobs.includes(:branch, :category)
+    @jobs = @company.jobs.includes(:branch, :category).
       sort_lastest.page(params[:page]).per(Settings.pagination.jobs_perpage)
   end
 
