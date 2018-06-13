@@ -7,10 +7,6 @@ RSpec.describe AppliesController, type: :controller do
   let(:category) {FactoryGirl.create :category, company_id: company.id}
   let(:step) {FactoryGirl.create :step}
   let!(:member) {FactoryGirl.create :member, company_id: company.id, user_id: user.id}
-  let :job do
-    FactoryGirl.create :job, company_id: company.id, branch_id: branch.id,
-      category_id: category.id
-  end
   let(:status_step) {FactoryGirl.create :status_step, step_id: step.id}
   let(:apply) do
     FactoryGirl.create :apply, user_id: user.id, job_id: job.id
@@ -19,6 +15,11 @@ RSpec.describe AppliesController, type: :controller do
     FactoryGirl.create :apply_status, apply_id: apply.id, status_step_id: status_step.id
   end
   let!(:company_step) {FactoryGirl.create :company_step, company_id: company.id, step_id: step.id}
+
+  let :job do
+    FactoryGirl.create :job, company_id: company.id, branch_id: branch.id,
+      category_id: category.id
+  end
   subject {apply}
   before do
     sign_in user

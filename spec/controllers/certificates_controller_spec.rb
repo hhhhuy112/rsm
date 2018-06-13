@@ -1,7 +1,8 @@
 require "rails_helper"
 
 RSpec.describe CertificatesController, type: :controller do
-  let(:user) {FactoryGirl.create :user, confirmed_at: Time.current}
+  let(:company) {FactoryGirl.create :company}
+  let(:user) {FactoryGirl.create :user, confirmed_at: Time.current, company_id: company.id}
   let(:certificate) {FactoryGirl.create :certificate, user_id: user.id}
   subject {certificate}
   before {sign_in user}
