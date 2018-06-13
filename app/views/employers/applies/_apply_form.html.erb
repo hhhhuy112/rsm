@@ -54,14 +54,12 @@
         </tr>
         <tr>
           <td>
-            <label class="control-label ">
+            <label class="control-label">
               <abbr title="required">*</abbr> <%= t ".new_cv" %>
             </label>
             <div class="form-group">
-              <div class="input-group">
-                <span class="btn btn-default btn-file">
-                  <%= f.file_field :cv, id: "file_cv" %>
-                </span>
+              <div class="p-tb-8 p-lr-6 b-1 b-r-5">
+                <%= f.file_field :cv, id: "file_cv" %>
                 <span class="error-message-cv"></span>
               </div>
             </div>

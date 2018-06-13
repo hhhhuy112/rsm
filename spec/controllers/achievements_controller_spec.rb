@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe AchievementsController, type: :controller do
+  let(:company) {FactoryGirl.create :company}
+  let(:user) {FactoryGirl.create :user, confirmed_at: Time.current, company_id: company.id}
   let(:achievement) {FactoryGirl.create :achievement}
-  let(:user) {FactoryGirl.create :user, confirmed_at: Time.current}
-  subject {achievement}
   before {sign_in user}
 
   describe "POST #create" do
@@ -14,8 +14,9 @@ RSpec.describe AchievementsController, type: :controller do
     end
 
     it "create achievement fail" do
-      post :create, params: {id: subject.id, achievement:{name: "", majors: "CNTT"}},
+      post :create, params: {achievement:{name: "", majors: "CNTT"}},
         xhr: true, format: "js"
+      expect(assigns[:achievement].errors).to be_present
     end
   end
 end
