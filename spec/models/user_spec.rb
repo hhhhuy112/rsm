@@ -3,10 +3,9 @@ require "rails_helper"
 RSpec.describe User, type: :model do
 
   let(:company){FactoryGirl.create :company}
-  let!(:user1){FactoryGirl.create :user, company_id: company.id,
-    cv: Rails.root.join("public/uploads/user/cv/1/abc.pdf").open}
-  let(:user){FactoryGirl.create :user, email: Faker::Internet.email, company_id: company.id,
-    cv: Rails.root.join("public/uploads/user/cv/1/abc.pdf").open}
+  let(:user){FactoryGirl.create :user, name: Faker::Name.name, email: Faker::Internet.email,
+    company_id: company.id, code: Faker::Lorem.characters(10),
+    cv: fixture_file_upload("template_cv.pdf", "text/pdf"), phone: Faker::Number.number(10)}
 
   subject {user}
 
@@ -53,88 +52,19 @@ RSpec.describe User, type: :model do
   end
 
   context "validates" do
-    it {is_expected.to validate_presence_of(:name)}
-    it {is_expected.to validate_presence_of(:code)}
-    it {is_expected.to validate_presence_of(:cv)}
-    it {is_expected.to validate_presence_of(:phone)}
-  end
-
-  context "when name is not valid" do
-    before {subject.name = ""}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:name].should include("can't be blank")
-    end
-  end
-
-  context "when email is already exist" do
-    before {subject.email = user1.email}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:email].should include("already exist")
-    end
-  end
-
-  context "when email is not matches regex" do
-    before {subject.email = "vts"}
-    it "matches the error message" do
-      expect(subject.email).not_to match(/\A[^@\s]+@[^@\s]+\z/)
-    end
-  end
-
-  context "when password is too short" do
-    before {subject.password = Faker::Lorem.characters(2)}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:password].should include("is too short (minimum is 6 characters)")
-    end
-  end
-
-  context "when password is too long" do
-    before {subject.password = Faker::Lorem.characters(200)}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:password].should include("is too long (maximum is 128 characters)")
-    end
-  end
-
-  context "birthday cannot be in the future" do
-    before {subject.birthday = 1.year.from_now}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:birthday].should include(I18n.t("users.form.birthday.validate"))
-    end
-  end
-
-  context "when code is duplicate" do
-    before {subject.code = user1.code}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:code].should include("has already been taken")
-    end
-  end
-
-  context "when cv is not valid" do
-    before {subject.cv = ""}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:cv].should include("can't be blank")
-    end
-  end
-
-  context "when phone is not valid" do
-    before {subject.phone = ""}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:phone].should include("can't be blank")
-    end
-  end
-
-  context "when phone is too long" do
-    before {subject.phone = Faker::Number.number(14)}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:phone].should include("is too long (maximum is 13 characters)")
-    end
+    it {is_expected.to validate_presence_of(:name)
+      .with_message(I18n.t("activerecord.errors.models.user.attributes.name.blank"))}
+    it {is_expected.to validate_uniqueness_of(:email).case_insensitive.scoped_to(:company_id)
+      .with_message(I18n.t("users.form.empty"))}
+    it {is_expected.to validate_presence_of(:code)
+      .with_message(I18n.t("activerecord.errors.models.user.attributes.code.blank"))}
+    it {is_expected.to validate_presence_of(:cv)
+      .with_message(I18n.t("activerecord.errors.models.user.attributes.cv.blank"))}
+    it {is_expected.to validate_presence_of(:phone)
+      .with_message(I18n.t("activerecord.errors.models.user.attributes.phone.blank"))}
+    it {is_expected.to validate_length_of(:phone).is_at_most(Settings.phone_max_length)
+      .with_message(I18n.t("activerecord.errors.models.user.attributes.phone.too_long"))}
+    it {is_expected.to define_enum_for(:sex).with(%i(female male))}
+    it {is_expected.to define_enum_for(:role).with(%i(user employer admin))}
   end
 end

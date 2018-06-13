@@ -444,6 +444,44 @@ en:
           attributes:
             content:
               blank: "Content can not be blank"
+        user:
+          attributes:
+            name:
+              blank: "Name can not be blank"
+            code:
+              blank: "Code can not be blank"
+            cv:
+              blank: "CV can not be blank"
+            phone:
+              blank: "Phone can not be blank"
+              too_long: "Phone must be less than 13 characters"
+        template:
+          attributes:
+            name:
+              blank: "Name can not be blank"
+            title:
+              blank: "Title can not be blank"
+            type_of:
+              blank: "Type can not be blank"
+            template_body:
+              blank: "Type can not be blank"
+        company:
+          attributes:
+            name:
+              blank: "Name can not be blank"
+            majors:
+              blank: "Majors can not be blank"
+            contact_person:
+              blank: "Contact Person can not be blank"
+            phone:
+              blank: "Phone can not be blank"
+              already_exist: "has already been taken"
+        apply:
+          attributes:
+            cv:
+              blank: "CV can not be blank"
+            information:
+              blank: "Information can not be blank"
   survey:
     question: "Question"
     answer: "Answer"

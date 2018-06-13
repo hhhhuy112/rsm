@@ -1,14 +1,6 @@
 require "rails_helper"
 
 RSpec.describe Achievement, type: :model do
-
-  let(:company){FactoryGirl.create :company}
-  let(:user){FactoryGirl.create :user, email: Faker::Internet.email, company_id: company.id,
-    cv: Rails.root.join("public/uploads/user/cv/1/abc.pdf").open}
-  let(:achievement) {FactoryGirl.create :achievement, user_id: user.id}
-
-  subject {achievement}
-
   context "associations" do
     it {is_expected.to belong_to :user}
   end
