@@ -1,13 +1,14 @@
 require "rails_helper"
 
 RSpec.describe Job, type: :model do
-  let!(:company) {FactoryGirl.create :company}
-  let!(:branch) {FactoryGirl.create :branch, company_id: company.id}
-  let!(:category) {FactoryGirl.create :category, company_id: company.id}
+  let(:company){FactoryGirl.create :company}
+  let(:user) {FactoryGirl.create :user, company_id: company.id}
+  let(:branch) {FactoryGirl.create :branch, company_id: company.id}
+  let(:category) {FactoryGirl.create :category, company_id: company.id}
 
   let(:job) do
     FactoryGirl.create :job, company_id: company.id, branch_id: branch.id,
-      category_id: category.id, currency_id: currency.id
+      category_id: category.id, currency_id: currency.id, user_id: user.id
   end
   let(:currency) do
     FactoryGirl.create :currency, company_id: company.id
@@ -46,62 +47,20 @@ RSpec.describe Job, type: :model do
   end
 
   context "validates" do
-    it {is_expected.to validate_presence_of(:name)}
-    it {is_expected.to validate_presence_of(:description)}
-    it {is_expected.to validate_presence_of(:min_salary)}
-    it {is_expected.to validate_presence_of(:description)}
-    it {is_expected.to validate_presence_of(:branch_id)}
-    it {is_expected.to validate_presence_of(:target)}
-    it {is_expected.to validate_presence_of(:category_id)}
-    it {is_expected.to validate_presence_of(:survey_type)}
-  end
-
-  context "when name is not valid" do
-    before {subject.name = Settings.rspec.blank}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:name].should include I18n.t("activerecord.errors.models.job.attributes.name.blank")
-    end
-  end
-
-  context "when description is not valid" do
-    before {subject.description = Settings.rspec.blank}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:description].should include I18n.t("activerecord.errors.models.job.attributes.description.blank")
-    end
-  end
-
-  context "when target is not valid" do
-    before {subject.target = Settings.rspec.blank}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:target].should include I18n.t("activerecord.errors.models.job.attributes.target.blank")
-    end
-  end
-
-  context "when description is not valid" do
-    before {subject.description = Settings.rspec.blank}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:description].should include I18n.t("activerecord.errors.models.job.attributes.description.blank")
-    end
-  end
-
-  context "when survey_type is not valid" do
-    before {subject.survey_type = Settings.rspec.blank}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:survey_type].should include I18n.t("activerecord.errors.models.job.attributes.survey_type.blank")
-    end
-  end
-
-  context "when min_salary is not valid" do
-    before {subject.min_salary = Settings.rspec.blank}
-    it "matches the error message" do
-      subject.valid?
-      subject.errors[:min_salary].should include I18n.t("activerecord.errors.models.job.attributes.min_salary.blank")
-    end
+    it {is_expected.to validate_presence_of(:name)
+      .with_message(I18n.t("activerecord.errors.models.job.attributes.name.blank"))}
+    it {is_expected.to validate_presence_of(:description)
+      .with_message(I18n.t("activerecord.errors.models.job.attributes.description.blank"))}
+    it {is_expected.to validate_presence_of(:min_salary)
+      .with_message(I18n.t("activerecord.errors.models.job.attributes.min_salary.blank"))}
+    it {is_expected.to validate_presence_of(:branch_id)
+      .with_message(I18n.t("activerecord.errors.models.job.attributes.branch_id.blank"))}
+    it {is_expected.to validate_presence_of(:target)
+      .with_message(I18n.t("activerecord.errors.models.job.attributes.target.blank"))}
+    it {is_expected.to validate_presence_of(:category_id)
+      .with_message(I18n.t("activerecord.errors.models.job.attributes.category_id.blank"))}
+    it {is_expected.to validate_presence_of(:survey_type)
+      .with_message(I18n.t("activerecord.errors.models.job.attributes.survey_type.blank"))}
   end
 
   context "when max_salary_less_than_min_salary is not valid" do

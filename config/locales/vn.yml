@@ -391,6 +391,8 @@ vn:
             project_detail:
               too_long: "Chi tiết dự án phải dưới 5000 ký tự"
               too_short: "Nội dung quá ngắn, phải có trên 20 ký tự"
+            user_id:
+              blank: "Không thể để trống"
         achievement:
           attributes:
             name:
@@ -440,6 +442,10 @@ vn:
               blank: "Mức lương tối thiểu không được để trống"
             max_salary:
               blank: "Mức lương tối đa không được để trống"
+            branch_id:
+              blank: "Không thể để trống"
+            category_id:
+              blank: "Không thể để trống"
         reward_benefit:
           attributes:
             content:
