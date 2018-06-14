@@ -1,10 +1,10 @@
 require "rails_helper"
 
 RSpec.describe Employers::TemplatesController, type: :controller do
-  let(:user) {FactoryGirl.create :user, confirmed_at: Time.current}
+  let(:user) {FactoryGirl.create :user, confirmed_at: Time.current, company_id: company.id}
   let(:company) {FactoryGirl.create :company}
   let!(:member) {FactoryGirl.create :member, company_id: company.id, user_id: user.id}
-  let(:template) {FactoryGirl.create :template, company_id: company.id}
+  let(:template) {FactoryGirl.create :template, company_id: company.id, user_id: user.id}
   subject {template}
   before do
     sign_in user
