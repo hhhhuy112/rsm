@@ -4,8 +4,7 @@ RSpec.describe User, type: :model do
 
   let(:company){FactoryGirl.create :company}
   let(:user){FactoryGirl.create :user, name: Faker::Name.name, email: Faker::Internet.email,
-    company_id: company.id, code: Faker::Lorem.characters(10),
-    cv: fixture_file_upload("template_cv.pdf", "text/pdf"), phone: Faker::Number.number(10)}
+    company_id: company.id, code: Faker::Lorem.characters(10), phone: Faker::Number.number(10)}
 
   subject {user}
 
