@@ -8,9 +8,9 @@ RSpec.describe BookmarkLikesController, type: :controller do
   let(:currency) {FactoryGirl.create :currency, company_id: company.id}
   let :job do
     FactoryGirl.create :job, company_id: company.id, branch_id: branch.id,
-      category_id: category.id, currency_id: currency.id
+      category_id: category.id, user_id: user.id, currency_id: currency.id
   end
-  let(:bookmark_like) {FactoryGirl.create :bookmark_like, job_id: job.id}
+  let(:bookmark_like) {FactoryGirl.create :bookmark_like, job_id: job.id, user_id: user.id}
 
   subject {bookmark_like}
 
