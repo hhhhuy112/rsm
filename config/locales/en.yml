@@ -387,6 +387,8 @@ en:
             project_detail:
               too_long: "Project detail must be less than 5000 characters"
               too_short: "Project detail very short, must be over 20 characters"
+            user_id:
+              blank: "Can not be blank"
         achievement:
           attributes:
             name:
@@ -440,6 +442,10 @@ en:
               blank: "Target can not be blank"
             survey_type:
               blank: "Survey_type can not be blank"
+            branch_id:
+              blank: "Branch_id can not be blank"
+            category_id:
+              blank: "Category_id can not be blank"
         reward_benefit:
           attributes:
             content:
