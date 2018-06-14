@@ -10,7 +10,7 @@ RSpec.describe Employers::CandidatesController, type: :controller do
   let(:currency) {FactoryGirl.create :currency, company_id: company.id}
   let :job do
     FactoryGirl.create :job, company_id: company.id, branch_id: branch.id,
-      category_id: category.id, currency_id: currency.id
+      category_id: category.id, currency_id: currency.id, user_id: user.id
   end
   let(:status_step) {FactoryGirl.create :status_step, step_id: step.id}
   let(:apply) do

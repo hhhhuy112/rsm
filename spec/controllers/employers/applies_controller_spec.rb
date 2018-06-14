@@ -1,8 +1,10 @@
 require "rails_helper"
 
 RSpec.describe Employers::AppliesController, type: :controller do
-  let!(:employer) {FactoryGirl.create :user, role: "employer", confirmed_at: Time.current}
-  let!(:user) {FactoryGirl.create :user, role: "user", confirmed_at: Time.current}
+  let!(:employer) {FactoryGirl.create :user, role: "employer",
+    confirmed_at: Time.current, company_id: company.id}
+  let!(:user) {FactoryGirl.create :user, role: "user", confirmed_at: Time.current,
+    company_id: company.id}
   let(:company) {FactoryGirl.create :company}
   let(:branch) {FactoryGirl.create :branch, company_id: company.id}
   let(:category) {FactoryGirl.create :category, company_id: company.id}
@@ -12,7 +14,7 @@ RSpec.describe Employers::AppliesController, type: :controller do
   let(:currency) {FactoryGirl.create :currency, company_id: company.id}
   let :job do
     FactoryGirl.create :job, company_id: company.id, branch_id: branch.id,
-      category_id: category.id, currency_id: currency.id
+      category_id: category.id, currency_id: currency.id, user_id: user.id
   end
   let(:status_step) {FactoryGirl.create :status_step, step_id: step.id}
   let(:apply) do
