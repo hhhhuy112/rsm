@@ -23,13 +23,13 @@
             <td id="pagination-email" class="text-right" colspan="5">
               <%= render partial: "pagination", locals: {email_googles: @data[:email_googles],
                 page:@data[:page], start_index: @data[:start_index], end_index: @data[:end_index], size: @data[:size]} %>
-              </td>
-            </tr>
-          </thead>
-          <tbody id="list-email-googles">
-            <%= render partial: "email_google", collection: @data[:email_googles], as: :email_google %>
-          </tbody>
-        </table>
-      </div>
+            </td>
+          </tr>
+        </thead>
+        <tbody id="list-email-googles">
+          <%= render partial: "email_google", collection: @data[:email_googles], as: :email_google %>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>

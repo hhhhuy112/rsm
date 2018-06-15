@@ -13,18 +13,37 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
-  if Rails.root.join('tmp/caching-dev.txt').exist?
-    config.action_controller.perform_caching = true
+  # if Rails.root.join('tmp/caching-dev.txt').exist?
+  config.action_controller.perform_caching = true
 
-    config.cache_store = :memory_store
-    config.public_file_server.headers = {
-      "Cache-Control" => "public, max-age=#{2.days.seconds.to_i}"
-    }
-  else
-    config.action_controller.perform_caching = false
+    # config.cache_store = :file_store, Rails.root.join('tmp/caching-dev.txt')
+    # config.public_file_server.headers = {
+    #   "Cache-Control" => "public, max-age=#{2.days.seconds.to_i}"
+    # }
 
-    config.cache_store = :null_store
-  end
+  # cache_servers = "redis://localhost:3000/0/cache"
+  # config.cache_store = :redis_cache_store, { url: cache_servers,
+
+  #   connect_timeout: 30,  # Defaults to 20 seconds
+  #   read_timeout:    0.2, # Defaults to 1 second
+  #   write_timeout:   0.2, # Defaults to 1 second
+
+  #   error_handler: -> (method:, returning:, exception:) {
+  #     # Report errors to Sentry as warnings
+  #     Raven.capture_exception exception, level: 'warning',
+  #     tags: { method: method, returning: returning }
+  #   }
+  # }
+
+  cache_servers = ENV["redis_url"]
+  config.cache_store = :redis_cache_store, { url: cache_servers, expires_in: 60.minutes }
+
+  # config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 90.minutes }
+  # else
+  #   config.action_controller.perform_caching = false
+
+  #   config.cache_store = :null_store
+  # end
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
