@@ -43,7 +43,7 @@ User.create!(name: "Nguyen Van Pho", email: "nguyenvanb@gmail.com", password: "1
   pass_conf = "123123"
   birthday = Date.current
   role = "employer"
-  cv = cv: Rails.root.join("public/uploads/user/cv/1/abc.pdf").open
+  cv = Rails.root.join("public/uploads/user/cv/1/abc.pdf").open
   phone = "0965600364"
   company_id = 1
   User.create!(name: name, email: email, password: pass, birthday: birthday,
@@ -57,10 +57,12 @@ end
   birthday = Date.current
   pass_conf = "123123"
   role = "user"
+  cv = Rails.root.join("public/uploads/user/cv/1/abc.pdf").open
   phone = "0965600364"
   company_id = 1
-  User.create!(name: name, email: email, password: pass,
-               password_confirmation: pass_conf, role: role, birthday: birthday, company_id: company_id)
+  User.create!(name: name, email: email, password: pass, birthday: birthday,
+               password_confirmation: pass_conf, role: role,
+               cv: cv, phone: phone, company_id: company_id)
 end
 
 1.upto(2) do |x|
