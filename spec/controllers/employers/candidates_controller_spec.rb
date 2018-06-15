@@ -73,7 +73,7 @@ RSpec.describe Employers::CandidatesController, type: :controller do
         get :new, xhr: true, params: {company_id: company.id, id: user.id}
       end
 
-      it "assigns the requested candidate to @candiate" do
+      it "assigns the requested candidate to @candidate" do
         expect(assigns(:candidate)).to be_truthy
       end
 
@@ -81,28 +81,18 @@ RSpec.describe Employers::CandidatesController, type: :controller do
         expect(response).to render_template "employers/candidates/new"
       end
     end
-
-    context "new fail" do
-      before :each do
-        get :new, xhr: true, params: {company_id: company.id, id: 10}
-      end
-
-      it "not found apply_status" do
-        expect(response).to render_template "errors/error"
-      end
-    end
   end
 
   describe "POST #create" do
     context "create fail" do
       before :each do
-        post :create, xhr: true, params: {company_id: company.id, apply: {information: {name: "Lam Phan",
-          email: "dinhlam1@gmail.com", phone: "01224558567"},
+        post :create, xhr: true, params: {company_id: company.id, user: {name: "Lam Phan",
+          email: "dinhlam1@gmail.com", phone: "01224558567",
           cv: File.new(File.expand_path(Rails.root.join("lib", "seeds", "template_cv.pdf")))}}
       end
 
       it "assigns the requested error" do
-        expect(assigns(:apply).errors).to be_truthy
+        expect(assigns(:candidate).errors).to be_truthy
       end
 
       it "renders the #create view" do

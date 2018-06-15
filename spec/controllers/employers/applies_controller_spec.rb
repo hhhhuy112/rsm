@@ -77,7 +77,7 @@ RSpec.describe Employers::AppliesController, type: :controller do
       before :each do
         cv = fixture_file_upload("template_cv.pdf", "text/pdf")
         post :create, xhr: true, params: {choosen_ids: ",#{job.id}", apply: {information: {
-          name: "NguyenVanA", email: User.first.email, phone: "1234567890"}, cv: cv}}
+          name: "NguyenVanA", email: user.email, phone: "1234567890"}, cv: cv}}
       end
 
       it "assigns the requested error" do
