@@ -33,7 +33,7 @@ experiences:
     detail_max_length: 5000
     detail_min_length: 20
 pagination:
-  jobs_perpage: 5
+  jobs_perpage: 10
 jobs:
   description:
     limit_show: 150
@@ -239,3 +239,8 @@ service_googles:
   start_page: 1
   per_page: 10
   write_file: "wb"
+email_google:
+  type:
+    doc: "application/msword"
+    docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    pdf: "application/pdf"

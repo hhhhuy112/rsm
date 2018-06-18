@@ -189,20 +189,6 @@
                     </div>
                   <% end %>
 
-                  <% if @job.skill.present? %>
-                    <div class="row summary-item">
-                      <div class="col-xs-2 summary-icon">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </div>
-                      <div class="col-xs-10 summary-content">
-                        <span class="content-label font-right"><%= t ".skills" %></span>
-                        <span class="content">
-                          <%= raw @job.skill %>
-                        </span>
-                      </div>
-                    </div>
-                  <% end %>
-
                   <% if @job.language.present? %>
                     <div class="row summary-item">
                       <div class="col-xs-2 summary-icon">
@@ -236,18 +222,25 @@
                   </div>
                 </div>
               <% end %>
-              <div class="job-description mobile-box">
-                <h2><%= t ".job_description" %></h2>
-                <div class="job_content">
-                  <p><%= raw @job.description %></p>
+
+              <% if @job.description.present? %>
+                <div class="job-description mobile-box">
+                  <h2><%= t ".job_description" %></h2>
+                  <div class="job_content">
+                    <p><%= raw @job.description %></p>
+                  </div>
                 </div>
-              </div>
-              <div class="job-requirements mobile-box">
-                <h2><%= t ".job_requirement" %></h2>
-                <div class="job_content">
-                  <p><%= raw @job.content %></p>
+              <% end %>
+
+              <% if @job.content.present? %>
+                <div class="job-requirements mobile-box">
+                  <h2><%= t ".job_requirement" %></h2>
+                  <div class="job_content">
+                    <p><%= raw @job.content %></p>
+                  </div>
                 </div>
-              </div>
+              <% end %>
+
             </div>
           </div>
         </div>

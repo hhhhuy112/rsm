@@ -22,8 +22,9 @@ class DownloadsController < ApplicationController
 
   def show_attachment
     @email_google = @google_client_service.load_email(params[:id]).first
-    filename = file_path @email_google
-    send_user_pdf_attachment(filename)
+    content_type = @email_google.attachments.first.content_type
+    filename = file_path @email_google, content_type
+    send_user_pdf_attachment(filename, content_type)
   end
 
   private
@@ -47,9 +48,10 @@ class DownloadsController < ApplicationController
       disposition: Settings.send_cv.inline
   end
 
-  def send_user_pdf_attachment filename
+  def send_user_pdf_attachment filename, content_type
+    setting_content_type = get_setting_content_type content_type
     send_file filename,
-      type: Settings.send_cv.type,
+      type: setting_content_type.second,
       disposition: Settings.send_cv.inline
   end
 end
