@@ -7,7 +7,11 @@
       <div class="block">
         <div class="block-section text-center">
           <div class="col-xs-12">
-            <%= image_tag @candidate.picture, class: "img-circle img-avatar" %>
+            <% if @candidate.picture.present? %>
+              <%= image_tag @candidate.picture, class: "img-circle img-avatar" %>
+            <% else %>
+              <%= image_tag "fallback/user_logo_default.png", class: "img-circle img-avatar" %>
+            <% end %>
             <h3>
               <strong><%= @candidate.name %></strong><br><small></small>
             </h3>

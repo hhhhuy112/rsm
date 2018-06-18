@@ -19,13 +19,14 @@ class Employers::EmailGooglesController < Employers::EmployersController
 
   def save_file
     begin
-      filename = file_path @email_google
+      file = @email_google.attachments.first
+      filename = file_path @email_google, file.content_type
       dirname = File.dirname(filename)
       unless File.directory?(dirname)
         FileUtils.mkdir_p(dirname)
       end
       file_cv = File.open(filename, Settings.service_googles.write_file)
-      file_cv.write(@email_google.attachments.first.read)
+      file_cv.write(file.read)
     rescue IOError => e
       redirect_to :back
       flash[:danger] = t ".not_save_file"
@@ -36,9 +37,9 @@ class Employers::EmailGooglesController < Employers::EmployersController
   end
 
   def get_data
-    page = load_page
-    start_index, end_index = load_pagination page
     list_email_googles = @google_client_service.get_emails.reverse
+    page = load_page
+    start_index, end_index = load_pagination page, list_email_googles.count
     email_googles = list_email_googles[start_index..end_index]
     size = list_email_googles.size
     @data = Supports::EmailGoogleSupport.new( page, start_index, end_index, email_googles, size).get_data
@@ -64,11 +65,12 @@ class Employers::EmailGooglesController < Employers::EmployersController
     @page = (params[:page] || Settings.service_googles.start_page).to_i
   end
 
-  def load_pagination page
+  def load_pagination page, emails_count
     page_start = page - Settings.service_googles.start_page
     offset_start = page_start * Settings.service_googles.per_page
     offset_end = offset_start + Settings.service_googles.per_page
     offset_start = offset_start > 0 ? offset_start : Settings.service_googles.start_page
+    offset_end = offset_end > emails_count ? emails_count : offset_end
     [offset_start, offset_end]
   end
 end

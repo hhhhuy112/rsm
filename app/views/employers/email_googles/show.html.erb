@@ -2,12 +2,12 @@
   <div class="block full">
     <div class="block-title">
       <div class="block-options pull-right">
-        <%= link_to new_employers_company_candidate_path(@company, url: file_path(@email_google)), remote: true,
+        <%= link_to new_employers_company_candidate_path(@company, url: file_path(@email_google, @email_google.attachments.first.content_type)), remote: true,
           class: "btn btn-sm btn-alt btn-default" do %>
           <i class="fa fa-plus"></i> <%= t ".add_candidate" %>
         <% end %>
 
-        <%= link_to new_employers_apply_path(url: file_path(@email_google)), remote: true,
+        <%= link_to new_employers_apply_path(url: file_path(@email_google, @email_google.attachments.first.content_type)), remote: true,
           class: "btn btn-sm btn-alt btn-default" do %>
           <i class="fa fa-plus"></i> <%= t ".add_apply" %>
         <% end %>

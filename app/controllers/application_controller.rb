@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
   before_action :rack_mini_profiler_authorize_request
-  helper_method :file_path
+  helper_method :file_path, :get_setting_content_type
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
     @error_message = exception.model
@@ -17,9 +17,17 @@ class ApplicationController < ActionController::Base
     redirect_to main_app.root_url
   end
 
-  def file_path email_google
+  def file_path email_google, content_type = Settings.email_google.type.pdf
+    extension_file = get_setting_content_type content_type
     email_from = @email_google.from.first.mailbox + @email_google.from.first.host
-    "opt/cv/#{email_from}/cv.pdf"
+    "opt/cv/#{email_from}/cv.#{extension_file.first}"
+  end
+
+  def get_setting_content_type content_type
+    content_type_file = content_type.split(";")[0]
+    Settings.email_google.type.find do |key, value|
+      content_type_file.eql? value
+    end
   end
 
   protected

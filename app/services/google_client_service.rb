@@ -10,7 +10,7 @@ class GoogleClientService
   end
 
   def get_emails
-    @gmail.inbox.emails(gm: "'filename:pdf'")
+    @gmail.inbox.emails(gm: "'filename:doc OR filename:docx OR filename:pdf'")
   end
 
   def load_email gmail_uid
