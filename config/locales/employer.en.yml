@@ -610,6 +610,11 @@ en:
         inbox: "Inbox"
         pagination:
           from: "from"
+    skills:
+      created_success: "Created Success"
+      updated_success: "Updated Success"
+      deleted_success: "Deleted Success"
+      deleted_fail: "Deleted Fail"
   layouts:
     employers:
       footer_employer:
