@@ -1,0 +1,8 @@
+<% if @error %>
+  alertify.error('<%= @error %>');
+<% elsif @success %>
+  alertify.success('<%= @success %>');
+  $('#skills').html('<%= j render @skills %>');
+  $('#paginate').html('<%= j paginate @skills, remote: true,
+    params: {controller: 'employers/skills', action: 'index'} %>');
+<% end %>

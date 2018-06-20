@@ -1,0 +1,9 @@
+<% if @skill.errors.any? %>
+  $('#skill-boby').html('<%= j render "form" %>');
+<% elsif @success %>
+  alertify.success('<%= @success %>');
+  $('#manage-skill').modal('hide');
+  $('#skills').html('<%= j render @skills %>');
+  $('#paginate').html('<%= j paginate @skills, remote: true,
+    params: {controller: 'employers/skills', action: 'index'} %>');
+<% end %>
