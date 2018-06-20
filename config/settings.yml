@@ -244,3 +244,5 @@ email_google:
     doc: "application/msword"
     docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     pdf: "application/pdf"
+skills:
+  page: 10

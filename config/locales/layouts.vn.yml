@@ -227,6 +227,8 @@ vn:
         apply: "Apply"
         new_apply: "Apply mới"
         email_googles: "Thư điện tử"
+        skills: "Kỹ năng"
+        all_skills: "Tất cả kỹ năng"
       header_employer:
         messages: "Tin nhắn"
         profile: "Hồ sơ cá nhân"

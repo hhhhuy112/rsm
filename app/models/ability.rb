@@ -46,6 +46,7 @@ class Ability
     can :manage, :dashboard if user.company_id == company.id
     can :manage, :send_email if user.company_id == company.id
     can :manage, :email_google if user.company_id == company.id
+    can :manage, Skill, company_id: company.id
   end
 
   def permission_admin

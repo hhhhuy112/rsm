@@ -56,6 +56,7 @@ Rails.application.routes.draw do
     resources :status_steps, only: :index
     resources :questions, only: :index
     resources :email_googles
+    resources :skills
   end
   resources :bookmark_likes
   resources :experiences
