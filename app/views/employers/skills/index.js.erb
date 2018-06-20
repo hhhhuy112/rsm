@@ -1,0 +1,4 @@
+<% if request.xhr? %>
+  $('#skills').html('<%= j render @skills %>');
+  $('#paginate').html('<%= j paginate @skills, remote: true %>');
+<% end %>
