@@ -17,6 +17,7 @@ RSpec.describe Company, type: :model do
     it {is_expected.to have_many :passive_follow}
     it {is_expected.to have_many :currencies}
     it {is_expected.to have_many :templates}
+    it {is_expected.to have_many :skills}
   end
 
   context "columns" do
