@@ -248,3 +248,5 @@ email_google:
     pdf: "application/pdf"
 environment:
   development: "development"
+skills:
+  page: 10

@@ -227,6 +227,8 @@ en:
         candidates: "Candidates"
         apply: "Apply"
         email_googles: "Email googles"
+        skills: "Skills"
+        all_skills: "All Skills"
       header_employer:
         messages: "Messasges"
         profile: "Profile"

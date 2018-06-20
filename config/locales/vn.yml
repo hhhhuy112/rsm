@@ -507,6 +507,10 @@ vn:
               blank: "Không thể để trống"
             information:
               blank: "Không thể để trống"
+        skill:
+          attributes:
+            name:
+              blank: "Không thể để trống"
   activemodel:
     errors:
       models:
@@ -633,7 +637,20 @@ vn:
       show:
         add_candidate: "Thêm ứng viên"
         add_apply: "Thêm công việc"
-
+    skills:
+      index:
+        stt: "STT"
+        name: "Tên"
+        action: "Thực Hiện"
+        add: "Thêm Mới"
+        management: "Quản Lý Các Kỹ Năng"
+        skill: "Kỹ Năng"
+        empty_skill: "Không có dữ liệu"
+      skill:
+        sure: "Bạn Có Chắc Chắn?"
+      form:
+        save: "Lưu"
+        name: "Tên"
   placeholder:
     blank: "No information"
   apply:

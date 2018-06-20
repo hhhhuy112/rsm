@@ -488,6 +488,10 @@ en:
               blank: "CV can not be blank"
             information:
               blank: "Information can not be blank"
+        skill:
+          attributes:
+            name:
+              blank: "Name can not be blank"
   survey:
     question: "Question"
     answer: "Answer"
@@ -603,7 +607,20 @@ en:
       show:
         add_candidate: "Add Candidate"
         add_apply: "Add Apply"
-
+    skills:
+      index:
+        stt: "STT"
+        name: "Name"
+        action: "Action"
+        add: "Add Skill"
+        management: "Management Skills"
+        skill: "Skill"
+        empty_skill: "Haven't Skill"
+      skill:
+        sure: "Are you sure?"
+      form:
+        save: "Save"
+        name: "Name"
   placeholder:
     blank: "No information"
   apply:
