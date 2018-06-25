@@ -223,7 +223,14 @@
     width: 201px;
   }
 }
-.btn-facebook {
+.btn-facebook{
   width: 32.3px;
-  margin-left: 15px;
+}
+
+.btn-framgia {
+  width: 32.5px;
+  height: 28px;
+  background: $orange;
+  color: $white;
+  font-weight: bold;
 }

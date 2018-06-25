@@ -1,4 +1,4 @@
-<% if email_sents.present? %>
+<% if email_sents.any? %>
   <%= render partial: "employers/email_sents/mail_sent", collection: email_sents, as: :email_sent %>
 <% else %>
   <p class="text-danger text-center">

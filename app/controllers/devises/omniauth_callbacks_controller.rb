@@ -1,6 +1,11 @@
 class Devises::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  before_action :load_user, only: %i(facebook linkedin)
+  before_action :load_user, only: %i(facebook linkedin framgia)
   before_action :load_company
+
+
+  def framgia
+    sign_in_social Settings.omniauth.framgia
+  end
 
   def google_oauth2
     if current_user
@@ -57,10 +62,21 @@ class Devises::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_by email: request.env["omniauth.auth"].info.email
   end
 
-  def new_user data
+  def new_user data, provider
     @user = User.new email: data.email, name: data.name,
       password: Devise.friendly_token.first(Settings.password.length),
-      remote_picture_url: data.image, company_id: @company.id
+      company_id: @company.id, skip_cv_validation: true
+    return if provider.blank? || (provider != Settings.omniauth.facebook && provider != Settings.omniauth.framgia)
+
+    if provider == Settings.omniauth.facebook
+      @user.remote_picture_url = data.image.gsub("http://", "https://") if data.image.present?
+    end
+
+    return if provider != Settings.omniauth.framgia
+    @user.remote_picture_url = data.avatar.gsub("http://", "https://") if data.avatar.present?
+    @user.birthday = data.birthday
+    @user.code = data.employee_code
+    @user.birthday = data.birthday
   end
 
   def sign_in_social provider
@@ -70,7 +86,7 @@ class Devises::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         flash[:success] = t "devise.omniauth_callbacks.success",
           kind: provider
       else
-        new_user request.env["omniauth.auth"].info
+        new_user request.env["omniauth.auth"].info, provider
         @user.skip_confirmation!
         if @user.save
           sign_in @user

@@ -59,6 +59,7 @@ gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-facebook"
 gem "omniauth-linkedin"
+gem "omniauth-framgia", git: "https://github.com/framgia-education/omniauth-framgia.git"
 gem "jquery-datetimepicker-rails"
 
 group :development, :test do
@@ -69,6 +70,7 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "pry-rails"
   gem "pry"
+  gem "rack-lineprof"
 end
 group :development do
   gem "mysql2"

@@ -285,5 +285,11 @@ Devise.setup do |config|
     }
   config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"],
     {scope: "email"}
-  config.omniauth :linkedin, ENV["LINKEDIN_APP_ID"], ENV["LINKEDIN_APP_SECRET"]
+  config.omniauth :linkedin, ENV["LINKEDIN_APP_ID"], ENV["LINKEDIN_APP_SECRET"], :scope => 'r_fullprofile r_emailaddress r_network', :fields => ["id", "email-address", "first-name", "last-name", "headline", "industry", "picture-url", "public-profile-url", "location", "connections"]
+  config.omniauth :framgia, ENV["APP_ID_EDEV"], ENV["APP_SECRET_EDEV"],
+    client_options: {
+      site: "http://172.16.0.18",
+      authorize_url: "http://edev.framgia.vn/authorize",
+      token_url: "http://172.16.0.18/auth/access_token"
+    }
 end

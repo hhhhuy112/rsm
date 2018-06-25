@@ -212,6 +212,8 @@ omniauth:
   facebook: "Facebook"
   google_oauth2: "Google"
   linkedin: "Linkedin"
+  framgia: "framgia"
+  logo: "W"
 password:
   length: 10
 delimiter: "."
