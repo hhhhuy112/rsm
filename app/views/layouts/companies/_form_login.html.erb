@@ -47,6 +47,10 @@
         <small><%= t ".or" %></small>
         <strong><%= t ".sign_in" %></strong>
         <small><%= t ".with" %></small>
+        <%= link_to "/devises/auth/framgia", class: "btn btn-framgia btn-sm",
+          title: Settings.omniauth.framgia do %>
+          <%= Settings.omniauth.logo %>
+        <% end %>
         <%= link_to "/devises/auth/facebook", class: "btn btn-primary btn-sm btn-facebook",
           title: Settings.omniauth.facebook do %>
           <i class="fa fa-facebook"></i>

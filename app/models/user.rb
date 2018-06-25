@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-  attr_accessor :auto_password
+  attr_accessor :auto_password, :skip_cv_validation
   devise :database_authenticatable, :registerable, :confirmable, :recoverable,
     :rememberable, :trackable, :validatable, :omniauthable,
-    omniauth_providers: %i(facebook google_oauth2 linkedin)
+    omniauth_providers: %i(facebook google_oauth2 linkedin framgia)
   acts_as_paranoid
 
   has_many :achievements, dependent: :destroy
@@ -37,8 +37,8 @@ class User < ApplicationRecord
   validates :email, uniqueness: { scope: :company_id,
     message: I18n.t("users.form.empty") }
   validates :code, uniqueness: {scope: :company_id}, presence: true
-  validates :cv, presence: true, allow_nil: true
-  validates :phone, presence: true, length: {maximum: Settings.phone_max_length}
+  validates :cv, presence: true, allow_nil: true, unless: :skip_cv_validation
+  validates :phone, presence: true, length: {maximum: Settings.phone_max_length}, allow_nil: true
   validate :birthday_cannot_be_in_the_future
 
   before_validation(on: :create) do
