@@ -23,7 +23,7 @@ module Rsm
         resource '*', headers: :any, methods: [:get, :post, :options]
       end
     end
-    config.middleware.use Rack::Lineprof
+    config.middleware.use Rack::Lineprof if Rails.env == Settings.environment.development
 
     config.rack_mini_profiler_environments = %w(development)
     # Settings in config/environments/* take precedence over those specified here.

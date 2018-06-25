@@ -246,3 +246,5 @@ email_google:
     doc: "application/msword"
     docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     pdf: "application/pdf"
+environment:
+  development: "development"
