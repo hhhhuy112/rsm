@@ -216,4 +216,12 @@ module EmployersHelper
     return if content
     content_tag(:span, content)
   end
+
+  def interview_schedule? status_step, step
+    status_step.is_status?(Settings.scheduled) && step.is_step?(Settings.step.interview)
+  end
+
+  def checked_radio knowledge, score
+    return Settings.knowledges.checked if knowledge.score == score
+  end
 end

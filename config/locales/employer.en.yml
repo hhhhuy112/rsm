@@ -615,6 +615,7 @@ en:
       updated_success: "Updated Success"
       deleted_success: "Deleted Success"
       deleted_fail: "Deleted Fail"
+      cant_destroy: "Can't Destroy"
   layouts:
     employers:
       footer_employer:

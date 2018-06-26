@@ -621,6 +621,36 @@ en:
       form:
         save: "Save"
         name: "Name"
+    evaluations:
+      create_success: "Create Success"
+      create_fail: "Create Fail"
+      evaluation_not_found: "Evaluation not found"
+      new:
+        stt: "STT"
+        skills: "Skills"
+        score: "Score"
+        note: "Note"
+        other: "Other"
+        save: "Save"
+      show:
+        stt: "STT"
+        skills: "Skills"
+        score: "Score"
+        note: "Note"
+        other: "Other"
+      apply_infomation:
+        code: "Code"
+        email: "Email"
+        phone: "Phone"
+        status: "Status"
+        position: "Position"
+        history: "History"
+      not_evaluate: "Not Evaluate"
+      bad: "Bad"
+      medium: "Medium"
+      rather: "Rather"
+      good: "Good"
+      excellent: "Exellent"
   placeholder:
     blank: "No information"
   apply:
@@ -1059,6 +1089,7 @@ en:
       close: "Close"
       no_jobs: "There is no jobs available at this time"
   applies:
+    apply_not_found: "Apply not found"
     index:
       filter: "Filter"
     apply:

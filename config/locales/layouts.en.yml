@@ -210,6 +210,7 @@ en:
         company_setting: "Company Settings"
         manage-candidate: "Manage Recruiment"
         personal-setting: "Personal Settings"
+        manage_interview: "Manage Interview"
         employer: "Employer"
         dashboard: "Dashboard"
         member: "Member"
@@ -229,6 +230,8 @@ en:
         email_googles: "Email googles"
         skills: "Skills"
         all_skills: "All Skills"
+        interviews: "Interviews"
+        evaluations: "Evaluations"
       header_employer:
         messages: "Messasges"
         profile: "Profile"

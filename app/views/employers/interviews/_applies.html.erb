@@ -1,0 +1,29 @@
+<% if @applies_status.present? %>
+  <table id="ecom-orders" role="grid" aria-describedby="ecom-orders_info"
+    class="table table-bordered table-striped table-vcenter no-footer background-white font-weight-normal-only">
+    <thead>
+      <tr role="row">
+        <th class="text-center"><%= t "employers.applies.table_applies.no" %></th>
+        <th class="text-center"><%= t "employers.applies.table_applies.user_name" %></th>
+        <th class="text-center"><%= t "employers.applies.table_applies.job" %></th>
+        <th class="text-center"><%= t "employers.applies.table_applies.email" %></th>
+        <th class="text-center"><%= t "employers.applies.table_applies.phone" %></th>
+        <th class="text-center"><%= t "employers.applies.table_applies.step" %></th>
+        <th class="text-center"><%= t "employers.applies.table_applies.status" %></th>
+        <th class="text-center"><%= t "employers.applies.table_applies.applied" %></th>
+        <th class="text-center"><%= t "employers.applies.table_applies.updated" %></th>
+        <th class="text-center"><%= t "employers.applies.table_applies.action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "employers/interviews/apply", collection: @applies_status, as: :apply_status %>
+    </tbody>
+  </table>
+  <div class="row text-center pag">
+    <%= paginate @applies_status %>
+  </div>
+<% else %>
+  <p class="text-danger text-center">
+    <i><%= t "employers.applies.table_applies.not_applies" %></i>
+  </p>
+<% end %>

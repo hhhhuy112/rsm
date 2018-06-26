@@ -194,6 +194,10 @@ form.form-search {
   font-size: 10px;
 }
 
+.font-size-20 {
+  font-size: 20px;
+}
+
 .margin-bottom-0 {
   margin-bottom: 0 !important;
 }
@@ -711,7 +715,7 @@ td.font-times {
 }
 
 .p-0 {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .m-b-70 {
@@ -739,6 +743,10 @@ td.font-times {
 
 .border-top-1 {
   border-top: 1px dotted $grey-light2;
+}
+
+.border-none {
+  border: none !important
 }
 
 .modal .modal-dialog .close {
@@ -992,4 +1000,34 @@ li.media-offer {
 
 .b-1 {
   border: 1px solid $gray-light-3;
+}
+
+.c-not-eva {
+  color: $green-light !important;
+}
+
+.c-bad {
+  color: $orange-light !important;
+}
+
+.c-medium {
+  color: $red-light !important;
+}
+.c-rather {
+  color: $blue-light-8 !important;
+}
+
+.c-good {
+  color: $pink !important;
+}
+
+.c-excellent {
+  color: $green-light-2 !important;
+}
+
+.text-center-field {
+  white-space: normal;
+  text-align: justify;
+  -moz-text-align-last: center;
+  text-align-last: center;
 }

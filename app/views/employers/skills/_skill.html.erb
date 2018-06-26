@@ -9,9 +9,11 @@
         class: "btn btn-xs btn-warning", data: {toggle: "tooltip"} do %>
         <i class="fa fa-pencil"></i>
       <% end %>
-      <%= link_to employers_skill_path(skill), method: :delete, remote: true,
-        class: "btn btn-danger btn-xs", data: {confirm: (t ".sure")} do %>
-        <i class="fa fa-trash-o"></i>
+      <% if skill.knowledges.blank? %>
+        <%= link_to employers_skill_path(skill), method: :delete, remote: true,
+          class: "btn btn-danger btn-xs", data: {confirm: (t ".sure")} do %>
+          <i class="fa fa-trash-o"></i>
+        <% end %>
       <% end %>
     </div>
   </td>

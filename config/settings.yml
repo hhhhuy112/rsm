@@ -230,6 +230,7 @@ wait_time: 2
 dashboards: "dashboards"
 send_emails: "send_emails"
 email_googles: "email_googles"
+interviews: "interviews"
 str_true: "true"
 nested_attributes:
   destroy: "_destroy"
@@ -246,3 +247,14 @@ email_google:
     pdf: "application/pdf"
 skills:
   page: 10
+knowledges:
+  not_evaluate: "not_evaluate"
+  bad: "bad"
+  medium: "medium"
+  rather: "rather"
+  good: "good"
+  excellent: "excellent"
+  checked: "checked"
+appointments:
+  interview_scheduled: 1
+employers_controllers: ["applies", "evaluations", "jobs", "members", "skills"]
