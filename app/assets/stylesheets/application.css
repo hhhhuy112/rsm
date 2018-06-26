@@ -32,7 +32,3 @@
  *= require user
  *= require import_font_awesome
  */
-
-.btn-wsm {
-  background: $orange;
-}
