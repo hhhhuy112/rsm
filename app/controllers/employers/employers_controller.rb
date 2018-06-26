@@ -133,7 +133,7 @@ class Employers::EmployersController < BaseNotificationsController
 
   def exception_controller?
     controller_name_segments = params[:controller].split("/")
-    [Settings.dashboards, Settings.candidates, Settings.send_emails, Settings.email_googles].include? controller_name_segments.pop
+    [Settings.dashboards, Settings.candidates, Settings.send_emails, Settings.email_googles, Settings.interviews].include? controller_name_segments.pop
   end
 
   def load_user_candidate

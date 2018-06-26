@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     @error_message = exception.model
     respond_to do |format|
       format.js{render "errors/error", status: 401}
+      format.html{redirect_to redirect_to_path, alert: @error_message}
     end
   end
 
@@ -58,7 +59,8 @@ class ApplicationController < ActionController::Base
     controller_name_segments = params[:controller].split("/")
     controller_name_segments.pop
     controller_namespace = controller_name_segments.join("/").camelize
-    Ability.new(current_user, controller_namespace)
+    apply = Apply.find_by id: params[:apply_id]
+    Ability.new(current_user, controller_namespace, apply)
   end
 
   def configure_permitted_parameters
@@ -77,6 +79,15 @@ class ApplicationController < ActionController::Base
     @apply_activities = Activity.get_by_apply(@apply.id).includes(
       :trackable, :owner).page params[:page]
     Activity.preload @apply_activities
+  end
+
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      session[Settings.sessions.user_return_to] = request.url
+      redirect_to root_path(require_login: true), notice: t("devise.failure.unauthenticated")
+    end
   end
 
   private
@@ -100,6 +111,15 @@ class ApplicationController < ActionController::Base
 
   def store_user_location!
     store_location_for(:user, request.fullpath)
+  end
+
+  def redirect_to_path
+    controller_name_segments = params[:controller].split("/")
+    path = if Settings.employers_controllers.include? controller_name_segments.pop
+      employers_dashboards_path
+    else
+      root_path
+    end
   end
 end
 

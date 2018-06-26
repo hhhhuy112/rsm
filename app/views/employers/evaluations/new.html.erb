@@ -1,0 +1,36 @@
+<%= render "apply_infomation" %>
+<div class="block full">
+  <%= simple_form_for @evaluation, url: employers_apply_evaluations_path(apply_id: @apply.id) do |f| %>
+    <%= f.hidden_field :apply_id, value: @apply.id %>
+    <div class="row">
+      <table class="table table-bordered table-striped table-vcenter no-footer background-white font-weight-normal-only">
+        <tr>
+          <th class="text-center">
+            <%= t ".skills" %>
+            <%= link_to_add_association "", f, :knowledges,
+              "data-association-insertion-node": "#knowledge tr:first-child",
+              class: "fa fa-plus" %>
+          </th>
+          <th class="text-center"><%= t ".score" %></th>
+          <th class="text-center"><%= t ".note" %></th>
+          <th class="text-center"><%= t ".action" %></th>
+        </tr>
+        <tbody class="text-center" id="knowledge">
+          <tr></tr>
+          <%= f.simple_fields_for :knowledges do |knowledge| %>
+            <%= render "knowledge_fields", f: knowledge %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <%= f.label t(".other") %>
+      <div class="cold-md-12 form-group">
+        <%= f.input :other, as: :ckeditor, label: false, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row text-center">
+      <%= f.submit t(".save"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

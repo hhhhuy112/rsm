@@ -1,0 +1,24 @@
+<%= render "apply_infomation" %>
+<div class="block full">
+  <div class="row">
+    <table class="table table-bordered table-striped table-vcenter no-footer background-white font-weight-normal-only">
+      <tr>
+        <th class="text-center"><%= t ".stt" %></th>
+        <th class="text-center"><%= t ".skills" %></th>
+        <th class="text-center"><%= t ".score" %></th>
+        <th class="text-center"><%= t ".note" %></th>
+      </tr>
+      <tbody class="text-center">
+        <%= render partial: "knowledge", collection: @evaluation.knowledges, as: :knowledge %>
+      </tbody>
+    </table>
+  </div>
+  <% if @evaluation.other.present? %>
+    <div class="row">
+      <h4><%= t ".other" %></h4>
+      <div class="cold-md-12 form-group">
+        <%= raw @evaluation.other %>
+      </div>
+    </div>
+  <% end %>
+</div>

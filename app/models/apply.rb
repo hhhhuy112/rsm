@@ -13,6 +13,9 @@ class Apply < ApplicationRecord
   has_many :steps, through: :status_steps, dependent: :destroy
   has_many :offers, through: :apply_statuses
   has_many :notes, dependent: :destroy
+  has_one :evaluation, dependent: :destroy
+
+  delegate :position, to: :job, allow_nil: true, prefix: true
 
   serialize :information, Hash
 

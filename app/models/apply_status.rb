@@ -9,6 +9,7 @@ class ApplyStatus < ApplicationRecord
   has_one :category, through: :job
   has_one :appointment, dependent: :destroy
   has_one :user, through: :apply
+  has_one :evaluation, through: :apply
   has_many :offers, dependent: :destroy
   has_many :inforappointments, through: :appointment
 
@@ -36,6 +37,10 @@ class ApplyStatus < ApplicationRecord
   scope :is_step, ->id_status_step{where status_step_id: id_status_step}
   scope :of_apply, -> apply_ids {where apply_id: apply_ids}
   scope :sort_apply_statues, ->{order(created_at: :desc).limit Settings.job.limit}
+  scope :interviews_scheduled_by, -> appointment_ids do
+    joins(:appointment)
+    .where(appointments: {type_appointment: Settings.appointments.interview_scheduled, id: appointment_ids})
+  end
 
   def save_activity key, user
     self.transaction do

@@ -23,6 +23,8 @@ class Company < ApplicationRecord
   has_many :templates, dependent: :destroy
   has_many :notifications, dependent: :destroy
   has_many :skills, dependent: :destroy
+  has_many :evaluations, through: :applies
+  has_many :inforappointments, through: :appointments
 
   delegate :enable_send_mail, to: :company_setting, allow_nil: true, prefix: true
 
