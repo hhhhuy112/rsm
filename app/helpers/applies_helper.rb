@@ -40,4 +40,8 @@ module AppliesHelper
     end
     "text-#{status_text}"
   end
+
+  def is_disabled? content
+    content.present?
+  end
 end

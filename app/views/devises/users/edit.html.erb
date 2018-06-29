@@ -5,7 +5,7 @@
       <div class="login-title text-center">
         <h1>
           <small class="sml-cof">
-            <strong><%= t ".change_pass" %></strong>
+            <strong><i class="fa fa-key"></i> <%= t ".change_pass" %></strong>
           </small>
         </h1>
       </div>
@@ -16,7 +16,6 @@
           <div class="form-group form-custom">
             <div class="col-xs-12">
               <div class="input-group">
-                <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
                 <%= f.password_field :password, class: "form-control input-custom input-lg",
                   placeholder: t(".password") %>
               </div>
@@ -28,7 +27,6 @@
           <div class="form-group form-custom">
             <div class="col-xs-12">
               <div class="input-group">
-                <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
                 <%= f.password_field :password_confirmation, class: "form-control input-custom input-lg",
                   placeholder:t(".password_confirm") %>
               </div>
@@ -40,7 +38,6 @@
           <div class="form-group form-custom">
             <div class="col-xs-12">
               <div class="input-group">
-                <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
                 <%= f.password_field :current_password, class: "form-control input-custom", placeholder: t(".current") %>
               </div>
               <span class="error-message">

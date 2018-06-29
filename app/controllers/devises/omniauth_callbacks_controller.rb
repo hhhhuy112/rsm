@@ -73,7 +73,7 @@ class Devises::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
 
     return if provider != Settings.omniauth.framgia
-    @user.remote_picture_url = data.avatar.gsub("http://", "https://") if data.avatar.present?
+    # @user.remote_picture_url = data.avatar.gsub("http://", "https://") if data.avatar.present?
     @user.birthday = data.birthday
     @user.code = data.employee_code
     @user.birthday = data.birthday

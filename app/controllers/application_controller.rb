@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :rack_mini_profiler_authorize_request
   helper_method :file_path, :get_setting_content_type
+  before_action :store_user_location!, if: :storable_location?
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
     @error_message = exception.model
@@ -93,13 +94,12 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def authenticate_user!
-    if user_signed_in?
-      super
-    else
-      session[Settings.sessions.user_return_to] = request.url
-      redirect_to root_path(require_login: true), notice: t("devise.failure.unauthenticated")
-    end
+  def storable_location?
+    request.get? && is_navigational_format? && !devise_controller? && !request.xhr?
+  end
+
+  def store_user_location!
+    store_location_for(:user, request.fullpath)
   end
 end
 
