@@ -35,28 +35,28 @@
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
               <%= text_field_tag :name, current_user.name, class: "form-control input-md input-custom",
-                placeholder: t(".name"), disabled: true %>
+                placeholder: t(".name"), disabled: is_disabled?(current_user.name) %>
             </div>
           </div>
           <div class="form-group input-inline form-custom">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
               <%= text_field_tag :email, current_user.email, class: "form-control input-md input-custom",
-                placeholder: t(".email"), disabled: true %>
+                placeholder: t(".email"), disabled: is_disabled?(current_user.email) %>
             </div>
           </div>
           <div class="form-group input-inline form-custom">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-phone"></i></span>
               <%= text_field_tag :phone, current_user.phone, class: "form-control input-md input-custom",
-                placeholder: t(".phone"), disabled: true %>
+                placeholder: t(".phone"), disabled: is_disabled?(current_user.phone) %>
             </div>
           </div>
           <div class="form-group input-inline form-custom">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
               <%= text_field_tag :address, current_user.address, class: "form-control input-md input-custom",
-                placeholder: t(".address"), disabled: true %>
+                placeholder: t(".address"), disabled: is_disabled?(current_user.address) %>
             </div>
           </div>
           <div id="content-apply">

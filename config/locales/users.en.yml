@@ -19,7 +19,7 @@ en:
       email: "Email"
       address: "Address"
       phone: "Phone"
-      birthday: "Birthday"
+      birthday_placeholder: "Birthday"
       date_format: "%m/%d/%Y"
       browse: "Browse"
       curriculum: "Curriculum vitae"

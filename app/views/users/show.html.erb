@@ -1,42 +1,66 @@
 <div class="container">
-  <div class="profile clearfix">
-    <%= render @user %>
-  </div>
-  <div class="tab-custom row">
-    <div class="col-lg-2 col-sm-3 col-xs-3 tab-custom-menu">
-      <div class="list-group">
-        <a href="javascript:void(0)" class="list-group-item active text-center">
-          <i class="fa fa-user"></i><br/><%= t ".profile" %>
-        </a>
-        <a href="javascript:void(0)" class="list-group-item text-center">
-          <i class="fa fa-cc-diners-club"></i><br/><%= t ".clubs" %>
-        </a>
-        <a href="javascript:void(0)" class="list-group-item text-center">
-          <i class="fa fa-certificate"></i><br/><%= t ".certificates" %>
-        </a>
-        <a href="javascript:void(0)" class="list-group-item text-center">
-          <i class="fa fa-bank"></i><br/><%= t ".experiences" %>
-        </a>
-        <a href="javascript:void(0)" class="list-group-item text-center">
-          <i class="fa fa-trophy"></i><br/><%= t ".achievements" %>
-        </a>
-      </div>
+
+  <div class="row">
+    <div class="col-md-3 col-sm-4 col-xs-4 items-profile">
+      <%= render @user %>
+      <ul class="nav nav-pills nav-stacked tab-title ">
+        <li class="active">
+          <a href="#tab_a" class="item-profile" data-toggle="pill">
+            <i class="fa fa-user"></i><%= t ".profile" %>
+          </a>
+        </li>
+
+        <li>
+          <a href="#tab_b" class="item-profile" data-toggle="pill">
+          <i class="fa fa-cc-diners-club"></i><%= t ".clubs" %>
+          </a>
+        </li>
+
+        <li>
+          <a href="#tab_c" class="item-profile" data-toggle="pill">
+            <i class="fa fa-certificate"></i><%= t ".certificates" %>
+          </a>
+        </li>
+
+
+        <li>
+          <a href="#tab_d" class="item-profile" data-toggle="pill">
+            <i class="fa fa-bank"></i><%= t ".experiences" %>
+          </a>
+        </li>
+
+        <li>
+          <a href="#tab_e" class="item-profile" data-toggle="pill">
+            <i class="fa fa-trophy"></i><%= t ".achievements" %>
+          </a>
+        </li>
+      </ul>
     </div>
-    <div class="col-lg-10 col-sm-9 col-xs-9 tab-custom-content">
-      <div class="tab-content active">
-        <%= render "users/index" %>
-      </div>
-      <div class="tab-content">
-        <%= render "clubs/index" %>
-      </div>
-      <div class="tab-content">
-        <%= render "certificates/index" %>
-      </div>
-      <div class="tab-content">
-        <%= render "experiences/index" %>
-      </div>
-      <div class="tab-content">
-        <%= render "achievements/index" %>
+
+
+    <div class="col-md-9 col-sm-8 col-xs-8" id="contents">
+      <div class="tab-content col-md-12">
+
+        <div class="tab-pane active" id="tab_a">
+          <%= render "users/index" %>
+        </div>
+
+
+        <div class="tab-pane" id="tab_b">
+          <%= render "clubs/index" %>
+        </div>
+
+        <div class="tab-pane" id="tab_c">
+          <%= render "certificates/index" %>
+        </div>
+
+        <div class="tab-pane" id="tab_d">
+          <%= render "experiences/index" %>
+        </div>
+
+        <div class="tab-pane" id="tab_e">
+          <%= render "achievements/index" %>
+        </div>
       </div>
     </div>
   </div>

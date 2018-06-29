@@ -3736,11 +3736,11 @@ p > video {
 }
 
 input[type="submit"] {
-  background-color: #e94820;
+  background-color: #5bc0de;
 }
 
 input[type="submit"]:hover {
-  background-color: #fc653c;
+  background-color: #46b8da;
 }
 
 .section-service.inactive .service-item .item-header h3 a:hover,

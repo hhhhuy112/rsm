@@ -38,7 +38,7 @@ class User < ApplicationRecord
     message: I18n.t("users.form.empty") }
   validates :code, uniqueness: {scope: :company_id}, presence: true
   validates :cv, presence: true, allow_nil: true, unless: :skip_cv_validation
-  validates :phone, presence: true, length: {maximum: Settings.phone_max_length}, allow_nil: true
+  validates :phone, length: {maximum: Settings.phone_max_length}, allow_nil: true
   validate :birthday_cannot_be_in_the_future
 
   before_validation(on: :create) do

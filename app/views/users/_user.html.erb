@@ -1,29 +1,26 @@
-<div>
-  <div class="image">
-    <%= image_tag "user_default.jpg", class: "img-cover" %>
+<div class="profile-userpic">
+  <% if @user.picture.present? %>
+  <%= show_avatar @user %>
+  <% else %>
+  <%= image_tag "avatar_2x.jpg", class: "img-responsive" %>
+  <% end %>
+</div>
+<div class="profile-usertitle">
+  <div class="profile-usertitle-name">
+    <%= @user.name %>
   </div>
-  <div class="user clearfix">
-    <div class="avatar" id="avatar_user">
-      <% if @user.picture.present? %>
-        <%= show_avatar @user %>
-      <% else %>
-        <%= image_tag "avatar_2x.jpg", class: "img-thumbnail img-profile" %>
-      <% end %>
-    </div>
+  <div class="profile-usertitle-job">
+    <%= @user.email %>
   </div>
-  <div class="name-user" id= "new-action">
-    <h4><%= @user.name %></h4>
-    <h5>(<%= @user.email %>)</h5>
+</div>
+<div class="profile-userbuttons">
+  <% if can? :update, @user %>
+  <div class="m-b download-resume">
+    <%= link_to download_path(current_user.id, format: "pdf"),
+    class: "btn btn-sm btn-primary", target: :_blank, title: t("download") do %>
+    <i class="fa fa-download" aria-hidden="true"></i>
+    <%= t "download" %>
+    <% end %>
   </div>
-  <div class="cv-user">
-     <% if can? :update, @user %>
-      <div class="view-field m-b download-resume">
-        <%= link_to download_path(current_user.id, format: "pdf"),
-          class: "btn btn-sm btn-primary", target: :_blank, title: t("download") do %>
-          <i class="fa fa-download" aria-hidden="true"></i>
-          <%= t "download" %>
-        <% end %>
-      </div>
-     <% end %>
-  </div>
+  <% end %>
 </div>
