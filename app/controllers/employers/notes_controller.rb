@@ -1,4 +1,5 @@
 class Employers::NotesController < Employers::EmployersController
+  load_and_authorize_resource
   before_action :load_apply, except: :destroy
 
   def new

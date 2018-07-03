@@ -1,4 +1,5 @@
 class Employers::TemplatesController < Employers::EmployersController
+  load_and_authorize_resource
   before_action :load_templates, only: :index
   before_action :load_type_template, expect: %i(index)
   before_action :load_currency, only: :show, unless: :is_template_benefit_skill?

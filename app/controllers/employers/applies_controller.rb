@@ -1,4 +1,5 @@
 class Employers::AppliesController < Employers::EmployersController
+  load_and_authorize_resource
   before_action :load_notify, :readed_notification, :load_templates, only: :show
   before_action :load_notifications, only: %i(show index)
   before_action :get_step_by_company, :load_current_step, :load_next_step,

@@ -1,4 +1,5 @@
 class Employers::JobsController < Employers::EmployersController
+  load_and_authorize_resource
   before_action :create_job, only: %i(index new)
   before_action :load_jobs, only: %i(index create update)
   before_action :check_question, only: %i(update create)

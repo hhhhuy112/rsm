@@ -1,4 +1,5 @@
 class Employers::SkillsController < Employers::EmployersController
+  load_and_authorize_resource
   before_action :load_notifications, only: :index
   before_action :load_skills, only: %i(index destroy)
 
