@@ -1,4 +1,5 @@
 class Employers::SendEmailsController < Employers::EmployersController
+  authorize_resource class: false
   before_action :load_apply, :load_apply_status, :load_apply_statuses, :load_activities_apply, except: %i(index show)
   before_action :load_oauth, only: :show
 

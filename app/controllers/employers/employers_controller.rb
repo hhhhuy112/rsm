@@ -7,8 +7,6 @@ class Employers::EmployersController < BaseNotificationsController
   before_action :check_permissions_employer
   before_action :current_ability
   before_action :load_notifications
-  load_and_authorize_resource unless: :exception_controller?
-  authorize_resource class: false, if: :exception_controller?
   before_action :load_email_sents
 
   private
@@ -129,11 +127,6 @@ class Employers::EmployersController < BaseNotificationsController
 
   def load_notes
     @notes = @apply.notes.get_newest.includes :user if @apply
-  end
-
-  def exception_controller?
-    controller_name_segments = params[:controller].split("/")
-    [Settings.dashboards, Settings.candidates, Settings.send_emails, Settings.email_googles, Settings.interviews].include? controller_name_segments.pop
   end
 
   def load_user_candidate

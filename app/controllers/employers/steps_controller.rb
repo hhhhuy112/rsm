@@ -1,4 +1,5 @@
 class Employers::StepsController < Employers::EmployersController
+  load_and_authorize_resource
   before_action :load_apply, :load_apply_status, :load_current_step,
     :load_history_apply_status, :load_status_step_scheduled
 

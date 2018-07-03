@@ -6,10 +6,10 @@ class ApplicationController < ActionController::Base
   helper_method :file_path, :get_setting_content_type
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
-    @error_message = exception.model
+    @error_message = exception
     respond_to do |format|
       format.js{render "errors/error", status: 401}
-      format.html{redirect_to redirect_to_path, alert: @error_message}
+      format.html{redirect_to redirect_to_path, flash: {danger: @error_message}}
     end
   end
 
@@ -58,8 +58,7 @@ class ApplicationController < ActionController::Base
     controller_name_segments = params[:controller].split("/")
     controller_name_segments.pop
     controller_namespace = controller_name_segments.join("/").camelize
-    apply = Apply.find_by id: params[:apply_id]
-    Ability.new(current_user, controller_namespace, apply)
+    Ability.new(current_user, controller_namespace)
   end
 
   def configure_permitted_parameters

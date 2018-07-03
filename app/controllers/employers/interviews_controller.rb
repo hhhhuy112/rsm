@@ -1,4 +1,5 @@
 class Employers::InterviewsController < Employers::EmployersController
+  authorize_resource class: false
   before_action :load_applies, :get_update_date_apply, only: :index
 
   def index; end
