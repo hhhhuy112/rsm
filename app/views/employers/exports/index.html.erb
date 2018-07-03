@@ -1,0 +1,91 @@
+<%= stylesheet_link_tag "exports/evaluation.css" %>
+<%= stylesheet_link_tag "bootstrap.min.css" %>
+<div class="container">
+  <div>
+    <table class="table table-bordered">
+      <tr>
+        <td class="w-15">
+          <%= image_tag @company.logo.url || Settings.logo_default, size: Settings.image.size %>
+        </td>
+        <td colspan="2" class="text-center">
+          <h3><%= t ".title" %></h3>
+        </td>
+      </tr>
+      <tr class="text-center">
+        <td colspan="3">
+          <h1><%= @company.name %></h1>
+        </td>
+      </tr>
+    </table>
+    <table class="table table-bordered m-top">
+      <tr>
+        <td>
+          <strong class="text-left"><%= t ".code" %></strong>
+          <%= @evaluation.apply.user&.code %>
+        </td>
+        <td>
+          <strong class="text-left"><%= t ".phone" %></strong>
+          <%= @evaluation.apply.information[:email] %>
+        </td>
+        <td>
+          <strong class="text-left"><%= t ".email" %></strong>
+          <%= @evaluation.apply.information[:phone] %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong class="text-left"><%= t ".name" %></strong>
+          <%= @evaluation.apply.information[:name] %>
+        </td>
+        <td>
+          <strong class="text-left"><%= t ".position" %></strong>
+          <%= @evaluation.apply.job_position %>
+        </td>
+        <td>
+          <strong class="text-left"><%= t ".date" %></strong>
+          <%= l @evaluation.created_at, format: :long %>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th class="text-center"><%= t ".no" %></th>
+        <th class="text-center"><%= t ".skill" %></th>
+        <th class="text-center"><%= t ".score" %></th>
+        <th class="text-center"><%= t ".note" %></th>
+      </tr>
+      <tbody>
+        <%= render partial: "employers/exports/knowledges", collection: @evaluation.knowledges,
+          as: :knowledge %>
+        <% if @evaluation.other.present? %>
+          <tr class="text-left">
+            <td colspan="4"><%= t ".other" %></td>
+          </tr>
+          <tr class="text-center">
+            <td colspan="4"><%= raw @evaluation.other %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th class="w-3 text-center"><%= t ".human_resource" %></th>
+          <th class="w-3 text-center"><%= t ".human_development_div" %></th>
+          <th class="w-3 text-center"><%= t ".interviewer" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="h-150">
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

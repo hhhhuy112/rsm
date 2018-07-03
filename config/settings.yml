@@ -262,3 +262,6 @@ knowledges:
 appointments:
   interview_scheduled: 1
 employers_controllers: ["applies", "evaluations", "jobs", "members", "skills"]
+image:
+  size: "100x100"
+logo_default: "default_logo.png"
