@@ -1,0 +1,51 @@
+<div class="content-header">
+  <div class="header-section">
+    <div class="block-section text-center">
+      <div class="col-md-8 col-xs-8">
+        <div class=" block-content-information">
+          <table class="table table-hover table-borderless table-striped table-vcenter">
+            <tbody>
+              <tr>
+                <td class="text-right"><%= t ".code" %></td>
+                <td class="font-weight-normal"><span><%= @apply.user&.code %></span></td>
+              </tr>
+              <tr>
+                <td class="text-right"><%= t ".email" %></td>
+                <td class="font-weight-normal"><span><%= @apply.information[:email] %></span></td>
+              </tr>
+              <tr>
+                <td class="text-right"><%= t ".phone" %></td>
+                <td class="font-weight-normal"><%= @apply.information[:phone] %></td>
+              </tr>
+              <tr>
+                <td class="text-right"><%= t ".position" %></td>
+                <td class="font-weight-normal"><%= @apply.job_position %></td>
+              </tr>
+              <tr>
+                <td class="text-right"><%= t ".status" %></td>
+                <td id="status-infor-apply">
+                  <%= show_status_apply @current_apply_status.status_step %>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-right"><%= t "employers.cv" %></td>
+                <td>
+                  <a href="<%= @apply.cv.url %>" data-fancybox class="thumbnail-cv">
+                    <i class="fa fa-tag fa-fw"></i><b><%= t "employers.view" %></b>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-xs-4 col-md-4 ">
+        <%= show_image_apply @apply %>
+        <h3>
+          <strong><%= @apply.information[:name] %></strong><br><small></small>
+        </h3>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

@@ -602,6 +602,7 @@ vn:
       updated_success: "Đã cập nhật kỹ năng"
       deleted_success: "Xóa thành công"
       deleted_fail: "Xóa thất bại"
+      cant_destroy: "Không được phép xóa"
   layouts:
     employers:
       footer_employer:

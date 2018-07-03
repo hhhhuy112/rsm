@@ -73,6 +73,25 @@
           <% end %>
         </li>
 
+
+        <li class="title-header">
+            <span class="title-sidebar"><%= t ".manage_interview" %></span>
+        </li>
+        <% if can? :manage, :interview %>
+          <li>
+            <%= link_to employers_interviews_path do %>
+              <i class="fa fa-binoculars"></i>
+              <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".interviews" %></span>
+            <% end %>
+          </li>
+        <% end %>
+        <li>
+          <%= link_to employers_evaluations_path do %>
+            <i class="fa fa-file"></i>
+            <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".evaluations" %></span>
+          <% end %>
+        </li>
+
         <li class="title-header">
             <span class="title-sidebar"><%= t ".company_setting" %></span>
         </li>
@@ -120,12 +139,13 @@
         <li class="title-header">
             <span class="title-sidebar"><%= t ".personal-setting" %></span>
         </li>
-          <li>
-            <%= link_to "javascript:void(0)", class: "connect-google" do %>
-              <i class="fa fa-google" aria-hidden="true"></i>
-              <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".connect_gmail" %></span>
-            <% end %>
-          </li>
+
+        <li>
+          <%= link_to "javascript:void(0)", class: "connect-google" do %>
+            <i class="fa fa-google" aria-hidden="true"></i>
+            <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".connect_gmail" %></span>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>

@@ -1,13 +1,13 @@
 class Ability
   include CanCan::Ability
 
-  def initialize user, controller_namespace = nil
+  def initialize user, controller_namespace = nil, apply = nil
     return undefine_user if user.blank?
     case controller_namespace
     when "Employers"
-      permission_employer user
+      permission_employer user, apply
     else
-      permission_user user
+      permission_user user, apply
       if user.is_employer?
         permission_employer user
       end
@@ -20,10 +20,12 @@ class Ability
 
   private
 
-  def permission_employer user
+  def permission_employer user, apply
     return unless user.is_employer? || user.members.present?
     company = user.members.get_by_role(:employer).last.company
     manage_company user, company
+    return if user.inforappointments.blank?
+    manage_interview user, company, apply
   end
 
   def manage_company user, company
@@ -47,6 +49,16 @@ class Ability
     can :manage, :send_email if user.company_id == company.id
     can :manage, :email_google if user.company_id == company.id
     can :manage, Skill, company_id: company.id
+    can :read, Evaluation, apply_id: company.apply_ids
+    can :read, Knowledge, skill_id: company.skill_ids
+  end
+
+  def manage_interview user, company, apply
+    can :create, Evaluation, apply_id: apply.id if apply.present? &&  user.apply_interview_ids.include?(apply.id)
+    can :manage, Evaluation, apply_id: Evaluation.apply_ids(user.evaluations)
+    can :create, Knowledge
+    can :manage, Knowledge, skill_id: Evaluation.skill_ids(user.evaluations)
+    can :manage, :interview if user.company_id == company.id
   end
 
   def permission_admin

@@ -25,6 +25,9 @@ class User < ApplicationRecord
   has_many :applies, dependent: :destroy
   has_many :jobs_applied, class_name: Job.name, through: :applies, source: :job, dependent: :destroy
   has_many :inforappointments
+  has_many :appointments, through: :inforappointments
+  has_many :apply_interviews, class_name: Apply.name, through: :appointments, source: :apply
+  has_many :evaluations, through: :apply_interviews
   has_many :offers, dependent: :destroy
   has_one :oauth, dependent: :destroy
   has_many :apply_statuses, through: :applies

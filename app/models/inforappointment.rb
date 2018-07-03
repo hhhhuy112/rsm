@@ -27,5 +27,9 @@ class Inforappointment < ApplicationRecord
                                                     BCrypt::Engine.cost
       BCrypt::Password.create(string, cost: cost)
     end
+
+    def appointment_ids inforappointments
+      inforappointments.map(&:appointment_id).uniq
+    end
   end
 end

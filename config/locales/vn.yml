@@ -651,6 +651,36 @@ vn:
       form:
         save: "Lưu"
         name: "Tên"
+    evaluations:
+      create_success: "Thêm thành công"
+      create_fail: "Thêm thất bại"
+      evaluation_not_found: "Không tìm thấy phiếu đánh giá"
+      new:
+        stt: "STT"
+        skills: "Kỹ Năng"
+        score: "Điểm"
+        note: "Ghi chú"
+        other: "Khác"
+        save: "Lưu"
+      show:
+        stt: "STT"
+        skills: "Kỹ Năng"
+        score: "Điểm"
+        note: "Ghi chú"
+        other: "Khác"
+      apply_infomation:
+        code: "Code"
+        email: "Email"
+        phone: "Phone"
+        status: "Status"
+        position: "Position"
+        history: "History"
+      not_evaluate: "Không Quan Sát Được"
+      bad: "Kém"
+      medium: "Trung Bình"
+      rather: "Khá"
+      good: "Tốt"
+      excellent: "Xuất Sắc"
   placeholder:
     blank: "No information"
   apply:
@@ -1087,6 +1117,7 @@ vn:
       close: "Đóng"
       no_jobs: "Không có công việc nào ở hiện tại"
   applies:
+    apply_not_found: "Không tìm thất apply"
     questions:
       question: "Câu hỏi %{index}"
       answer: "Trả lời"

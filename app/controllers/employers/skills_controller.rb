@@ -32,11 +32,15 @@ class Employers::SkillsController < Employers::EmployersController
 
   def destroy
     respond_to do |format|
-      if @skill.destroy
-        load_skills
-        format.js{@success = t "employers.skills.deleted_success"}
+      if has_many_knowledges?
+        format.js{@error = t "employers.skills.cant_destroy"}
       else
-        format.js{@error = t "employers.skills.deleted_fail"}
+        if @skill.destroy
+          load_skills
+          format.js{@success = t "employers.skills.deleted_success"}
+        else
+          format.js{@error = t "employers.skills.deleted_fail"}
+        end
       end
     end
   end
@@ -49,5 +53,9 @@ class Employers::SkillsController < Employers::EmployersController
 
   def load_skills
     @skills = @company.skills.page(params[:page]).per Settings.skills.page
+  end
+
+  def has_many_knowledges?
+    @skill.knowledges.present?
   end
 end
