@@ -14,4 +14,8 @@ class Evaluation < ApplicationRecord
       self.create_activity key, owner: user, recipient: self.apply
     end
   end
+
+  def self.apply_ids evaluations
+    evaluations.map(&:apply_id).uniq
+  end
 end

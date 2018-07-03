@@ -1,4 +1,4 @@
-<%= render "apply_infomation" %>
+<%= render "apply_information" %>
 <div class="block full">
   <%= simple_form_for @evaluation, url: employers_apply_evaluations_path(apply_id: @apply.id) do |f| %>
     <%= f.hidden_field :apply_id, value: @apply.id %>
@@ -24,7 +24,7 @@
       </table>
     </div>
     <div class="row">
-      <%= f.label t(".other") %>
+      <%= f.label t ".other" %>
       <div class="cold-md-12 form-group">
         <%= f.input :other, as: :ckeditor, label: false, class: "form-control" %>
       </div>

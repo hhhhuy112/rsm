@@ -60,7 +60,9 @@ Rails.application.routes.draw do
     resources :skills
     resources :knowledges
     resources :interviews, only: :index
-    resources :evaluations, only: :index
+    resources :evaluations do
+      resources :exports, only: :index
+    end
   end
   resources :bookmark_likes
   resources :experiences
