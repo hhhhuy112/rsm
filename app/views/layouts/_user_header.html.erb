@@ -3,7 +3,7 @@
   <div class="wrapper">
     <div class="logo">
       <a href="#" class="custom-logo-link" rel="home" itemprop="url">
-        <%= image_tag "frc.png" %>
+        <%= image_tag @company.logo.present? ? @company.logo.url : "default_logo.png" %>
       </a>
     </div>
     <div class="header-right">
@@ -38,6 +38,7 @@
                     <% end %>
                   </li>
                 <% end %>
+
                 <li>
                   <%= link_to user_url current_user do %>
                   <%= t ".profile" %>
@@ -45,7 +46,7 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to edit_user_registration_url do %>
+                  <%= link_to user_edit_url do %>
                   <%= t ".change" %>
                   <i class="fa fa-pencil-square-o pull-right"></i>
                   <% end %>
