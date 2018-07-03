@@ -1,6 +1,13 @@
 class Devises::RegistrationsController < Devise::RegistrationsController
-  layout "devise_users/devise_user"
   before_action :load_company
+
+  def edit
+    super
+  end
+
+  def update
+    super
+  end
 
   def create
     if request.xhr?
@@ -23,6 +30,10 @@ class Devises::RegistrationsController < Devise::RegistrationsController
   private
 
   def after_sign_up_path_for resource
-    stored_location_for(resource) || root_path
+    stored_location_for(resource) || root_url
+  end
+
+  def after_sign_up_path_for resource
+    root_url
   end
 end

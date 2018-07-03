@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   as :user do
     post "login", to: "devises/sessions#create", as: :user_session
     post "signup", to: "devises/registrations#create", as: :user_registration
+    put "/update_password", to: "devises/registrations#update"
+    get "/user/edit", to: "devises/registrations#edit"
     put "/signup", to: "devises/users#update"
     get "edit", to: "devises/users#edit", as: :edit_user_registration
     delete "logout", to: "devises/sessions#destroy", as: :destroy_user_session

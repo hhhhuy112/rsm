@@ -79,3 +79,14 @@ vn:
       not_saved:
         one: "1 lỗi đã ngăn không cho %{resource} được lưu lại:"
         other: "%{count} lỗi đã ngăn không cho %{resource} này được lưu lại:"
+  devises:
+    registrations:
+      edit:
+        update: "Cập nhật"
+        password: "Mật khẩu mới"
+        password_confirm: "Xác nhận mật khẩu mới"
+        current: "Mật khẩu hiện tại"
+        change_pass: "Thay đổi mật khẩu"
+    confirmations:
+      new:
+        email: "Email"
