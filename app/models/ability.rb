@@ -1,20 +1,15 @@
 class Ability
   include CanCan::Ability
 
-  def initialize user, controller_namespace = nil, apply = nil
+  def initialize user, controller_namespace = nil
     return undefine_user if user.blank?
     case controller_namespace
     when "Employers"
-      permission_employer user, apply
+      permission_employer user
     else
-<<<<<<< 2e3dae3266e8c9697d022303e7c512d98f225c12
       permission_user user
       if user.employer?
-=======
-      permission_user user, apply
-      if user.is_employer?
->>>>>>> manage interviews
-        permission_employer user
+        permission_user user
       end
 
       if user.admin?
@@ -25,18 +20,13 @@ class Ability
 
   private
 
-<<<<<<< 2e3dae3266e8c9697d022303e7c512d98f225c12
   def permission_employer user
     return unless user.employer?
     company = user.company
-=======
-  def permission_employer user, apply
     return unless user.is_employer? || user.members.present?
-    company = user.members.get_by_role(:employer).last.company
->>>>>>> manage interviews
     manage_company user, company
     return if user.inforappointments.blank?
-    manage_interview user, company, apply
+    manage_interview user, company
   end
 
   def manage_company user, company
@@ -64,11 +54,11 @@ class Ability
     can :read, Knowledge, skill_id: company.skill_ids
   end
 
-  def manage_interview user, company, apply
-    can :create, Evaluation, apply_id: apply.id if apply.present? &&  user.apply_interview_ids.include?(apply.id)
-    can :manage, Evaluation, apply_id: Evaluation.apply_ids(user.evaluations)
+  def manage_interview user, company
+    can :create, Evaluation, apply_id: user.apply_interview_ids
+    can :manage, Evaluation, apply_id: user.apply_interview_ids
     can :create, Knowledge
-    can :manage, Knowledge, skill_id: Evaluation.skill_ids(user.evaluations)
+    can :manage, Knowledge, evaluation_id: user.evaluation_ids
     can :manage, :interview if user.company_id == company.id
   end
 

@@ -1,5 +1,5 @@
 class Employers::StatusStepsController < Employers::EmployersController
-
+  load_and_authorize_resource
   before_action :load_status_step, only: :index
   before_action :load_steps, only: :index
 

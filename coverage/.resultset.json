@@ -1,6 +1,7 @@
 {
   "RSpec": {
     "coverage": {
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
 <<<<<<< 2bc96d2a9994729b1db6f3b040bca432ea5b05ef
       "/home/framgia/framgia/project/rsm/spec/controllers/achievements_controller_spec.rb": [
         1,
@@ -25,16 +26,98 @@
 <<<<<<< 2bc96d2a9994729b1db6f3b040bca432ea5b05ef
         null,
         null,
-        1,
+=======
+      "/home/vts/Desktop/Project/rsm/spec/controllers/employers/evaluations_controller_spec.rb": [
         1,
         null,
         1,
+        12,
+        12,
+        null,
+        1,
+        null,
+        1,
+        11,
+        11,
+        11,
+        11,
+        11,
+        14,
+        11,
+        null,
+        null,
+        1,
+        1,
+        1,
+        3,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        4,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+>>>>>>> fix employers permission
+        1,
+        1,
+        4,
+        null,
+        null,
+        1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
 =======
 >>>>>>> display skills
+=======
+        0,
+        null,
+>>>>>>> fix employers permission
         null,
         1,
         0,
+        null,
+        null,
+        1,
         0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
         null,
         null
       ],
@@ -263,6 +346,7 @@
         1,
         1,
         1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
 <<<<<<< 2bc96d2a9994729b1db6f3b040bca432ea5b05ef
         573,
         null,
@@ -276,6 +360,13 @@
         1,
         0,
 >>>>>>> display skills
+=======
+        22,
+        null,
+        null,
+        1,
+        11,
+>>>>>>> fix employers permission
         null,
         null,
         null,
@@ -294,11 +385,15 @@
         null,
         null,
         1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
 <<<<<<< 2bc96d2a9994729b1db6f3b040bca432ea5b05ef
         577,
 =======
         0,
 >>>>>>> display skills
+=======
+        22,
+>>>>>>> fix employers permission
         null,
         null
       ],
@@ -1089,7 +1184,21 @@
         null,
         null
       ],
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
       "/home/framgia/framgia/project/rsm/spec/factories/experience.rb": [
+=======
+      "/home/vts/Desktop/Project/rsm/spec/factories/evaluations.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/vts/Desktop/Project/rsm/spec/factories/experience.rb": [
+        1,
+        1,
+        1,
+>>>>>>> fix employers permission
         1,
         1,
         21,
@@ -1121,7 +1230,20 @@
         null,
         null
       ],
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
       "/home/framgia/framgia/project/rsm/spec/factories/member.rb": [
+=======
+      "/home/vts/Desktop/Project/rsm/spec/factories/knowledges.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/vts/Desktop/Project/rsm/spec/factories/member.rb": [
+>>>>>>> fix employers permission
         1,
         1,
         1,
@@ -1222,11 +1344,15 @@
         1,
         1,
         1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
 <<<<<<< 2bc96d2a9994729b1db6f3b040bca432ea5b05ef
         198,
 =======
         1,
 >>>>>>> display skills
+=======
+        12,
+>>>>>>> fix employers permission
         1,
         1,
         1,
@@ -1285,7 +1411,11 @@
         1,
         1,
         1,
+        1,
         null,
+        1,
+        1,
+        1,
         1,
         1,
         1,
@@ -1343,6 +1473,10 @@
         1,
         1,
         1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
+=======
+        1,
+>>>>>>> fix employers permission
         null,
         1,
         1,
@@ -1353,6 +1487,7 @@
         1,
         null,
         1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
 <<<<<<< 2bc96d2a9994729b1db6f3b040bca432ea5b05ef
         248,
         248,
@@ -1362,6 +1497,11 @@
         0,
         0,
 >>>>>>> display skills
+=======
+        11,
+        11,
+        11,
+>>>>>>> fix employers permission
         null,
         null,
         1,
@@ -1408,11 +1548,15 @@
         null,
         null,
         1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
 <<<<<<< 2bc96d2a9994729b1db6f3b040bca432ea5b05ef
         254,
 =======
         0,
 >>>>>>> display skills
+=======
+        11,
+>>>>>>> fix employers permission
         0,
         null,
         null,
@@ -1537,7 +1681,140 @@
         null,
         1,
         1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
         1,
+=======
+        0,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/home/vts/Desktop/Project/rsm/app/models/apply.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        0,
+        null,
+        0,
+        null,
+        null
+      ],
+      "/home/vts/Desktop/Project/rsm/app/models/company.rb": [
+>>>>>>> fix employers permission
         1,
         1,
         null,
@@ -1564,6 +1841,8 @@
         1,
         1,
         null,
+        1,
+        1,
         1,
         1,
         1,
@@ -2119,10 +2398,20 @@
         0,
         0,
         null,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
         null
       ],
       "/home/framgia/framgia/project/rsm/app/helpers/employers/email_googles_helper.rb": [
+=======
+        null,
+>>>>>>> fix employers permission
         1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
         null
       ],
       "/home/framgia/framgia/project/rsm/app/helpers/experiences_helper.rb": [
@@ -2313,17 +2602,95 @@
         null,
         null
       ],
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
 <<<<<<< 2bc96d2a9994729b1db6f3b040bca432ea5b05ef
       "/home/framgia/framgia/project/rsm/app/controllers/achievements_controller.rb": [
 =======
       "/home/vts/Desktop/Project/rsm/app/controllers/employers/skills_controller.rb": [
 >>>>>>> display skills
+=======
+      "/home/vts/Desktop/Project/rsm/app/controllers/employers/evaluations_controller.rb": [
         1,
         1,
         1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        null,
+>>>>>>> fix employers permission
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
         1,
 <<<<<<< 2bc96d2a9994729b1db6f3b040bca432ea5b05ef
+=======
+        0,
+        0,
+        null,
+        null,
         1,
+        0,
+        0,
+        0,
+        null,
+        null,
+>>>>>>> fix employers permission
+        1,
+        3,
+        3,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        3,
+        null,
         null,
         1,
         2,
@@ -2332,6 +2699,16 @@
         null,
         1,
         null,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
+=======
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+>>>>>>> fix employers permission
         null,
         null,
         null,
@@ -2526,6 +2903,7 @@
         null,
         null,
         1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
         1,
         null,
         null,
@@ -2540,6 +2918,12 @@
         0,
 >>>>>>> display skills
         null,
+=======
+        0,
+        0,
+        0,
+        0,
+>>>>>>> fix employers permission
         null,
         null,
         null,
@@ -2602,9 +2986,14 @@
 <<<<<<< 2bc96d2a9994729b1db6f3b040bca432ea5b05ef
 =======
         1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
         0,
         0,
 >>>>>>> display skills
+=======
+        3,
+        3,
+>>>>>>> fix employers permission
         null,
         null,
         1,
@@ -2625,6 +3014,7 @@
 <<<<<<< 2bc96d2a9994729b1db6f3b040bca432ea5b05ef
         null,
         1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
         4,
         4,
         null,
@@ -2633,6 +3023,10 @@
         0,
         0,
 >>>>>>> display skills
+=======
+        3,
+        3,
+>>>>>>> fix employers permission
         null,
         null,
         1,
@@ -2708,6 +3102,7 @@
         2,
         null,
         0,
+        0,
         null,
         null,
         null,
@@ -2771,9 +3166,18 @@
         1,
         null,
         1,
+        3,
+        3,
         0,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
         0,
 <<<<<<< 2bc96d2a9994729b1db6f3b040bca432ea5b05ef
+=======
+        null,
+        null,
+        1,
+        0,
+>>>>>>> fix employers permission
         null,
         null,
         null,
@@ -2785,6 +3189,9 @@
         null,
 =======
         0,
+        0,
+        0,
+        null,
         null,
         null,
 >>>>>>> display skills
@@ -2803,34 +3210,179 @@
         null,
         null,
         0,
-        null,
+        0,
         null,
         null,
         1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
         48,
         7,
+=======
+        0,
+        0,
+        null,
+        0,
         null,
         null,
         1,
+        3,
+        3,
+        null,
+        0,
+        0,
+>>>>>>> fix employers permission
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        3,
+        3,
+        null,
+        null,
+        1,
+        3,
+        3,
+        0,
+        null,
+        null,
+        1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
         null,
         1,
         51,
         49,
+=======
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/vts/Desktop/Project/rsm/app/models/apply_status.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+>>>>>>> fix employers permission
+        null,
+        1,
+        null,
+        1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
+        59,
+        59,
+=======
+        null,
+        1,
+        0,
+        null,
+        1,
+        1,
+        4,
+        1,
+        1,
+        null,
+        0,
         null,
         null,
         1,
-        59,
-        59,
+        0,
+        0,
+>>>>>>> fix employers permission
         null,
+        null,
+        null
+      ],
+      "/home/vts/Desktop/Project/rsm/app/models/email_sent.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        4,
+        null,
+        1,
+        null,
+        1,
         null,
         1,
         41,
         41,
         null,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
         null
       ],
       "/home/framgia/framgia/project/rsm/spec/controllers/certificates_controller_spec.rb": [
         1,
+=======
+        null,
+        1,
+        0,
+        0,
+>>>>>>> fix employers permission
         null,
         1,
         6,
@@ -2839,26 +3391,81 @@
         5,
         6,
         null,
-        1,
+        null,
+        null
+      ],
+      "/home/vts/Desktop/Project/rsm/app/models/inforappointment.rb": [
         1,
         1,
         null,
         1,
         null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
+        null,
         null,
         1,
         1,
         null,
         null,
+=======
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/home/vts/Desktop/Project/rsm/app/models/evaluation.rb": [
+        1,
+        1,
+>>>>>>> fix employers permission
         null,
         1,
         1,
         1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
+=======
+        null,
         1,
         null,
+        1,
+        null,
+>>>>>>> fix employers permission
+        1,
+        1,
+        3,
+        null,
+        null,
         null,
         1,
         1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
         null,
         null,
         null,
@@ -3066,10 +3673,38 @@
       ],
       "/home/framgia/framgia/project/rsm/app/controllers/companies_controller.rb": [
         1,
+=======
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/home/vts/Desktop/Project/rsm/app/models/activity.rb": [
+        1,
+        1,
+        null,
+        3,
+        null,
+        null,
+        1,
+        1,
+        null,
+>>>>>>> fix employers permission
         1,
         null,
         1,
         1,
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
         1,
         1,
         1,
@@ -7394,16 +8029,24 @@
         1,
         0,
         null,
+=======
+        0,
+        0,
+>>>>>>> fix employers permission
         0,
         null,
         null,
         null
       ]
     },
+<<<<<<< 14c063433def1cd2295ecf2fa90adb59ffa91078
 <<<<<<< 2bc96d2a9994729b1db6f3b040bca432ea5b05ef
     "timestamp": 1530863216
 =======
     "timestamp": 1529469505
 >>>>>>> display skills
+=======
+    "timestamp": 1530597401
+>>>>>>> fix employers permission
   }
 }

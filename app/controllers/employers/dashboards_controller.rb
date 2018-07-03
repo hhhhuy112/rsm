@@ -1,6 +1,8 @@
 class Employers::DashboardsController < Employers::EmployersController
   layout "employers/employer"
 
+  authorize_resource class: false
+
   def index
     check_params if request.xhr?
     @support_dashboard = Supports::Dashboard.new(@company, params[:q], @company.apply_statuses)

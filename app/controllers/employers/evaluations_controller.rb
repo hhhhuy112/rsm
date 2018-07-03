@@ -1,6 +1,8 @@
 class Employers::EvaluationsController < Employers::EmployersController
   before_action :find_apply, only: %i(new create show)
   before_action :interviewed!, only: %i(new create)
+  before_action :build_evaluation, only: :new
+  load_and_authorize_resource
   before_action :check_evaluation_of_apply, only: :show
   before_action :build_knowledges, only: :new
   before_action :load_current_step, only: %i(new show)
@@ -70,5 +72,9 @@ class Employers::EvaluationsController < Employers::EmployersController
 
   def get_update_date_apply
     @activities = Activity.get_update_date_apply
+  end
+
+  def build_evaluation
+    @evaluation = @apply.build_evaluation
   end
 end
