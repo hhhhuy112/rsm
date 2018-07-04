@@ -1,5 +1,6 @@
 class UsersController < BaseNotificationsController
   before_action :authenticate_user!
+  before_action :load_company
   before_action :current_ability
   before_action :load_user, only: %i(show update)
   before_action :load_notifications, only: :show

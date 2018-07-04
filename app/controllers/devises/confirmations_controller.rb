@@ -1,5 +1,6 @@
 class Devises::ConfirmationsController < Devise::ConfirmationsController
   skip_before_action :verify_authenticity_token, only: :create, if: ->{request.xhr?}
+  before_action :load_company
 
   def show
     self.resource = resource_class.confirm_by_token(params[:confirmation_token])
