@@ -1,5 +1,6 @@
 class AppliesController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create, if: -> {params[:check_info_valid].present?}
+  before_action :load_company
   before_action :load_job, only: :create
   load_and_authorize_resource param_method: :apply_params
 

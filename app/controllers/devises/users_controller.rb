@@ -1,4 +1,6 @@
 class Devises::UsersController < Devise::RegistrationsController
+  before_action :load_company
+
   def edit
     super
   end
