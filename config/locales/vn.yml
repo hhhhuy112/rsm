@@ -681,6 +681,23 @@ vn:
       rather: "Khá"
       good: "Tốt"
       excellent: "Xuất Sắc"
+    exports:
+      index:
+        no: "NO."
+        skill: "Kỹ Năng"
+        score: "Điểm"
+        note: "Ghi Chú"
+        other: "Khác"
+        title: "Phiếu Đánh Giá Phỏng Vấn"
+        name: "Tên : "
+        position: "Vị Trí : "
+        date: "Ngày : "
+        code: "Mã : "
+        phone: "SĐT : "
+        email: "Email : "
+        human_resource: "Phòng Hành Chính -  Nhân Sự"
+        human_development_div: "Trưởng Bộ Phận Tiếp Nhân NV"
+        interviewer: "Người Phỏng Vấn"
   placeholder:
     blank: "No information"
   apply:

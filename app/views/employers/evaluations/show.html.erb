@@ -1,4 +1,10 @@
-<%= render "apply_infomation" %>
+<%= render "apply_information" %>
+<div class="row btn-download">
+  <%= link_to employers_evaluation_exports_path(@evaluation, format: "pdf"),
+    class: "btn btn-primary float-right", target: :_blank do %>
+    <i class="fa fa-download"></i> <%= t ".download" %>
+  <% end %>
+</div>
 <div class="block full">
   <div class="row">
     <table class="table table-bordered table-striped table-vcenter no-footer background-white font-weight-normal-only">
@@ -10,15 +16,15 @@
       </tr>
       <tbody class="text-center">
         <%= render partial: "knowledge", collection: @evaluation.knowledges, as: :knowledge %>
+        <% if @evaluation.other.present? %>
+          <tr class="text-left">
+            <td colspan="4"><%= t ".other" %></td>
+          </tr>
+          <tr class="text-center">
+            <td colspan="4"><%= raw @evaluation.other %></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
-  <% if @evaluation.other.present? %>
-    <div class="row">
-      <h4><%= t ".other" %></h4>
-      <div class="cold-md-12 form-group">
-        <%= raw @evaluation.other %>
-      </div>
-    </div>
-  <% end %>
 </div>

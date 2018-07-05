@@ -638,19 +638,37 @@ en:
         score: "Score"
         note: "Note"
         other: "Other"
-      apply_infomation:
+      apply_information:
         code: "Code"
         email: "Email"
         phone: "Phone"
         status: "Status"
         position: "Position"
         history: "History"
+        download: "Download"
       not_evaluate: "Not Evaluate"
       bad: "Bad"
       medium: "Medium"
       rather: "Rather"
       good: "Good"
       excellent: "Exellent"
+    exports:
+      index:
+        no: "NO."
+        skill: "Skill"
+        score: "Score"
+        note: "Note"
+        other: "Other"
+        title: "Interview Assessment Report"
+        name: "Name : "
+        position: "Position : "
+        date: "Date : "
+        code: "Code : "
+        phone: "Phone : "
+        email: "Email : "
+        human_resource: "Human Resource"
+        human_development_div: "Human Development Division"
+        interviewer: "Interviewer"
   placeholder:
     blank: "No information"
   apply:
