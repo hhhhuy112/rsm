@@ -1,0 +1,71 @@
+<% if knowledge.skill.basic? %>
+  <tr>
+    <td><%= knowledge_counter + 1 %></td>
+    <td><%= knowledge.skill_name %></td>
+    <td>
+      <div class="font-size-20 l-5 pretty p-icon p-toggle p-plain ">
+        <input type="radio" title='<%= t("employers.evaluations.not_evaluate") %>'
+          <%= checked_radio knowledge, Settings.knowledges.not_evaluate %> >
+        <div class="state p-off">
+          <i class="icon fa fa-frown-o"></i>
+        </div>
+        <div class="state p-on p-info-o">
+          <i class="icon fa fa-frown-o info c-not-eva"></i>
+        </div>
+      </div>
+
+      <div class="font-size-20 l-5 pretty p-icon p-toggle p-plain">
+        <input type="radio" title='<%= t("employers.evaluations.bad") %>' <%= checked_radio knowledge, Settings.knowledges.bad %> >
+        <div class="state p-off">
+          <i class="icon fa fa-thumbs-o-down"></i>
+        </div>
+        <div class="state p-on p-info-o">
+          <i class="icon fa fa-thumbs-down c-bad"></i>
+        </div>
+      </div>
+
+      <div class="font-size-20 l-5 pretty p-icon p-toggle p-plain">
+        <input type="radio" title='<%= t("employers.evaluations.medium") %>' <%= checked_radio knowledge, Settings.knowledges.medium %> >
+        <div class="state p-off">
+          <i class="icon fa fa-meh-o"></i>
+        </div>
+        <div class="state p-on p-info-o">
+          <i class="icon fa fa-meh-o info c-medium"></i>
+        </div>
+      </div>
+
+      <div class="font-size-20 l-5 pretty p-icon p-toggle p-plain">
+        <input type="radio" title='<%= t("employers.evaluations.rather") %>' <%= checked_radio knowledge, Settings.knowledges.rather %> >
+        <div class="state p-off">
+          <i class="icon fa fa-smile-o"></i>
+        </div>
+        <div class="state p-on p-info-o">
+          <i class="icon fa fa-smile-o c-rather"></i>
+        </div>
+      </div>
+
+      <div class="font-size-20 l-5 pretty p-icon p-toggle p-plain">
+        <input type="radio" readonly title='<%= t("employers.evaluations.good") %>'
+          <%= checked_radio knowledge, Settings.knowledges.good %> >
+        <div class="state p-off">
+          <i class="icon fa fa-star-o"></i>
+        </div>
+        <div class="state p-on p-info-o">
+          <i class="icon fa fa-star info c-good"></i>
+        </div>
+      </div>
+
+      <div class="font-size-20 pretty p-icon p-toggle p-plain">
+        <input type="radio" readonly title='<%= t("employers.evaluations.excellent") %>'
+          <%= checked_radio knowledge, Settings.knowledges.excellent %> >
+        <div class="state p-off">
+          <i class="icon fa fa-thumbs-o-up"></i>
+        </div>
+        <div class="state p-on p-info-o">
+          <i class="icon fa fa-thumbs-up info c-excellent"></i>
+        </div>
+      </div>
+    </td>
+    <td class="p-0"><%= knowledge.note %></td>
+  </tr>
+<% end %>

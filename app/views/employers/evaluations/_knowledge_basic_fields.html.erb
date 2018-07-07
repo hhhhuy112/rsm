@@ -5,9 +5,17 @@
       <%= f.hidden_field :skill_id %>
     <% else %>
       <div class="links add_benefit_links">
-        <%= f.simple_fields_for :skill_attributes do |skill| %>
+        <% f.object.build_skill %>
+        <%= f.simple_fields_for :skill do |skill| %>
           <%= skill.hidden_field :company_id, value: @company.id %>
           <%= skill.text_area :name, class: "border-none form-control text-center-field"  %>
+          <%= skill.hidden_field :type_skill,
+            value: Settings.skills.type.basic %>
+          <% skill.object.skill_sets.build %>
+          <%= skill.simple_fields_for :skill_sets do |skill_set| %>
+            <%= skill_set.hidden_field :interview_type_id,
+              value: @evaluation.interview_type_id %>
+          <% end %>
         <% end %>
       </div>
     <% end %>

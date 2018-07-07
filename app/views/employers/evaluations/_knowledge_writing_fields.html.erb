@@ -1,0 +1,32 @@
+<tr class="nested-fields knowledge_field">
+  <td class="p-0">
+    <% if f.object.skill_id.present? %>
+      <%= f.object.skill_name %>
+      <%= f.hidden_field :skill_id %>
+    <% else %>
+      <div class="links add_benefit_links">
+        <% f.object.build_skill %>
+        <%= f.simple_fields_for :skill do |skill| %>
+          <%= skill.hidden_field :company_id, value: @company.id %>
+          <%= skill.text_area :name, class: "border-none form-control text-center-field"  %>
+          <%= skill.hidden_field :type_skill,
+            value: Settings.skills.type.writing %>
+          <% skill.object.skill_sets.build %>
+          <%= skill.simple_fields_for :skill_sets do |skill_set| %>
+            <%= skill_set.hidden_field :interview_type_id,
+              value: @evaluation.interview_type_id %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </td>
+  <td class="p-0">
+    <%= f.text_area :writing_evaluation, class: "border-none form-control" %>
+    <%= f.error :writing_evaluation, class: "error-message" %>
+  </td>
+  <td>
+    <%= link_to_remove_association f, class: "btn btn-danger btn-sm" do %>
+      <i class="fa fa-trash-o" aria-hidden="true"></i>
+    <% end %>
+  </td>
+</tr>

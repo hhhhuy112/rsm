@@ -625,19 +625,26 @@ en:
       create_success: "Create Success"
       create_fail: "Create Fail"
       evaluation_not_found: "Evaluation not found"
-      new:
+      form:
         stt: "STT"
         skills: "Skills"
         score: "Score"
         note: "Note"
         other: "Other"
         save: "Save"
+        skill_type: "Kind of Skill"
+        evaluate_writing: "Evaluate Writing"
+        writing_skills: "Writing Skills"
+        evaluation: "Evaluation"
       show:
         stt: "STT"
-        skills: "Skills"
+        basic_skills: "Basic Skills"
         score: "Score"
         note: "Note"
         other: "Other"
+        evaluation: "Evaluation"
+        evaluate_writing: "Evaluate Writing"
+        writing_skills: "Writing Skills"
       apply_information:
         code: "Code"
         email: "Email"
@@ -669,6 +676,9 @@ en:
         human_resource: "Human Resource"
         human_development_div: "Human Development Division"
         interviewer: "Interviewer"
+        evaluation: "Evaluation"
+        writing_knowledges: "Writing Knowledges"
+        basic_knowledges: "Basic Knowledges"
   placeholder:
     blank: "No information"
   apply:

@@ -51,14 +51,16 @@
   <div>
     <table class="table table-bordered table-striped">
       <tr>
-        <th class="text-center"><%= t ".no" %></th>
+        <th class="text-center w-5"><%= t ".no" %></th>
         <th class="text-center"><%= t ".skill" %></th>
         <th class="text-center"><%= t ".score" %></th>
         <th class="text-center"><%= t ".note" %></th>
       </tr>
       <tbody>
-        <%= render partial: "employers/exports/knowledges", collection: @evaluation.knowledges,
-          as: :knowledge %>
+        <tr>
+          <td colspan="4"><%= t ".basic_knowledges" %></td>
+        </tr>
+        <%= render partial: "employers/exports/basic_knowledges", collection: @evaluation.knowledges, as: :knowledge %>
         <% if @evaluation.other.present? %>
           <tr class="text-left">
             <td colspan="4"><%= t ".other" %></td>
@@ -70,6 +72,23 @@
       </tbody>
     </table>
   </div>
+
+  <div>
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th class="text-center w-5"><%= t ".no" %></th>
+        <th class="text-center"><%= t ".skill" %></th>
+        <th class="text-center"><%= t ".evaluation" %></th>
+      </tr>
+      <tbody>
+        <tr>
+          <td colspan="3"><%= t ".writing_knowledges" %></td>
+        </tr>
+        <%= render partial: "employers/exports/writing_knowledges", collection: @evaluation.knowledges, as: :knowledge %>
+      </tbody>
+    </table>
+  </div>
+
   <div>
     <table class="table table-bordered">
       <thead>

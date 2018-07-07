@@ -24,3 +24,4 @@ Rails.application.config.assets.precompile += %w(ckeditor/filebrowser/images/gal
 Rails.application.config.assets.precompile += %w( ckeditor/* )
 Rails.application.config.assets.precompile += %w(employers/candidate.js employers/email_googles.js employers/validate_apply_form.js)
 Rails.application.config.assets.precompile += %w(exports/evaluation.css bootstrap.min.css)
+Rails.application.config.assets.precompile += %w(employers/evaluation.js)

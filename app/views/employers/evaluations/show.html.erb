@@ -9,13 +9,13 @@
   <div class="row">
     <table class="table table-bordered table-striped table-vcenter no-footer background-white font-weight-normal-only">
       <tr>
-        <th class="text-center"><%= t ".stt" %></th>
-        <th class="text-center"><%= t ".skills" %></th>
+        <th class="text-center wt-5"><%= t ".stt" %></th>
+        <th class="text-center"><%= t ".basic_skills" %></th>
         <th class="text-center"><%= t ".score" %></th>
         <th class="text-center"><%= t ".note" %></th>
       </tr>
       <tbody class="text-center">
-        <%= render partial: "knowledge", collection: @evaluation.knowledges, as: :knowledge %>
+        <%= render partial: "knowledge_basic", collection: @evaluation.knowledges, as: :knowledge %>
         <% if @evaluation.other.present? %>
           <tr class="text-left">
             <td colspan="4"><%= t ".other" %></td>
@@ -24,6 +24,19 @@
             <td colspan="4"><%= raw @evaluation.other %></td>
           </tr>
         <% end %>
+      </tbody>
+    </table>
+    <table class="table table-bordered table-striped table-vcenter no-footer background-white font-weight-normal-only">
+      <tr>
+        <th colspan="3"><%= t ".evaluate_writing" %></th>
+      </tr>
+      <tr>
+        <th class="text-center wt-5"><%= t ".stt" %></th>
+        <th class="text-center"><%= t ".writing_skills" %></th>
+        <th class="text-center"><%= t ".evaluation" %></th>
+      </tr>
+      <tbody class="text-center">
+        <%= render partial: "knowledge_writing", collection: @evaluation.knowledges, as: :knowledge %>
       </tbody>
     </table>
   </div>
