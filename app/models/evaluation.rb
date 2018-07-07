@@ -2,6 +2,7 @@ class Evaluation < ApplicationRecord
   acts_as_paranoid
 
   belongs_to :apply
+  belongs_to :interview_type
   has_many :knowledges, inverse_of: :evaluation, dependent: :destroy
   has_many :skills, through: :knowledges
 

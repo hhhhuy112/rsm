@@ -247,6 +247,9 @@ email_google:
     pdf: "application/pdf"
 skills:
   page: 10
+  type:
+    basic: "basic"
+    writing: "writing"
 knowledges:
   not_evaluate: "not_evaluate"
   bad: "bad"

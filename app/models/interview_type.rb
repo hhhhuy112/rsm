@@ -1,0 +1,10 @@
+class InterviewType < ApplicationRecord
+  acts_as_paranoid
+
+  belongs_to :company
+  has_many :evaluations
+  has_many :skill_sets, dependent: :destroy
+  has_many :skills, through: :skill_sets
+
+  validates :name, presence: true, uniqueness: true
+end

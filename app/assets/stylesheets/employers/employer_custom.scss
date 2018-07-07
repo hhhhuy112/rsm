@@ -546,7 +546,7 @@ a.disabled {
   left: 70%;
 }
 
-.page-job-detail__detail .tab-sidebar {
+.page-job-detail__detail .tab-sidebar, .wt-30 {
   width: 30%;
 }
 
@@ -1034,4 +1034,8 @@ li.media-offer {
 
 .btn-download {
   padding: 0px 20px 10px 0px !important;
+}
+
+.wt-5 {
+  width: 5%;
 }
