@@ -77,6 +77,7 @@
         <li class="title-header">
             <span class="title-sidebar"><%= t ".manage_interview" %></span>
         </li>
+
         <% if can? :manage, :interview %>
           <li>
             <%= link_to employers_interviews_path do %>
@@ -85,6 +86,7 @@
             <% end %>
           </li>
         <% end %>
+
         <li>
           <%= link_to employers_evaluations_path do %>
             <i class="fa fa-file"></i>
@@ -117,16 +119,10 @@
         </li>
 
         <li>
-          <a href="#" class="sidebar-nav-menu hasmi">
-            <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-book"></i>
-            &nbsp;<span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".skills" %></span></a>
-          <ul>
-            <li>
-              <%= link_to employers_skills_path do %>
-                &nbsp;<span class="sidebar-nav-mini-hide lion loulight"><%= t ".all_skills" %></span>
-              <% end %>
-            </li>
-          </ul>
+          <%= link_to employers_skills_path  do %>
+            <i class="fa fa-book" aria-hidden="true"></i>
+            <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".skills" %></span>
+          <% end %>
         </li>
 
         <li>

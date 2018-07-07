@@ -651,6 +651,9 @@ vn:
       form:
         save: "Lưu"
         name: "Tên"
+        basic: "Cơ Bản"
+        writing: "Thi Viết"
+        type: "Loại"
     evaluations:
       create_success: "Thêm thành công"
       create_fail: "Thêm thất bại"
