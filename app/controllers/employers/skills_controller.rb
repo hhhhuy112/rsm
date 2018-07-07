@@ -2,6 +2,7 @@ class Employers::SkillsController < Employers::EmployersController
   load_and_authorize_resource
   before_action :load_notifications, only: :index
   before_action :load_skills, only: %i(index destroy)
+  before_action :load_type_skill, expect: %i(index show)
 
   def index; end
 
@@ -49,14 +50,19 @@ class Employers::SkillsController < Employers::EmployersController
   private
 
   def skill_params
-    params.require(:skill).permit :name
+    params.require(:skill).permit :name, :type_skill
   end
 
   def load_skills
-    @skills = @company.skills.page(params[:page]).per Settings.skills.page
+    @basic_skills = @company.skills.basic.includes(:knowledges).page(params[:page_basic_skill]).per Settings.skills.page
+    @writing_skills = @company.skills.writing.includes(:knowledges).page(params[:page_writing_skill]).per Settings.skills.page
   end
 
   def has_many_knowledges?
     @skill.knowledges.present?
+  end
+
+  def load_type_skill
+    @type_skills = Skill.type_skills
   end
 end
