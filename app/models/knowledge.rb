@@ -4,6 +4,8 @@ class Knowledge < ApplicationRecord
   belongs_to :evaluation
   belongs_to :skill
 
+  validates :writing_evaluation, presence: true, allow_nil: true
+
   accepts_nested_attributes_for :skill, reject_if: :all_blank
 
   delegate :name, to: :skill, allow_nil: true, prefix: true

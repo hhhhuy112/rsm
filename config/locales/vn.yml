@@ -655,19 +655,26 @@ vn:
       create_success: "Thêm thành công"
       create_fail: "Thêm thất bại"
       evaluation_not_found: "Không tìm thấy phiếu đánh giá"
-      new:
+      form:
         stt: "STT"
-        skills: "Kỹ Năng"
+        basic_skills: "Kiến Thức Căn Bản"
         score: "Điểm"
         note: "Ghi chú"
         other: "Khác"
         save: "Lưu"
+        skill_type: "Loại Kỹ Năng"
+        evaluate_writing: "Đánh Giá Thi Viết"
+        writing_skills: "Kỹ Năng Viết"
+        evaluation: "Đánh Giá"
       show:
         stt: "STT"
         skills: "Kỹ Năng"
         score: "Điểm"
         note: "Ghi chú"
         other: "Khác"
+        evaluation: "Đánh Giá"
+        evaluate_writing: "Đánh Giá Thi Viết"
+        writing_skills: "Kỹ Năng Viết"
       apply_infomation:
         code: "Code"
         email: "Email"
@@ -698,6 +705,9 @@ vn:
         human_resource: "Phòng Hành Chính -  Nhân Sự"
         human_development_div: "Trưởng Bộ Phận Tiếp Nhân NV"
         interviewer: "Người Phỏng Vấn"
+        evaluation: "Đánh Giá"
+        writing_knowledges: "Kỹ Năng Viết"
+        basic_knowledges: "Kiến Thức Căn Bản"
   placeholder:
     blank: "No information"
   apply:
