@@ -385,3 +385,34 @@ Job.limit(2).each do |job|
     job.surveys.create! question_id: rand(1..10)
   end
 end
+
+InterviewType.create!(
+  name: "Intern/NewDev",
+  company_id: 1
+)
+
+InterviewType.create!(
+  name: "HR",
+  company_id: 1
+)
+
+3.times do |n|
+  Skill.create!(
+    name: Faker::Name.name,
+    company_id: 1,
+    type_skill: "basic"
+  )
+end
+
+Skill.create!(
+  name: "GMath",
+  company_id: 1,
+  type_skill: "writing"
+)
+
+Skill.all.each { |skill|
+  SkillSet.create!(
+    interview_type_id: 1,
+    skill_id: skill.id
+  )
+}

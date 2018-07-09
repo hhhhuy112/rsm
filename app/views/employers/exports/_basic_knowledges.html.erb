@@ -1,0 +1,8 @@
+<% if knowledge.skill.basic? %>
+  <tr class="text-center">
+    <td><%= knowledge_counter + 1 %></th>
+    <td><%= knowledge.skill_name %></th>
+    <td><%= knowledge.score %></th>
+    <td><%= knowledge.note %></th>
+  </tr>
+<% end %>
