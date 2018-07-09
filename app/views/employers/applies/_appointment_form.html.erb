@@ -41,7 +41,7 @@
                   <%= t ".interview" %>
                 </label>
                 <%= select_tag "states[]", options_for_select(
-                  members.map {|s| [s.user.name, s.user.id]}
+                  members.map {|member| [member.name, member.id]}
                   ), multiple: true, class: "select-chosen", id: "example-chosen-multiple",
                   data: {id: apply.id}%>
               </div>

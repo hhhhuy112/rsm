@@ -13,6 +13,8 @@
         <%= simple_form_for(resource, as: resource_name, html: {class: "form-horizontal form-bordered
           form-control-borderless", id: "form-login", method: :put},
             url: update_password_path) do |f| %>
+          <%= f.hidden_field :skip_cv_validation, value: true %>
+
           <div class="form-group form-custom">
             <div class="col-xs-12">
               <div class="input-group">

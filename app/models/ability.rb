@@ -8,7 +8,7 @@ class Ability
       permission_employer user
     else
       permission_user user
-      if user.is_employer?
+      if user.employer?
         permission_employer user
       end
 
@@ -21,8 +21,8 @@ class Ability
   private
 
   def permission_employer user
-    return unless user.is_employer? || user.members.present?
-    company = user.members.get_by_role(:employer).last.company
+    return unless user.employer?
+    company = user.company
     manage_company user, company
   end
 

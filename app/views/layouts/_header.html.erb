@@ -30,9 +30,9 @@
               <% end %>
               <ul>
                 <li class="arrow-up"><span class="border-arrow"></span><span class="arrow"></span></li>
-                <% if current_user.is_employer? %>
+                <% if current_user.employer? %>
                   <li>
-                    <%= link_to employers_dashboards_url subdomain: current_user.get_company.subdomain do %>
+                    <%= link_to employers_dashboards_url subdomain: current_user.company_subdomain do %>
                       <%= t "employer" %>
                       <i class="fa fa-dashcube fa-fw pull-right"></i>
                     <% end %>
@@ -40,7 +40,7 @@
                 <% end %>
 
                 <li>
-                  <%= link_to user_url current_user do %>
+                  <%= link_to edit_user_registration_url do %>
                     <%= t ".profile" %>
                     <i class="fa fa-user fa-fw pull-right"></i>
                   <% end %>

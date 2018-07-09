@@ -4,13 +4,7 @@ class BaseNotificationsController < ApplicationController
 
   def readed_notification
     return unless @notification && user_signed_in?
-    users_read_all = @notification.readed
-    if users_read_all.blank?
-      @notification.update_attributes readed: [current_user.id]
-    elsif !users_read_all.include?(current_user.id)
-      users_read_all << current_user.id
-      @notification.update_attributes readed: users_read_all
-    end
+    @notification.readed! current_user.id
   end
 
   def load_notify
@@ -21,17 +15,14 @@ class BaseNotificationsController < ApplicationController
 
   def load_notifications
     return unless user_signed_in?
-    if current_user.members.find_by position: :employer
-      company_manager = Member.search_relation(Member.roles[:employer], current_user.id)
-        .pluck :company_id
-      @notifications = Notification.includes(:user).includes(:event)
-        .employer.not_user(current_user.id).search_company(company_manager).order_by_created_at
-      classify_notify company_manager
+    @notifications = if current_user.employer?
+      current_user.company.notifications.includes(:user, :event)
+        .employer.not_user(current_user.id).order_by_created_at
     else
-      @notifications = Notification.includes(:user).includes(:event)
+      current_user.company.notifications.includes(:user, :event)
         .user.not_user(current_user.id).search_user_request(current_user.id).order_by_created_at
-      classify_notify
     end
+    load_unread_notifications_by_current_user
   end
 
   def load_email_sents
@@ -41,14 +32,9 @@ class BaseNotificationsController < ApplicationController
 
   private
 
-  def classify_notify company_manager = nil
+  def load_unread_notifications_by_current_user
     return unless @notifications
-    if company_manager
-      @notify_readed = @notifications.search_readed current_user.id
-    else
-      @notify_readed = @notifications.search_readed current_user.id
-    end
-    @notify_unread = @notifications - @notify_readed
+    @notify_unread = @notifications.unread_by current_user.id
   end
 
   def load_search_form

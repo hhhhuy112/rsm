@@ -33,7 +33,7 @@ class EmailSent < ApplicationRecord
   scope :by_type, ->type_name{where type: type_name}
 
   def send_mail user = nil
-    @sendmail_service = SendmailService.new self, self.user.companies.last
+    @sendmail_service = SendmailService.new self, self.company
     @sendmail_service.send_candidate user
   end
 

@@ -32,6 +32,16 @@
       </div>
     </div>
   </div>
+
+  <div class="contain-float">
+      <div class="error-message animation-slideDown pull-left w-50-percent">
+        <%= f.full_error :name %>
+      </div>
+      <div class="error-message animation-slideDown pull-right w-50-percent">
+        <%= f.full_error :email %>
+      </div>
+  </div>
+
   <div class="form-group form-custom input-inline <%= add_class_if_resource_has_error resource.errors[:password] %>">
     <div class="col-xs-12">
       <div class="input-group">

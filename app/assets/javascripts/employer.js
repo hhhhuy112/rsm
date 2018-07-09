@@ -56,6 +56,10 @@ $('.sidebar-nav').ready(function () {
   $('a[href="' + this.location.pathname + '"]').addClass('active');
 });
 
+$('.show-loading').click(function(){
+    $('.loading').fadeIn('slow');
+});
+
 $(document).ready(function(){
   $('.show-loading').click(function(){
     $('.loading').fadeIn('slow');

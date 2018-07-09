@@ -113,8 +113,8 @@ templates:
   textarea: 40
   url: "public/uploads/"
   upload: "/uploads/"
-picture_user_width: 60
-picture_user_height: 60
+picture_user_width: 45
+picture_user_height: 45
 statuses: ["waitting", "review", "test", "interview", "offer", "joined"]
 language:
   en: "en"

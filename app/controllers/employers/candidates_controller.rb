@@ -77,7 +77,7 @@ class Employers::CandidatesController < Employers::EmployersController
   end
 
   def load_candidates
-    @q_candidates = User.get_company(@company.id).search params[:q]
+    @q_candidates = @company.users.search params[:q]
     @candidates = @q_candidates.result.includes(:assignment_person).newest.page(params[:page]).per Settings.apply.page
   end
 

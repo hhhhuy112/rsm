@@ -1,14 +1,6 @@
 class Devises::RegistrationsController < Devise::RegistrationsController
   before_action :load_company
 
-  def edit
-    super
-  end
-
-  def update
-    super
-  end
-
   def create
     if request.xhr?
       build_resource sign_up_params

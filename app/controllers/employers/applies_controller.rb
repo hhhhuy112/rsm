@@ -119,7 +119,7 @@ class Employers::AppliesController < Employers::EmployersController
 
     applies_status_email_or_code = if @email_of_info_or_code.present?
       ApplyStatus.current.of_apply(
-        Apply.email_of_information(@email_of_info_or_code).or(Apply.of_cadidate(@company.user_systems.get_by_code(@email_of_info_or_code).pluck(:id)))
+        Apply.email_of_information(@email_of_info_or_code).or(Apply.of_cadidate(@company.users.get_by_code(@email_of_info_or_code).pluck(:id)))
         .get_by_job(@company.job_ids)
         .pluck(:id).uniq
       )
