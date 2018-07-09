@@ -7,8 +7,7 @@ class Company < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :applies, through: :jobs, dependent: :destroy
   has_many :members, dependent: :destroy
-  has_many :users, through: :members, dependent: :destroy
-  has_many :user_systems, class_name: User.name, foreign_key: :company_id, dependent: :destroy
+  has_many :users, class_name: User.name, foreign_key: :company_id, dependent: :destroy
   has_many :passive_report, class_name: Report.name, as: :reported, dependent: :destroy
   has_many :passive_follow, class_name: Relationship.name, as: :followed, dependent: :destroy
   has_many :company_activities, dependent: :destroy
@@ -22,6 +21,7 @@ class Company < ApplicationRecord
   has_many :status_steps, through: :steps
   has_many :currencies, dependent: :destroy
   has_many :templates, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   delegate :enable_send_mail, to: :company_setting, allow_nil: true, prefix: true
 

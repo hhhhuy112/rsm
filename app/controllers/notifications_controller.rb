@@ -11,9 +11,8 @@ class NotificationsController < BaseNotificationsController
 
   def update
     return unless @notify_unread
-    @notify_unread.each do |notify|
-      @notification = notify
-      readed_notification
+    @notify_unread.find_each do |notify|
+      notify.readed!
     end
     load_notifications
     respond_to do |format|

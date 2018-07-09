@@ -138,6 +138,9 @@ a.animation-floating {
   width: 14.5px;
   border-radius: 50% !important;
 }
+.notificationList li {
+  padding-top: 10px !important;
+}
 .notificationList li.readed {
   background-color: white;
 }
@@ -180,4 +183,8 @@ a.animation-floating {
   font-size: 10px;
   top: -12px;
   right: 6px;
+}
+
+.notify-mail-list li .notify-img {
+  padding-top: 20px;
 }

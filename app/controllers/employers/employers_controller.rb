@@ -25,7 +25,7 @@ class Employers::EmployersController < BaseNotificationsController
   end
 
   def load_members
-    @members = @company.members
+    @members = @company.users.by_roles([User.roles.keys[1], User.roles.keys[3]])
   end
 
   def load_templates
