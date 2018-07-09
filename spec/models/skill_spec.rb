@@ -4,6 +4,7 @@ RSpec.describe Skill, type: :model do
   context "associations" do
     it {is_expected.to belong_to :company}
     it {is_expected.to have_many :knowledges}
+    it {is_expected.to have_many :skill_sets}
   end
 
   context "validates" do
