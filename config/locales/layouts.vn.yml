@@ -229,7 +229,6 @@ vn:
         new_apply: "Apply mới"
         email_googles: "Thư điện tử"
         skills: "Kỹ năng"
-        all_skills: "Tất cả kỹ năng"
         interviews: "Các Phỏng Vấn"
         evaluations: "Các Đánh Giá"
       header_employer:

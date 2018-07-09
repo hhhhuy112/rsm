@@ -616,11 +616,16 @@ en:
         management: "Management Skills"
         skill: "Skill"
         empty_skill: "Haven't Skill"
+        writing_skill: "Writing Skill"
+        basic_skill: "Basic Skill"
       skill:
         sure: "Are you sure?"
       form:
         save: "Save"
         name: "Name"
+        basic: "Basic"
+        writing: "Writing"
+        type: "Type"
     evaluations:
       create_success: "Create Success"
       create_fail: "Create Fail"
