@@ -1,0 +1,6 @@
+<% if @interview_type.errors.any? %>
+  $('#interview-type-<%= @interview_type.id %>').html('<%= j render 'form_edit' %>')
+<% elsif @success %>
+  alertify.success('<%= @success %>');
+  $('#interview-type-<%= @interview_type.id %>').html('<h2><strong><%= @interview_type.name %></strong></h2>')
+<% end %>

@@ -1,0 +1,31 @@
+<li class="nested-fields">
+  <i class="fa fa-li fa-check text-success"></i>
+  <%= f.simple_fields_for :skill_attributes do |skill| %>
+    <%= skill.text_field :name, class: "form-blur" %>
+    <%= skill.hidden_field :company_id, value: @company.id %>
+    <div class="font-size-15 l-5 pretty p-icon p-toggle p-plain ">
+      <%= skill.radio_button :type_skill, Settings.skills.type.basic,
+        title: t("employers.interview_types.evaluate_by_score"), checked: "checked" %>
+      <div class="state p-off">
+        <i class="icon fa fa-star-o"></i>
+      </div>
+      <div class="state p-on p-info-o">
+        <i class="icon fa fa-star info c-bad"></i>
+      </div>
+    </div>
+
+    <div class="font-size-15 l-5 pretty p-icon p-toggle p-plain">
+      <%= skill.radio_button :type_skill, Settings.skills.type.writing,
+        title: t("employers.interview_types.evaluate_by_score") %>
+      <div class="state p-off">
+        <i class="icon fa fa-book"></i>
+      </div>
+      <div class="state p-on p-info-o">
+        <i class="icon fa fa-book c-not-eva"></i>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to_remove_association f, title: t("employers.interview_types.interview_type.delete") do %>
+    <i class="fa pull-right mr-20 mt-10 fa-times text-danger"></i>
+  <% end %>
+</li>

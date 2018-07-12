@@ -1,0 +1,33 @@
+<li>
+  <%= simple_form_for :skill_set, url: employers_skill_sets_path, remote: true do |f| %>
+    <%= hidden_field_tag "type", Settings.interview_type.add_skill_type.new %>
+    <%= f.hidden_field :interview_type_id, value: interview_type.id %>
+    <i class="fa fa-li fa-check text-success"></i>
+    <%= f.simple_fields_for :skill_attributes do |skill| %>
+      <%= skill.text_field :name, class: "form-blur" %>
+      <%= skill.hidden_field :company_id, value: @company.id %>
+      <div class="font-size-15 l-5 pretty p-icon p-toggle p-plain ">
+        <%= skill.radio_button :type_skill, Settings.skills.type.basic,
+          title: t("employers.interview_types.evaluate_by_score"), checked: "checked" %>
+        <div class="state p-off">
+          <i class="icon fa fa-star-o"></i>
+        </div>
+        <div class="state p-on p-info-o">
+          <i class="icon fa fa-star info c-bad"></i>
+        </div>
+      </div>
+
+      <div class="font-size-15 l-5 pretty p-icon p-toggle p-plain">
+        <%= skill.radio_button :type_skill, Settings.skills.type.writing,
+          title: t("employers.interview_types.evaluate_by_score") %>
+        <div class="state p-off">
+          <i class="icon fa fa-book"></i>
+        </div>
+        <div class="state p-on p-info-o">
+          <i class="icon fa fa-book c-not-eva"></i>
+        </div>
+      </div>
+    <% end %>
+    <%= f.submit t(".add"), class: "btn btn-alt btn-sm btn-default pull-right" %>
+  <% end %>
+</li>

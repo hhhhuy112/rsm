@@ -268,3 +268,7 @@ employers_controllers: ["applies", "evaluations", "jobs", "members", "skills"]
 image:
   size: "100x100"
 logo_default: "default_logo.png"
+interview_type:
+  add_skill_type:
+    exists: "exists"
+    new: "new"

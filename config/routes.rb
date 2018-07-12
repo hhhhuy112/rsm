@@ -65,6 +65,8 @@ Rails.application.routes.draw do
     resources :evaluations do
       resources :exports, only: :index
     end
+    resources :interview_types
+    resources :skill_sets, only: %i(new create destroy)
   end
   resources :bookmark_likes
   resources :experiences

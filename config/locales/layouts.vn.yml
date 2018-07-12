@@ -231,6 +231,7 @@ vn:
         skills: "Kỹ năng"
         interviews: "Các Phỏng Vấn"
         evaluations: "Các Đánh Giá"
+        interview_types: "Loại Phỏng Vấn"
       header_employer:
         messages: "Tin nhắn"
         profile: "Hồ sơ cá nhân"
