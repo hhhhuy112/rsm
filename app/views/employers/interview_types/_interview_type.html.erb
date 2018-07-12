@@ -1,0 +1,47 @@
+<div class="col-md-6 interview-type-<%= interview_type.id %>">
+  <div class="block">
+    <div class="block-title">
+      <div class="block-options pull-right">
+        <%= link_to edit_employers_interview_type_path(interview_type), remote: true,
+          class: "btn btn-alt btn-sm btn-default", title: t(".edit") do %>
+          <i class="fa fa-cog"></i>
+        <% end %>
+        <div class="btn-group btn-group-sm">
+          <%= link_to "javascript:void(0)", class: "btn btn-alt btn-sm btn-default
+            dropdown-toggle enable-tooltip", data: {toggle: "dropdown"},
+            title: t(".add_skill") do %>
+            <i class="fa fa-plus"></i>
+          <% end %>
+
+          <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+            <li>
+              <%= link_to t(".choose_skills"), new_employers_skill_set_path(
+                interview_type_id: interview_type.id,
+                type: Settings.interview_type.add_skill_type.exists), remote: true %>
+              <%= link_to t(".add_new_skill"), new_employers_skill_set_path(
+                interview_type_id: interview_type.id,
+                type: Settings.interview_type.add_skill_type.new), remote: true %>
+            </li>
+            <li class="divider"></li>
+          </ul>
+        </div>
+
+        <%= link_to employers_interview_type_path(interview_type),
+          method: :delete, remote: true, title: t(".delete"),
+          class: "btn btn-alt btn-sm btn-default", data: {confirm: (t ".sure")} do %>
+          <i class="fa fa-times"></i>
+        <% end %>
+      </div>
+      <div id="interview-type-<%= interview_type.id %>">
+        <h2><strong><%= interview_type.name %></strong></h2>
+      </div>
+    </div>
+
+    <div class="block-content scroll-skill">
+      <ul class="fa-ul list-li-push" id="skills-<%= interview_type.id %>">
+        <%= render partial: "skill_set", collection: interview_type.skill_sets, as: :skill_set %>
+      </ul>
+    </div>
+    <div class="form-group row" id="add-skill-<%= interview_type.id %>"></div>
+  </div>
+</div>

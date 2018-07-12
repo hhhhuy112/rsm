@@ -231,6 +231,7 @@ en:
         skills: "Skills"
         interviews: "Interviews"
         evaluations: "Evaluations"
+        interview_types: "Interview Types"
       header_employer:
         messages: "Messasges"
         profile: "Profile"

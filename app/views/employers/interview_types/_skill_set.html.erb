@@ -1,0 +1,7 @@
+<li id="skill-set-<%= skill_set.id %>">
+  <i class="fa fa-li fa-check text-success"></i> <%= skill_set.skill_name %>
+  <%= link_to employers_skill_set_path(skill_set), method: :delete, remote: true,
+    title: t("employers.interview_types.interview_type.delete") do %>
+    <i class="fa pull-right mr-20 fa-times text-danger"></i>
+  <% end %>
+</li>

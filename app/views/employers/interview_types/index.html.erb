@@ -1,0 +1,14 @@
+<div class="content-header">
+  <div class="header-section">
+    <h1>
+      <i class="fa fa-industry"></i> <%= t ".kind_of_interview" %>
+    </h1>
+    <%= link_to new_employers_interview_type_path, remote: true, class: "btn btn-xs btn-success" do %>
+      <i class="fa fa-plus"></i> <%= t ".new" %>
+    <% end %>
+  </div>
+</div>
+<div class="row" id="interview_types">
+  <%= render @interview_types %>
+</div>
+<%= javascript_include_tag "employers/interview_type" %>
