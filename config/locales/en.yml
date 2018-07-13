@@ -627,6 +627,7 @@ en:
         writing: "Writing"
         type: "Type"
     evaluations:
+      interview_type: "InterviewType"
       create_success: "Create Success"
       create_fail: "Create Fail"
       evaluation_not_found: "Evaluation not found"

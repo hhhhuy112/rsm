@@ -1,0 +1,7 @@
+<% if @error %>
+  alertify.error('<%= @error %>');
+<% elsif @success %>
+  alertify.success('<%= @success %>');
+  $('#add-skill-<%= @interview_type.id %> form').remove()
+  $('#skills-<%= @interview_type.id %>').html('<%= j render partial: 'employers/interview_types/skill_set', collection: @skill_sets, as: :skill_set %>')
+<% end %>

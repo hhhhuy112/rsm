@@ -49,8 +49,7 @@
       <tbody class="text-center" id="writing">
         <tr></tr>
         <%= f.simple_fields_for :knowledges do |knowledge| %>
-          <%= render "knowledge_writing_fields", f: knowledge
-            if knowledge.object.skill.writing? %>
+          <%= render "knowledge_writing_fields", f: knowledge if knowledge.object.skill.writing? %>
         <% end %>
       </tbody>
     </table>
