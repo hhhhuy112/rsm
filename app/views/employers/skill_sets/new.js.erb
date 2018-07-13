@@ -1,0 +1,1 @@
+$('#add-skill-<%= @interview_type.id %>').html('<%= j render partial: "form", locals: {interview_type: @interview_type, skills: @company.skills} %>')
