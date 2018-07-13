@@ -1,4 +1,6 @@
 class Devises::PasswordsController < Devise::PasswordsController
+  before_action :load_company
+
   def new
     super
   end
