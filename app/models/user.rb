@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :auto_password, :skip_cv_validation
   devise :database_authenticatable, :registerable, :confirmable, :recoverable,
-    :rememberable, :trackable, :validatable, :omniauthable,
+    :rememberable, :trackable, :validatable, :omniauthable, :async,
     omniauth_providers: %i(facebook google_oauth2 linkedin framgia)
   acts_as_paranoid
 

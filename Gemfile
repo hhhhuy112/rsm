@@ -61,6 +61,8 @@ gem "omniauth-facebook"
 gem "omniauth-linkedin"
 gem "omniauth-framgia", git: "https://github.com/framgia-education/omniauth-framgia.git"
 gem "jquery-datetimepicker-rails"
+gem "devise-async"
+
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

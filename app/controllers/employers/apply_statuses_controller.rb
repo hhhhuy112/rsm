@@ -68,7 +68,7 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
   def apply_status_params
     params.require(:apply_status).permit :apply_id, :status_step_id, :is_current,
       appointment_attributes: %i(user_id address company_id start_time end_time type_appointment),
-      email_sents_attributes: %i(title content type receiver_email sender_email _destroy user_id),
+      email_sents_attributes: %i(title content type receiver_email sender_email _destroy user_id company_id),
       offers_attributes: %i(salary start_time currency_id address requirement user_id)
   end
 
