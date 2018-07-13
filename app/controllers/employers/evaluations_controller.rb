@@ -57,9 +57,9 @@ class Employers::EvaluationsController < Employers::EmployersController
     return @interview_type = InterviewType.first if params[:interview_type_id].blank?
     @interview_type = InterviewType.find_by id: params[:interview_type_id]
     return if @interview_type
-    error_message = t ".not_found", error_message: InterviewType.name
+    error_message = t "not_found", error_message: t("employers.evaluations.interview_type")
     if request.xhr?
-      render js: "alertify.success('<%= error_message %>')"
+      render js: "alertify.success('#{error_message}')"
     else
       flash[:danger] = error_message
       redirect_to employers_interviews_path

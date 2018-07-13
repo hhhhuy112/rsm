@@ -655,6 +655,7 @@ vn:
         writing: "Thi Viết"
         type: "Loại"
     evaluations:
+      interview_type: "Loại phỏng vấn"
       create_success: "Thêm thành công"
       create_fail: "Thêm thất bại"
       evaluation_not_found: "Không tìm thấy phiếu đánh giá"

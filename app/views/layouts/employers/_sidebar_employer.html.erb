@@ -65,14 +65,12 @@
           </ul>
         </li>
 
-
         <li>
           <%= link_to employers_email_googles_path do %>
             <i class="fa fa-envelope" aria-hidden="true"></i>
             <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".email_googles" %></span>
           <% end %>
         </li>
-
 
         <li class="title-header">
             <span class="title-sidebar"><%= t ".manage_interview" %></span>
@@ -112,23 +110,37 @@
           <ul>
             <li>
               <%= link_to employers_members_path do %>
-                &nbsp;<span class="sidebar-nav-mini-hide lion loulight"><%= t ".all_member" %></span>
+                &nbsp;<span class="sidebar-nav-mini-hide lion loulight">
+                <%= t ".all_member" %></span>
               <% end %>
             </li>
           </ul>
         </li>
 
         <li>
-          <%= link_to employers_skills_path  do %>
+          <%= link_to employers_skills_path do %>
             <i class="fa fa-book" aria-hidden="true"></i>
-            <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".skills" %></span>
+            <span class="sidebar-nav-mini-hide lion font-style-normal">
+              <%= t ".skills" %>
+            </span>
           <% end %>
         </li>
 
         <li>
-          <%= link_to employers_templates_path  do %>
+          <%= link_to employers_interview_types_path do %>
+            <i class="fa fa-industry" aria-hidden="true"></i>
+            <span class="sidebar-nav-mini-hide lion font-style-normal">
+              <%= t ".interview_types" %>
+            </span>
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to employers_templates_path do %>
             <i class="fa fa-columns" aria-hidden="true"></i>
-            <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".template" %></span>
+            <span class="sidebar-nav-mini-hide lion font-style-normal">
+              <%= t ".template" %>
+            </span>
           <% end %>
         </li>
 
