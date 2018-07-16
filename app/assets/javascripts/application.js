@@ -43,3 +43,4 @@
 //= require fancybox
 //= require custom_height_layout.js
 //= require user
+//= require flash_message.js

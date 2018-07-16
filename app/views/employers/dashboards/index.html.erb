@@ -94,21 +94,23 @@
         <h2><strong><i class="fa fa-star-o"></i>&nbsp;
           <%= t ".apply" %></strong>&nbsp;<%= t ".prioritize" %></h2>
       </div>
-      <table class="table table-borderless table-striped table-vcenter table-bordered font-weight-normal-only">
-        <thead>
-          <tr role="row">
-            <th class="text-center f12 w30"><%= t ".code" %></th>
-            <th class="text-center f12 w30"><%= t ".name" %></th>
-            <th class="text-center f12 w30"><%= t ".phone" %></th>
-            <th class="text-center f12"><%= t ".status" %></th>
-            <th class="text-center f12"><%= t ".action" %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <%= render partial: "employers/dashboards/list_apply",
-            collection: @support_dashboard.prioritize_apply_statues, as: :apply_status %>
-        </tbody>
-      </table>
+      <div class="overflow-auto-custom">
+        <table class="table table-borderless table-striped table-vcenter table-bordered font-weight-normal-only">
+          <thead>
+            <tr role="row">
+              <th class="text-center f12 w30"><%= t ".code" %></th>
+              <th class="text-center f12 w30"><%= t ".name" %></th>
+              <th class="text-center f12 w30"><%= t ".phone" %></th>
+              <th class="text-center f12"><%= t ".status" %></th>
+              <th class="text-center f12"><%= t ".action" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render partial: "employers/dashboards/list_apply",
+              collection: @support_dashboard.prioritize_apply_statues, as: :apply_status %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
