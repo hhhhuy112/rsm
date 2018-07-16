@@ -712,6 +712,34 @@ vn:
         evaluation: "Đánh Giá"
         writing_knowledges: "Kỹ Năng Viết"
         basic_knowledges: "Kiến Thức Căn Bản"
+    interview_types:
+      destroy_success: "Xóa Thành Công"
+      destroy_fail: "Xóa Thất Bại"
+      update_success: "Cập Nhật Thành Công"
+      add_skill_success: "Thêm Kỹ Năng Thành Công"
+      add_skill_fail: "Thêm Kỹ Năng Thất Bại"
+      add_success: "Thêm Thành Công"
+      add_fail: "Thêm Thất Bại"
+      index:
+        kind_of_interview: "Loại Phỏng Vấn"
+        new: "Mới"
+      interview_type:
+        delete: "Xóa"
+        edit: "Sửa Tên"
+        add_skill: "Thêm Kỹ Năng"
+        sure: "Bạn có chắc chắn"
+        choose_skills: "Chọn Kỹ Năng Có Sẵn"
+        add_new_skill: "Thêm Mới Kỹ Năng"
+      form_new:
+        save: "lưu"
+        enter_name: "Nhập Tên"
+        delete: "Xóa"
+        add_skill: "Thêm Kỹ Năng"
+      skill_sets:
+        form_choose_skill:
+          add: "thêm"
+        form_new_skill:
+          add: "thêm"
   placeholder:
     blank: "No information"
   apply:

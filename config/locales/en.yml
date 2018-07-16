@@ -685,6 +685,36 @@ en:
         evaluation: "Evaluation"
         writing_knowledges: "Writing Knowledges"
         basic_knowledges: "Basic Knowledges"
+    interview_types:
+      destroy_success: "Destroyed Success"
+      destroy_fail: "Destroy Fail"
+      update_success: "Updated Success"
+      add_skill_success: "Added Skills Success"
+      add_skill_fail: "Add Skill Fail"
+      add_success: "Added Success"
+      add_fail: "Add Fail"
+      evaluate_by_score: "Evaluate by Score"
+      evaluate_by_wrting: "Evaluate by Writing"
+      index:
+        kind_of_interview: "Kind of Interview"
+        new: "New"
+      interview_type:
+        delete: "Delete"
+        edit: "Edit Name"
+        add_skill: "Add Skill"
+        sure: "Are you sure?"
+        choose_skills: "Choose Exists Skills"
+        add_new_skill: "Add New Skill"
+      form_new:
+        save: "save"
+        enter_name: "Enter a Name"
+        delete: "Delete"
+        add_skill: "Add Skill"
+    skill_sets:
+      form_choose_skill:
+        add: "add"
+      form_new_skill:
+        add: "add"
   placeholder:
     blank: "No information"
   apply:

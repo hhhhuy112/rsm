@@ -52,6 +52,8 @@ class Ability
     can :read, Evaluation, apply_id: company.apply_ids
     can :read, Knowledge, skill_id: company.skill_ids
     can :manage, :export if user.company_id == company.id
+    can :manage, InterviewType, company_id: company.id
+    can :manage, SkillSet, interview_type_id: company.interview_type_ids
   end
 
   def manage_interview user, company

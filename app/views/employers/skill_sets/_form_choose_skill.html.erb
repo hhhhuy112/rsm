@@ -1,0 +1,12 @@
+<%= simple_form_for :skill_set, url: employers_skill_sets_path, remote: true do |f| %>
+  <div class="col-sm-10">
+    <%= hidden_field_tag "type", Settings.interview_type.add_skill_type.exists %>
+    <%= f.hidden_field :interview_type_id, value: interview_type.id %>
+    <%= select_tag "skill_id[]", options_for_select(skills.map{|s| [s.name, s.id]}),
+      multiple: true, class: "select-chosen display-none" %>
+  </div>
+  <div class="col-sm-2">
+    <%= f.submit t(".add"), class: "btn btn-alt btn-sm btn-default" %>
+  </div>
+<% end %>
+<%= javascript_include_tag "employer/app", "data-turbolinks-track": "reload" %>
