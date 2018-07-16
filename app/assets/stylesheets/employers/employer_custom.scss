@@ -993,3 +993,21 @@ li.media-offer {
 .b-1 {
   border: 1px solid $gray-light-3;
 }
+
+.block {
+  border-radius: 8px;
+}
+
+.block-title {
+  background-color: $white !important;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+a.widget-hover-effect2 {
+  border-radius: 8px;
+  .widget-extra {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+}
