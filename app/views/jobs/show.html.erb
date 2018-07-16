@@ -122,167 +122,160 @@
           </a>
         </li>
         <li class="fadeIn" role="presentation">
-          <a href="#company-job" role="tab" data-toggle="tab">
+          <a href="#company-job" class="track-event" role="tab" data-toggle="tab">
             <span class="hidden-sm hidden-xs col-info"><%= t ".company_jobs" %></span>
             <span class="visible-sm visible-xs"><%= t ".jobs" %></span>
           </a>
         </li>
       </ul>
       <div class="tab-content">
-        <div role="tabpanel" class="tab-pane tab-pane-job-info active box box-md animated fadeIn"
+        <div role="tabpanel" class="tab-pane tab-pane-job-info active box box-md animated fadeIn pd-10"
           id="job-info">
-          <div class="row">
-            <div class="col-md-4 col-sm-12 tab-sidebar">
-              <div class="mobile-box">
-                <div class="box-summary link-list">
+          <div class="col-md-12 col-sm-12 tab-sidebar">
+            <div class="mobile-box">
+              <div class="box-summary link-list">
+                <div class="row summary-item">
+                  <div class="col-xs-2 summary-icon">
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-xs-10 summary-content">
+                    <span class="content-label font-right"><%= t ".job_category" %></span>
+                    <span class="content">
+                      <%= @job.category.name  %>
+                    </span>
+                  </div>
+                </div>
+                <div class="row summary-item">
+                  <div class="col-xs-2 summary-icon">
+                    <i class="fa fa-bullseye" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-xs-10 summary-content">
+                    <span class="content-label font-right"><%= t ".target" %></span>
+                    <span class="content"><%= @job.target %></span>
+                  </div>
+                </div>
+                <div class="row summary-item">
+                  <div class="col-xs-2 summary-icon">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-xs-10 summary-content">
+                    <span class="content-label font-right"><%= t ".position" %></span>
+                    <span class="content"><%= @job.position %></span>
+                  </div>
+                </div>
+
+                <% if @job.position_types.present? %>
                   <div class="row summary-item">
                     <div class="col-xs-2 summary-icon">
-                      <i class="fa fa-tags" aria-hidden="true"></i>
+                      <i class="fa fa-calendar-times-o "></i>
                     </div>
                     <div class="col-xs-10 summary-content">
-                      <span class="content-label font-right"><%= t ".job_category" %></span>
-                      <span class="content">
-                        <%= @job.category.name  %>
-                      </span>
+                      <span class="content-label font-right"><%= t ".form" %></span>
+                      <span class="content"><%= t ".#{@job.position_types}" %></span>
                     </div>
                   </div>
+                <% end %>
+
+                <% if @job.level.present? %>
                   <div class="row summary-item">
                     <div class="col-xs-2 summary-icon">
-                      <i class="fa fa-bullseye" aria-hidden="true"></i>
+                      <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                     </div>
                     <div class="col-xs-10 summary-content">
-                      <span class="content-label font-right"><%= t ".target" %></span>
-                      <span class="content"><%= @job.target %></span>
+                      <span class="content-label font-right"><%= t ".level_requirement" %></span>
+                      <span class="content"><%= @job.level %></span>
                     </div>
                   </div>
+                <% end %>
+
+                <% if @job.language.present? %>
                   <div class="row summary-item">
                     <div class="col-xs-2 summary-icon">
-                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      <i class="fa fa-language" aria-hidden="true"></i>
                     </div>
                     <div class="col-xs-10 summary-content">
-                      <span class="content-label font-right"><%= t ".position" %></span>
-                      <span class="content"><%= @job.position %></span>
+                      <span class="content-label font-right"><%= t ".language" %></span>
+                      <span class="content"><%= @job.language %></span>
                     </div>
                   </div>
+                <% end %>
 
-                  <% if @job.position_types.present? %>
-                    <div class="row summary-item">
-                      <div class="col-xs-2 summary-icon">
-                        <i class="fa fa-calendar-times-o "></i>
-                      </div>
-                      <div class="col-xs-10 summary-content">
-                        <span class="content-label font-right"><%= t ".form" %></span>
-                        <span class="content"><%= t ".#{@job.position_types}" %></span>
-                      </div>
-                    </div>
-                  <% end %>
-
-                  <% if @job.level.present? %>
-                    <div class="row summary-item">
-                      <div class="col-xs-2 summary-icon">
-                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                      </div>
-                      <div class="col-xs-10 summary-content">
-                        <span class="content-label font-right"><%= t ".level_requirement" %></span>
-                        <span class="content"><%= @job.level %></span>
-                      </div>
-                    </div>
-                  <% end %>
-
-                  <% if @job.language.present? %>
-                    <div class="row summary-item">
-                      <div class="col-xs-2 summary-icon">
-                        <i class="fa fa-language" aria-hidden="true"></i>
-                      </div>
-                      <div class="col-xs-10 summary-content">
-                        <span class="content-label font-right"><%= t ".language" %></span>
-                        <span class="content"><%= @job.language %></span>
-                      </div>
-                    </div>
-                  <% end %>
-
-                  <div class="row summary-item">
-                    <div class="col-xs-2 summary-icon">
-                      <i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-xs-10 summary-content">
-                      <span class="content-label font-right"><%= t ".posted_day" %></span>
-                      <span class="content"><%= l @job.created_at, format: :long %></span>
-                    </div>
+                <div class="row summary-item">
+                  <div class="col-xs-2 summary-icon">
+                    <i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-xs-10 summary-content">
+                    <span class="content-label font-right"><%= t ".posted_day" %></span>
+                    <span class="content"><%= l @job.created_at, format: :long %></span>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-8  col-sm-12 tab-main-content">
-              <% if @reward_benefits.any? %>
-                <div class="job-description mobile-box">
-                  <h2><%= t ".reward_benefits" %></h2>
-                  <div class="job_content">
-                    <p><%= render @reward_benefits %></p>
-                  </div>
-                </div>
-              <% end %>
-
-              <% if @job.description.present? %>
-                <div class="job-description mobile-box">
-                  <h2><%= t ".job_description" %></h2>
-                  <div class="job_content">
-                    <p><%= raw @job.description %></p>
-                  </div>
-                </div>
-              <% end %>
-
-              <% if @job.content.present? %>
-                <div class="job-requirements mobile-box">
-                  <h2><%= t ".job_requirement" %></h2>
-                  <div class="job_content">
-                    <p><%= raw @job.content %></p>
-                  </div>
-                </div>
-              <% end %>
-
+          </div>
+          <div class="col-md-8  col-sm-12 tab-main-content">
+            <% if @reward_benefits.any? %>
+            <div class="job-description mobile-box">
+              <h2><%= t ".reward_benefits" %></h2>
+              <div class="job_content">
+                <p><%= render @reward_benefits %></p>
+              </div>
             </div>
+            <% end %>
+
+            <% if @job.description.present? %>
+            <div class="job-description mobile-box">
+              <h2><%= t ".job_description" %></h2>
+              <div class="job_content">
+                <p><%= raw @job.description %></p>
+              </div>
+            </div>
+            <% end %>
+
+            <% if @job.content.present? %>
+            <div class="job-requirements mobile-box">
+              <h2><%= t ".job_requirement" %></h2>
+              <div class="job_content">
+                <p><%= raw @job.content %></p>
+              </div>
+            </div>
+            <% end %>
           </div>
         </div>
         <div role="tabpanel" class="tab-pane tab-pane-company-info box box-md animated fadeIn"
           id="company-info">
-          <div class="row">
-            <div class="col-md-12 ">
-              <div class="mobile-box">
-                <div class="company-info">
-                  <h2>
-                    <span class="activity-size">
-                      <%= t "jobs.show.activity" %>
-                    </span>
-                  </h2>
-                  <%= render partial: "activity", collection: @activities, as: :activity %>
-                </div>
+          <div class="col-md-12">
+            <div class="mobile-box">
+              <div class="company-info">
+                <h2>
+                  <span class="activity-size">
+                    <%= t "jobs.show.activity" %>
+                  </span>
+                </h2>
+                <%= render partial: "activity", collection: @activities, as: :activity %>
               </div>
             </div>
           </div>
         </div>
         <div role="tabpanel" class="tab-pane tab-pane-company-job box box-md animated fadeIn"
           id="company-job">
-          <div class="row">
-            <div class="col-md-12 col-sm-12">
-              <div class="mobile-box">
-                <div class="company-job">
-                   <div class="col-md-12 col-md-offset-0 show_jobs">
-                    <% if @company.jobs.any? %>
-                      <h3 class="jobs-count">
-                        <%= t ".jobs" %>
-                        <span id="jobs-numbers"> <%= @company.jobs.size %></span>
-                      </h3>
-                      <div id="jobs">
-                        <%= render @jobs %>
-                      </div>
-                    <% else %>
-                      <h3><%= t ".jobs" %></h3>
-                      <div class="no_jobs"><%= t"no_jobs" %></div>
-                    <% end %>
-                    <div id="pag" class="row text-center pag">
-                      <%= paginate @jobs %>
+          <div class="col-md-12">
+            <div class="mobile-box">
+              <div class="company-job">
+                <div class="col-md-12 col-md-offset-0 show_jobs">
+                  <% if @company.jobs.any? %>
+                    <h3 class="jobs-count">
+                      <%= t ".jobs" %>
+                      <span id="jobs-numbers"> <%= @company.jobs.size %></span>
+                    </h3>
+                    <div id="jobs">
+                      <%= render @jobs %>
                     </div>
+                  <% else %>
+                    <h3><%= t ".jobs" %></h3>
+                    <div class="no_jobs"><%= t"no_jobs" %></div>
+                  <% end %>
+                  <div id="pag" class="row text-center pag">
+                    <%= paginate @jobs %>
                   </div>
                 </div>
               </div>

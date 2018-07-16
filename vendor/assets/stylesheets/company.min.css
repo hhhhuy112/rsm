@@ -8097,7 +8097,7 @@ body.md-skin{font-family:Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;back
 body{font-size:14px!important;background-color:#073c64}
 .nav-header{background-image:inherit;background-color:#063456;height:auto}
 body.mini-navbar .nav-header{background-image:inherit;background-color:#063456}
-.nav>li.active{background-color:#E6E6FA}
+./*nav>li.active{background-color:#E6E6FA}*/
 .help-block{color:#888}
 .no-bold{font-weight:400}
 a{color:#0e7ccd}

@@ -14,7 +14,10 @@
   <body>
     <div id="page-container">
       <div id="content-body-custom" class="bg-gray">
+        <span class="opacity"></span>
         <%= render "layouts/user_header" %>
+        <%= render "shared/flash" %>
+        <%= render "layouts/companies/login" %>
         <div class="row">
           <section class="site-content pd-20">
             <%= yield %>

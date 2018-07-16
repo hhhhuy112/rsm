@@ -3767,12 +3767,12 @@ p, .table, .alert, .carousel {
     }
 
     /* Tabs */
-    .nav-tabs > li > a {
+    /*.nav-tabs > li > a {
         padding-left: 15px;
         padding-right: 15px;
         margin-left: 3px;
         margin-right: 3px;
-    }
+    }*/
 
     /* Chat UI */
     .chatui-people,
