@@ -48,7 +48,7 @@ RSpec.describe Employers::InterviewTypesController, type: :controller do
   describe "PATCH #update" do
     context "update success" do
       it "update with name" do
-        patch :update, params: {id: subject.id, interview_type:{name: "HR"}}, format: :js
+        patch :update, params: {id: subject.id, interview_type:{name: Faker::Name.name}}, format: :js
         expect(assigns(:success)).to eq I18n.t("employers.interview_types.update_success")
       end
     end
