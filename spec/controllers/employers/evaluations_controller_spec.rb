@@ -34,4 +34,10 @@ RSpec.describe Employers::EvaluationsController, type: :controller do
       end
     end
   end
+
+  describe "GET /employers/evaluations/new" do
+    it "returns http success for an AJAX request" do
+      {:get => "/employers/evaluations/new", format: :xhr}.should be_routable
+    end
+  end
 end
