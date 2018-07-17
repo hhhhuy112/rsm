@@ -23,4 +23,5 @@
 //= require i18n.js
 //= require i18n/translations
 //= require alertify/lib/alertify.min.js
-//= require_tree ../../../vendor/assets/javascripts/companies
+//= require alertify/lib/alertify.min.js
+//= require homepage/main

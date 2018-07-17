@@ -2,12 +2,12 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4 class="modal-title pull-left m-l-10"><strong><%= t ".information" %></strong></h4>
+      <h4 class="modal-title m-l-10"><strong><%= t ".information" %></strong></h4>
     </div>
 
     <div class="modal-body">
       <div class="row">
-        <div class="block">
+        <div class="block border-none">
           <div class="block-title">
             <div class="block-options pull-right">
               <%= link_to employers_job_path(@apply_status.job), class: "btn btn-sm btn-alt btn-default", title: t(".show_job") do %>
@@ -47,7 +47,7 @@
       </div>
 
       <div class="row">
-        <div class="block">
+        <div class="block border-none">
           <div class="block-title">
             <div class="block-options pull-right">
               <%= link_to employers_apply_path(@apply_status.apply), class: "btn btn-sm btn-alt btn-default", title: t(".show_apply") do %>

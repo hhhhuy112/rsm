@@ -531,6 +531,7 @@ vn:
         not_found_apply: "Không tìm thấy apply!"
       new_note:
         create: "Tạo ghi chú"
+        content: "Nội dung"
       update:
         updated_success: "Đã cập nhật thành công!"
       destroy:

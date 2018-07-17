@@ -535,6 +535,7 @@ en:
         not_found_apply: "Not found apply!"
       new_note:
         create: "Create note"
+        content: "Content"
       update:
         updated_success: "Updated success!"
       destroy:

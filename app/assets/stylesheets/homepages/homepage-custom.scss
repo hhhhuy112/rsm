@@ -1,25 +1,12 @@
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
 
-.anchor {
-  font-size: 28px !important;
+.bg-1 {
+  background-image: image-url("homepage/home-background.jpg");
 }
-.service-item {
-  margin-bottom: 55px !important;
+
+.bg-2 {
+  background-image: image-url("homepage/cta1-background.jpg");
 }
-.img-static-36x36 {
-  height: 36px;
-  width: 36px;
-}
-.img-static-36x33 {
-  height: 33px;
-  width: 36px;
-}
-.img-static-36x29 {
-  height: 29px;
-  width: 36px;
-}
-.img-static-36x31 {
-  height: 31px;
-  width: 36px;
+
+.bg-3 {
+  background-image: image-url("homepage/cta2-background.jpg");
 }
