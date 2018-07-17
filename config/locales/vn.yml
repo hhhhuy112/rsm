@@ -670,6 +670,11 @@ vn:
         evaluate_writing: "Đánh Giá Thi Viết"
         writing_skills: "Kỹ Năng Viết"
         evaluation: "Đánh Giá"
+        salary_info: "Thông Tin Mức Lương"
+        start_date: "Ngày bắt đầu đi làm"
+        expected_salary: "Mức lương mong muốn"
+        unit: "Đơn Vị"
+        format_date: "dd/mm/yyyy"
       show:
         stt: "STT"
         skills: "Kỹ Năng"
@@ -677,8 +682,8 @@ vn:
         note: "Ghi chú"
         other: "Khác"
         evaluation: "Đánh Giá"
-        evaluate_writing: "Đánh Giá Thi Viết"
-        writing_skills: "Kỹ Năng Viết"
+        writing_knowledges: "Kỹ Năng Viết"
+        basic_knowledges: "Kiến Thức Căn Bản"
       apply_infomation:
         code: "Code"
         email: "Email"
@@ -692,6 +697,9 @@ vn:
       rather: "Khá"
       good: "Tốt"
       excellent: "Xuất Sắc"
+      view: "Xem"
+      evaluate: "Đánh Giá"
+      edit: "Sửa"
     exports:
       index:
         no: "NO."

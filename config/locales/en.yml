@@ -631,6 +631,8 @@ en:
       create_success: "Create Success"
       create_fail: "Create Fail"
       evaluation_not_found: "Evaluation not found"
+      update_success: "Updated Success"
+      update_fail: "Update Fail"
       form:
         stt: "STT"
         skills: "Skills"
@@ -642,15 +644,20 @@ en:
         evaluate_writing: "Evaluate Writing"
         writing_skills: "Writing Skills"
         evaluation: "Evaluation"
+        salary_info: "Salary Information"
+        start_date: "Start Date"
+        expected_salary: "Expected Salary"
+        unit: "Unit"
+        format_date: "dd/mm/yyyy"
       show:
         stt: "STT"
-        basic_skills: "Basic Skills"
+        skill: "Skills"
         score: "Score"
         note: "Note"
         other: "Other"
         evaluation: "Evaluation"
-        evaluate_writing: "Evaluate Writing"
-        writing_skills: "Writing Skills"
+        writing_knowledges: "Writing Knowledges"
+        basic_knowledges: "Basic Knowledges"
       apply_information:
         code: "Code"
         email: "Email"
@@ -665,6 +672,9 @@ en:
       rather: "Rather"
       good: "Good"
       excellent: "Exellent"
+      view: "View"
+      evaluate: "Evaluate"
+      edit: "Edit"
     exports:
       index:
         no: "NO."

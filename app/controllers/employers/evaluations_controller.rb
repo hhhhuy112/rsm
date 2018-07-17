@@ -1,13 +1,13 @@
 class Employers::EvaluationsController < Employers::EmployersController
-  before_action :find_apply, only: %i(new create show)
+  before_action :find_apply, except: %i(index destroy)
   before_action :interviewed!, only: %i(new create)
   before_action :load_interview_type, only: :new
   before_action :build_evaluation, only: :new
   load_and_authorize_resource
-  before_action :check_evaluation_of_apply, only: :show
+  before_action :check_evaluation_of_apply, only: %i(show edit update)
   before_action :build_knowledges, only: :new
-  before_action :load_current_step, only: %i(new show)
-  before_action :load_statuses_by_current_step, only: %i(new show)
+  before_action :load_current_step, only: %i(new show edit)
+  before_action :load_statuses_by_current_step, only: %i(new show edit)
   before_action :load_applies_status, :get_update_date_apply, only: :index
 
   def index; end
@@ -36,10 +36,23 @@ class Employers::EvaluationsController < Employers::EmployersController
     end
   end
 
+  def edit; end
+
+  def update
+    if @evaluation.update_attributes evaluation_params
+      flash[:success] = t "employers.evaluations.update_success"
+      redirect_to employers_apply_evaluation_path(@apply, @evaluation)
+    else
+      load_current_step
+      flash.now[:danger] = t "employers.evaluations.update_fail"
+      render :edit
+    end
+  end
+
   private
 
   def find_apply
-    @apply = Apply.find_by id: params[:apply_id]
+    @apply = Apply.includes(:evaluation).find_by id: params[:apply_id]
     return if @apply
     flash[:danger] = t "applies.apply_not_found"
     redirect_to employers_applies_path unless request.xhr?
@@ -47,8 +60,9 @@ class Employers::EvaluationsController < Employers::EmployersController
   end
 
   def evaluation_params
-    params.require(:evaluation).permit(:other, :apply_id, :interview_type_id, :_destroy,
-      knowledges_attributes: [:id ,:score, :writing_evaluation, :skill_id, :note,
+    params.require(:evaluation).permit(:id, :other, :apply_id, :interview_type_id,
+      :start_date, :expected_salary, :currency_id,
+      knowledges_attributes: [:id ,:score, :writing_evaluation, :skill_id, :note, :_destroy,
       skill_attributes: [:id, :company_id, :name, :type_skill,
       skill_sets_attributes: [:interview_type_id, :skill_id]]])
   end
