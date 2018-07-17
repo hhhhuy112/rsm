@@ -3,6 +3,7 @@ class Currency < ApplicationRecord
 
   has_many :jobs
   has_many :offers
+  has_many :evaluations
   belongs_to :company
 
   validates :nation, presence: true

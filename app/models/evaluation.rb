@@ -3,10 +3,14 @@ class Evaluation < ApplicationRecord
 
   belongs_to :apply
   belongs_to :interview_type
+  belongs_to :currency
   has_many :knowledges, inverse_of: :evaluation, dependent: :destroy
   has_many :skills, through: :knowledges
 
   accepts_nested_attributes_for :knowledges, allow_destroy: true
+
+  validates :start_date, presence: true
+  validates :expected_salary, presence: true
 
   include PublicActivity::Model
 

@@ -16,11 +16,22 @@
   </td>
   <td class="text-center">
     <% if apply_status.evaluation.present? %>
-      <%= link_to employers_apply_evaluation_path(apply_status.apply, apply_status.evaluation), class: "btn btn-default btn-xs", title: "view" do %>
+      <%= link_to employers_apply_evaluation_path(apply_status.apply,
+        apply_status.evaluation), class: "btn btn-default btn-xs",
+        title: t("employers.evaluations.view") do %>
         <i class="fa fa-eye"></i>
       <% end %>
+      <% if can? :update, apply_status.evaluation %>
+        <%= link_to edit_employers_apply_evaluation_path(apply_status.apply,
+        apply_status.evaluation), class: "btn btn-default btn-xs",
+        title: t("employers.evaluations.edit") do %>
+          <i class="fa fa-pencil-square-o"></i>
+        <% end %>
+      <% end %>
     <% elsif interview_schedule? apply_status.status_step, apply_status.step %>
-      <%= link_to new_employers_apply_evaluation_path(apply_id: apply_status.apply_id), class: "btn btn-default btn-xs", title: "evaluate"  do %>
+      <%= link_to new_employers_apply_evaluation_path(apply_id:
+        apply_status.apply_id), class: "btn btn-default btn-xs",
+        title: t("employers.evaluations.evaluate")  do %>
         <i class="fa fa-sticky-note"></i>
       <% end %>
     <% end %>
