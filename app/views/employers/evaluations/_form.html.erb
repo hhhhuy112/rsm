@@ -36,7 +36,7 @@
 
     <table class="table table-bordered table-striped table-vcenter no-footer background-white font-weight-normal-only">
       <tr>
-        <th colspan="3"><%= t ".evaluate_writing" %></th>
+        <th colspan="3"><%= t ".evaluate_other" %></th>
       </tr>
       <tr>
         <th class="text-center wt-30">
@@ -60,16 +60,16 @@
     <table class="table table-bordered table-striped table-vcenter
       background-white font-weight-normal-only">
       <tr>
-        <th class="text-center wt-30"><%= t ".salary_info" %></th>
+        <th class="wt-30"><%= t ".salary_info" %></th>
         <th></th>
       </tr>
-      <tbody>
+      <tbody class="text-center">
         <tr>
           <td><%= t ".start_date" %></td>
           <td>
             <div class="row">
               <div class="col-sm-6">
-                <%= f.text_field :start_date, class: "datepick form-control", placeholder: t(".format_date") %>
+                <%= f.text_field :start_date, class: "datepick form-control", placeholder: t(".format_date"), autocomplete: "off" %>
               </div>
               <div class="col-sm-4 col-sm-offset-2">
                 <%= f.full_error :start_date %>

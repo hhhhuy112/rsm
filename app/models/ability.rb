@@ -23,8 +23,10 @@ class Ability
   def permission_employer user
     return unless user.employer?
     company = user.company
+
     return unless user.is_employer? || user.members.present?
     manage_company user, company
+
     return if user.inforappointments.blank?
     manage_interview user, company
   end

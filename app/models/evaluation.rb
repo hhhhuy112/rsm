@@ -9,6 +9,8 @@ class Evaluation < ApplicationRecord
 
   accepts_nested_attributes_for :knowledges, allow_destroy: true
 
+  delegate :sign, to: :currency, prefix: true, allow_nil: true
+
   validates :start_date, presence: true
   validates :expected_salary, presence: true
 
