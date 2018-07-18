@@ -1,4 +1,5 @@
-<%= simple_form_for @evaluation, url: employers_apply_evaluations_path(apply_id: @apply.id) do |f| %>
+<%= stylesheet_link_tag "employer/jquery-ui" %>
+<%= simple_form_for @evaluation, url: path do |f| %>
   <%= f.hidden_field :apply_id, value: @apply.id, id: "apply" %>
   <div class="row">
     <table class="table table-bordered table-striped table-vcenter no-footer background-white font-weight-normal-only">
@@ -6,12 +7,13 @@
         <th class="text-center wt-30">
           <%= t ".skill_type" %>
           <label>
-            <%= f.collection_select :interview_type_id, @company.interview_types,
-              :id, :name, {}, {class: "form-control", id: "interview_type"} %>
+            <%= f.collection_select :interview_type_id, @company.interview_types, :id, :name, {}, {class: "form-control",
+              id: "interview_type"} %>
           </label>
           <%= link_to_add_association "", f, :knowledges,
-            partial: "knowledge_basic_fields", "data-association-insertion-node":
-            "#knowledge tr:first-child", class: "fa fa-plus" %>
+            partial: "knowledge_basic_fields",
+            "data-association-insertion-node": "#knowledge",
+            "data-association-insertion-method": "prepend", class: "fa fa-plus" %>
         </th>
         <th class="text-center"><%= t ".score" %></th>
         <th class="text-center"><%= t ".note" %></th>
@@ -22,7 +24,7 @@
           <%= render "knowledge_basic_fields", f: knowledge if knowledge.object.skill.basic? %>
         <% end %>
         <tr class="text-left">
-          <td colspan="4"><%= t ".other" %></td>
+          <td colspan="4"><strong><%= t ".other" %></strong></td>
         </tr>
         <tr>
           <td colspan="4">
@@ -31,6 +33,7 @@
         </tr>
       </tbody>
     </table>
+
     <table class="table table-bordered table-striped table-vcenter no-footer background-white font-weight-normal-only">
       <tr>
         <th colspan="3"><%= t ".evaluate_writing" %></th>
@@ -40,17 +43,58 @@
           <%= t ".writing_skills" %>
           <%= link_to_add_association "", f, :knowledges,
             partial: "knowledge_writing_fields",
-            "data-association-insertion-node": "#writing tr:first-child",
+            "data-association-insertion-node": "#writing",
+            "data-association-insertion-method": "prepend",
             class: "fa fa-plus" %>
         </th>
         <th class="text-center"><%= t ".evaluation" %></th>
         <th class="text-center"><%= t ".action" %></th>
       </tr>
       <tbody class="text-center" id="writing">
-        <tr></tr>
         <%= f.simple_fields_for :knowledges do |knowledge| %>
           <%= render "knowledge_writing_fields", f: knowledge if knowledge.object.skill.writing? %>
         <% end %>
+      </tbody>
+    </table>
+
+    <table class="table table-bordered table-striped table-vcenter
+      background-white font-weight-normal-only">
+      <tr>
+        <th class="text-center wt-30"><%= t ".salary_info" %></th>
+        <th></th>
+      </tr>
+      <tbody>
+        <tr>
+          <td><%= t ".start_date" %></td>
+          <td>
+            <div class="row">
+              <div class="col-sm-6">
+                <%= f.text_field :start_date, class: "datepick form-control", placeholder: t(".format_date") %>
+              </div>
+              <div class="col-sm-4 col-sm-offset-2">
+                <%= f.full_error :start_date %>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><%= t ".expected_salary" %></td>
+          <td>
+            <div class="row">
+              <div class="col-sm-6">
+                <%= f.number_field :expected_salary, class: "form-control" %>
+              </div>
+              <div class="col-sm-2">
+                <%= f.collection_select :currency_id, @company.currencies,
+                 :id, :unit, {label: false, prompt: t(".unit")},
+                 {class: "form-control"} %>
+              </div>
+              <div class="col-sm-4">
+                <%= f.full_error :expected_salary %>
+              </div>
+            </div>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -58,3 +102,4 @@
     <%= f.submit t(".save"), class: "btn btn-primary" %>
   </div>
 <% end %>
+<%= javascript_include_tag "format_datepicker" %>

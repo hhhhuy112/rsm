@@ -47,7 +47,7 @@ Rails.application.routes.draw do
     resources :templates
     resources :applies do
       resources :notes, except: %i(index show)
-      resources :evaluations, only: %i(show new create)
+      resources :evaluations, except: %i(index destroy)
     end
     resources :dashboards
     resources :apply_statuses
