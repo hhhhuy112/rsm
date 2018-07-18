@@ -1,6 +1,6 @@
 <%= search_form_for @q_candidates, url: employers_company_candidates_path(@company), remote: true,
   class: "d-inline-block w-100" do |f| %>
-  <div class="form-group col-md-9">
+  <div class="form-group col-md-9 pd-nl">
     <div class="icon-addon addon-lg w-100">
       <%= f.search_field :name_or_phone_or_address_or_email_cont,
         class: "form-control w-100-important", placeholder: t(".enter_search_candidates") %>

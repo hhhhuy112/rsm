@@ -6,16 +6,13 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag "homepages/homepage", media: "all", "data-turbolinks-track": "reload" %>
-    <%= stylesheet_link_tag "homepages/f-style", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "homepage", "data-turbolinks-track": "reload" %>
+
   </head>
 
-  <body class="home page page-id-21 page-template-default wp-custom-logo">
+  <body>
       <%= render "layouts/homepage/header" %>
-      <main id="main-content">
-        <%= yield %>
-      </main>
+      <%= yield %>
       <%= render "layouts/homepage/footer" %>
-      <%= render "layouts/homepage/map" %>
   </body>
 </html>

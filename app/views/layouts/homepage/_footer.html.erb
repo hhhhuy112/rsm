@@ -1,67 +1,71 @@
-<footer id="footer">
-  <div class="wrapper">
-    <h5><%= t ".company" %></h5>
-    <div class="footer-top">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="row">
-            <div class="col-md-6 col-sm-6">
-              <h5><%= t ".hn-office" %></h5>
-              <i class="material-icons"><%= t ".room" %></i>
-              <p><%= t ".hn-address" %></p>
-              <i class="material-icons"><%= t ".phone" %></i>
-              <p><%= t ".hn-phonenumber" %></p>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <h5><%= t ".laboratory-office" %> </h5>
-                <i class="material-icons"><%= t ".room" %></i>
-                <p><%= t ".laboratory-address" %></p>
+<!-- Footer -->
+    <footer id="footer" class="section">
+
+      <!-- container -->
+      <div class="container">
+
+        <!-- row -->
+        <div class="row">
+
+          <!-- footer logo -->
+          <div class="col-md-6">
+            <div class="footer-logo">
+              <a class="logo" href="index.html">
+                  <%= image_tag "homepage/logo.png" %>
+
+              </a>
             </div>
           </div>
+          <!-- footer logo -->
+
+          <!-- footer nav -->
+          <div class="col-md-6">
+            <ul class="footer-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Courses</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <!-- /footer nav -->
+
         </div>
-        <div class="col-md-6">
-          <div class="row">
-            <div class="col-md-6 col-sm-6">
-              <h5><%= t ".hcm-office" %></h5>
-              <i class="material-icons"><%= t ".room" %></i>
-              <p><%= t ".hcm-address" %></p>
-            </div>
-            <div class="col-md-6 col-sm-6">
-              <h5><%= t ".dn-office" %></h5>
-              <i class="material-icons"><%= t ".room" %></i>
-              <p><%= t ".dn-address" %></p>
+        <!-- /row -->
+
+        <!-- row -->
+        <div id="bottom-footer" class="row">
+
+          <!-- social -->
+          <div class="col-md-4 col-md-push-8">
+            <ul class="footer-social">
+              <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a></li>
+              <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
+              <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+          <!-- /social -->
+
+          <!-- copyright -->
+          <div class="col-md-8 col-md-pull-4">
+            <div class="footer-copyright">
+              <span>&copy; Copyright 2018. All Rights Reserved. | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com">Colorlib</a></span>
             </div>
           </div>
+          <!-- /copyright -->
+
         </div>
+        <!-- row -->
+
       </div>
-    </div>
-    <div class="footer-middle">
-      <div class="wrapper">
-        <h5><%= t ".find_more" %></h5>
-        <ul class="inactive">
-          <li><%= t ".sin-office" %></li>
-          <li><%= t ".japan-office" %></li>
-          <li><%= t ".phi-office" %></li>
-          <li><%= t ".banl-office" %></li>
-          <li><a href="#" class="world-map"><i class="material-icons">
-            <%= t ".room" %> </i><%= t ".check_map" %></a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom clearfix">
-      <p class="copy"><%= t ".copyright" %></p>
-      <div class="social">
-        <ul class="clearfix">
-          <li><a href="https://www.facebook.com/FramgiaVietnam/" class="fa fa-facebook"></a></li>
-          <li>
-            <a href="https://www.linkedin.com/company/3341218?trk=tyah&trkInfo=clickedVertical%3Acompany%
-              2CclickedEntityId%3A3341218%2Cidx%3A2-1-2%2CtarId%3A1465497556522%2Ctas%3Aframgia%20vietnam"
-              class="fa fa-linkedin">
-            </a>
-          </li>
-        </ul>
-        <p><%= t ".follow" %></p>
-      </div>
-    </div>
-  </div>
-</footer>
+      <!-- /container -->
+
+    </footer>
+    <!-- /Footer -->
+
+    <!-- preloader -->
+    <div id='preloader'><div class='preloader'></div></div>
+    <!-- /preloader -->

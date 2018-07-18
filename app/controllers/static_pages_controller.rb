@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  layout "homepage/homepage"
 
   def index; end
 
