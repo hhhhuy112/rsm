@@ -14,7 +14,7 @@ class Employers::ExportsController < Employers::EmployersController
   private
 
   def load_info_evaluation
-    @evaluation = Evaluation.includes(:apply, :knowledges, :skills).find_by id: params[:evaluation_id]
+    @evaluation = Evaluation.includes(:apply, :knowledges, :skills, :currency).find_by id: params[:evaluation_id]
     return if @evaluation.present?
     flash[:danger] = t "not_found", error_message: Evaluation.name
     redirect_to employers_dashboards_path

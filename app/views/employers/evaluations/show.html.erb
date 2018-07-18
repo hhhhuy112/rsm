@@ -10,8 +10,8 @@
     <table class="table table-bordered table-striped table-vcenter no-footer background-white font-weight-normal-only">
       <tr>
         <th class="text-center wt-5"><%= t ".stt" %></th>
-        <th class="text-center"><%= t ".skills" %></th>
-        <th class="text-center"><%= t ".score" %></th>
+        <th class="text-center wt-30"><%= t ".skills" %></th>
+        <th class="text-center w-30-p"><%= t ".score" %></th>
         <th class="text-center"><%= t ".note" %></th>
       </tr>
       <tbody class="text-center">
@@ -21,7 +21,7 @@
         <%= render partial: "knowledge_basic", collection: @evaluation.knowledges, as: :knowledge %>
         <% if @evaluation.other.present? %>
           <tr class="text-left">
-            <td colspan="4"><%= t ".other" %></td>
+            <td colspan="4"><strong><%= t ".other" %></strong></td>
           </tr>
           <tr class="text-center">
             <td colspan="4"><%= raw @evaluation.other %></td>
@@ -29,10 +29,11 @@
         <% end %>
       </tbody>
     </table>
+
     <table class="table table-bordered table-striped table-vcenter no-footer background-white font-weight-normal-only">
       <tr>
         <th class="text-center wt-5"><%= t ".stt" %></th>
-        <th class="text-center"><%= t ".skills" %></th>
+        <th class="text-center wt-30"><%= t ".skills" %></th>
         <th class="text-center"><%= t ".evaluation" %></th>
       </tr>
       <tbody class="text-center">
@@ -40,6 +41,27 @@
           <th colspan="3"><%= t ".writing_knowledges" %></th>
         </tr>
         <%= render partial: "knowledge_writing", collection: @evaluation.knowledges, as: :knowledge %>
+      </tbody>
+    </table>
+
+    <table class="table table-bordered table-striped table-vcenter
+      font-weight-normal-only">
+      <tr>
+        <th class="w-35-p"><%= t ".salary_info" %></th>
+        <th></th>
+      </tr>
+      <tbody class="text-center">
+        <tr>
+          <td><%= t ".start_date" %></td>
+          <td><%= l @evaluation.start_date, format: :long %></td>
+        </tr>
+        <tr>
+          <td><%= t ".expected_salary" %></td>
+          <td><%= t ".salary_format", salary:
+            number_with_delimiter(@evaluation.expected_salary.round,
+            delimiter: Settings.delimiter), unit: @evaluation.currency_sign %>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
