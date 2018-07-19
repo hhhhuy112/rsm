@@ -1,0 +1,180 @@
+<%= stylesheet_link_tag "exports/evaluation.css" %>
+<%= stylesheet_link_tag "bootstrap.min.css" %>
+<div class="container">
+  <div>
+    <table class="table table-bordered">
+      <tr>
+        <td class="w-15">
+          <%= image_tag @company.logo.url || Settings.logo_default, size: Settings.image.size %>
+        </td>
+        <td colspan="2" class="text-center">
+          <h3><%= t ".title" %></h3>
+        </td>
+      </tr>
+      <tr class="text-center">
+        <td colspan="3">
+          <h1><%= @company.name %></h1>
+        </td>
+      </tr>
+    </table>
+    <table class="table table-bordered m-top">
+      <tr>
+        <td>
+          <strong class="text-left"><%= t ".code" %></strong>
+          <%= @evaluation.apply.user&.code %>
+        </td>
+        <td>
+          <strong class="text-left"><%= t ".phone" %></strong>
+          <%= @evaluation.apply.information[:email] %>
+        </td>
+        <td>
+          <strong class="text-left"><%= t ".email" %></strong>
+          <%= @evaluation.apply.information[:phone] %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong class="text-left"><%= t ".name" %></strong>
+          <%= @evaluation.apply.information[:name] %>
+        </td>
+        <td>
+          <strong class="text-left"><%= t ".position" %></strong>
+          <%= @evaluation.apply.job_position %>
+        </td>
+        <td>
+          <strong class="text-left"><%= t ".date" %></strong>
+          <%= l @evaluation.created_at, format: :long %>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <table class="table table-bordered">
+      <tr class="bg-head">
+        <th class="text-center w-5"><%= t ".no" %></th>
+        <th class="text-center w-28"><%= t ".skill" %></th>
+        <th class="text-center w-15"><%= t ".score" %></th>
+        <th class="text-center"><%= t ".note" %></th>
+      </tr>
+      <tbody>
+        <tr class="bg-head">
+          <td colspan="4"><%= t ".basic_knowledges" %></td>
+        </tr>
+        <%= render partial: "employers/exports/basic_knowledges", collection: @evaluation.knowledges, as: :knowledge %>
+        <% if @evaluation.other.present? %>
+          <tr class="text-left bg-head">
+            <td colspan="4"><strong><%= t ".other" %></strong></td>
+          </tr>
+          <tr class="text-center">
+            <td colspan="4"><%= raw @evaluation.other %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <table class="table table-bordered">
+      <tr class="bg-head">
+        <th class="text-center w-5"><%= t ".no" %></th>
+        <th class="text-center w-28"><%= t ".skill" %></th>
+        <th class="text-center"><%= t ".evaluation" %></th>
+      </tr>
+      <tbody>
+        <tr class="bg-head">
+          <td colspan="3"><%= t ".writing_knowledges" %></td>
+        </tr>
+        <%= render partial: "employers/exports/writing_knowledges", collection: @evaluation.knowledges, as: :knowledge %>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <table class="table table-bordered">
+      <thead class="bg-head">
+        <tr>
+          <th class="w-3"><%= t ".salary_info" %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr>
+          <td><%= t ".start_date" %></td>
+          <td><%= l @evaluation.start_date, format: :long %></td>
+        </tr>
+        <tr>
+          <td><%= t ".expected_salary" %></td>
+          <td><%= t ".salary_format", salary:
+            number_with_delimiter(@evaluation.expected_salary.round,
+            delimiter: Settings.delimiter), unit: @evaluation.currency_sign %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-break">
+    <table class="table table-bordered">
+      <thead class="bg-head">
+        <tr>
+          <th class="w-3"><%= t "evaluation_candidates" %></th>
+          <th></th>
+          <th class="w-15"></th>
+        </tr>
+      </thead>
+      <tr class="text-center">
+        <td><%= t ".interviewer" %></td>
+        <td><%= t ".evaluation_value" %></td>
+        <td></td>
+      </tr>
+      <tr class="text-center">
+        <td><%= t ".human_development" %></td>
+        <td><%= t ".evaluation_value" %></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <table class="table table-bordered">
+      <thead class="bg-head">
+        <tr>
+          <th class="text-left"><%= t ".conclude" %></th>
+          <th class="text-center"><%= t ".selected" %></th>
+          <th class="text-center"><%= t ".consider" %></th>
+          <th class="text-center"><%= t ".not_selected" %></th>
+        </tr>
+      </thead>
+      <tbody class="text-left">
+        <tr class="h-40"><td colspan="4"></td></tr>
+        <tr>
+          <td colspan="2"><%= t ".position" %></td>
+          <td colspan="2"><%= t ".start_date" %></td>
+        </tr>
+        <tr>
+          <td colspan="2"><%= t ".rank" %></td>
+          <td colspan="2"><%= t ".salary" %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th class="w-3 text-center"><%= t ".human_resource" %></th>
+          <th class="w-3 text-center"><%= t ".human_development_div" %></th>
+          <th class="w-3 text-center"><%= t ".interviewer" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="h-150">
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

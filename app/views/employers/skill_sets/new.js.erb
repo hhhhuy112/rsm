@@ -1,0 +1,5 @@
+<% if params[:type] == Settings.interview_type.add_skill_type.exists %>
+  $('#add-skill-<%= @interview_type.id %>').html('<%= j render partial: "form_choose_skill", locals: {interview_type: @interview_type, skills: @company.skills} %>')
+<% else %>
+  $('#skills-<%= @interview_type.id %>').prepend('<%= j render partial: "form_new_skill", locals: {interview_type: @interview_type} %>')
+<% end %>

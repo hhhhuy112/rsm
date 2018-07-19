@@ -65,11 +65,30 @@
           </ul>
         </li>
 
-
         <li>
           <%= link_to employers_email_googles_path do %>
             <i class="fa fa-envelope" aria-hidden="true"></i>
             <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".email_googles" %></span>
+          <% end %>
+        </li>
+
+        <li class="title-header">
+            <span class="title-sidebar"><%= t ".manage_interview" %></span>
+        </li>
+
+        <% if can? :manage, :interview %>
+          <li>
+            <%= link_to employers_interviews_path do %>
+              <i class="fa fa-binoculars"></i>
+              <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".interviews" %></span>
+            <% end %>
+          </li>
+        <% end %>
+
+        <li>
+          <%= link_to employers_evaluations_path do %>
+            <i class="fa fa-file"></i>
+            <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".evaluations" %></span>
           <% end %>
         </li>
 
@@ -91,35 +110,56 @@
           <ul>
             <li>
               <%= link_to employers_members_path do %>
-                &nbsp;<span class="sidebar-nav-mini-hide lion loulight"><%= t ".all_member" %></span>
+                &nbsp;<span class="sidebar-nav-mini-hide lion loulight">
+                <%= t ".all_member" %></span>
               <% end %>
             </li>
           </ul>
         </li>
 
         <li>
-          <%= link_to employers_templates_path  do %>
+          <%= link_to employers_skills_path do %>
+            <i class="fa fa-book" aria-hidden="true"></i>
+            <span class="sidebar-nav-mini-hide lion font-style-normal">
+              <%= t ".skills" %>
+            </span>
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to employers_interview_types_path do %>
+            <i class="fa fa-industry" aria-hidden="true"></i>
+            <span class="sidebar-nav-mini-hide lion font-style-normal">
+              <%= t ".interview_types" %>
+            </span>
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to employers_templates_path do %>
             <i class="fa fa-columns" aria-hidden="true"></i>
-            <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".template" %></span>
+            <span class="sidebar-nav-mini-hide lion font-style-normal">
+              <%= t ".template" %>
+            </span>
           <% end %>
         </li>
 
         <li class="title-header">
             <span class="title-sidebar"><%= t ".personal-setting" %></span>
         </li>
-          <li>
-            <% if current_user.oauth %>
-              <a href="javascript:void(0)" disabled>
-                <i class="fa fa-google" aria-hidden="true"></i>
-                <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".connected_gmail" %></span>
-              </a>
-            <% else %>
-              <%= link_to "javascript:void(0)", class: "connect-google" do %>
-                <i class="fa fa-google" aria-hidden="true"></i>
-                <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".connect_gmail" %></span>
-              <% end %>
+        <li>
+          <% if current_user.oauth %>
+            <a href="javascript:void(0)" disabled>
+              <i class="fa fa-google" aria-hidden="true"></i>
+              <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".connected_gmail" %></span>
+            </a>
+          <% else %>
+            <%= link_to "javascript:void(0)", class: "connect-google" do %>
+              <i class="fa fa-google" aria-hidden="true"></i>
+              <span class="sidebar-nav-mini-hide lion font-style-normal"><%= t ".connect_gmail" %></span>
             <% end %>
-          </li>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>

@@ -507,6 +507,10 @@ vn:
               blank: "Không thể để trống"
             information:
               blank: "Không thể để trống"
+        skill:
+          attributes:
+            name:
+              blank: "Không thể để trống"
   activemodel:
     errors:
       models:
@@ -633,7 +637,135 @@ vn:
       show:
         add_candidate: "Thêm ứng viên"
         add_apply: "Thêm công việc"
-
+    skills:
+      index:
+        stt: "STT"
+        name: "Tên"
+        action: "Thực Hiện"
+        add: "Thêm Mới"
+        management: "Quản Lý Các Kỹ Năng"
+        skill: "Kỹ Năng"
+        empty_skill: "Không có dữ liệu"
+      skill:
+        sure: "Bạn Có Chắc Chắn?"
+      form:
+        save: "Lưu"
+        name: "Tên"
+        basic: "Cơ Bản"
+        writing: "Thi Viết"
+        type: "Loại"
+    evaluations:
+      interview_type: "Loại phỏng vấn"
+      create_success: "Thêm thành công"
+      create_fail: "Thêm thất bại"
+      evaluation_not_found: "Không tìm thấy phiếu đánh giá"
+      form:
+        stt: "STT"
+        basic_skills: "Kiến Thức Căn Bản"
+        score: "Điểm"
+        note: "Ghi chú"
+        other: "Khác"
+        save: "Lưu"
+        skill_type: "Loại Kỹ Năng"
+        evaluate_other: "Đánh Giá Khác"
+        writing_skills: "Kỹ Năng Viết"
+        evaluation: "Đánh Giá"
+        salary_info: "Thông Tin Mức Lương"
+        start_date: "Ngày bắt đầu đi làm"
+        expected_salary: "Mức lương mong muốn"
+        unit: "Đơn Vị"
+        format_date: "dd/mm/yyyy"
+      show:
+        stt: "STT"
+        skills: "Kỹ Năng"
+        score: "Điểm"
+        note: "Ghi chú"
+        other: "Khác"
+        evaluation: "Đánh Giá"
+        writing_knowledges: "Kỹ Năng Viết"
+        basic_knowledges: "Kiến Thức Căn Bản"
+        salary_info: "Thông Tin Mức Lương"
+        start_date: "Ngày bắt đầu đi làm"
+        expected_salary: "Mức lương mong muốn"
+        salary_format: " %{salary} %{unit}"
+      apply_infomation:
+        code: "Code"
+        email: "Email"
+        phone: "Phone"
+        status: "Status"
+        position: "Position"
+        history: "History"
+      not_evaluate: "Không Quan Sát Được"
+      bad: "Kém"
+      medium: "Trung Bình"
+      rather: "Khá"
+      good: "Tốt"
+      excellent: "Xuất Sắc"
+      view: "Xem"
+      evaluate: "Đánh Giá"
+      edit: "Sửa"
+    exports:
+      index:
+        no: "NO."
+        skill: "Kỹ Năng"
+        score: "Điểm"
+        note: "Ghi Chú"
+        other: "Khác"
+        title: "Phiếu Đánh Giá Phỏng Vấn"
+        name: "Tên : "
+        position: "Vị Trí : "
+        date: "Ngày : "
+        code: "Mã : "
+        phone: "SĐT : "
+        email: "Email : "
+        human_resource: "Phòng Hành Chính -  Nhân Sự"
+        human_development_div: "Trưởng Bộ Phận Tiếp Nhân NV"
+        interviewer: "Người Phỏng Vấn"
+        evaluation: "Đánh Giá"
+        writing_knowledges: "Kỹ Năng Viết"
+        basic_knowledges: "Kiến Thức Căn Bản (1 - kém, 2 - trung bình, 3 - khá,
+          4 - tốt, 5 - xuất sắc, 0 - không quan sát được)"
+        salary_format: " %{salary} %{unit}"
+        salary_info: "Thông Tin Mức Lương"
+        start_date: "Ngày bắt đầu đi làm :"
+        expected_salary: "Mức lương mong muốn :"
+        evaluation_candidates: "Đánh Giá Phỏng Vấn"
+        human_development: "Bộ Phận Nhân Sự"
+        evaluation_value: "Tốt - Khá - Trung bình - Kém"
+        conclude: "Kết Luận(Manager) :"
+        selected: "Tuyển dụng"
+        consider: "Xem Xét"
+        not_selected: "Không tuyển"
+        rank: "Rank :"
+        salary: "Mức lương :"
+    interview_types:
+      destroy_success: "Xóa Thành Công"
+      destroy_fail: "Xóa Thất Bại"
+      update_success: "Cập Nhật Thành Công"
+      add_skill_success: "Thêm Kỹ Năng Thành Công"
+      add_skill_fail: "Thêm Kỹ Năng Thất Bại"
+      add_success: "Thêm Thành Công"
+      add_fail: "Thêm Thất Bại"
+      index:
+        kind_of_interview: "Loại Phỏng Vấn"
+        new: "Mới"
+      interview_type:
+        delete: "Xóa"
+        edit: "Sửa Tên"
+        add_skill: "Thêm Kỹ Năng"
+        sure: "Bạn có chắc chắn"
+        choose_skills: "Chọn Kỹ Năng Có Sẵn"
+        add_new_skill: "Thêm Mới Kỹ Năng"
+      form_new:
+        save: "lưu"
+        enter_name: "Nhập Tên"
+        delete: "Xóa"
+        add_skill: "Thêm Kỹ Năng"
+      skill_sets:
+        form_choose_skill:
+          add: "thêm"
+        form_new_skill:
+          add: "thêm"
   placeholder:
     blank: "No information"
   apply:
@@ -1070,6 +1202,7 @@ vn:
       close: "Đóng"
       no_jobs: "Không có công việc nào ở hiện tại"
   applies:
+    apply_not_found: "Không tìm thất apply"
     questions:
       question: "Câu hỏi %{index}"
       answer: "Trả lời"

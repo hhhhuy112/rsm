@@ -24,6 +24,8 @@ class Ability
     return unless user.employer?
     company = user.company
     manage_company user, company
+    return if user.inforappointments.blank?
+    manage_interview user, company
   end
 
   def manage_company user, company
@@ -46,6 +48,20 @@ class Ability
     can :manage, :dashboard if user.company_id == company.id
     can :manage, :send_email if user.company_id == company.id
     can :manage, :email_google if user.company_id == company.id
+    can :manage, Skill, company_id: company.id
+    can :read, Evaluation, apply_id: company.apply_ids
+    can :read, Knowledge, skill_id: company.skill_ids
+    can :manage, :export if user.company_id == company.id
+    can :manage, InterviewType, company_id: company.id
+    can :manage, SkillSet, interview_type_id: company.interview_type_ids
+  end
+
+  def manage_interview user, company
+    can :create, Evaluation, apply_id: user.apply_interview_ids
+    can :manage, Evaluation, apply_id: user.apply_interview_ids
+    can :create, Knowledge
+    can :manage, Knowledge, evaluation_id: user.evaluation_ids
+    can :manage, :interview if user.company_id == company.id
   end
 
   def permission_admin

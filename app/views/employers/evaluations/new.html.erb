@@ -1,0 +1,5 @@
+<%= render "apply_information" %>
+<div class="block full" id="form_evaluation">
+  <%= render partial: "form", locals: {path: employers_apply_evaluations_path(@apply)} %>
+</div>
+<%= javascript_include_tag "employers/evaluation" %>

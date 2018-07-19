@@ -39,7 +39,7 @@ class Appointment < ApplicationRecord
 
   def date_less_than_today
     if end_time.present?
-      errors.add :end_time, I18n.t("clubs.model.date1") if end_time < Time.zone.today
+      errors.add :end_time, I18n.t("clubs.model.date2") if end_time < Time.zone.today
     end
   end
 

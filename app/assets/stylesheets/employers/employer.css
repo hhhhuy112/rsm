@@ -25,6 +25,7 @@
  *= require fancybox
  *= require employers/radio_button
  *= require employers/histories_step
+ *= require employers/pretty-checkbox.min
  *= require import_font_awesome
  *= require employers/employer_custom
  *= require jquery.datetimepicker

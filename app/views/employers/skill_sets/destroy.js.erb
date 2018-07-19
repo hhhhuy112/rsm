@@ -1,0 +1,6 @@
+<% if @error %>
+  alertify.error('<%= @error %>');
+<% elsif @success %>
+  alertify.success('<%= @success %>');
+  $('#skill-set-<%= @skill_set.id %>').remove()
+<% end %>

@@ -1,0 +1,25 @@
+<%= simple_form_for [:employers, @skill], remote: :true do |f| %>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <label class="control-label date required" for="apply_status_offers_attributes_0_start_time_1i">
+        <abbr title="required">*</abbr> <%= t ".name" %>
+      </label>
+      <%= f.input :name, class: "form-control", label: false %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <label class="control-label date required" for="apply_status_offers_attributes_0_start_time_1i">
+        <abbr title="required">*</abbr> <%= t ".type" %>
+      </label>
+      <%= f.input :type_skill, as: :select, collection: @type_skills.map {|value, id| [t(".#{value}"), value]}, label: false %>
+    </div>
+  </div>
+
+  <div class="row">
+    <center>
+      <%= f.submit t(".save"), class: "btn btn-primary" %>
+    </center>
+  </div>
+<% end %>

@@ -1,0 +1,6 @@
+<% if @interview_type.errors.any? %>
+  alertify.error('<%= @interview_type.errors.full_messages %>');
+<% elsif @success %>
+  alertify.success('<%= @success %>');
+  $('#<%= params[:div_id]%>').html('<%= j render partial: "employers/interview_types/interview_type", locals: {interview_type: @interview_type} %>')
+<% end %>

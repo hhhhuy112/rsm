@@ -15,8 +15,7 @@
     <%= get_update_date apply_status.apply_id, @activities %>
   </td>
   <td class="text-center">
-    <%= link_to employers_job_apply_path(apply_status.job, id: apply_status.apply_id),
-      class: "btn btn-default btn-xs" do %>
+    <%= link_to employers_job_apply_path(apply_status.job, id: apply_status.apply_id), class: "btn btn-default btn-xs", title: "view" do %>
       <i class="fa fa-eye"></i>
     <% end %>
   </td>

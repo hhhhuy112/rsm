@@ -7,9 +7,10 @@ class ApplicationController < ActionController::Base
   before_action :store_user_location!, if: :storable_location?
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
-    @error_message = exception.model
+    @error_message = exception
     respond_to do |format|
       format.js{render "errors/error", status: 401}
+      format.html{redirect_to redirect_to_path, flash: {danger: @error_message}}
     end
   end
 
@@ -79,6 +80,15 @@ class ApplicationController < ActionController::Base
     Activity.preload @apply_activities
   end
 
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      session[Settings.sessions.user_return_to] = request.url
+      redirect_to root_path(require_login: true), notice: t("devise.failure.unauthenticated")
+    end
+  end
+
   private
 
   def set_locale
@@ -100,6 +110,15 @@ class ApplicationController < ActionController::Base
 
   def store_user_location!
     store_location_for(:user, request.fullpath)
+  end
+
+  def redirect_to_path
+    controller_name_segments = params[:controller].split("/")
+    path = if Settings.employers_controllers.include? controller_name_segments.pop
+      employers_dashboards_path
+    else
+      root_path
+    end
   end
 end
 

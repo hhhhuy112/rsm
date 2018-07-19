@@ -194,6 +194,14 @@ form.form-search {
   font-size: 10px;
 }
 
+.font-size-15 {
+  font-size: 15px;
+}
+
+.font-size-20 {
+  font-size: 20px;
+}
+
 .margin-bottom-0 {
   margin-bottom: 0 !important;
 }
@@ -542,7 +550,7 @@ a.disabled {
   left: 70%;
 }
 
-.page-job-detail__detail .tab-sidebar {
+.page-job-detail__detail .tab-sidebar, .wt-30 {
   width: 30%;
 }
 
@@ -711,7 +719,7 @@ td.font-times {
 }
 
 .p-0 {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .m-b-70 {
@@ -739,6 +747,10 @@ td.font-times {
 
 .border-top-1 {
   border-top: 1px dotted $grey-light2;
+}
+
+.border-none {
+  border: none !important
 }
 
 .modal .modal-dialog .close {
@@ -796,6 +808,10 @@ button.close {
 
 .w-30-p {
   width: 30%;
+}
+
+.w-35-p {
+  width: 35%;
 }
 
 .w-100-important {
@@ -1026,4 +1042,79 @@ a.widget-hover-effect2 {
 
 .border-none {
   border: none;
+}
+
+.c-not-eva {
+  color: $green-light !important;
+}
+
+.c-bad {
+  color: $orange-light !important;
+}
+
+.c-medium {
+  color: $red-light !important;
+}
+.c-rather {
+  color: $blue-light-8 !important;
+}
+
+.c-good {
+  color: $pink !important;
+}
+
+.c-excellent {
+  color: $green-light-2 !important;
+}
+
+.text-center-field {
+  white-space: normal;
+  text-align: justify;
+  -moz-text-align-last: center;
+  text-align-last: center;
+}
+
+.btn-download {
+  padding: 0px 20px 10px 0px !important;
+}
+
+.wt-5 {
+  width: 5%;
+}
+
+.scroll-skill {
+  position: relative;
+  overflow-y: scroll;
+  height: 150px;
+  margin-bottom: 20px;
+  padding: 0px 20px;
+}
+
+.mr-20 {
+  margin-right: 20px !important;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.form-in {
+  height: 40px;
+  padding: 10px 12px;
+  font-size: 16px;
+  line-height: 1.42857143;
+  color: $gray-light-5;
+  background-color: $gray-light-4;
+  border: none;
+}
+
+.form-blur {
+  color: $gray-light-5;
+  background-color: $gray-light-4;
+  height:30px;
+  width: 70%;
+  padding:5px 10px;
+  font-size:12px;
+  line-height:1.5;
+  border-radius:3px;
 }

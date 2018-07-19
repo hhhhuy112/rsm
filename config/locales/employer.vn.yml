@@ -598,7 +598,12 @@ vn:
         inbox: "Hộp thư"
         pagination:
           from: "từ"
-
+    skills:
+      created_success: "Đã tạo kỹ năng"
+      updated_success: "Đã cập nhật kỹ năng"
+      deleted_success: "Xóa thành công"
+      deleted_fail: "Xóa thất bại"
+      cant_destroy: "Không được phép xóa"
   layouts:
     employers:
       footer_employer:

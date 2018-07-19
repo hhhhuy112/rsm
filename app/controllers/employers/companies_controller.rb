@@ -1,4 +1,5 @@
 class Employers::CompaniesController < Employers::EmployersController
+  load_and_authorize_resource
   before_action :load_branch_id_owner_jobs
   before_action :load_category_id_owner_jobs
 

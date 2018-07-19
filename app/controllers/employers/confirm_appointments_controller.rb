@@ -1,4 +1,5 @@
 class Employers::ConfirmAppointmentsController < ApplicationController
+  load_and_authorize_resource
 
   def edit
     inforappointment = Inforappointment.find_by(id: params[:id])

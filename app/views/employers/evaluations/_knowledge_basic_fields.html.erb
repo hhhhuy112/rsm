@@ -1,0 +1,97 @@
+<tr class="nested-fields knowledge_field">
+  <td class="p-0">
+    <% if f.object.skill_id.present? %>
+      <%= f.object.skill_name %>
+      <%= f.hidden_field :skill_id %>
+    <% else %>
+      <div class="links add_benefit_links">
+        <% f.object.build_skill %>
+        <%= f.simple_fields_for :skill do |skill| %>
+          <%= skill.hidden_field :company_id, value: @company.id %>
+          <%= skill.text_area :name, class: "border-none form-control text-center-field"  %>
+          <%= skill.hidden_field :type_skill,
+            value: Settings.skills.type.basic %>
+          <% skill.object.skill_sets.build %>
+          <%= skill.simple_fields_for :skill_sets do |skill_set| %>
+            <%= skill_set.hidden_field :interview_type_id,
+              value: @evaluation.interview_type_id %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </td>
+  <td>
+    <div class="font-size-20 l-5 pretty p-icon p-toggle p-plain ">
+      <%= f.radio_button :score, Settings.knowledges.not_evaluate, title: t("employers.evaluations.not_evaluate"), checked: "checked" %>
+      <div class="state p-off">
+        <i class="icon fa fa-frown-o"></i>
+      </div>
+      <div class="state p-on p-info-o">
+        <i class="icon fa fa-frown-o info c-not-eva"></i>
+      </div>
+    </div>
+
+    <div class="font-size-20 l-5 pretty p-icon p-toggle p-plain">
+      <%= f.radio_button :score, Settings.knowledges.bad,
+        title: t("employers.evaluations.bad") %>
+      <div class="state p-off">
+        <i class="icon fa fa-thumbs-o-down"></i>
+      </div>
+      <div class="state p-on p-info-o">
+        <i class="icon fa fa-thumbs-down c-bad"></i>
+      </div>
+    </div>
+
+    <div class="font-size-20 l-5 pretty p-icon p-toggle p-plain">
+      <%= f.radio_button :score, Settings.knowledges.medium,
+        title: t("employers.evaluations.medium") %>
+      <div class="state p-off">
+        <i class="icon fa fa-meh-o"></i>
+      </div>
+      <div class="state p-on p-info-o">
+        <i class="icon fa fa-meh-o info c-medium"></i>
+      </div>
+    </div>
+
+    <div class="font-size-20 l-5 pretty p-icon p-toggle p-plain">
+      <%= f.radio_button :score, Settings.knowledges.rather,
+        title: t("employers.evaluations.rather") %>
+      <div class="state p-off">
+        <i class="icon fa fa-smile-o"></i>
+      </div>
+      <div class="state p-on p-info-o">
+        <i class="icon fa fa-smile-o c-rather"></i>
+      </div>
+    </div>
+
+    <div class="font-size-20 l-5 pretty p-icon p-toggle p-plain">
+      <%= f.radio_button :score, Settings.knowledges.good,
+        title: t("employers.evaluations.good") %>
+      <div class="state p-off">
+        <i class="icon fa fa-star-o"></i>
+      </div>
+      <div class="state p-on p-info-o">
+        <i class="icon fa fa-star info c-good"></i>
+      </div>
+    </div>
+
+    <div class="font-size-20 pretty p-icon p-toggle p-plain">
+      <%= f.radio_button :score, Settings.knowledges.excellent,
+        title: t("employers.evaluations.excellent") %>
+      <div class="state p-off">
+        <i class="icon fa fa-thumbs-o-up"></i>
+      </div>
+      <div class="state p-on p-info-o">
+        <i class="icon fa fa-thumbs-up info c-excellent"></i>
+      </div>
+    </div>
+  </td>
+  <td class="p-0">
+    <%= f.text_area :note, class: "border-none form-control" %>
+  </td>
+  <td>
+    <%= link_to_remove_association f, class: "btn btn-danger btn-sm" do %>
+      <i class="fa fa-trash-o" aria-hidden="true"></i>
+    <% end %>
+  </td>
+</tr>

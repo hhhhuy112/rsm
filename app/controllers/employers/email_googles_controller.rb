@@ -1,4 +1,5 @@
 class Employers::EmailGooglesController < Employers::EmployersController
+  authorize_resource class: false
   before_action :load_oauth, :check_send_mail
   before_action :load_service
   before_action :load_page, :get_data, only: :index

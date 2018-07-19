@@ -1,0 +1,12 @@
+<% if @error %>
+  alertify.error('<%= @error %>');
+<% elsif @success %>
+  alertify.success('<%= @success %>');
+  <% if @skill.basic? %>
+    $('#basic_skills').html('<%= j render partial: 'skill', collection: @basic_skills, locals: {page: params[:page_basic_skill]} %>');
+    $('#paginate_basic_skill').html('<%= j paginate @basic_skills, param_name: :page_basic_skill, remote: true, params: {controller: 'employers/skills', action: 'index'} %>');
+  <% elsif @skill.writing? %>
+    $('#writing_skills').html('<%= j render partial: 'skill', collection: @writing_skills, locals: {page: params[:page_writing_skill]} %>');
+    $('#paginate_writing_skill').html('<%= j paginate @writing_skills, param_name: :page_writing_skill, remote: true, params: {controller: 'employers/skills', action: 'index'} %>');
+  <% end %>
+<% end %>

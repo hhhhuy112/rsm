@@ -209,6 +209,7 @@ vn:
       sidebar_employer:
         company_setting: "Thiết lập công ty"
         manage-candidate: "Quản lý tuyển dụng"
+        manage_interview: "Quản lý phỏng vấn"
         employer: "Nhà tuyển dụng"
         employer: "Nhà tuyển dụng"
         dashboard: "Bảng điều khiển"
@@ -227,6 +228,10 @@ vn:
         apply: "Apply"
         new_apply: "Apply mới"
         email_googles: "Thư điện tử"
+        skills: "Kỹ năng"
+        interviews: "Các Phỏng Vấn"
+        evaluations: "Các Đánh Giá"
+        interview_types: "Loại Phỏng Vấn"
       header_employer:
         messages: "Tin nhắn"
         profile: "Hồ sơ cá nhân"

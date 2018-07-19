@@ -1,0 +1,95 @@
+<div class="block full">
+  <div class="block-title">
+    <h2><strong><%= t ".management" %></strong></h2>
+    <div class="block-options pull-right">
+      <%= link_to new_employers_skill_path, remote: true, title: t(".add"),
+        class: "btn btn-alt btn-sm btn-default" do %>
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="nav nav-tabs push" data-toggle="tabs">
+        <li class="active">
+          <%= link_to "#basic_skill" do %>
+            <%= t ".basic_skill" %>
+          <% end %>
+        </li>
+        <li class>
+          <%= link_to "#writing_skill" do %>
+            <%= t ".writing_skill" %>
+          <% end %>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="basic_skill">
+          <div class="block full">
+            <div class="row">
+              <table class="table table-bordered table-striped table-vcenter no-footer background-white font-weight-normal-only">
+                <thead>
+                  <tr>
+                    <th class="text-center"><%= t ".stt" %></th>
+                    <th class="text-center"><%= t ".name" %></th>
+                    <th class="text-center"><%= t ".action" %></th>
+                  </tr>
+                </thead>
+                <tbody id="basic_skills">
+                  <%= render partial: "skill", collection: @basic_skills,
+                    locals: {page: params[:page_basic_skill]} || t(".empty_skill") %>
+                </tbody>
+              </table>
+            </div>
+            <div class="row">
+              <center>
+                <div id="paginate_basic_skill">
+                  <%= paginate @basic_skills, param_name: :page_basic_skill, remote: true %>
+                </div>
+              </center>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="writing_skill">
+          <div class="block full">
+            <div class="row">
+              <table class="table table-bordered table-striped table-vcenter no-footer background-white font-weight-normal-only">
+                <thead>
+                  <tr>
+                    <th class="text-center"><%= t ".stt" %></th>
+                    <th class="text-center"><%= t ".name" %></th>
+                    <th class="text-center"><%= t ".action" %></th>
+                  </tr>
+                </thead>
+                <tbody id="writing_skills">
+                  <%= render partial: "skill", collection: @writing_skills,
+                    locals: {page: params[:page_basic_skill]} || t(".empty_skill") %>
+                </tbody>
+              </table>
+            </div>
+            <div class="row">
+              <center>
+                <div id="paginate_writing_skill">
+                  <%= paginate @writing_skills, param_name: :page_writing_skill, remote: true %>
+                </div>
+              </center>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="manage-skill" role="dialog">
+    <div class="modal-dialog job-modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><%= t ".skill" %></h4>
+        </div>
+        <div class="modal-body" id="skill-boby">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

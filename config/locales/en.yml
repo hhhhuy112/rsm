@@ -488,6 +488,10 @@ en:
               blank: "CV can not be blank"
             information:
               blank: "Information can not be blank"
+        skill:
+          attributes:
+            name:
+              blank: "Name can not be blank"
   survey:
     question: "Question"
     answer: "Answer"
@@ -603,7 +607,142 @@ en:
       show:
         add_candidate: "Add Candidate"
         add_apply: "Add Apply"
-
+    skills:
+      index:
+        stt: "STT"
+        name: "Name"
+        action: "Action"
+        add: "Add Skill"
+        management: "Management Skills"
+        skill: "Skill"
+        empty_skill: "Haven't Skill"
+        writing_skill: "Writing Skill"
+        basic_skill: "Basic Skill"
+      skill:
+        sure: "Are you sure?"
+      form:
+        save: "Save"
+        name: "Name"
+        basic: "Basic"
+        writing: "Writing"
+        type: "Type"
+    evaluations:
+      interview_type: "InterviewType"
+      create_success: "Create Success"
+      create_fail: "Create Fail"
+      evaluation_not_found: "Evaluation not found"
+      update_success: "Updated Success"
+      update_fail: "Update Fail"
+      form:
+        stt: "STT"
+        skills: "Skills"
+        score: "Score"
+        note: "Note"
+        other: "Other"
+        save: "Save"
+        skill_type: "Kind of Skill"
+        evaluate_other: "Evaluate Other"
+        writing_skills: "Writing Skills"
+        evaluation: "Evaluation"
+        salary_info: "Salary Information"
+        start_date: "Start Date"
+        expected_salary: "Expected Salary"
+        unit: "Unit"
+        format_date: "dd/mm/yyyy"
+      show:
+        stt: "STT"
+        skill: "Skills"
+        score: "Score"
+        note: "Note"
+        other: "Other"
+        evaluation: "Evaluation"
+        writing_knowledges: "Writing Knowledges"
+        basic_knowledges: "Basic Knowledges"
+        salary_info: "Salary Information"
+        start_date: "Start Date"
+        expected_salary: "Expected Salary"
+        salary_format: " %{salary} %{unit}"
+      apply_information:
+        code: "Code"
+        email: "Email"
+        phone: "Phone"
+        status: "Status"
+        position: "Position"
+        history: "History"
+        download: "Download"
+      not_evaluate: "Not Evaluate"
+      bad: "Bad"
+      medium: "Medium"
+      rather: "Rather"
+      good: "Good"
+      excellent: "Exellent"
+      view: "View"
+      evaluate: "Evaluate"
+      edit: "Edit"
+    exports:
+      index:
+        no: "NO."
+        skill: "Skill"
+        score: "Score"
+        note: "Note"
+        other: "Other"
+        title: "Interview Assessment Report"
+        name: "Name : "
+        position: "Position : "
+        date: "Date : "
+        code: "Code : "
+        phone: "Phone : "
+        email: "Email : "
+        human_resource: "Human Resource"
+        human_development_div: "Human Development Division"
+        interviewer: "Interviewer"
+        evaluation: "Evaluation"
+        writing_knowledges: "Writing Knowledges"
+        basic_knowledges: "Basic Knowledges (1 - bad, 2 - medium, 3 - rather,
+          4 - good, 5 - excellent, 0 - not evaluate)"
+        salary_format: " %{salary} %{unit}"
+        salary_info: "Salary Information"
+        start_date: "Start Date :"
+        expected_salary: "Expected Salary :"
+        evaluation_candidates: "Evaluation of Candidates"
+        human_development: "Human Development"
+        evaluation_value: "Good - Rather - Medium - Bad"
+        conclude: "Conclude(Manager) :"
+        selected: "Selected"
+        consider: "Consider"
+        not_selected: "Not Selected"
+        rank: "Rank :"
+        salary: "Salary :"
+    interview_types:
+      destroy_success: "Destroyed Success"
+      destroy_fail: "Destroy Fail"
+      update_success: "Updated Success"
+      add_skill_success: "Added Skills Success"
+      add_skill_fail: "Add Skill Fail"
+      add_success: "Added Success"
+      add_fail: "Add Fail"
+      evaluate_by_score: "Evaluate by Score"
+      evaluate_by_wrting: "Evaluate by Writing"
+      index:
+        kind_of_interview: "Kind of Interview"
+        new: "New"
+      interview_type:
+        delete: "Delete"
+        edit: "Edit Name"
+        add_skill: "Add Skill"
+        sure: "Are you sure?"
+        choose_skills: "Choose Exists Skills"
+        add_new_skill: "Add New Skill"
+      form_new:
+        save: "save"
+        enter_name: "Enter a Name"
+        delete: "Delete"
+        add_skill: "Add Skill"
+    skill_sets:
+      form_choose_skill:
+        add: "add"
+      form_new_skill:
+        add: "add"
   placeholder:
     blank: "No information"
   apply:
@@ -1042,6 +1181,7 @@ en:
       close: "Close"
       no_jobs: "There is no jobs available at this time"
   applies:
+    apply_not_found: "Apply not found"
     index:
       filter: "Filter"
     apply:

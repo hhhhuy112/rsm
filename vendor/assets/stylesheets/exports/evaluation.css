@@ -1,0 +1,35 @@
+.m-top {
+  margin-top: -21px;
+}
+
+.w-15 {
+  width: 15%;
+}
+
+.w-28 {
+  width: 28.33333333%;
+}
+
+.w-3 {
+  width: 33.33333333%;
+}
+
+.h-150 {
+  height: 150px;
+}
+
+.h-40 {
+  height: 40px;
+}
+
+.w-5 {
+  width: 5%;
+}
+
+.bg-head {
+    background-color: #f9f9f9 !important;
+}
+
+.page-break {
+  page-break-after: always;
+}

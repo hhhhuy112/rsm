@@ -1,4 +1,5 @@
 class  Employers::ApplyStatusesController < Employers::EmployersController
+  load_and_authorize_resource
   before_action :load_apply, only: [:new, :create, :update]
   before_action :is_block_apply, only: [:new, :create, :update], if: ->{@apply.lock_apply?}
   before_action :get_step_by_company, only: [:create, :new]
@@ -8,7 +9,7 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
     :load_current_step, only: [:create, :new, :update]
   before_action :load_apply_status, :build_apply_statuses,
     :build_email_sent, only: :new
-  before_action :load_members, only: [:create, :new]
+  before_action :load_members, only: [:create, :new, :update]
   before_action :new_appointment, only: :new, if: :is_scheduled?
   before_action :load_appointments, only: [:create, :new, :update], if: :is_scheduled?
   before_action :build_offer, :load_currency, only: :new, if: :is_offer_sent?

@@ -1,0 +1,39 @@
+<tr role="row" class="apply_status-<%= apply_status.id %>">
+  <td class="text-center"><%= apply_status_counter + 1 %></td>
+  <td class="text-center"><%= apply_status.apply.information[:name] %></td>
+  <td class="text-center"><%= apply_status.apply.job_name %></td>
+  <td class="text-center"><%= apply_status.apply.information[:email] %></td>
+  <td class="text-center"><%= apply_status.apply.information[:phone] %></td>
+  <td class="text-center">
+    <%= show_step_apply apply_status.step %>
+  </td>
+  <td class="text-center">
+    <%= show_status_apply apply_status.status_step %>
+  </td>
+  <td class="text-center"><%= l apply_status.apply_created_at.to_date, format: :long %></td>
+  <td class="text-center">
+    <%= get_update_date apply_status.apply_id, @activities %>
+  </td>
+  <td class="text-center">
+    <% if apply_status.evaluation.present? %>
+      <%= link_to employers_apply_evaluation_path(apply_status.apply,
+        apply_status.evaluation), class: "btn btn-default btn-xs",
+        title: t("employers.evaluations.view") do %>
+        <i class="fa fa-eye"></i>
+      <% end %>
+      <% if can? :update, apply_status.evaluation %>
+        <%= link_to edit_employers_apply_evaluation_path(apply_status.apply,
+        apply_status.evaluation), class: "btn btn-default btn-xs",
+        title: t("employers.evaluations.edit") do %>
+          <i class="fa fa-pencil-square-o"></i>
+        <% end %>
+      <% end %>
+    <% elsif interview_schedule? apply_status.status_step, apply_status.step %>
+      <%= link_to new_employers_apply_evaluation_path(apply_id:
+        apply_status.apply_id), class: "btn btn-default btn-xs",
+        title: t("employers.evaluations.evaluate")  do %>
+        <i class="fa fa-sticky-note"></i>
+      <% end %>
+    <% end %>
+  </td>
+</tr>

@@ -49,6 +49,7 @@ Rails.application.routes.draw do
     resources :templates
     resources :applies do
       resources :notes, except: %i(index show)
+      resources :evaluations, except: %i(index destroy)
     end
     resources :dashboards
     resources :apply_statuses
@@ -58,6 +59,14 @@ Rails.application.routes.draw do
     resources :status_steps, only: :index
     resources :questions, only: :index
     resources :email_googles
+    resources :skills
+    resources :knowledges
+    resources :interviews, only: :index
+    resources :evaluations do
+      resources :exports, only: :index
+    end
+    resources :interview_types
+    resources :skill_sets, only: %i(new create destroy)
   end
   resources :bookmark_likes
   resources :experiences
